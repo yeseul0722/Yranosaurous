@@ -1,0 +1,30 @@
+{
+  "name": "globejs",
+  "version": "1.0.0",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "@expo/webpack-config": "^19.0.0",
+    "@react-three/drei": "^9.82.0",
+    "@react-three/fiber": "^8.14.1",
+    "expo": "~49.0.8",
+    "expo-gl": "~13.0.1",
+    "expo-status-bar": "~1.6.0",
+    "r3f-native-orbitcontrols": "^1.0.8",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "0.72.4",
+    "react-native-web": "~0.19.6",
+    "three-stdlib": "^2.25.1",
+    "react-native-webview": "13.2.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0"
+  },
+  "private": true
+}
