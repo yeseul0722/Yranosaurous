@@ -14,18 +14,18 @@ const DinosaurComponent = () => {
 
   return (
     <StyledDinosaurPage>
-      <StyledCustomGlobeContainer>
+      <StyledSidebarContainer>
         <SidebarComponent />
+      </StyledSidebarContainer>
+
+      <StyledCustomGlobeContainer>
+        <CustomGlobeComponent />
       </StyledCustomGlobeContainer>
 
-      <StyledDinosaurListContainer>
-        <CustomGlobeComponent />
-      </StyledDinosaurListContainer>
-
       {isOpenList && (
-        <StyledSidebarContainer>
+        <StyledDinosaurListContainer>
           <DinosaurListComponent />
-        </StyledSidebarContainer>
+        </StyledDinosaurListContainer>
       )}
     </StyledDinosaurPage>
   );

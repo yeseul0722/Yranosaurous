@@ -1,5 +1,5 @@
 import React from 'react';
-import DinosaurCard from '../dinosarucard';
+import DinosaurCardCompnents from '../dinosarucard';
 import { StyledDinosaurListPage, StyledDinosaurListTitle, StyledDinosaurListContainer } from './Dinosaurlist.styled';
 
 const DinosaurListComponent = () => {
@@ -9,7 +9,8 @@ const DinosaurListComponent = () => {
         <h1>이런 공룡들이 있어요!</h1>
       </StyledDinosaurListTitle>
       <StyledDinosaurListContainer>
-        <DinosaurCard />
+        <DinosaurCardCompnents />
+        <DinosaurCardCompnents />
       </StyledDinosaurListContainer>
     </StyledDinosaurListPage>
   );
