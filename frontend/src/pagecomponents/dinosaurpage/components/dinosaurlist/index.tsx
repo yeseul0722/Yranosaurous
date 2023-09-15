@@ -1,7 +1,18 @@
 import React from 'react';
+import DinosaurCard from '../dinosarucard';
+import { StyledDinosaurListPage, StyledDinosaurListTitle, StyledDinosaurListContainer } from './Dinosaurlist.styled';
 
-const DinosaurList = () => {
-  return <div>공룡리스트</div>;
+const DinosaurListComponent = () => {
+  return (
+    <StyledDinosaurListPage>
+      <StyledDinosaurListTitle>
+        <h1>이런 공룡들이 있어요!</h1>
+      </StyledDinosaurListTitle>
+      <StyledDinosaurListContainer>
+        <DinosaurCard />
+      </StyledDinosaurListContainer>
+    </StyledDinosaurListPage>
+  );
 };
 
-export default DinosaurList;
+export default DinosaurListComponent;
