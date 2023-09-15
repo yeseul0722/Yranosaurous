@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import CustomGlobeComponent from './components/globe';
-import DinosaurListComponent from './components/dinosaurlist';
 import SidebarComponent from './components/sidebar';
+import DsSpeciesComponent from './components/dinosaurspecies';
 import {
   StyledDinosaurPage,
   StyledCustomGlobeContainer,
@@ -24,9 +24,10 @@ const DinosaurComponent = () => {
 
       {isOpenList && (
         <StyledDinosaurListContainer>
-          <DinosaurListComponent />
+          <DsSpeciesComponent />
         </StyledDinosaurListContainer>
       )}
+      {/* <DsSpeciesComponent /> */}
     </StyledDinosaurPage>
   );
 };
