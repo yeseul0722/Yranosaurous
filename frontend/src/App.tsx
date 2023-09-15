@@ -1,13 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
-import { Route, Routes } from 'react-router-dom';
-import Dinosaur from './pagecomponents/dinosaurpage';
+import { Routes, Route } from 'react-router-dom';
+import Expo from './pagecompontents/expopage';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/dinosaur" element={<Dinosaur />} />
-    </Routes>
+    <div className="App">
+      <Routes>
+        <Route path="/Expo" element={<Expo />} />
+      </Routes>
+    </div>
   );
 }
 
