@@ -20,7 +20,7 @@ const ExpoMainPoster = styled.div.attrs<any>((props) => ({}))`
 const ExpoInfo = styled.div.attrs<any>((props) => ({}))`
   color: ${(props) => props.theme.colors.white};
   font-family: ${(props) => props.theme.fonts.HangeulFontMedium};
-  font-size: ${(props) => props.theme.fontSizes.xxxlarge};
+  font-size: 75px;
 `;
 
 const Test = styled.div`
