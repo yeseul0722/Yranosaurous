@@ -1,16 +1,21 @@
 import React from 'react';
-import DinosaurCardCompnents from '../dinosarucard';
-import { StyledDinosaurListPage, StyledDinosaurListTitle, StyledDinosaurListContainer } from './Dinosaurlist.styled';
+import DinosaurCardCompnents from '../dinosaurcard';
+import {
+  StyledDinosaurListPage,
+  StyledDinosaurListTitle,
+  StyledDinosaurListContainer,
+  StyledTitleText,
+} from './Dinosaurlist.styled';
+import DinosaurCardPaginationComponent from '../dinosaurcardpagination';
 
 const DinosaurListComponent = () => {
   return (
     <StyledDinosaurListPage>
       <StyledDinosaurListTitle>
-        <h1>이런 공룡들이 있어요!</h1>
+        <StyledTitleText>이런 공룡들이 있어요!</StyledTitleText>
       </StyledDinosaurListTitle>
       <StyledDinosaurListContainer>
-        <DinosaurCardCompnents />
-        <DinosaurCardCompnents />
+        <DinosaurCardPaginationComponent></DinosaurCardPaginationComponent>
       </StyledDinosaurListContainer>
     </StyledDinosaurListPage>
   );
