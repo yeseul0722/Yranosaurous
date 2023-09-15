@@ -2,6 +2,19 @@
   text-align: center;
 }
 
+@font-face {
+  font-family: 'lightfont';
+  src: url('./styles/fonts/Pretendard-Light.ttf');
+}
+@font-face {
+  font-family: 'regularfont';
+  src: url('./styles/fonts/Pretendard-Regular.ttf');
+}
+@font-face {
+  font-family: 'boldfont';
+  src: url('./styles/fonts/Pretendard-SemiBold.ttf');
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
