@@ -1,5 +1,4 @@
-import React from 'react';
-import { ExpoPageContainer, ExpoMainPosterContainer, ExpoMainPoster, ExpoInfo } from './Expopage.styled';
+import { ExpoPageContainer, ExpoMainPosterContainer, ExpoMainPoster, ExpoInfo, Test } from './Expopage.styled';
 const ExpoPage = () => {
   return (
     <ExpoPageContainer>
@@ -10,6 +9,7 @@ const ExpoPage = () => {
           <ExpoInfo>고성여행까지!</ExpoInfo>
         </ExpoMainPoster>
       </ExpoMainPosterContainer>
+      <Test></Test>
     </ExpoPageContainer>
   );
 };
