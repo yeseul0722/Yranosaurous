@@ -8,6 +8,8 @@ import {
   StyledDsSpeciesCard,
   StyledDsSpeciesPagenation,
   StyledDsSpeciesPagenationButton,
+  StyledDsSpeciesCardImg,
+  StyledDsSpeciesCardName,
 } from './DsSpecies.styled';
 
 const DsSpeciesComponent = () => {
@@ -17,7 +19,7 @@ const DsSpeciesComponent = () => {
 
   //임시 공룡카드
   const ExCards = [
-    { id: 1, image: '/dinosaur/profileImg.jpg', alt: '공룡1' },
+    { id: 1, image: '/dinosaur/profileImg.jpg', alt: '티라노사우루스' },
     { id: 2, image: '/dinosaur/profileImg.jpg', alt: '공룡2' },
     { id: 3, image: '/dinosaur/profileImg.jpg', alt: '공룡3' },
     { id: 4, image: '/dinosaur/profileImg.jpg', alt: '공룡4' },
@@ -33,6 +35,7 @@ const DsSpeciesComponent = () => {
   const indexLastCard = currentPage * cardsPerPage;
   const indexFirstCard = indexLastCard - cardsPerPage;
   const currentCards = ExCards.slice(indexFirstCard, indexLastCard);
+  const totalPages = Math.ceil(ExCards.length / cardsPerPage);
 
   const goPrePage = () => {
     if (currentPage > 1) {
@@ -41,7 +44,6 @@ const DsSpeciesComponent = () => {
   };
 
   const goNextPage = () => {
-    const totalPages = Math.ceil(ExCards.length / cardsPerPage);
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
     }
@@ -59,19 +61,24 @@ const DsSpeciesComponent = () => {
         <StyledDsSpeciesCardList>
           {currentCards.map((card) => (
             <StyledDsSpeciesCard key={card.id}>
-              <img src={card.image} alt={card.alt} style={{ width: '150px', height: '100px', margin: '5px' }} />
+              <StyledDsSpeciesCardImg src={card.image} alt={card.alt} />
+              <StyledDsSpeciesCardName>{card.alt}</StyledDsSpeciesCardName>
             </StyledDsSpeciesCard>
           ))}
         </StyledDsSpeciesCardList>
 
         {/* 페이지 이동 */}
         <StyledDsSpeciesPagenation>
-          <button onClick={goPrePage} disabled={currentPage === 1}>
-            &lt;
+          <button onClick={goPrePage} disabled={currentPage === 1} style={{ margin: '5px', background: 'none' }}>
+            ◀
           </button>
-          현재 : {currentPage}
-          <button onClick={goNextPage} disabled={currentPage === Math.ceil(ExCards.length / cardsPerPage)}>
-            &gt;
+          {currentPage} / {totalPages}
+          <button
+            onClick={goNextPage}
+            disabled={currentPage === Math.ceil(ExCards.length / cardsPerPage)}
+            style={{ margin: '5px', background: 'none' }}
+          >
+            ▶
           </button>
         </StyledDsSpeciesPagenation>
       </StyledDsSpeciesBody>
