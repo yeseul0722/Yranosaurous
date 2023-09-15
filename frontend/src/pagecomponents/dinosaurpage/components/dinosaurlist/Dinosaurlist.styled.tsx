@@ -14,6 +14,8 @@ const StyledDinosaurListTitle = styled.div.attrs<any>((props) => ({}))`
 const StyledDinosaurListContainer = styled.div.attrs<any>((props) => ({}))`
   border: 1px solid blue;
   margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
 `;
 
 export { StyledDinosaurListPage, StyledDinosaurListTitle, StyledDinosaurListContainer };
