@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Sidebar = () => {
+const SidebarComponent = () => {
   return <div>사이드바</div>;
 };
 
-export default Sidebar;
+export default SidebarComponent;

@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import Globe from 'react-globe.gl';
 
-const CustomGlobe = () => {
+const CustomGlobeComponent = () => {
   const globeEl = useRef<any>();
 
   useEffect(() => {
@@ -21,4 +21,4 @@ const CustomGlobe = () => {
   );
 };
 
-export default CustomGlobe;
+export default CustomGlobeComponent;
