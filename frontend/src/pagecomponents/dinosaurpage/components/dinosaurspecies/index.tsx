@@ -7,7 +7,6 @@ import {
   StyledDsSpeciesCardList,
   StyledDsSpeciesCard,
   StyledDsSpeciesPagenation,
-  StyledDsSpeciesPagenationButton,
   StyledDsSpeciesCardImg,
   StyledDsSpeciesCardName,
 } from './DsSpecies.styled';
@@ -29,6 +28,7 @@ const DsSpeciesComponent = () => {
     { id: 8, image: '/dinosaur/profileImg.jpg', alt: '공룡8' },
     { id: 9, image: '/dinosaur/profileImg.jpg', alt: '공룡9' },
     { id: 10, image: '/dinosaur/profileImg.jpg', alt: '공룡10' },
+    { id: 11, image: '/dinosaur/profileImg.jpg', alt: '공룡10' },
   ];
 
   //페이지 이동

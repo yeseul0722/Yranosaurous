@@ -29,11 +29,12 @@ const StyledDsSpeciesBody = styled.div`
 
 // 공룡 종 리스트
 const StyledDsSpeciesCardList = styled.div`
-  /* border: 1px solid red; */
   height: 530px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  flex-direction: row;
+  align-content: flex-start;
 `;
 
 const StyledDsSpeciesCard = styled.div`
