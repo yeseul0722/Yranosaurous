@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const StyledCarouselContainer = styled.div.attrs<any>((props) => ({}))`
-  width: 100%;
+  min-width: 1420px;
   height: 100%;
   .slick-dots {
     position: absolute;
