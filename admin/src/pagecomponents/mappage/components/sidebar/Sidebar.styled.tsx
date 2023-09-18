@@ -27,5 +27,17 @@ const StyledTitle = styled.div.attrs<any>((props) => ({}))`
     `;
   }}
 `;
+const StyledSubTitle = styled.div.attrs<any>((props) => ({}))`
+  ${(props) => {
+    const font = props.theme.fonts.boldfont;
 
-export { StyledSidebar, StyledTitle };
+    return css`
+      font-family: ${font};
+      font-size: 20px;
+      margin: 0px 0px 20px 30px;
+      text-align: left;
+    `;
+  }}
+`;
+
+export { StyledSidebar, StyledTitle, StyledSubTitle };
