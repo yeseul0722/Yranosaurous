@@ -2,12 +2,7 @@ import { Map, MapMarker } from 'react-kakao-maps-sdk';
 import Sidebar from './components/sidebar';
 import Categories from './components/categories';
 import { useState } from 'react';
-type PositionType =
-  | {
-      lat: number;
-      lng: number;
-    }
-  | undefined;
+import { PositionType } from './Map.type';
 
 const MapPage = () => {
   const [position, setPosition] = useState<PositionType>();
