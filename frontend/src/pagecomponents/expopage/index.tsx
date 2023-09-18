@@ -1,23 +1,15 @@
-import Carousel from './components/Carousel';
-import { StyledExpoPageContainer, StyledTest } from './Expopage.styled';
-
-import { useState, useEffect } from 'react';
+import Carousel from './components/carousel';
+import ExpoInformation from './components/expoinformation';
+import EventVenue from './components/eventvenue';
+import Ticket from './components/ticket';
+import { StyledExpoPageContainer } from './Expopage.styled';
 const ExpoPageComponent = () => {
-  const [time, setTime] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTime((prevTime) => (prevTime == 3 ? 0 : prevTime + 1));
-    }, 2000);
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
-
   return (
     <StyledExpoPageContainer>
       <Carousel></Carousel>
-      <StyledTest></StyledTest>
+      <ExpoInformation></ExpoInformation>
+      <EventVenue></EventVenue>
+      <Ticket></Ticket>
     </StyledExpoPageContainer>
   );
 };
