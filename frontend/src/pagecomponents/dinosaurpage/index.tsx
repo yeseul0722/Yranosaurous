@@ -1,34 +1,19 @@
-import React, { useState } from 'react';
-import CustomGlobeComponent from './components/globe';
-import DinosaurListComponent from './components/dinosaurlist';
-import SidebarComponent from './components/sidebar';
-import {
-  StyledDinosaurPage,
-  StyledCustomGlobeContainer,
-  StyledDinosaurListContainer,
-  StyledSidebarContainer,
-} from './Dinosaur.styled';
+import React from 'react';
+import DsFirstPage from './components/firstpage';
+import { StyledDsPage, StyledDsLandingPage, StyledDsFirstPage } from './Dinosaur.styled';
+import LandingPage from './components/landingpage';
 
-const DinosaurComponent = () => {
-  const [isOpenList, setIsOpenList] = useState(true);
-
+const Dinosaur = () => {
   return (
-    <StyledDinosaurPage>
-      <StyledSidebarContainer>
-        <SidebarComponent />
-      </StyledSidebarContainer>
-
-      <StyledCustomGlobeContainer>
-        <CustomGlobeComponent />
-      </StyledCustomGlobeContainer>
-
-      {isOpenList && (
-        <StyledDinosaurListContainer>
-          <DinosaurListComponent />
-        </StyledDinosaurListContainer>
-      )}
-    </StyledDinosaurPage>
+    <StyledDsPage>
+      <StyledDsLandingPage>
+        <LandingPage></LandingPage>
+      </StyledDsLandingPage>
+      <StyledDsFirstPage>
+        <DsFirstPage></DsFirstPage>
+      </StyledDsFirstPage>
+    </StyledDsPage>
   );
 };
 
-export default DinosaurComponent;
+export default Dinosaur;
