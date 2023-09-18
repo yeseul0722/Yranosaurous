@@ -49,6 +49,13 @@ const DsSpeciesComponent = () => {
     }
   };
 
+  // 공룡 디테일 모달창
+  const [isDetailOpen, setIsDetailOpen] = useState(false);
+
+  const openDetail = (e: any) => {
+    console.log(e.target.alt); //공룡 종 이름(티라노사우루스)
+  };
+
   return (
     <StyledDsSpeciesPage>
       {/* 타이틀 */}
@@ -60,7 +67,7 @@ const DsSpeciesComponent = () => {
       <StyledDsSpeciesBody>
         <StyledDsSpeciesCardList>
           {currentCards.map((card) => (
-            <StyledDsSpeciesCard key={card.id}>
+            <StyledDsSpeciesCard key={card.id} onClick={openDetail}>
               <StyledDsSpeciesCardImg src={card.image} alt={card.alt} />
               <StyledDsSpeciesCardName>{card.alt}</StyledDsSpeciesCardName>
             </StyledDsSpeciesCard>
