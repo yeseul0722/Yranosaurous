@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   StyledDsSpeciesPage,
   StyledDsSpeciesTitle,
@@ -10,6 +11,8 @@ import {
   StyledDsSpeciesCardImg,
   StyledDsSpeciesCardName,
 } from './DsSpecies.styled';
+import Modal from '../../../../components/modal';
+import DsDetail from '../dinosaurdetail';
 
 const DsSpeciesComponent = () => {
   // 페이지네이션
@@ -49,14 +52,21 @@ const DsSpeciesComponent = () => {
     }
   };
 
-  // 공룡 디테일 모달창
+  // 공룡 디테일
   const [isDetailOpen, setIsDetailOpen] = useState(false);
 
+  const [DsName, setDsName] = useState();
+  const [DsImg, setDsImg] = useState();
   const openDetail = (e: any) => {
-    console.log(e.target.alt); //공룡 종 이름(티라노사우루스)
+    setDsName(e.target.alt);
+    setDsImg(e.target.src);
+
+    setIsDetailOpen(!isDetailOpen);
   };
 
-  // 수정
+  const closeDetail = () => {
+    setIsDetailOpen(false);
+  };
 
   return (
     <StyledDsSpeciesPage>
@@ -75,6 +85,11 @@ const DsSpeciesComponent = () => {
             </StyledDsSpeciesCard>
           ))}
         </StyledDsSpeciesCardList>
+
+        {/* 공룡 디테일 */}
+        {isDetailOpen === true && (
+          <DsDetail isDetailOpen={isDetailOpen} DsName={DsName} DsImg={DsImg} closeDetail={closeDetail} />
+        )}
 
         {/* 페이지 이동 */}
         <StyledDsSpeciesPagenation>
