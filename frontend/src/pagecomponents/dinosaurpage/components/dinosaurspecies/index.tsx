@@ -56,6 +56,8 @@ const DsSpeciesComponent = () => {
     console.log(e.target.alt); //공룡 종 이름(티라노사우루스)
   };
 
+  // 수정
+
   return (
     <StyledDsSpeciesPage>
       {/* 타이틀 */}
