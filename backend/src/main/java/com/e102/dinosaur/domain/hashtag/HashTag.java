@@ -16,7 +16,7 @@ public class HashTag {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "restraunt_id")
+    @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
 
     private String name;

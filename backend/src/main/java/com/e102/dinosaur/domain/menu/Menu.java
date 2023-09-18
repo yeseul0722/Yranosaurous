@@ -15,13 +15,13 @@ public class Menu {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "restraunt_id")
+    @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
 
     private String name;
-    private int price;
+    private String price;
 
-    public Menu(String name, int price) {
+    public Menu(String name, String price) {
         this.name = name;
         this.price = price;
     }
