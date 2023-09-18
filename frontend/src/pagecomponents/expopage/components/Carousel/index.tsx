@@ -10,7 +10,7 @@ import {
   StyledExpoMainPoster2,
   StyledExpoMainPosterContainer,
   StyledTextBox,
-} from './Carousel.styled';
+} from './carousel.styled';
 
 const CarouselComponent = () => {
   const settings = {

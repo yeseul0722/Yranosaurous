@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledEVBannerContainer = styled.div`
-  margin: 30px 200px 30px 200px;
+  margin: 60px 200px;
   padding: 20px 0px;
   background-color: ${(props) => props.theme.colors.main};
   display: flex;
