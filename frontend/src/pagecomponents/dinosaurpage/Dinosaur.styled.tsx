@@ -2,26 +2,46 @@ import styled from 'styled-components';
 
 const StyledDinosaurPage = styled.div.attrs<any>((props) => ({}))`
   display: flex;
+  justify-content: space-between;
   height: 100vh;
   background-color: #000020;
 `;
 
 const StyledSidebarContainer = styled.div.attrs<any>((props) => ({}))`
   border: 1px solid orange;
-  flex: 1;
+  /* flex: 1; */
 `;
 
 const StyledCustomGlobeContainer = styled.div.attrs<any>((props) => ({}))`
   height: 100%;
-  flex: auto;
+  /* flex: auto; */
 `;
 
 const StyledDinosaurListContainer = styled.div.attrs<any>((props) => ({}))`
-  flex: 5;
-  border-radius: 30px 0px 0px 30px;
-  background-color: #ffffff5f;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  display: flex;
+  /* flex: 6; */
 `;
 
-export { StyledDinosaurPage, StyledCustomGlobeContainer, StyledDinosaurListContainer, StyledSidebarContainer };
+const StyledDsListButton = styled.div`
+  background-color: #0006b074;
+  border-radius: 10px 0px 0px 10px;
+  width: 3rem;
+  height: 8rem;
+  margin-top: 5rem;
+  color: ${(props) => props.theme.colors.white};
+  font-family: ${(props) => props.theme.fonts.boldfont};
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export {
+  StyledDinosaurPage,
+  StyledCustomGlobeContainer,
+  StyledDinosaurListContainer,
+  StyledDsListButton,
+  StyledSidebarContainer,
+};

@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 const StyledDsSpeciesPage = styled.div`
-  /* border: 1px solid red; */
-  margin: 18px;
-  height: 630px;
+  padding: 1.5rem;
+  background-color: #0006b074;
+  width: 22rem;
+  transition: ease 3s;
 `;
 
 const StyledDsSpeciesTitle = styled.div`

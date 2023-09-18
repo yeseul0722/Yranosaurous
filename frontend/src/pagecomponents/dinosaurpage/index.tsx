@@ -7,10 +7,22 @@ import {
   StyledCustomGlobeContainer,
   StyledDinosaurListContainer,
   StyledSidebarContainer,
+  StyledDsListButton,
 } from './Dinosaur.styled';
 
 const DinosaurComponent = () => {
   const [isOpenList, setIsOpenList] = useState(true);
+
+  const openList = () => {
+    // console.log('open');
+    if (isOpenList === true) {
+      setIsOpenList(false);
+      console.log(isOpenList);
+    } else {
+      setIsOpenList(true);
+      console.log(isOpenList);
+    }
+  };
 
   return (
     <StyledDinosaurPage>
@@ -22,12 +34,10 @@ const DinosaurComponent = () => {
         <CustomGlobeComponent />
       </StyledCustomGlobeContainer>
 
-      {isOpenList && (
-        <StyledDinosaurListContainer>
-          <DsSpeciesComponent />
-        </StyledDinosaurListContainer>
-      )}
-      {/* <DsSpeciesComponent /> */}
+      <StyledDinosaurListContainer>
+        <StyledDsListButton onClick={openList}>Open</StyledDsListButton>
+        {isOpenList && <DsSpeciesComponent />}
+      </StyledDinosaurListContainer>
     </StyledDinosaurPage>
   );
 };
