@@ -12,7 +12,7 @@ import {
   StyledTextBox,
 } from './Carousel.Styled';
 
-const Carousel = () => {
+const CarouselComponent = () => {
   const settings = {
     dots: true, // 페이지 번호 표시
     infinite: true, // 무한 루프
@@ -21,6 +21,7 @@ const Carousel = () => {
     slidesToScroll: 1, // 한 번에 스크롤되는 슬라이드 개수
     autoplay: true, // 자동 슬라이드 활성화
     autoplaySpeed: 2000, // 자동 슬라이드 간격 (밀리초)
+    // fade: true,
   };
 
   return (
@@ -69,4 +70,4 @@ const Carousel = () => {
   );
 };
 
-export default Carousel;
+export default CarouselComponent;
