@@ -3,6 +3,7 @@ package com.e102.dinosaur.controller.restaurant;
 
 import com.e102.dinosaur.service.RestaurantService;
 import com.e102.dinosaur.service.response.AbstractRestaurantResponse;
+import com.e102.dinosaur.service.response.RestaurantDetailResponse;
 import com.e102.dinosaur.utils.ApiResponse;
 import com.e102.dinosaur.utils.ApiUtils;
 import lombok.RequiredArgsConstructor;
@@ -25,5 +26,9 @@ public class RestaurantController {
         return ApiUtils.success(restaurantService.findRestaurant(category));
     }
 
+    @GetMapping("/restaurant/detail/{id}")
+    public ApiResponse<RestaurantDetailResponse> restaurantDetails(@PathVariable Long id) {
+        return ApiUtils.success(restaurantService.findOneRestaurant(id));
+    }
 
 }
