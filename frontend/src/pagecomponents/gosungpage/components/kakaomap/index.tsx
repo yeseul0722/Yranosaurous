@@ -11,6 +11,10 @@ const GosungKakaoMapComponent = () => {
           lat: 35.05935949688545,
           lng: 128.39945815291523,
         }}
+        style={{
+          width: '95vw',
+          height: '100vh',
+        }}
         level={3}
       />
     </StyledKakaoMapContainer>

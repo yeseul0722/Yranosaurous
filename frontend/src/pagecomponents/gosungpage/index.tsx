@@ -1,11 +1,14 @@
 import React from 'react';
 import GosungKakaoMapComponent from './components/kakaomap';
+import GosungSideBar from './components/sidebar';
+import { StyledGosungPage } from './Gosung.styled';
 
 const GosungComponent = () => {
   return (
-    <div>
+    <StyledGosungPage>
+      <GosungSideBar />
       <GosungKakaoMapComponent />
-    </div>
+    </StyledGosungPage>
   );
 };
 
