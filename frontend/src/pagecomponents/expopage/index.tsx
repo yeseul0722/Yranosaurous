@@ -1,17 +1,17 @@
-import { ExpoPageContainer, ExpoMainPosterContainer, ExpoMainPoster, ExpoInfo, Test } from './Expopage.styled';
-const ExpoPage = () => {
+import Carousel from './components/carousel';
+import ExpoInformation from './components/expoinformation';
+import EventVenue from './components/eventvenue';
+import Ticket from './components/ticket';
+import { StyledExpoPageContainer } from './Expopage.styled';
+const ExpoPageComponent = () => {
   return (
-    <ExpoPageContainer>
-      <ExpoMainPosterContainer>
-        <ExpoMainPoster>
-          <ExpoInfo>아이들과</ExpoInfo>
-          <ExpoInfo>공룡세계엑스포부터</ExpoInfo>
-          <ExpoInfo>고성여행까지!</ExpoInfo>
-        </ExpoMainPoster>
-      </ExpoMainPosterContainer>
-      <Test></Test>
-    </ExpoPageContainer>
+    <StyledExpoPageContainer>
+      <Carousel></Carousel>
+      <ExpoInformation></ExpoInformation>
+      <EventVenue></EventVenue>
+      <Ticket></Ticket>
+    </StyledExpoPageContainer>
   );
 };
 
-export default ExpoPage;
+export default ExpoPageComponent;
