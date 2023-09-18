@@ -20,16 +20,26 @@ const MapPage = () => {
             })
           }
         >
-          {position && <MapMarker position={position} />}
-        </Map>
-        <Sidebar>
           {position && (
-            <div>
-              <div>위도 : {position.lat}</div>
-              <div>경도 : {position.lng}</div>
-            </div>
+            <MapMarker
+              position={position}
+              image={{
+                src: '/images/map/curplace.png',
+                size: {
+                  width: 30,
+                  height: 40,
+                },
+                options: {
+                  offset: {
+                    x: 10,
+                    y: 15,
+                  },
+                },
+              }}
+            />
           )}
-        </Sidebar>
+        </Map>
+        <Sidebar position={position}></Sidebar>
       </div>
     </div>
   );
