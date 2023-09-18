@@ -1,5 +1,5 @@
 import { useCategoryStore } from '../../../../stores/useCategoryStore';
-import { StyledSidebar, StyledTitle } from './Sidebar.styled';
+import { StyledSidebar, StyledSubTitle, StyledTitle } from './Sidebar.styled';
 
 const Sidebar = (props: any) => {
   const { selectcat } = useCategoryStore();
@@ -9,6 +9,7 @@ const Sidebar = (props: any) => {
       {selectcat === '2' && <StyledTitle>코스 등록하기</StyledTitle>}
       {props.position && (
         <div>
+          <StyledSubTitle>현재 위치</StyledSubTitle>
           <div>위도 : {props.position.lat}</div>
           <div>경도 : {props.position.lng}</div>
         </div>
