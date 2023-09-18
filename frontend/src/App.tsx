@@ -3,6 +3,7 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Expo from './pagecomponents/expopage';
 import Dinosaur from './pagecomponents/dinosaurpage';
+import DsDetail from './pagecomponents/dinosaurpage/components/dinosaurdetail';
 
 function App() {
   return (
