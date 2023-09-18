@@ -18,7 +18,7 @@ public class TourController {
     private final TourService tourService;
 
     @GetMapping("/tours")
-    public ApiResponse<List<TourResponse>> getDinosaurs() {
+    public ApiResponse<List<TourResponse>> getTours() {
         return ApiUtils.success(tourService.getTours());
     }
 }
