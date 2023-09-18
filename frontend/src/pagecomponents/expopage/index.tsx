@@ -1,5 +1,6 @@
+import Carousel from './components/Carousel';
 import { StyledExpoPageContainer, StyledTest } from './Expopage.styled';
-import Main from './components/mainimage';
+
 import { useState, useEffect } from 'react';
 const ExpoPageComponent = () => {
   const [time, setTime] = useState(0);
@@ -15,7 +16,7 @@ const ExpoPageComponent = () => {
 
   return (
     <StyledExpoPageContainer>
-      <Main time={time}></Main>
+      <Carousel></Carousel>
       <StyledTest></StyledTest>
     </StyledExpoPageContainer>
   );

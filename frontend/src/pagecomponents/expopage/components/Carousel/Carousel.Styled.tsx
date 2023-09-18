@@ -1,12 +1,84 @@
 import styled, { css } from 'styled-components';
 
 const StyledCarouselContainer = styled.div.attrs<any>((props) => ({}))`
-  display: flex;
-  overflow: visible;
   width: 100%;
-  justify-content: space-between;
-  transition: transform 1s ease; /* transform 프로퍼티에 대한 애니메이션 효과 추가 */
-  transform: translateX(${(props) => props.translateX}%); /* 페이지를 이동시키는 속성 추가 */
+  height: 100%;
+  .slick-dots {
+    position: absolute;
+    bottom: 20%;
+
+    display: block;
+
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+    list-style: none;
+
+    text-align: center;
+  }
+  .slick-dots li {
+    position: relative;
+
+    display: inline-block;
+
+    width: 20px;
+    height: 20px;
+    margin: 0 20px;
+    padding: 0;
+
+    cursor: pointer;
+  }
+  .slick-dots li button {
+    font-size: 0;
+    line-height: 0;
+
+    display: block;
+
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+
+    cursor: pointer;
+
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: transparent;
+  }
+  .slick-dots li button:hover,
+  .slick-dots li button:focus {
+    outline: none;
+  }
+  .slick-dots li button:hover:before,
+  .slick-dots li button:focus:before {
+    opacity: 1;
+  }
+  .slick-dots li button:before {
+    font-family: 'slick';
+    font-size: 20px;
+    line-height: 20px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 20px;
+    height: 20px;
+
+    content: '•';
+    text-align: center;
+
+    opacity: 1;
+    color: white;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .slick-dots li.slick-active button:before {
+    opacity: 1;
+    color: black;
+  }
 `;
 
 const StyledExpoMainPosterContainer = styled.div.attrs<any>((props) => ({}))`
@@ -22,7 +94,7 @@ const StyledExpoMainPosterContainer = styled.div.attrs<any>((props) => ({}))`
       display: flex;
       height: 100vh;
       min-width: 100%;
-      background-image: url(${ImageUrls[props.num]});
+      background-image: url(${ImageUrls[props.image]});
       background-size: cover;
       justify-content: center;
       align-items: center;
@@ -60,6 +132,14 @@ const StyledExpoInfo3 = styled.div.attrs<any>((props) => ({}))`
   font-size: 20px;
 `;
 
+const StyledTextBox = styled.div`
+  width: 100%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export {
   StyledCarouselContainer,
   StyledExpoMainPosterContainer,
@@ -68,4 +148,5 @@ export {
   StyledExpoInfo,
   StyledExpoInfo2,
   StyledExpoInfo3,
+  StyledTextBox,
 };
