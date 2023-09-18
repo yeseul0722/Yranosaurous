@@ -1,31 +1,23 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const ExpoPageContainer = styled.div.attrs<any>((props) => ({}))`
+const StyledExpoPageContainer = styled.div.attrs<any>((props) => ({}))`
   height: 100vh;
-  border: 1px solid black;
-`;
-const ExpoMainPosterContainer = styled.div.attrs<any>((props) => ({}))`
-  display: flex;
-  height: 100vh;
-  background-image: url(expo_main_pic/ExpoMain1.jpg);
-  background-size: cover;
-  justify-content: center;
-  align-items: center;
 `;
 
-const ExpoMainPoster = styled.div.attrs<any>((props) => ({}))`
-  border: 1px solid black;
+const StyledExpoMainImageButtonContainer = styled.div.attrs<any>((props) => ({}))`
+  width: auto;
 `;
 
-const ExpoInfo = styled.div.attrs<any>((props) => ({}))`
-  color: ${(props) => props.theme.colors.white};
-  font-family: ${(props) => props.theme.fonts.HangeulFontMedium};
-  font-size: 75px;
+const StyledExpoMainImageButton = styled.button.attrs<any>((props) => ({}))`
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
 `;
 
-const Test = styled.div`
+const StyledTest = styled.div`
   height: 100vh;
   border: 1px solid black;
 `;
 
-export { ExpoPageContainer, ExpoMainPosterContainer, ExpoMainPoster, ExpoInfo, Test };
+export { StyledExpoPageContainer, StyledExpoMainImageButtonContainer, StyledExpoMainImageButton, StyledTest };
