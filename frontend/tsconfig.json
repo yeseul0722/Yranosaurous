@@ -1,12 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
-    "paths": {
-      "@components/*": ["./components/*"],
-      "@pagecomponents/*": ["./pagecomponents/*"],
-      "@hooks/*": ["./hooks/*"],
-      "@stores/*": ["./stores/*"]
-    },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -21,7 +14,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": ["src"],
   "types": ["kakao.maps.d.ts"]
