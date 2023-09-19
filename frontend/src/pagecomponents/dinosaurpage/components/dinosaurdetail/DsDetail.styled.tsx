@@ -66,7 +66,7 @@ const StyledDeTailContentText = styled.div`
   color: #ffffff;
   width: 25rem;
   margin-left: 1rem;
-  letter-spacing: 0.3rem;
+  letter-spacing: 0.1rem;
   text-align: left;
 `;
 
