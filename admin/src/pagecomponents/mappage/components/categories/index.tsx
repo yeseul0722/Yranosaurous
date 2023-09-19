@@ -1,4 +1,5 @@
-import { useCategoryStore } from '../../../../stores/useCategoryStore';
+// import { useCategoryStore } from '../../../../stores/useCategoryStore';
+import { useCategoryStore } from '@stores/useCategoryStore';
 import { StyledCategories, StyledCategory } from './Categories.styled';
 
 const Categories = () => {
