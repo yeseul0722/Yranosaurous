@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const usePlaceInfo = () => {
+const useInputHook = () => {
   const [placeName, setPlaceName] = useState('');
   const [details, setDetails] = useState('');
   const [placeType, setPlaceType] = useState('');
@@ -18,4 +18,4 @@ const usePlaceInfo = () => {
   };
 };
 
-export default usePlaceInfo;
+export default useInputHook;

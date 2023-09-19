@@ -1,6 +1,6 @@
 import useInputHook from '../../../../hooks/useInputHook';
 import { useCategoryStore } from '../../../../stores/useCategoryStore';
-import { StyledSidebar, StyledSubTitle, StyledTitle } from './Sidebar.styled';
+import { StyledSidebar, StyledSubTitle, StyledTitle, StyledBox } from './Sidebar.styled';
 
 const Sidebar = (props: any) => {
   const { selectcat } = useCategoryStore();
@@ -23,12 +23,12 @@ const Sidebar = (props: any) => {
       {selectcat === '2' && <StyledTitle>코스 등록하기</StyledTitle>}
       {props.position && (
         <div>
-          <div>
-            <StyledSubTitle>현재 위치</StyledSubTitle>
-            <div>위도 : {props.position.lat}</div>
-            <div>경도 : {props.position.lng}</div>
-          </div>
-          <div>
+          <div style={{ display: 'flex', gap: '25px', flexDirection: 'column' }}>
+            <div>
+              <StyledSubTitle>현재 위치</StyledSubTitle>
+              <StyledBox>위도 : {props.position.lat}</StyledBox>
+              <StyledBox>경도 : {props.position.lng}</StyledBox>
+            </div>
             <StyledSubTitle>장소 TYPE</StyledSubTitle>
             <div style={{ display: 'flex' }}>
               <button onClick={() => setPlaceType('편의 시설')}>편의 시설</button>
@@ -47,9 +47,10 @@ const Sidebar = (props: any) => {
               <input value={details} onChange={(e) => setDetails(e.target.value)} />
             </div>
           </div>
-          <button onClick={handleSaveClick}>저장하기</button>
-
-          <button>삭제하기</button>
+          <div>
+            <button onClick={handleSaveClick}>저장하기</button>
+            <button>삭제하기</button>
+          </div>
         </div>
       )}
     </StyledSidebar>
