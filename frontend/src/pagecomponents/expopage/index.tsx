@@ -1,8 +1,10 @@
-import Carousel from './components/carousel';
+import Carousel from './components/maincarousel';
 import ExpoInformation from './components/expoinformation';
 import EventVenue from './components/eventvenue';
 import Ticket from './components/ticket';
-import { StyledExpoPageContainer } from './Expopage.styled';
+import Tourism from './components/tourism';
+import Performance from './components/performance';
+import { StyledExpoPageContainer, StyledTest } from './Expopage.styled';
 const ExpoPageComponent = () => {
   return (
     <StyledExpoPageContainer>
@@ -10,6 +12,9 @@ const ExpoPageComponent = () => {
       <ExpoInformation></ExpoInformation>
       <EventVenue></EventVenue>
       <Ticket></Ticket>
+      <Tourism></Tourism>
+      <Performance></Performance>
+      <StyledTest></StyledTest>
     </StyledExpoPageContainer>
   );
 };

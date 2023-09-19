@@ -14,7 +14,9 @@ const StyledButton = styled.button.attrs<ButtonStyles>((props) => ({}))`
       ticket: `
             border-radius : 48px;
             background-color : ${main};
-            color : ${white}
+            color : ${white};
+            font-size : 24px;
+            padding : 10px;
         `,
     };
     return css`
@@ -26,6 +28,7 @@ const StyledButton = styled.button.attrs<ButtonStyles>((props) => ({}))`
       height: 100%;
       font-family: ${font};
       ${UseStlye[use]}
+      cursor: pointer;
     `;
   }}
 `;

@@ -9,6 +9,8 @@ import {
   StyledTicetInfoContainer,
   StyledReserve,
   StyledPrice,
+  StyledButtonContainer,
+  StyledButtonBox,
 } from './Ticket.styled';
 import Button from '../../../../components/button';
 const Ticket = () => {
@@ -29,7 +31,11 @@ const Ticket = () => {
           <StyledReserve>| 일반 예매</StyledReserve>
           <StyledPrice>성인 : 18000 소인 : 12000</StyledPrice>
         </StyledTicetInfoContainer>
-        <Button use="ticket" label="예먜하기"></Button>
+        <StyledButtonContainer>
+          <StyledButtonBox>
+            <Button use="ticket" label="예매하기"></Button>
+          </StyledButtonBox>
+        </StyledButtonContainer>
       </StyledTicketRightContainer>
     </StyledTicketContainer>
   );

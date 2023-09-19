@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const StyledTicketContainer = styled.div`
   display: flex;
-  margin: 0px 200px 0px 200px;
+  margin: 0px 200px 100px 200px;
   min-width: 1120px;
 `;
 
@@ -73,6 +73,16 @@ const StyledPrice = styled.div`
   padding-left: 100px;
 `;
 
+const StyledButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 100px;
+`;
+
+const StyledButtonBox = styled.div`
+  width: 200px;
+`;
+
 export {
   StyledTicketContainer,
   StyledTicketLeftContainer,
@@ -83,4 +93,6 @@ export {
   StyledReserve,
   StyledPrice,
   StyledTicetInfoContainer,
+  StyledButtonContainer,
+  StyledButtonBox,
 };

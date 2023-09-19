@@ -10,9 +10,9 @@ import {
   StyledExpoMainPoster2,
   StyledExpoMainPosterContainer,
   StyledTextBox,
-} from './carousel.styled';
+} from './MainCarousel.styled';
 
-const CarouselComponent = () => {
+const MainCarouselComponent = () => {
   const settings = {
     dots: true, // 페이지 번호 표시
     infinite: true, // 무한 루프
@@ -70,4 +70,4 @@ const CarouselComponent = () => {
   );
 };
 
-export default CarouselComponent;
+export default MainCarouselComponent;
