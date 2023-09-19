@@ -7,6 +7,7 @@ import com.e102.dinosaur.utils.ApiUtils;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,5 +21,10 @@ public class TourController {
     @GetMapping("/tours")
     public ApiResponse<List<TourResponse>> getTours() {
         return ApiUtils.success(tourService.getTours());
+    }
+
+    @GetMapping("/tours/{category}")
+    public ApiResponse<List<TourResponse>> getToursByCategory(@PathVariable String category) {
+        return ApiUtils.success(tourService.getToursBy(category));
     }
 }
