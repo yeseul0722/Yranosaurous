@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledEVBannerContainer = styled.div`
-  margin: 60px 200px;
+  margin: 100px 200px;
   padding: 20px 0px;
   background-color: ${(props) => props.theme.colors.main};
   display: flex;
@@ -41,6 +41,8 @@ const StyledBannerLink = styled.div`
   color: ${(props) => props.theme.colors.white};
   font-size: 36px;
   border-bottom: 2px ${(props) => props.theme.colors.white} solid;
+  cursor: pointer;
+  padding-bottom: 5px;
 `;
 export {
   StyledEVBannerContainer,
