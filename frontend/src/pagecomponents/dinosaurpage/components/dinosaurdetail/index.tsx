@@ -34,22 +34,22 @@ const DsDetail = (props: any) => {
               트리케라톱스
               <br />
               <br />
-              |길이
+              | 길이
               <br />
               7.6~9m
               <br />
               <br />
-              |무게
+              | 무게
               <br />
               6~7
               <br />
               <br />
-              |생존시기
+              | 생존시기
               <br />
               후기 백악기 (6800만 년 전 ~ 6500만 년 전)
               <br />
               <br />
-              |발견장소
+              | 발견장소
               <br />
               미국
             </StyledDeTailContentText>
