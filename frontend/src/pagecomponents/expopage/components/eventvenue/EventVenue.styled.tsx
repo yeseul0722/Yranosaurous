@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
 const StyledEVBannerContainer = styled.div`
-  margin: 30px 200px;
-  padding: 20px 70px;
+  margin: 100px 200px;
+  padding: 20px 0px;
   background-color: ${(props) => props.theme.colors.main};
   display: flex;
+  min-width: 1120px;
 `;
 const StyledLeftContainer = styled.div`
   display: flex;
@@ -12,6 +13,7 @@ const StyledLeftContainer = styled.div`
   align-items: flex-start;
   flex: 1;
   gap: 15px;
+  padding: 0px 70px;
 `;
 
 const StyledRightContainer = styled.div`
@@ -19,6 +21,7 @@ const StyledRightContainer = styled.div`
   flex: 1;
   justify-content: flex-end;
   align-items: center;
+  padding: 0px 70px;
 `;
 
 const StyledBannerTitle = styled.div`
@@ -38,6 +41,8 @@ const StyledBannerLink = styled.div`
   color: ${(props) => props.theme.colors.white};
   font-size: 36px;
   border-bottom: 2px ${(props) => props.theme.colors.white} solid;
+  cursor: pointer;
+  padding-bottom: 5px;
 `;
 export {
   StyledEVBannerContainer,
