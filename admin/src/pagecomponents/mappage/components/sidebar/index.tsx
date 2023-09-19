@@ -1,13 +1,10 @@
-import { useState } from 'react';
+import useInputHook from '../../../../hooks/useInputHook';
 import { useCategoryStore } from '../../../../stores/useCategoryStore';
 import { StyledSidebar, StyledSubTitle, StyledTitle } from './Sidebar.styled';
 
 const Sidebar = (props: any) => {
   const { selectcat } = useCategoryStore();
-  const [placeName, setPlaceName] = useState('');
-  const [placeType, setPlaceType] = useState('');
-  const [image, setImage] = useState<File | null>(null);
-
+  const { placeName, setPlaceName, details, setDetails, placeType, setPlaceType, image, setImage } = useInputHook();
   const handleSaveClick = () => {
     const data = {
       위도: props.position.lat,
@@ -15,6 +12,7 @@ const Sidebar = (props: any) => {
       장소TYPE: placeType,
       장소명: placeName,
       이미지: image ? image.name : '없음',
+      세부사항: details,
     };
     console.log(JSON.stringify(data, null, 2));
   };
@@ -46,6 +44,7 @@ const Sidebar = (props: any) => {
             </div>
             <div>
               <StyledSubTitle>세부사항</StyledSubTitle>
+              <input value={details} onChange={(e) => setDetails(e.target.value)} />
             </div>
           </div>
           <button onClick={handleSaveClick}>저장하기</button>
