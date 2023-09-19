@@ -1,9 +1,9 @@
 package com.e102.dinosaur.controller.restaurant;
 
 
-import com.e102.dinosaur.service.RestaurantService;
-import com.e102.dinosaur.service.response.AbstractRestaurantResponse;
-import com.e102.dinosaur.service.response.RestaurantDetailResponse;
+import com.e102.dinosaur.service.restaurant.response.AbstractRestaurantResponse;
+import com.e102.dinosaur.service.restaurant.response.RestaurantDetailResponse;
+import com.e102.dinosaur.service.restaurant.response.RestaurantService;
 import com.e102.dinosaur.utils.ApiResponse;
 import com.e102.dinosaur.utils.ApiUtils;
 import lombok.RequiredArgsConstructor;
