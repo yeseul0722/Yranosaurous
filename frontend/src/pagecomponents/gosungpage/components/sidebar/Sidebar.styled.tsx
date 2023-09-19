@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 
 const StyledSideBarContainer = styled.div`
-  width: 50px;
+  min-width: 50px;
+  max-width: 50px;
+  height: 100vh;
+  border-right: 1px solid lightgray;
 `;
 
 const StyledCategoryContainer = styled.div`
-  border-bottom: 1px solid;
+  border-bottom: 1px solid lightgray;
   height: 100px;
   display: flex;
   justify-content: center;

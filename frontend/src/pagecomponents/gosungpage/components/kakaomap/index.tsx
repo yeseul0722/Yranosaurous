@@ -4,20 +4,18 @@ import { StyledKakaoMapContainer } from './KakaoMap.styled';
 
 const GosungKakaoMapComponent = () => {
   return (
-    <StyledKakaoMapContainer>
-      <Map
-        id="map"
-        center={{
-          lat: 35.05935949688545,
-          lng: 128.39945815291523,
-        }}
-        style={{
-          width: '95vw',
-          height: '100vh',
-        }}
-        level={3}
-      />
-    </StyledKakaoMapContainer>
+    <Map
+      id="map"
+      center={{
+        lat: 35.05935949688545,
+        lng: 128.39945815291523,
+      }}
+      style={{
+        width: '95vw',
+        height: '100vh',
+      }}
+      level={3}
+    />
   );
 };
 
