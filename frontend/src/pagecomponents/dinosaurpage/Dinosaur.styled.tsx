@@ -15,4 +15,12 @@ const StyledDsFirstPage = styled.div`
   scroll-snap-align: start;
 `;
 
-export { StyledDsPage, StyledDsLandingPage, StyledDsFirstPage };
+const StyledKoreaDsPage = styled.div`
+  scroll-snap-align: start;
+`;
+
+const StyledKoreaMapPage = styled.div`
+  scroll-snap-align: start;
+`;
+
+export { StyledDsPage, StyledDsLandingPage, StyledDsFirstPage, StyledKoreaDsPage, StyledKoreaMapPage };

@@ -4,7 +4,7 @@ const StyledDsDetailPage = styled.div`
   border: 1px solid red;
   width: 100%;
   height: 100%;
-  background-color: #ffffff2c;
+  background-color: #000020c0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,16 +15,20 @@ const StyledDsDetailPage = styled.div`
 `;
 
 const StyledDsDetailWindow = styled.div`
-  background-color: #000020c0;
+  background-color: #000020;
   border-radius: 30px;
   overflow: hidden;
   width: 60%;
   height: 80%;
   display: flex;
+  justify-content: space-between;
 `;
 
 const StyledDsDetailCloseButton = styled.div`
-  border: 1px solid yellow;
+  color: #ffffff;
+  padding-top: 1.5rem;
+  padding-right: 1rem;
+  font-size: 30px;
 `;
 
 const StyledDsDetailBody = styled.div`
@@ -34,13 +38,11 @@ const StyledDsDetailBody = styled.div`
   align-content: center;
 `;
 
-const StyledDsDetailImg = styled.img.attrs<any>((props) => {})`
+const StyledDsDetailImg = styled.img`
   width: 40%;
 `;
 
-const StyledDetailTitle = styled.div`
-  border: 1px solid red;
-`;
+const StyledDetailTitle = styled.div``;
 
 const StyledDetailTitleText = styled.div`
   border-bottom: 5px solid white;
@@ -50,16 +52,22 @@ const StyledDetailTitleText = styled.div`
   text-align: left;
   margin: 2rem;
   width: 25rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.5rem;
 `;
 
 const StyledDeTailContent = styled.div`
-  border: 1px solid bule;
+  display: flex;
+  justify-content: center;
+  overflow: scroll;
 `;
 
 const StyledDeTailContentText = styled.div`
-  border: 1px solid yellowgreen;
   color: #ffffff;
   width: 25rem;
+  margin-left: 1rem;
+  letter-spacing: 0.1rem;
+  text-align: left;
 `;
 
 export {
