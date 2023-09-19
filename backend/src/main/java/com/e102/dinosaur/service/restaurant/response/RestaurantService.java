@@ -1,9 +1,7 @@
-package com.e102.dinosaur.service;
+package com.e102.dinosaur.service.restaurant.response;
 
 import com.e102.dinosaur.domain.restaurant.RestaurantRepository;
 import com.e102.dinosaur.exception.BaseException;
-import com.e102.dinosaur.service.response.AbstractRestaurantResponse;
-import com.e102.dinosaur.service.response.RestaurantDetailResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

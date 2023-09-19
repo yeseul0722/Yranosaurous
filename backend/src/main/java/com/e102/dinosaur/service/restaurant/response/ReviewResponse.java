@@ -1,4 +1,4 @@
-package com.e102.dinosaur.service.response;
+package com.e102.dinosaur.service.restaurant.response;
 
 import com.e102.dinosaur.domain.review.Review;
 import lombok.Builder;
