@@ -1,6 +1,7 @@
 package com.e102.dinosaur.controller.tour;
 
 import com.e102.dinosaur.service.tour.TourService;
+import com.e102.dinosaur.service.tour.response.TourDetailResponse;
 import com.e102.dinosaur.service.tour.response.TourResponse;
 import com.e102.dinosaur.utils.ApiResponse;
 import com.e102.dinosaur.utils.ApiUtils;
@@ -26,5 +27,10 @@ public class TourController {
     @GetMapping("/tours/{category}")
     public ApiResponse<List<TourResponse>> getToursByCategory(@PathVariable String category) {
         return ApiUtils.success(tourService.getToursBy(category));
+    }
+
+    @GetMapping("/tour/{id}")
+    public ApiResponse<TourDetailResponse> getTour(@PathVariable Long id) {
+        return ApiUtils.success(tourService.getTour(id));
     }
 }
