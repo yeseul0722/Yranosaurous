@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 const StyledExpoInfoPage = styled.div`
   display: flex;
-  margin-top: 60px;
-  margin-right: 60px;
+  margin: 100px 200px 0px 200px;
   gap: 15px;
+  min-width: 1120px;
 `;
 
 const StyledExpoInfoContainer = styled.div`
@@ -15,13 +15,15 @@ const StyledExpoInfoContainer = styled.div`
 const StyledExpoInfoPoster = styled.div`
   flex: 1;
   height: 100%;
-  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 `;
 
 const StyledExpoInfoTitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
 `;
 
 const StyledExpoInfoTitle = styled.div`
@@ -39,9 +41,8 @@ const StyledExpoInfoContent = styled.div`
 const StyledExpoInfoContentContainer = styled.div`
   display: flex;
   margin-top: 20px;
-  padding-left: 40px;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 `;
 
 const StyledExpoInfoTitleContent = styled.div`
@@ -50,7 +51,8 @@ const StyledExpoInfoTitleContent = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
-  margin: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   min-width: 600px;
 `;
 
