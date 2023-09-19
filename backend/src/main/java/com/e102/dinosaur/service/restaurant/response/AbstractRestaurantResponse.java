@@ -1,4 +1,4 @@
-package com.e102.dinosaur.service.response;
+package com.e102.dinosaur.service.restaurant.response;
 
 import com.e102.dinosaur.domain.restaurant.Restaurant;
 import lombok.Builder;
@@ -9,7 +9,8 @@ import java.util.List;
 
 @Getter
 @NoArgsConstructor
-public class RestaurantDetailResponse {
+public class AbstractRestaurantResponse {
+
     private Long id;
     private String storeName;
     private int category;
@@ -19,12 +20,9 @@ public class RestaurantDetailResponse {
     private String address;
     private String imgAddress;
     private List<HashTagResponse> hashTagList;
-    private List<MenuResponse> menuResponseList;
-    private List<ReviewResponse> reviewResponseList;
 
     @Builder
-    public RestaurantDetailResponse(Long id, String storeName, int category, double rating, int ratingCnt, double score,
-            String address, String imgAddress, List<HashTagResponse> hashTagList, List<MenuResponse> menuResponseList, List<ReviewResponse> reviewResponseList) {
+    public AbstractRestaurantResponse(Long id, String storeName, int category, double rating, int ratingCnt, double score, String address, String imgAddress, List<HashTagResponse> hashTagList) {
         this.id = id;
         this.category = category;
         this.rating = rating;
@@ -33,12 +31,10 @@ public class RestaurantDetailResponse {
         this.address = address;
         this.imgAddress = imgAddress;
         this.hashTagList = hashTagList;
-        this.menuResponseList = menuResponseList;
-        this.reviewResponseList = reviewResponseList;
     }
 
-    public static RestaurantDetailResponse of(Restaurant restaurant) {
-        return RestaurantDetailResponse.builder()
+    public static AbstractRestaurantResponse of(Restaurant restaurant) {
+        return AbstractRestaurantResponse.builder()
                 .id(restaurant.getId())
                 .category(restaurant.getCategory())
                 .rating(restaurant.getRating())
@@ -47,8 +43,6 @@ public class RestaurantDetailResponse {
                 .address(restaurant.getAddress())
                 .imgAddress(restaurant.getImgAddress())
                 .hashTagList(restaurant.getHashTags().stream().map(HashTagResponse::of).toList())
-                .menuResponseList(restaurant.getMenus().stream().map(MenuResponse::of).toList())
-                .reviewResponseList(restaurant.getReviews().stream().map(ReviewResponse::of).toList())
                 .build();
     }
 }
