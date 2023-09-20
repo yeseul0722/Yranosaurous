@@ -3,16 +3,24 @@
 }
 
 @font-face {
-  font-family: 'lightfont';
+  font-family: 'dinolightfont';
   src: url('./styles/fonts/Pretendard-Light.ttf');
 }
 @font-face {
-  font-family: 'regularfont';
+  font-family: 'dinoregularfont';
   src: url('./styles/fonts/Pretendard-Regular.ttf');
 }
 @font-face {
-  font-family: 'boldfont';
+  font-family: 'dinoboldfont';
   src: url('./styles/fonts/Pretendard-SemiBold.ttf');
+}
+@font-face {
+  font-family: 'boldfont';
+  src: url('./styles/fonts/Gwangyang-Bold.ttf');
+}
+@font-face {
+  font-family: 'regularfont';
+  src: url('./styles/fonts/Gwangyang-Regular.ttf');
 }
 
 .App-logo {
