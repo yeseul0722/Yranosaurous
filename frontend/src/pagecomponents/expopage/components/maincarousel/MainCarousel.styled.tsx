@@ -1,8 +1,14 @@
 import styled, { css } from 'styled-components';
 
 const StyledCarouselContainer = styled.div.attrs<any>((props) => ({}))`
-  min-width: 1420px;
-  height: 100%;
+  width: 1120px;
+  position: relative;
+  top: 90px;
+  margin-left: 200px;
+  margin-right: 200px;
+  border-radius: 30px;
+
+  overflow: hidden;
   .slick-dots {
     position: absolute;
     bottom: 20%;
@@ -91,14 +97,10 @@ const StyledExpoMainPosterContainer = styled.div.attrs<any>((props) => ({}))`
       'expo_main_pic/ExpoMain4.png',
     ];
     return css`
-      display: flex;
-      height: 100vh;
-      min-width: 100%;
+      height: 600px;
+      width: 100%;
       background-image: url(${ImageUrls[props.image]});
       background-size: cover;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
     `;
   }}
 `;
