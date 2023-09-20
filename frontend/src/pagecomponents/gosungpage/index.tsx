@@ -4,6 +4,7 @@ import GosungSideBar from './components/sidebar';
 import { StyledGosungPage } from './Gosung.styled';
 import GosungSideList from './components/sidelist';
 import GosungCloseButton from './components/closebutton';
+import GosungCategory from './components/category';
 
 const GosungComponent: React.FC = () => {
   const [showSideList, setShowSideList] = useState(true);
