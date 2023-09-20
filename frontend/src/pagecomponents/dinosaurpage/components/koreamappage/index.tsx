@@ -1,7 +1,9 @@
 import React from 'react';
-// import { ReactComponent as SouthKorea } from '@svg-maps/south-korea/south-korea.svg';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { ReactComponent as SouthKorea } from './south-korea.svg';
 import KoreaMap from '../koreamap';
+import Lottie from 'lottie-react';
+import arrow from './arrow.json';
 import {
   StyledKoreaMapPage,
   StyledKoreaMapContent,
@@ -13,6 +15,7 @@ import {
   StyledKoreaMapDsName,
 } from './koreaMapPage.styled';
 
+// const KoreaMapPage = ({ land }: { land: any }) => {
 const KoreaMapPage = () => {
   return (
     <StyledKoreaMapPage>
@@ -27,6 +30,7 @@ const KoreaMapPage = () => {
         <KoreaMap></KoreaMap>
         {/* <StyledKoreaMapDsName>공룡</StyledKoreaMapDsName> */}
         <StyledKoreaMapDs>
+          <Lottie animationData={arrow} loop autoplay style={{ width: '100px', height: '100px' }} />
           <StyledKoreaMapDsName>경기도</StyledKoreaMapDsName>
         </StyledKoreaMapDs>
       </StyledKoreaMap>
