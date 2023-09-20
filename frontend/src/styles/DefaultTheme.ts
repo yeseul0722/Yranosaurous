@@ -11,7 +11,9 @@ const theme: DefaultTheme = {
     night: '#000020',
   },
   fonts: {
-    lightfont: 'lightfont',
+    dinolightfont: 'dinolightfont',
+    dinoregularfont: 'dinoregularfont',
+    dinoboldfont: 'dinoboldfont',
     regularfont: 'regularfont',
     boldfont: 'boldfont',
   },
