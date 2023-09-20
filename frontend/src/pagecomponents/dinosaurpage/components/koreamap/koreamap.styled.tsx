@@ -6,6 +6,14 @@ const StyledMapPath = styled.path`
   stroke: #f3f8f8;
   stroke-opacity: 1;
   stroke-width: 1.5;
+`;
+
+const StyledMapExitsPath = styled.path`
+  fill: ${(props) => props.theme.colors.light};
+  fill-opacity: 1;
+  stroke: #f3f8f8;
+  stroke-opacity: 1;
+  stroke-width: 1.5;
 
   &:hover {
     fill: #000020;
@@ -21,4 +29,4 @@ const StyledMapSvg = styled.svg.attrs<any>((props) => ({
   overflow: visible;
 `;
 
-export { StyledMapSvg, StyledMapPath };
+export { StyledMapSvg, StyledMapPath, StyledMapExitsPath };
