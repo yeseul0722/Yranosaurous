@@ -1,6 +1,8 @@
 import React from 'react';
 // import { ReactComponent as SouthKorea } from '@svg-maps/south-korea/south-korea.svg';
 import { ReactComponent as SouthKorea } from './south-korea.svg';
+import Lottie from 'lottie-react';
+import { arrow } from '../lottie';
 import KoreaMap from '../koreamap';
 import {
   StyledKoreaMapPage,
@@ -23,11 +25,11 @@ const KoreaMapPage = () => {
         </StyledKoreaMapText>
       </StyledKoreaMapContent>
       <StyledKoreaMap>
-        {/* <SouthKorea width={500} height={630} /> */}
         <KoreaMap></KoreaMap>
-        {/* <StyledKoreaMapDsName>공룡</StyledKoreaMapDsName> */}
         <StyledKoreaMapDs>
           <StyledKoreaMapDsName>경기도</StyledKoreaMapDsName>
+          {/* <StyledKoreaMapImg src="./arrow.json"></StyledKoreaMapImg> */}
+          <Lottie animationData={arrow} />
         </StyledKoreaMapDs>
       </StyledKoreaMap>
     </StyledKoreaMapPage>
