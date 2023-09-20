@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import Expo from './pagecomponents/expopage';
 import Dinosaur from './pagecomponents/dinosaurpage';
 import Gosung from './pagecomponents/gosungpage';
+import DsDetail from './pagecomponents/dinosaurpage/components/dinosaurdetail';
 
 function App() {
   return (
