@@ -31,8 +31,8 @@ const MapPage = () => {
                 },
                 options: {
                   offset: {
-                    x: 10,
-                    y: 15,
+                    x: 13,
+                    y: 34,
                   },
                 },
               }}
