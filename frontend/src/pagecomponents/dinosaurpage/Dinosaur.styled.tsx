@@ -1,27 +1,26 @@
 import styled from 'styled-components';
 
-const StyledDinosaurPage = styled.div.attrs<any>((props) => ({}))`
-  display: flex;
+const StyledDsPage = styled.div`
   height: 100vh;
-  background-color: #000020;
+  background-color: #ffffff;
+  overflow: auto;
+  scroll-snap-type: y mandatory;
 `;
 
-const StyledSidebarContainer = styled.div.attrs<any>((props) => ({}))`
-  border: 1px solid orange;
-  flex: 1;
+const StyledDsLandingPage = styled.div`
+  scroll-snap-align: start;
 `;
 
-const StyledCustomGlobeContainer = styled.div.attrs<any>((props) => ({}))`
-  height: 100%;
-  flex: auto;
+const StyledDsFirstPage = styled.div`
+  scroll-snap-align: start;
 `;
 
-const StyledDinosaurListContainer = styled.div.attrs<any>((props) => ({}))`
-  flex: 5;
-  border-radius: 30px 0px 0px 30px;
-  background-color: #ffffff5f;
-  margin-top: 15px;
-  margin-bottom: 15px;
+const StyledKoreaDsPage = styled.div`
+  scroll-snap-align: start;
 `;
 
-export { StyledDinosaurPage, StyledCustomGlobeContainer, StyledDinosaurListContainer, StyledSidebarContainer };
+const StyledKoreaMapPage = styled.div`
+  scroll-snap-align: start;
+`;
+
+export { StyledDsPage, StyledDsLandingPage, StyledDsFirstPage, StyledKoreaDsPage, StyledKoreaMapPage };
