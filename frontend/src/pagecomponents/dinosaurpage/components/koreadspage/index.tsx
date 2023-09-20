@@ -14,7 +14,7 @@ const KoreaDsPage = () => {
         <StyledKoreaDsContentText>
           코리아노사우루스 보성엔시스🦎, 코리아케라톱스🦖
           <br />
-          그리고 부경고사우루스🦕까지
+          그리고 부경고사우루스🦕까지 만나보세요!
         </StyledKoreaDsContentText>
       </StyledKoreaDsTitle>
     </StyledKoreaDsPage>

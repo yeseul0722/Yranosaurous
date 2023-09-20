@@ -6,7 +6,7 @@ const StyledKoreaDsPage = styled.div`
 `;
 
 const StyledKoreaDsTitle = styled.div`
-  border: 1px solid red;
+  /* border: 1px solid red; */
   padding: 5rem;
 `;
 
