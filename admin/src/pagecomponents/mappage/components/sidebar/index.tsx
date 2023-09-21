@@ -38,6 +38,24 @@ const Sidebar = (props: any) => {
               </StyledBox>
             </div>
             <div>
+              <StyledSubTitle>마커 고르기</StyledSubTitle>
+              <div>
+                <img src="/images/map/markers/dino.png" alt="1" style={{ width: '58px' }} />
+                <img src="/images/map/markers/baby.png" alt="2" style={{ width: '58px' }} />
+                <img src="/images/map/markers/biking.png" alt="3" style={{ width: '58px' }} />
+                <img src="/images/map/markers/cafe.png" alt="4" style={{ width: '58px' }} />
+                <img src="/images/map/markers/3d.png" alt="5" style={{ width: '58px' }} />
+                <img src="/images/map/markers/food.png" alt="6" style={{ width: '58px' }} />
+                <img src="/images/map/markers/foodcart.png" alt="7" style={{ width: '58px' }} />
+                <img src="/images/map/markers/museum.png" alt="8" style={{ width: '58px' }} />
+                <img src="/images/map/markers/park.png" alt="9" style={{ width: '58px' }} />
+                <img src="/images/map/markers/plant.png" alt="10" style={{ width: '58px' }} />
+                <img src="/images/map/markers/play.png" alt="11" style={{ width: '58px' }} />
+                <img src="/images/map/markers/stroller.png" alt="12" style={{ width: '58px' }} />
+                <img src="/images/map/markers/toilet.png" alt="13" style={{ width: '58px' }} />
+              </div>
+            </div>
+            <div>
               <StyledSubTitle>장소 TYPE</StyledSubTitle>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <div style={{ width: '120px', height: '35px' }}>
