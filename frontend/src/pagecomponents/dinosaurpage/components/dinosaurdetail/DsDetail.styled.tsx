@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const StyledDsDetailPage = styled.div`
-  border: 1px solid red;
   width: 100%;
   height: 100%;
   background-color: #000020c0;
@@ -60,6 +59,10 @@ const StyledDeTailContent = styled.div`
   display: flex;
   justify-content: center;
   overflow: scroll;
+  /* scroll-snap-type: y mandatory; */
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 `;
 
 const StyledDeTailContentText = styled.div`

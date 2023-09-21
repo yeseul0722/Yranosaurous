@@ -57,7 +57,6 @@ const StyledKoreaMapDs = styled.div`
 `;
 
 const StyledKoreaMapDsName = styled.div`
-  /* border: 1px solid yellow; */
   color: ${(props) => props.theme.colors.white};
   font-size: 1.5rem;
 `;
