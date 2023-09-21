@@ -1,5 +1,7 @@
 import React from 'react';
 import KoreaMap from '../koreamap';
+import BgDinosaur from '../../lottie/walkds.json';
+import Lottie from 'lottie-react';
 
 import {
   StyledKoreaMapPage,
@@ -7,6 +9,7 @@ import {
   StyledKoreaMapTitleText,
   StyledKoreaMapText,
   StyledKoreaMap,
+  StyledKoreaMapBackgroundLottie,
 } from './koreaMapPage.styled';
 
 // const KoreaMapPage = ({ land }: { land: any }) => {
@@ -24,6 +27,9 @@ const KoreaMapPage = () => {
         <KoreaMap></KoreaMap>
         {/* <StyledKoreaMapDsName>공룡</StyledKoreaMapDsName> */}
       </StyledKoreaMap>
+      <StyledKoreaMapBackgroundLottie>
+        <Lottie animationData={BgDinosaur} loop autoplay />
+      </StyledKoreaMapBackgroundLottie>
     </StyledKoreaMapPage>
   );
 };
