@@ -8,4 +8,8 @@ const StyledSideListContainer = styled.div`
   align-items: start;
 `;
 
-export { StyledSideListContainer };
+const StyledMenu = styled.div`
+  color: pink;
+`;
+
+export { StyledSideListContainer, StyledMenu };
