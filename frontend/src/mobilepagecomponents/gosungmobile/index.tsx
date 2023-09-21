@@ -3,25 +3,18 @@ import { StyledosunMobilePage, StyledListContainer, StyledList } from './GosungM
 import Map from './components/kakaomap';
 import Button from '../../mobilecomponents/button';
 import List from './components/list';
-import TourListGet from '../../apis/tour/tourListGet';
+import useTourListHook from '../../hooks/gosung/useTourListHook';
+
 const GosungMobileComponent = () => {
   const [openList, setOpenList] = useState(false);
-  const [tourList, setTOurList] = useState();
-  const getTourList = async () => {
-    const response = await TourListGet();
-    console.log(response.data.response);
-  };
-  useEffect(() => {
-    getTourList();
-  });
-
+  const { tourList } = useTourListHook();
   return (
     <StyledosunMobilePage>
       <StyledListContainer>
         <StyledList>
           <Button label="목록보기" use="list" onClick={() => setOpenList(!openList)}></Button>
         </StyledList>
-        {openList && <List></List>}
+        {openList && <List tourList={tourList}></List>}
       </StyledListContainer>
       <Map></Map>
     </StyledosunMobilePage>
