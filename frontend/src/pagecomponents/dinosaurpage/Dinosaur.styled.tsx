@@ -39,6 +39,12 @@ const StyledKoreaMapPage = styled.div`
 const StyledKoreaceratopsPage = styled.div`
   scroll-snap-align: start;
 `;
+const StyledKoreasaurusPage = styled.div`
+  scroll-snap-align: start;
+`;
+const StyledPukyongsaurusPage = styled.div`
+  scroll-snap-align: start;
+`;
 
 export {
   StyledDsPage,
@@ -49,4 +55,6 @@ export {
   StyledKoreaDsPage,
   StyledKoreaMapPage,
   StyledKoreaceratopsPage,
+  StyledKoreasaurusPage,
+  StyledPukyongsaurusPage,
 };

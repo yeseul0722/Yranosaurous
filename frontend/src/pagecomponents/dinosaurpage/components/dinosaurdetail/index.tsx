@@ -13,6 +13,7 @@ import {
 import { useLocation } from 'react-router-dom';
 
 const DsDetail = (props: any) => {
+  // console.log(props.DsId);
   return (
     <StyledDsDetailPage>
       <StyledDsDetailWindow>

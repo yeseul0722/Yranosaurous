@@ -7,16 +7,22 @@ import {
   StyledMapDs,
   StyledMapDsName,
   StyledMapArrowContainer,
+  StyledCircleGyeonggi,
+  StyledCircleSouthgyeongsang,
+  StyledCircleSouthjeolla,
 } from './koreamap.styled';
 import KoreaMapPage from '../koreamappage';
 import Lottie from 'lottie-react';
-import arrow from './arrow.json';
+import gyeonggi from '../../lottie/bluecircle.json';
+import southgyeongsang from '../../lottie/bluecircle.json';
+import southjeolla from '../../lottie/bluecircle.json';
 
 const KoreaMap = () => {
   const [land, setLand] = useState();
   const [krDinosaurName, setKrDinosaurName] = useState('');
 
   const existLand = (e: any) => {
+    // console.log(e);
     const sendLand = e.target.id;
     setLand(sendLand);
     if (sendLand === 'gyeonggi') {
@@ -24,17 +30,26 @@ const KoreaMap = () => {
     } else if (sendLand === 'southgyeongsang') {
       setKrDinosaurName('부경고사우루스');
     } else if (sendLand === 'southjeolla') {
-      setKrDinosaurName('코리아노사우루스 보성엔시스');
+      setKrDinosaurName('코리아노사우루스');
     }
   };
   return (
     <StyledMapContainer>
-      <StyledMapDs land={land}>
-        {/* {sendLand === 'southjeolla' && ()} */}
-        <StyledMapDsName>{krDinosaurName}</StyledMapDsName>
-        <StyledMapArrowContainer land={land}>
-          <Lottie animationData={arrow} loop autoplay />
-        </StyledMapArrowContainer>
+      {/* <StyledMapDs land={land}> */}
+      <StyledMapDs>
+        <StyledMapDsName land={land}>{krDinosaurName}</StyledMapDsName>
+        {/* <StyledMapArrowContainer land={land}> */}
+
+        {/* 애니메이션 */}
+        <StyledCircleGyeonggi>
+          <Lottie animationData={gyeonggi} loop autoplay />
+        </StyledCircleGyeonggi>
+        <StyledCircleSouthgyeongsang>
+          <Lottie animationData={southgyeongsang} loop autoplay />
+        </StyledCircleSouthgyeongsang>
+        <StyledCircleSouthjeolla>
+          <Lottie animationData={southjeolla} loop autoplay />
+        </StyledCircleSouthjeolla>
       </StyledMapDs>
       <StyledMapSvg>
         <StyledMapPath

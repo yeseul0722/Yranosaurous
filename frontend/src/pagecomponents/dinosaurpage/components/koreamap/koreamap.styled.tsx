@@ -34,69 +34,101 @@ const StyledMapSvg = styled.svg.attrs<any>((props) => ({
   overflow: visible;
 `;
 
-const StyledMapDs = styled.div.attrs<any>((props) => ({}))`
+// const StyledMapDs = styled.div.attrs<any>((props) => ({}))`
+//   ${(props) => {
+//     const land = props.land;
+//     const landName: any = {
+//       gyeonggi: `
+//       // 위치/크키 변경 금지!
+//       visibility: visible;
+//       top : 17rem;
+//       left : 31rem;
+//     `,
+//       southgyeongsang: `
+//       visibility: visible;
+//       top : 30rem;
+//       left : 40rem;
+//     `,
+//       southjeolla: `
+//       visibility: visible;
+//       top : 33rem;
+//       left : 20rem;
+//     `,
+//     };
+//     return css`
+//       /* border: 1px solid green; */
+//       position: absolute;
+//       display: flex;
+//       /* visibility: hidden; */
+//       ${landName[land]}
+//     `;
+//   }}
+// `;
+
+const StyledMapDs = styled.div`
+  position: absolute;
+`;
+
+const StyledMapDsName = styled.div.attrs<any>((props) => ({}))`
   ${(props) => {
     const land = props.land;
     const landName: any = {
       gyeonggi: `
       // 위치/크키 변경 금지!
       visibility: visible;
-      top : 14rem;
-      left : 23rem;
+      top : 18rem;
+      left : 12.5rem;
     `,
       southgyeongsang: `
       visibility: visible;
-      top : 30rem;
-      left : 50rem;
+      top : 33rem;
+      left : 40rem;
     `,
       southjeolla: `
       visibility: visible;
-      top : 28rem;
-      left : 7rem;
+      top : 35rem;
+      left : 10rem;
     `,
     };
     return css`
-      /* border: 1px solid green; */
+      /* border: 1px solid red; */
+      width: 30rem;
       position: absolute;
       display: flex;
       visibility: hidden;
-      ${landName[land]}
+      color: ${(props) => props.theme.colors.white};
+      font-family: ${(props) => props.theme.fonts.dinoboldfont};
+      font-size: 1.8rem;
+      ${landName[land]};
     `;
   }}
 `;
 
-const StyledMapDsName = styled.div`
-  color: ${(props) => props.theme.colors.white};
-  font-size: 1.5rem;
-  margin-top: 7rem;
-  font-family: ${(props) => props.theme.fonts.dinoboldfont};
+const StyledMapArrowContainer = styled.div`
+  width: 5rem;
+  height: 5rem;
 `;
 
-const StyledMapArrowContainer = styled.div.attrs<any>((props) => ({}))`
-  ${(props) => {
-    const land = props.land;
-    const landName: any = {
-      gyeonggi: `
-      width: 15rem;
-      height: auto;
-    `,
-      southgyeongsang: `
-      width: 10rem;
-      height: 5rem;
-    `,
-      southjeolla: `
-      width: 10rem;
-      height: 5rem;
-    `,
-    };
-    return css`
-      /* border: 1px solid green; */
-      filter: invert(100%);
-      /* width: 5rem;
-      height: 5rem; */
-      ${landName[land]}
-    `;
-  }}
+const StyledCircleGyeonggi = styled.div`
+  position: absolute;
+  top: 17rem;
+  left: 25rem;
+  width: 5rem;
+  height: 5rem;
+`;
+const StyledCircleSouthgyeongsang = styled.div`
+  position: absolute;
+  top: 30rem;
+  left: 33rem;
+  width: 5rem;
+  height: 5rem;
+`;
+const StyledCircleSouthjeolla = styled.div`
+  position: absolute;
+  top: 33rem;
+  left: 25rem;
+  width: 5rem;
+  height: 5rem;
 `;
 
 export {
@@ -107,4 +139,7 @@ export {
   StyledMapDs,
   StyledMapDsName,
   StyledMapArrowContainer,
+  StyledCircleGyeonggi,
+  StyledCircleSouthgyeongsang,
+  StyledCircleSouthjeolla,
 };
