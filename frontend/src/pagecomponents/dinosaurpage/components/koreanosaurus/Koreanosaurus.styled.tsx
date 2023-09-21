@@ -1,41 +1,41 @@
 import styled from 'styled-components';
 
-const StyledKoreaceratopsPage = styled.div`
+const StyledKoreasaurusPage = styled.div`
   height: 100vh;
   background-color: ${(props) => props.theme.colors.night};
   display: flex;
   justify-content: space-between;
 `;
 
-const StyledKoreaceratopsBody = styled.div`
+const StyledKoreasaurusBody = styled.div`
   border: 1px solid red;
 `;
 
-const StyledKoreaceratopsGeneration = styled.div`
+const StyledKoreasaurusGeneration = styled.div`
   border: 1px solid yellow;
 `;
 
-const StyledKoreaceratopsTitle = styled.div`
+const StyledKoreasaurusTitle = styled.div`
   border: 1px solid yellowgreen;
   color: ${(props) => props.theme.colors.white};
   font-family: ${(props) => props.theme.fonts.dinoboldfont};
   font-size: 3rem;
 `;
 
-const StyledKoreaceratopsLittleTitle = styled.div`
+const StyledKoreasaurusLittleTitle = styled.div`
   border: 1px solid yellowgreen;
   color: ${(props) => props.theme.colors.white};
   font-family: ${(props) => props.theme.fonts.dinoboldfont};
   font-size: 2rem;
 `;
 
-const StyledKoreaceratopsContent = styled.div`
+const StyledKoreasaurusContent = styled.div`
   border: 1px solid blue;
   color: ${(props) => props.theme.colors.white};
   font-family: ${(props) => props.theme.fonts.dinoboldfont};
 `;
 
-const StyledKoreaceratopsFigure = styled.div`
+const StyledKoreasaurusFigure = styled.div`
   border: 1px solid red;
   display: flex;
   flex-direction: column;
@@ -43,7 +43,7 @@ const StyledKoreaceratopsFigure = styled.div`
   position: relative;
 `;
 
-const StyledKoreaceratopsImg = styled.img.attrs<any>((props) => ({
+const StyledKoreasaurusImg = styled.img.attrs<any>((props) => ({
   src: props.src,
   alt: props.alt,
 }))`
@@ -52,7 +52,7 @@ const StyledKoreaceratopsImg = styled.img.attrs<any>((props) => ({
   height: 60rem;
 `;
 
-const StyledKoreaceratopsCircle = styled.div`
+const StyledKoreasaurusCircle = styled.div`
   width: 3rem;
   height: 3rem;
   position: absolute;
@@ -61,34 +61,34 @@ const StyledKoreaceratopsCircle = styled.div`
   filter: invert(80%);
 `;
 
-const StyledKoreaceratopsInfo = styled.div`
+const StyledKoreasaurusInfo = styled.div`
   border: 1px solid orange;
   height: 10rem;
   display: flex;
 `;
 
-const StyledKoreaceratopsHeight = styled.div`
+const StyledKoreasaurusHeight = styled.div`
   border: 1px solid blue;
   color: ${(props) => props.theme.colors.white};
   font-family: ${(props) => props.theme.fonts.dinoboldfont};
 `;
-const StyledKoreaceratopsWeight = styled.div`
+const StyledKoreasaurusWeight = styled.div`
   border: 1px solid blue;
   color: ${(props) => props.theme.colors.white};
   font-family: ${(props) => props.theme.fonts.dinoboldfont};
 `;
 
 export {
-  StyledKoreaceratopsPage,
-  StyledKoreaceratopsBody,
-  StyledKoreaceratopsGeneration,
-  StyledKoreaceratopsTitle,
-  StyledKoreaceratopsLittleTitle,
-  StyledKoreaceratopsContent,
-  StyledKoreaceratopsFigure,
-  StyledKoreaceratopsCircle,
-  StyledKoreaceratopsImg,
-  StyledKoreaceratopsInfo,
-  StyledKoreaceratopsHeight,
-  StyledKoreaceratopsWeight,
+  StyledKoreasaurusPage,
+  StyledKoreasaurusBody,
+  StyledKoreasaurusGeneration,
+  StyledKoreasaurusTitle,
+  StyledKoreasaurusLittleTitle,
+  StyledKoreasaurusContent,
+  StyledKoreasaurusFigure,
+  StyledKoreasaurusCircle,
+  StyledKoreasaurusImg,
+  StyledKoreasaurusInfo,
+  StyledKoreasaurusHeight,
+  StyledKoreasaurusWeight,
 };

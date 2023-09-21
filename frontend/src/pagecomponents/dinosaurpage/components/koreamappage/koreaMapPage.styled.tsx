@@ -19,7 +19,7 @@ const StyledKoreaMapTitleText = styled.div`
   /* border: 1px solid red; */
   font-size: 60px;
   color: ${(props) => props.theme.colors.white};
-  font-family: ${(props) => props.theme.fonts.boldfont};
+  font-family: ${(props) => props.theme.fonts.dinoboldfont};
   text-align: left;
   padding-bottom: 0.5rem;
 `;
@@ -28,7 +28,7 @@ const StyledKoreaMapText = styled.div`
   /* border: 1px solid aqua; */
   font-size: 30px;
   color: ${(props) => props.theme.colors.white};
-  font-family: ${(props) => props.theme.fonts.boldfont};
+  font-family: ${(props) => props.theme.fonts.dinoboldfont};
   text-align: left;
   padding-left: 0.3rem;
 `;
