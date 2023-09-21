@@ -7,11 +7,11 @@ const GosungKakaoMapComponent = () => {
     <Map
       id="map"
       center={{
-        lat: 35.05935949688545,
-        lng: 128.39945815291523,
+        lat: 35.057175,
+        lng: 128.3975,
       }}
       style={{
-        width: '95vw',
+        width: '100vw',
         height: '100vh',
       }}
       level={3}
