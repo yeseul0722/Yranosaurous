@@ -19,8 +19,9 @@ const Sidebar = (props: any) => {
 
   return (
     <StyledSidebar {...props}>
-      {selectcat === '1' && <StyledTitle>장소 등록하기</StyledTitle>}
-      {selectcat === '2' && <StyledTitle>코스 등록하기</StyledTitle>}
+      {selectcat === '1' && <StyledTitle>장소 등록/수정하기</StyledTitle>}
+      {selectcat === '2' && <StyledTitle>공연 등록/수정하기</StyledTitle>}
+      {selectcat === '3' && <StyledTitle>코스 등록/수정하기</StyledTitle>}
       {props.position && (
         <div>
           <div style={{ display: 'flex', gap: '25px', flexDirection: 'column' }}>
