@@ -8,11 +8,13 @@ import {
   StyledDsFirstPage,
   StyledKoreaDsPage,
   StyledKoreaMapPage,
+  StyledKoreaceratopsPage,
 } from './Dinosaur.styled';
 import LandingPage from './components/landingpage';
 import KoreaDsPage from './components/koreadspage';
 import KoreaMapPage from './components/koreamappage';
 import SidebarComponent from './components/sidebar';
+import KoreaceratopsPage from './components/koreaceratopspage';
 
 const Dinosaur = () => {
   return (
@@ -33,6 +35,9 @@ const Dinosaur = () => {
         <StyledKoreaMapPage>
           <KoreaMapPage></KoreaMapPage>
         </StyledKoreaMapPage>
+        <StyledKoreaceratopsPage>
+          <KoreaceratopsPage></KoreaceratopsPage>
+        </StyledKoreaceratopsPage>
       </StyledDsContent>
     </StyledDsPage>
   );
