@@ -18,19 +18,9 @@ import {
 } from './Koreaceratops.styled';
 
 const KoreaceratopsPage = () => {
-  const [dsInfo, setDsInfo] = useState();
-
   const clickDsInfo = () => {
     console.log('click');
     // setDsInfo();
-    axios
-      .get(`http://j9e102A.p.ssafy.io:8080/api/dinosaurs`)
-      .then((res: any) => {
-        console.log(res.data.response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   };
   return (
     <StyledKoreaceratopsPage>

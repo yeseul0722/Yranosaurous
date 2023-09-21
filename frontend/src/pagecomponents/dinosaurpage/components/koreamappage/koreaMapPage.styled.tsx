@@ -61,6 +61,14 @@ const StyledKoreaMapDsName = styled.div`
   font-size: 1.5rem;
 `;
 
+const StyledKoreaMapBackgroundLottie = styled.div`
+  /* border: 1px solid red; */
+  position: absolute;
+  transform: scaleX(-1);
+  margin-top: 78vh;
+  /* margin-left: 45vw; */
+`;
+
 export {
   StyledKoreaMapPage,
   StyledKoreaMapContent,
@@ -70,4 +78,5 @@ export {
   StyledKoreaMapImg,
   StyledKoreaMapDs,
   StyledKoreaMapDsName,
+  StyledKoreaMapBackgroundLottie,
 };
