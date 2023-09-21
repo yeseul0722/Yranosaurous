@@ -12,8 +12,9 @@ const StyledInput = styled.input.attrs<any>((props) => ({
 
     return css`
       font-family: ${font};
-      font-size: 16px;
-      padding: 10px 0px 10px 20px;
+      font-size: 15px;
+      width: 100%;
+      height: 100%;
       color: ${black};
       background-color: ${white};
       border: 1.7px solid ${main};
