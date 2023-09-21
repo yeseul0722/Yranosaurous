@@ -20,10 +20,6 @@ const NavBarComponent = () => {
     setNavState('');
   };
 
-  const onClick = (e: any) => {
-    e.preventDefault();
-    setNavState(e.target.name);
-  };
   return (
     <StyledNavBar>
       <StyledLogoContainer>
@@ -31,13 +27,13 @@ const NavBarComponent = () => {
         <StyledName>와이라노사우르스</StyledName>
       </StyledLogoContainer>
       <StyledEndComponent>
-        <StyledLinkText name="expo" onMouseEnter={onMouseEnter}>
+        <StyledLinkText name="expo" navstate={navState} onMouseEnter={onMouseEnter}>
           Expo
         </StyledLinkText>
-        <StyledLinkText name="tour" onMouseEnter={onMouseEnter}>
+        <StyledLinkText name="tour" navstate={navState} onMouseEnter={onMouseEnter}>
           고성관광
         </StyledLinkText>
-        <StyledLinkText name="dino" onMouseEnter={onMouseEnter}>
+        <StyledLinkText name="dino" navstate={navState} onMouseEnter={onMouseEnter}>
           공룡
         </StyledLinkText>
       </StyledEndComponent>
