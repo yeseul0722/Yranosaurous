@@ -36,6 +36,10 @@ const StyledKoreaMapPage = styled.div`
   scroll-snap-align: start;
 `;
 
+const StyledKoreaceratopsPage = styled.div`
+  scroll-snap-align: start;
+`;
+
 export {
   StyledDsPage,
   StyledDsContent,
@@ -44,4 +48,5 @@ export {
   StyledDsFirstPage,
   StyledKoreaDsPage,
   StyledKoreaMapPage,
+  StyledKoreaceratopsPage,
 };
