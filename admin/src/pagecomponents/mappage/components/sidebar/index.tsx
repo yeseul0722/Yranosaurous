@@ -2,7 +2,8 @@ import Button from '../../../../components/button';
 import Input from '../../../../components/input';
 import useInputHook from '../../../../hooks/useInputHook';
 import { useCategoryStore } from '../../../../stores/useCategoryStore';
-import { StyledSidebar, StyledSubTitle, StyledTitle, StyledBox } from './Sidebar.styled';
+import { StyledSidebar, StyledSubTitle, StyledTitle, StyledBox, StyledTextarea } from './Sidebar.styled';
+import TextareaAutosize from 'react-textarea-autosize';
 
 const Sidebar = (props: any) => {
   const { selectcat } = useCategoryStore();
@@ -26,23 +27,27 @@ const Sidebar = (props: any) => {
       {selectcat === '3' && <StyledTitle>코스 등록/수정하기</StyledTitle>}
       {props.position && (
         <div>
-          <div style={{ display: 'flex', gap: '25px', flexDirection: 'column' }}>
+          <div style={{ display: 'flex', gap: '13px', flexDirection: 'column' }}>
             <div>
               <StyledSubTitle>현재 위치</StyledSubTitle>
-              <StyledBox>위도 : {props.position.lat}</StyledBox>
-              <StyledBox>경도 : {props.position.lng}</StyledBox>
+              <StyledBox>
+                <div style={{ paddingLeft: '15px' }}>위도 : {props.position.lat}</div>
+              </StyledBox>
+              <StyledBox>
+                <div style={{ paddingLeft: '15px' }}>경도 : {props.position.lng}</div>
+              </StyledBox>
             </div>
             <div>
               <StyledSubTitle>장소 TYPE</StyledSubTitle>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <div style={{ width: '120px', height: '45px' }}>
+                <div style={{ width: '120px', height: '35px' }}>
                   <Button
                     onClick={() => setPlaceType('편의 시설')}
                     label="편의 시설"
                     ismain={placeType === '편의 시설' ? 'true' : 'false'}
                   ></Button>
                 </div>
-                <div style={{ width: '120px', height: '45px' }}>
+                <div style={{ width: '120px', height: '35px' }}>
                   <Button
                     onClick={() => setPlaceType('관람 요소')}
                     label="관람 요소"
@@ -53,23 +58,26 @@ const Sidebar = (props: any) => {
             </div>
             <div>
               <StyledSubTitle>장소명</StyledSubTitle>
-              <Input value={placeName} onChange={(e: any) => setPlaceName(e.target.value)} />
+              <div style={{ height: '33px' }}>
+                <Input value={placeName} onChange={(e: any) => setPlaceName(e.target.value)} />
+              </div>
             </div>
+
             <div>
               <StyledSubTitle>이미지</StyledSubTitle>
               <input type="file" onChange={(e) => setImage(e.target.files ? e.target.files[0] : null)} />
             </div>
             <div>
               <StyledSubTitle>세부사항</StyledSubTitle>
-              <Input value={details} onChange={(e: any) => setDetails(e.target.value)} />
+              <StyledTextarea value={details} onChange={(e: any) => setDetails(e.target.value)} />
             </div>
-          </div>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <div style={{ width: '120px', height: '45px' }}>
-              <Button onClick={handleSaveClick} label="삭제 하기" ismain="false"></Button>
-            </div>
-            <div style={{ width: '120px', height: '45px' }}>
-              <Button onClick={handleSaveClick} label="저장 하기" ismain="true"></Button>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <div style={{ width: '120px', height: '45px' }}>
+                <Button onClick={handleSaveClick} label="삭제 하기" ismain="false"></Button>
+              </div>
+              <div style={{ width: '120px', height: '45px' }}>
+                <Button onClick={handleSaveClick} label="저장 하기" ismain="true"></Button>
+              </div>
             </div>
           </div>
         </div>

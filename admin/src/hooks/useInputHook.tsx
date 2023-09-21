@@ -3,7 +3,7 @@ import { useState } from 'react';
 const useInputHook = () => {
   const [placeName, setPlaceName] = useState('');
   const [details, setDetails] = useState('');
-  const [placeType, setPlaceType] = useState('');
+  const [placeType, setPlaceType] = useState('편의 시설');
   const [image, setImage] = useState<File | null>(null);
 
   return {
