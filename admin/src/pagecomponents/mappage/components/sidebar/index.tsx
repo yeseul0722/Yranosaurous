@@ -1,3 +1,4 @@
+import Button from '../../../../components/button';
 import useInputHook from '../../../../hooks/useInputHook';
 import { useCategoryStore } from '../../../../stores/useCategoryStore';
 import { StyledSidebar, StyledSubTitle, StyledTitle, StyledBox } from './Sidebar.styled';
@@ -30,10 +31,24 @@ const Sidebar = (props: any) => {
               <StyledBox>위도 : {props.position.lat}</StyledBox>
               <StyledBox>경도 : {props.position.lng}</StyledBox>
             </div>
-            <StyledSubTitle>장소 TYPE</StyledSubTitle>
-            <div style={{ display: 'flex' }}>
-              <button onClick={() => setPlaceType('편의 시설')}>편의 시설</button>
-              <button onClick={() => setPlaceType('관람 요소')}>관람 요소</button>
+            <div>
+              <StyledSubTitle>장소 TYPE</StyledSubTitle>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <div style={{ width: '120px', height: '45px' }}>
+                  <Button
+                    onClick={() => setPlaceType('편의 시설')}
+                    label="편의 시설"
+                    ismain={placeType === '편의 시설' ? 'true' : 'false'}
+                  ></Button>
+                </div>
+                <div style={{ width: '120px', height: '45px' }}>
+                  <Button
+                    onClick={() => setPlaceType('관람 요소')}
+                    label="관람 요소"
+                    ismain={placeType === '관람 요소' ? 'true' : 'false'}
+                  ></Button>
+                </div>
+              </div>
             </div>
             <div>
               <StyledSubTitle>장소명</StyledSubTitle>
@@ -48,9 +63,13 @@ const Sidebar = (props: any) => {
               <input value={details} onChange={(e) => setDetails(e.target.value)} />
             </div>
           </div>
-          <div>
-            <button onClick={handleSaveClick}>저장하기</button>
-            <button>삭제하기</button>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <div style={{ width: '120px', height: '45px' }}>
+              <Button onClick={handleSaveClick} label="삭제 하기" ismain="false"></Button>
+            </div>
+            <div style={{ width: '120px', height: '45px' }}>
+              <Button onClick={handleSaveClick} label="저장 하기" ismain="true"></Button>
+            </div>
           </div>
         </div>
       )}
