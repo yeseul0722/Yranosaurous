@@ -1,4 +1,4 @@
-export interface ButtonStyles {
+export interface ButtonType {
   ismain?: string;
   label?: string;
 

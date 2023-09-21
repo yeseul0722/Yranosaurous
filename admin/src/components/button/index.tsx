@@ -1,7 +1,7 @@
-import { ButtonStyles } from './Button.type';
+import { ButtonType } from './Button.type';
 import { StyledButton } from './Button.styled';
 
-const Button = (props: ButtonStyles) => {
+const Button = (props: ButtonType) => {
   return (
     <>
       <StyledButton {...props}>{props.label || 'Button'}</StyledButton>
