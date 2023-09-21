@@ -25,10 +25,13 @@ const StyledNavBarDropDown = styled.div.attrs<any>((props) => ({}))`
     return css`
       width: 100%;
       height: 30px;
-      background-color: ${WhiteBgColor};
+      background-color: #f3f8f8;
       position: fixed;
       top: 60px;
       z-index: 100;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
     `;
   }}
 `;
@@ -83,9 +86,20 @@ const StyledLinkText = styled.a.attrs<any>((props) => ({}))`
   }}
 `;
 
-const StyledLinkDetailContainer = styled.a.attrs<any>((props) => ({}))``;
+const StyledLinkDetailContainer = styled.a.attrs<any>((props) => ({}))`
+  width: 300px;
+  display: flex;
+  justify-content: flex-start;
+  margin-right: 30px;
+  gap: 50px;
+`;
 
-const StyledLinkDetail = styled.a.attrs<any>((props) => ({}))``;
+const StyledLinkDetail = styled.a.attrs<any>((props) => ({}))`
+  font-family: ${(props) => props.theme.fonts.boldfont};
+  font-size: 15px;
+  color: ${(props) => props.theme.colors.main};
+  cursor: pointer;
+`;
 
 export {
   StyledNavBar,
