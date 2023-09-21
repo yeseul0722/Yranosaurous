@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyledSideListContainer } from './Sidelist.styled';
-import GosungCategory from '../category';
+import GosungCategory from '../foodcategory';
 
 const GosungSideList: React.FC = () => {
   return (
