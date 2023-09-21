@@ -1,4 +1,5 @@
 import Button from '../../../../components/button';
+import Input from '../../../../components/input';
 import useInputHook from '../../../../hooks/useInputHook';
 import { useCategoryStore } from '../../../../stores/useCategoryStore';
 import { StyledSidebar, StyledSubTitle, StyledTitle, StyledBox } from './Sidebar.styled';
@@ -52,7 +53,7 @@ const Sidebar = (props: any) => {
             </div>
             <div>
               <StyledSubTitle>장소명</StyledSubTitle>
-              <input value={placeName} onChange={(e) => setPlaceName(e.target.value)} />
+              <Input value={placeName} onChange={(e: any) => setPlaceName(e.target.value)} />
             </div>
             <div>
               <StyledSubTitle>이미지</StyledSubTitle>
@@ -60,7 +61,7 @@ const Sidebar = (props: any) => {
             </div>
             <div>
               <StyledSubTitle>세부사항</StyledSubTitle>
-              <input value={details} onChange={(e) => setDetails(e.target.value)} />
+              <Input value={details} onChange={(e: any) => setDetails(e.target.value)} />
             </div>
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
