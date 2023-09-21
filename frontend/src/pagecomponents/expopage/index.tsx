@@ -14,7 +14,6 @@ const ExpoPageComponent = () => {
       <Ticket></Ticket>
       <Tourism></Tourism>
       <Performance></Performance>
-      <StyledTest></StyledTest>
     </StyledExpoPageContainer>
   );
 };
