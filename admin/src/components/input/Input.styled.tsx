@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const StyledInput = styled.input.attrs<any>((props) => ({
-  value: props.value || undefined,
+  value: props.value || '',
   placeholder: props.placeholder || null,
 }))`
   ${(props) => {
