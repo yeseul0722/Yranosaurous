@@ -7,42 +7,46 @@ import {
   StyledDsDetailBody,
   StyledDetailTitle,
   StyledDetailTitleText,
+  StyledDetailTitleTextEn,
   StyledDeTailContent,
   StyledDsDetailCloseButton,
   StyledDeTailContentText,
 } from './DsDetail.styled';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
+import { useDinosaurDetailHook } from '../../../../hooks/dinosaur/useDinosaurDetailHook';
+import DinosaurDetailGet from '../../../../apis/dinosaur/dinosaurDetailGet';
 
 const DsDetail = (props: any) => {
   const [dsContetnt, setDsContent] = useState('');
   const dinosaurId = props.DsId;
+  const { dinosaurDetail, getDinosaurDetail } = useDinosaurDetailHook();
+
   useEffect(() => {
-    axios
-      .get(`http://`)
-      .then((res) => {
-        console.log(res.data.response.content);
-        setDsContent(res.data.response.content);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  });
-  // console.log(props.DsId);
+    getDinosaurDetail(dinosaurId);
+  }, []);
+
+  console.log(dinosaurDetail);
+  const DsKorName = dinosaurDetail.korName;
+  const DsDetailimg = dinosaurDetail.imgAddress;
+  const DsContent = dinosaurDetail.content;
+  const DsEnName = dinosaurDetail.engName;
+
   return (
     <StyledDsDetailPage>
       <StyledDsDetailWindow>
         <StyledDsDetailImgContainer>
-          <StyledDsDetailImg src={props.DsImg} />
+          <StyledDsDetailImg src={DsDetailimg} />
         </StyledDsDetailImgContainer>
         <StyledDsDetailBody>
           <StyledDetailTitle>
-            <StyledDetailTitleText>{props.DsName}</StyledDetailTitleText>
+            <StyledDetailTitleText>{DsKorName}</StyledDetailTitleText>
+            <StyledDetailTitleTextEn>{DsEnName}</StyledDetailTitleTextEn>
           </StyledDetailTitle>
           <StyledDeTailContent>
             <StyledDeTailContentText>
-              {/* {dsContetnt} */}
-              트리케라톱스는 후기 백악기 (6800만 년 전 ~ 6500만 년 전)에 살았으며 북아메리카에서 발견된 각룡류인
+              {DsContent}
+              {/* 트리케라톱스는 후기 백악기 (6800만 년 전 ~ 6500만 년 전)에 살았으며 북아메리카에서 발견된 각룡류인
               초식공룡입니다. 트리케라톱스는 머리에 세 개의 뿔과 넓은 프릴을 가진 특징을 가졌습니다. 각룡류 중에서
               몸집이 큰 편에 속하여 육상 공룡중 머리가 가장 큰 것에 속하고 있습니다.
               <br />
@@ -69,7 +73,7 @@ const DsDetail = (props: any) => {
               <br />
               | 발견장소
               <br />
-              미국
+              미국 */}
             </StyledDeTailContentText>
           </StyledDeTailContent>
         </StyledDsDetailBody>

@@ -38,8 +38,8 @@ const KoreasaurusPage = () => {
         <StyledKoreasaurusGeneration>
           <img src="/dinosaur/koDs/Koreasaurus_gen.png" />
         </StyledKoreasaurusGeneration>
-        <StyledKoreasaurusLittleTitle>최초로 한국 이름을 딴 화성 뿔공룡,</StyledKoreasaurusLittleTitle>
-        <StyledKoreasaurusTitle>코리아케라톱스</StyledKoreasaurusTitle>
+        <StyledKoreasaurusLittleTitle>최초로 한국 이름을 딴 공룡,</StyledKoreasaurusLittleTitle>
+        <StyledKoreasaurusTitle>코리아노사우루스 보성엔시스</StyledKoreasaurusTitle>
         <StyledKoreasaurusContent>
           코리아노사우루스 보성엔시스는 후기 백악기 (8500만 년 전 ~ 8300만 년 전)에 살았으며 한국의 보성군에서 발견된
           육식공룡입니다. 코리아노사우루스라는 이름은 한국에서 발견된 공룡이라는 뜻에서 비롯되었습니다. 오랜 기간 동안의
@@ -47,7 +47,7 @@ const KoreasaurusPage = () => {
         </StyledKoreasaurusContent>
       </StyledKoreasaurusBody>
       <StyledKoreasaurusFigure>
-        <StyledKoreasaurusImg src="/dinosaur/koDs/Koreasaurus_001.png" alt="Koreasaurus"></StyledKoreasaurusImg>
+        <StyledKoreasaurusImg src="/dinosaur/koDs/Koreanosaurus.png" alt="Koreasaurus"></StyledKoreasaurusImg>
         <StyledKoreasaurusCircle onClick={clickDsInfo}>
           <Lottie animationData={circle} loop autoplay />
         </StyledKoreasaurusCircle>

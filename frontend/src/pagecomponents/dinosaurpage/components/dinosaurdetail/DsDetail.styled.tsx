@@ -7,7 +7,7 @@ const StyledDsDetailPage = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2;
+  z-index: 100;
   position: fixed;
   top: 0;
   left: 0;
@@ -41,6 +41,7 @@ const StyledDsDetailImgContainer = styled.div`
   width: 24rem;
   display: flex;
   /* background: linear-gradient(to bottom, #bebebe, #ffffff); */
+  background-color: #bebebe;
 `;
 
 // const StyledDsDetailImgContainer1 = style
@@ -58,6 +59,18 @@ const StyledDetailTitleText = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
   color: ${(props) => props.theme.colors.white};
   font-size: 30px;
+  text-align: left;
+  margin: 2rem;
+  width: 25rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.5rem;
+`;
+
+const StyledDetailTitleTextEn = styled.div`
+  border-bottom: 5px solid white;
+  font-family: ${(props) => props.theme.fonts.boldfont};
+  color: ${(props) => props.theme.colors.white};
+  font-size: 20px;
   text-align: left;
   margin: 2rem;
   width: 25rem;
@@ -92,6 +105,7 @@ export {
   StyledDsDetailBody,
   StyledDetailTitle,
   StyledDetailTitleText,
+  StyledDetailTitleTextEn,
   StyledDeTailContent,
   StyledDeTailContentText,
 };

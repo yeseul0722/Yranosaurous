@@ -50,6 +50,7 @@ const StyledKoreasaurusImg = styled.img.attrs<any>((props) => ({
   border: 1px solid aquamarine;
   width: 40rem;
   height: 60rem;
+  object-fit: fill;
 `;
 
 const StyledKoreasaurusCircle = styled.div`

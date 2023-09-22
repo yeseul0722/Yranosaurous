@@ -17,6 +17,7 @@ const DsFirstPage = () => {
       globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
       // backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
       backgroundColor="#000020"
+      pointRadius={10}
     />
   );
 };

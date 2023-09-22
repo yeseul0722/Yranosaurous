@@ -9,7 +9,9 @@ const StyledDinosaurPage = styled.div.attrs<any>((props) => ({}))`
 
 const StyledCustomGlobeContainer = styled.div.attrs<any>((props) => ({}))`
   height: 100%;
-  /* flex: auto; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
 `;
 
 const StyledDinosaurListContainer = styled.div.attrs<any>((props) => ({}))`
@@ -31,6 +33,8 @@ const StyledDsListButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 50;
+  box-shadow: -4px 5px 3px 2px #2b2c38;
 `;
 
 export { StyledDinosaurPage, StyledCustomGlobeContainer, StyledDinosaurListContainer, StyledDsListButton };
