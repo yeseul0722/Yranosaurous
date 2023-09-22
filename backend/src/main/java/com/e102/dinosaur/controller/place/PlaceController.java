@@ -35,7 +35,7 @@ public class PlaceController {
 
     @PostMapping("/course")
     public ApiResponse<?> courseAdd(@RequestBody CourseRequest courseRequest) {
-        return ApiUtils.success(courseService.saveCourser(courseRequest));
+        return ApiUtils.success(courseService.saveCourse(courseRequest));
     }
 
     @GetMapping("/places")
@@ -52,5 +52,10 @@ public class PlaceController {
     @GetMapping("/festival/{startTime}")
     public ApiResponse<?> festivalList(@DateTimeFormat(pattern = "yyyy-MM-dd") @PathVariable LocalDate startTime) {
         return ApiUtils.success(festivalService.findFestival(startTime));
+    }
+
+    @GetMapping("/courses")
+    public ApiResponse<?> courseList() {
+        return ApiUtils.success(courseService.findCourses());
     }
 }

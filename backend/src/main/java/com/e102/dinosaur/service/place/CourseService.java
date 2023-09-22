@@ -8,6 +8,7 @@ import com.e102.dinosaur.domain.courseorder.CourseOrderRepository;
 import com.e102.dinosaur.domain.place.Place;
 import com.e102.dinosaur.domain.place.PlaceRepository;
 import com.e102.dinosaur.exception.BaseException;
+import com.e102.dinosaur.service.place.response.CourseResponse;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,7 @@ public class CourseService {
     private final CourseRepository courseRepository;
     private final CourseOrderRepository courseOrderRepository;
 
-    public String saveCourser(CourseRequest courseRequest) {
+    public String saveCourse(CourseRequest courseRequest) {
         Course course = courseRequest.toEntity();
         System.out.println("???");
         List<CourseOrder> courseOrderList = courseRequest.getCourseOrderRequestList()
@@ -38,5 +39,11 @@ public class CourseService {
         course.addCourseOrders(courseOrderList);
         courseRepository.save(course);
         return "저장에 성공했습니다.";
+    }
+
+    public List<CourseResponse> findCourses() {
+        return courseRepository.findAll().stream()
+                .map(CourseResponse::of)
+                .toList();
     }
 }

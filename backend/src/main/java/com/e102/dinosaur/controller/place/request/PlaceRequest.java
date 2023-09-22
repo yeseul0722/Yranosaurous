@@ -29,6 +29,7 @@ public class PlaceRequest {
                 .imgAddress(imgAddress)
                 .content(content)
                 .type(type)
+                .markerNumber(markerNumber)
                 .build();
     }
 }
