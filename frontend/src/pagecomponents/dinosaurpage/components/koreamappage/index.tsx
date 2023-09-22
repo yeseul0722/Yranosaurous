@@ -1,18 +1,18 @@
 import React from 'react';
-// import { ReactComponent as SouthKorea } from '@svg-maps/south-korea/south-korea.svg';
-import { ReactComponent as SouthKorea } from './south-korea.svg';
 import KoreaMap from '../koreamap';
+import BgDinosaur from '../../lottie/walkds.json';
+import Lottie from 'lottie-react';
+
 import {
   StyledKoreaMapPage,
   StyledKoreaMapContent,
   StyledKoreaMapTitleText,
   StyledKoreaMapText,
   StyledKoreaMap,
-  StyledKoreaMapImg,
-  StyledKoreaMapDs,
-  StyledKoreaMapDsName,
+  StyledKoreaMapBackgroundLottie,
 } from './koreaMapPage.styled';
 
+// const KoreaMapPage = ({ land }: { land: any }) => {
 const KoreaMapPage = () => {
   return (
     <StyledKoreaMapPage>
@@ -26,10 +26,10 @@ const KoreaMapPage = () => {
         {/* <SouthKorea width={500} height={630} /> */}
         <KoreaMap></KoreaMap>
         {/* <StyledKoreaMapDsName>공룡</StyledKoreaMapDsName> */}
-        <StyledKoreaMapDs>
-          <StyledKoreaMapDsName>경기도</StyledKoreaMapDsName>
-        </StyledKoreaMapDs>
       </StyledKoreaMap>
+      <StyledKoreaMapBackgroundLottie>
+        <Lottie animationData={BgDinosaur} loop autoplay />
+      </StyledKoreaMapBackgroundLottie>
     </StyledKoreaMapPage>
   );
 };

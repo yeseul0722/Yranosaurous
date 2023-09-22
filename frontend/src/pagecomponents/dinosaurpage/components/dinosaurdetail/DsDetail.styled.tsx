@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const StyledDsDetailPage = styled.div`
-  border: 1px solid red;
   width: 100%;
   height: 100%;
   background-color: #000020c0;
@@ -38,8 +37,18 @@ const StyledDsDetailBody = styled.div`
   align-content: center;
 `;
 
+const StyledDsDetailImgContainer = styled.div`
+  width: 24rem;
+  display: flex;
+  /* background: linear-gradient(to bottom, #bebebe, #ffffff); */
+`;
+
+// const StyledDsDetailImgContainer1 = style
+
 const StyledDsDetailImg = styled.img`
-  width: 40%;
+  /* width: 40%; */
+  width: 24rem;
+  object-fit: contain;
 `;
 
 const StyledDetailTitle = styled.div``;
@@ -60,6 +69,10 @@ const StyledDeTailContent = styled.div`
   display: flex;
   justify-content: center;
   overflow: scroll;
+  /* scroll-snap-type: y mandatory; */
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 `;
 
 const StyledDeTailContentText = styled.div`
@@ -74,6 +87,7 @@ export {
   StyledDsDetailPage,
   StyledDsDetailWindow,
   StyledDsDetailCloseButton,
+  StyledDsDetailImgContainer,
   StyledDsDetailImg,
   StyledDsDetailBody,
   StyledDetailTitle,

@@ -6,7 +6,6 @@ import {
   StyledDinosaurPage,
   StyledCustomGlobeContainer,
   StyledDinosaurListContainer,
-  StyledSidebarContainer,
   StyledDsListButton,
 } from './DsFirstPage.styled';
 
@@ -19,10 +18,6 @@ const DsFirstPage = () => {
 
   return (
     <StyledDinosaurPage>
-      <StyledSidebarContainer>
-        <SidebarComponent />
-      </StyledSidebarContainer>
-
       <StyledCustomGlobeContainer>
         <CustomGlobeComponent />
       </StyledCustomGlobeContainer>
