@@ -40,6 +40,7 @@ public class RestaurantDetailResponse {
     public static RestaurantDetailResponse of(Restaurant restaurant) {
         return RestaurantDetailResponse.builder()
                 .id(restaurant.getId())
+                .storeName(restaurant.getStoreName())
                 .category(restaurant.getCategory())
                 .rating(restaurant.getRating())
                 .ratingCnt(restaurant.getRatingCnt())
