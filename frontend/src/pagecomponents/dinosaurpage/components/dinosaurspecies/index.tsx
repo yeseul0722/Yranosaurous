@@ -11,9 +11,15 @@ import {
   StyledDsSpeciesPagenation,
   StyledDsSpeciesCardImg,
   StyledDsSpeciesCardName,
+  StyledDsSpeciesCardFigcaption,
+  StyledDsSpeciesCardFigcaptionName,
+  StyledDsSpeciesCardFigcaptionGo,
+  StyledDsSpeciesCardFigcaptionGoDetail,
 } from './DsSpecies.styled';
 import Modal from '../../../../components/modal';
 import DsDetail from '../dinosaurdetail';
+import DinosaurListGet from '../../../../apis/dinosaur/dinosaurListGet';
+import { useDinosaurListHook } from '../../../../hooks/dinosaur/useDinosaurListHook';
 
 const DsSpeciesComponent = () => {
   // 페이지네이션
@@ -21,27 +27,19 @@ const DsSpeciesComponent = () => {
   const cardsPerPage = 8;
 
   // 공룡 리스트
-  const [dsList, setDsList] = useState<any>([]);
-  useEffect(() => {
-    axios
-      .get(`http://`)
-      .then((res) => {
-        // console.log(res.data.response);
-        setDsList(res.data.response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+  const { dinosaurList } = useDinosaurListHook();
 
-  // console.log(dsList[0]);
+  // 지구본 좌표
+  // const
+  // useEffect(() => {
+  //   axios.get(`http://j9e102A.p.ssafy.io:8080/api/dinosaurSub/${DsEnName}`);
+  // })
 
   //페이지 이동
   const indexLastCard = currentPage * cardsPerPage;
   const indexFirstCard = indexLastCard - cardsPerPage;
-  const currentCards = dsList.slice(indexFirstCard, indexLastCard);
-  const totalPages = Math.ceil(dsList.length / cardsPerPage);
-  // console.log(currentCards);
+  const currentCards = dinosaurList.slice(indexFirstCard, indexLastCard);
+  const totalPages = Math.ceil(dinosaurList.length / cardsPerPage);
 
   const goPrePage = () => {
     if (currentPage > 1) {
@@ -61,9 +59,9 @@ const DsSpeciesComponent = () => {
   const [DsId, setDsId] = useState();
   const [DsName, setDsName] = useState();
   const [DsImg, setDsImg] = useState();
+  const [DsEnName, setDsEnName] = useState();
 
   const openDetail = (e: any) => {
-    // console.log('타겟', e);
     setDsId(e.target.id);
     setDsName(e.target.alt);
     setDsImg(e.target.src);
@@ -86,9 +84,18 @@ const DsSpeciesComponent = () => {
       <StyledDsSpeciesBody>
         <StyledDsSpeciesCardList>
           {currentCards.map((card: any) => (
-            <StyledDsSpeciesCard key={card.id} onClick={openDetail}>
+            // 공룡 카드
+            <StyledDsSpeciesCard key={card.id}>
               <StyledDsSpeciesCardImg id={card.id} src={card.imgAddress} alt={card.korName} />
-              <StyledDsSpeciesCardName>{card.korName}</StyledDsSpeciesCardName>
+              <StyledDsSpeciesCardName>| {card.korName}</StyledDsSpeciesCardName>
+              <StyledDsSpeciesCardFigcaption>
+                <StyledDsSpeciesCardFigcaptionGo>
+                  <StyledDsSpeciesCardFigcaptionGoDetail>🌍 지구본에서 보기</StyledDsSpeciesCardFigcaptionGoDetail>
+                  <StyledDsSpeciesCardFigcaptionGoDetail onClick={openDetail} id={card.id}>
+                    🦕 공룡상세 정보
+                  </StyledDsSpeciesCardFigcaptionGoDetail>
+                </StyledDsSpeciesCardFigcaptionGo>
+              </StyledDsSpeciesCardFigcaption>
             </StyledDsSpeciesCard>
           ))}
         </StyledDsSpeciesCardList>
@@ -106,7 +113,7 @@ const DsSpeciesComponent = () => {
           {currentPage} / {totalPages}
           <button
             onClick={goNextPage}
-            disabled={currentPage === Math.ceil(dsList.length / cardsPerPage)}
+            disabled={currentPage === Math.ceil(dinosaurList.length / cardsPerPage)}
             style={{ margin: '5px', background: 'none' }}
           >
             ▶
