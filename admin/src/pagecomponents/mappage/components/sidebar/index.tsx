@@ -55,83 +55,143 @@ const Sidebar = (props: any) => {
             </div>
             <div>
               <StyledSubTitle>마커 고르기</StyledSubTitle>
-              <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
+              <div
+                style={{
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  justifyContent: 'space-between',
+                  height: '260px',
+                  alignContent: 'space-between',
+                }}
+              >
                 <img
                   src="/images/map/markers/dino.png"
                   alt="1"
-                  style={{ width: '58px', border: selectedMarker === '1' ? '1.8px solid #599198' : 'none' }}
+                  style={{
+                    width: '58px',
+                    height: '58px',
+                    border: selectedMarker === '1' ? '1.8px solid #599198' : 'none',
+                  }}
                   onClick={() => handleImageClick('1')}
                 />
                 <img
                   src="/images/map/markers/baby.png"
                   alt="2"
-                  style={{ width: '58px', border: selectedMarker === '2' ? '1.8px solid #599198' : 'none' }}
+                  style={{
+                    width: '58px',
+                    height: '58px',
+                    border: selectedMarker === '2' ? '1.8px solid #599198' : 'none',
+                  }}
                   onClick={() => handleImageClick('2')}
                 />
                 <img
                   src="/images/map/markers/biking.png"
                   alt="3"
-                  style={{ width: '58px', border: selectedMarker === '3' ? '1.8px solid #599198' : 'none' }}
+                  style={{
+                    width: '58px',
+                    height: '58px',
+                    border: selectedMarker === '3' ? '1.8px solid #599198' : 'none',
+                  }}
                   onClick={() => handleImageClick('3')}
                 />
                 <img
                   src="/images/map/markers/cafe.png"
                   alt="4"
-                  style={{ width: '58px', border: selectedMarker === '4' ? '1.8px solid #599198' : 'none' }}
+                  style={{
+                    width: '58px',
+                    height: '58px',
+                    border: selectedMarker === '4' ? '1.8px solid #599198' : 'none',
+                  }}
                   onClick={() => handleImageClick('4')}
                 />
                 <img
                   src="/images/map/markers/3d.png"
                   alt="5"
-                  style={{ width: '58px', border: selectedMarker === '5' ? '1.8px solid #599198' : 'none' }}
+                  style={{
+                    width: '58px',
+                    height: '58px',
+                    border: selectedMarker === '5' ? '1.8px solid #599198' : 'none',
+                  }}
                   onClick={() => handleImageClick('5')}
                 />
                 <img
                   src="/images/map/markers/food.png"
                   alt="6"
-                  style={{ width: '58px', border: selectedMarker === '6' ? '1.8px solid #599198' : 'none' }}
+                  style={{
+                    width: '58px',
+                    height: '58px',
+                    border: selectedMarker === '6' ? '1.8px solid #599198' : 'none',
+                  }}
                   onClick={() => handleImageClick('6')}
                 />
                 <img
                   src="/images/map/markers/foodcart.png"
                   alt="7"
-                  style={{ width: '58px', border: selectedMarker === '7' ? '1.8px solid #599198' : 'none' }}
+                  style={{
+                    width: '58px',
+                    height: '58px',
+                    border: selectedMarker === '7' ? '1.8px solid #599198' : 'none',
+                  }}
                   onClick={() => handleImageClick('7')}
                 />
                 <img
                   src="/images/map/markers/museum.png"
                   alt="8"
-                  style={{ width: '58px', border: selectedMarker === '8' ? '1.8px solid #599198' : 'none' }}
+                  style={{
+                    width: '58px',
+                    height: '58px',
+                    border: selectedMarker === '8' ? '1.8px solid #599198' : 'none',
+                  }}
                   onClick={() => handleImageClick('8')}
                 />
                 <img
                   src="/images/map/markers/park.png"
                   alt="9"
-                  style={{ width: '58px', border: selectedMarker === '9' ? '1.8px solid #599198' : 'none' }}
+                  style={{
+                    width: '58px',
+                    height: '58px',
+                    border: selectedMarker === '9' ? '1.8px solid #599198' : 'none',
+                  }}
                   onClick={() => handleImageClick('9')}
                 />
                 <img
                   src="/images/map/markers/plant.png"
                   alt="10"
-                  style={{ width: '58px', border: selectedMarker === '10' ? '1.8px solid #599198' : 'none' }}
+                  style={{
+                    width: '58px',
+                    height: '58px',
+                    border: selectedMarker === '10' ? '1.8px solid #599198' : 'none',
+                  }}
                   onClick={() => handleImageClick('10')}
                 />
                 <img
                   src="/images/map/markers/play.png"
                   alt="11"
-                  style={{ width: '58px', border: selectedMarker === '11' ? '1.8px solid #599198' : 'none' }}
+                  style={{
+                    width: '58px',
+                    height: '58px',
+                    border: selectedMarker === '11' ? '1.8px solid #599198' : 'none',
+                  }}
                   onClick={() => handleImageClick('11')}
                 />
                 <img
                   src="/images/map/markers/stroller.png"
                   alt="12"
-                  style={{ width: '58px', border: selectedMarker === '12' ? '1.8px solid #599198' : 'none' }}
+                  style={{
+                    width: '58px',
+                    height: '58px',
+                    border: selectedMarker === '12' ? '1.8px solid #599198' : 'none',
+                  }}
                   onClick={() => handleImageClick('12')}
                 />
                 <img
                   src="/images/map/markers/toilet.png"
                   alt="13"
-                  style={{ width: '58px', border: selectedMarker === '13' ? '1.8px solid #599198' : 'none' }}
+                  style={{
+                    width: '58px',
+                    height: '58px',
+                    border: selectedMarker === '13' ? '1.8px solid #599198' : 'none',
+                  }}
                   onClick={() => handleImageClick('13')}
                 />
               </div>
