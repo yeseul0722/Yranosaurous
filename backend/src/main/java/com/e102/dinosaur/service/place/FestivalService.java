@@ -5,11 +5,15 @@ import com.e102.dinosaur.domain.festival.Festival;
 import com.e102.dinosaur.domain.festival.FestivalRepository;
 import com.e102.dinosaur.domain.place.Place;
 import com.e102.dinosaur.domain.place.PlaceRepository;
+import com.e102.dinosaur.domain.place.PlaceType;
 import com.e102.dinosaur.exception.BaseException;
 import com.e102.dinosaur.service.place.response.FestivalResponse;
+import com.e102.dinosaur.service.place.response.PlaceResponse;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -26,6 +30,13 @@ public class FestivalService {
         place.addFestival(festival);
         festivalRepository.save(festival);
         return FestivalResponse.of(festival);
+    }
+
+    public List<PlaceResponse> findFestivals() {
+        List<Place> placeList = placeRepository.findByType(PlaceType.PREVIEW);
+        return placeList.stream()
+                .map(PlaceResponse::festivalOf)
+                .toList();
     }
 
 }
