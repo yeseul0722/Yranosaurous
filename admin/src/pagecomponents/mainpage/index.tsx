@@ -2,10 +2,12 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { StyledMainpage, StyledBox, StyledTitle, StyledInputBox, StyledInput, StyledWrongMsg } from './Mainpage.styled';
+import useLoginStore from '../../stores/login/useLoginStore';
 
 const MainPage = () => {
   const [inputValue, setInputValue] = useState('');
   const [wrongvalue, setWrongvalue] = useState(0);
+  const { setLogin } = useLoginStore();
   const navigate = useNavigate();
 
   const handleSubmit = (e: any) => {
@@ -13,6 +15,7 @@ const MainPage = () => {
 
     if (inputValue === process.env.REACT_APP_ADMIN_KEY) {
       setWrongvalue(0);
+      setLogin(true);
       navigate('/map');
     } else {
       setWrongvalue(wrongvalue + 1);
