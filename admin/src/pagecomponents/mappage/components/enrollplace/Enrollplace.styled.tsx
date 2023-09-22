@@ -34,7 +34,7 @@ const StyledBox = styled.div.attrs<any>((props) => ({}))`
 `;
 
 const StyledTextarea = styled(TextareaAutosize).attrs<any>((props) => ({}))`
-  width: 250px;
+  width: 243px;
   padding-top: 8px;
   min-height: 25px;
   border: 1.75px solid ${(props) => props.theme.colors.main};
