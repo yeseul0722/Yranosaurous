@@ -9,10 +9,7 @@ import com.e102.dinosaur.service.place.PlaceService;
 import com.e102.dinosaur.utils.ApiResponse;
 import com.e102.dinosaur.utils.ApiUtils;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -36,5 +33,15 @@ public class PlaceController {
     @PostMapping("/course")
     public ApiResponse<?> courseAdd(@RequestBody CourseRequest courseRequest) {
         return ApiUtils.success(courseService.saveCourser(courseRequest));
+    }
+
+    @GetMapping("/places")
+    public ApiResponse<?> placeList() {
+        return ApiUtils.success(placeService.findPlaces());
+    }
+
+    @GetMapping("/festivals")
+    public ApiResponse<?> festivalList() {
+        return ApiUtils.success(festivalService.findFestivals());
     }
 }

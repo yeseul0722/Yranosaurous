@@ -8,6 +8,8 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Transactional
@@ -18,6 +20,12 @@ public class PlaceService {
     public PlaceResponse savePlace(PlaceRequest placeRequest) {
         Place place = placeRequest.toEntity();
         placeRepository.save(place);
-        return PlaceResponse.saveOf(place);
+        return PlaceResponse.of(place);
+    }
+
+    public List<PlaceResponse> findPlaces() {
+        return placeRepository.findAll().stream()
+                .map(PlaceResponse::of)
+                .toList();
     }
 }

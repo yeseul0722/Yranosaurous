@@ -2,7 +2,6 @@ package com.e102.dinosaur.service.place.response;
 
 
 import com.e102.dinosaur.domain.courseorder.CourseOrder;
-import com.e102.dinosaur.domain.festival.Festival;
 import com.e102.dinosaur.domain.place.Place;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
@@ -28,12 +27,12 @@ public class PlaceResponse {
     private String type;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private List<Festival> festivalList;
+    private List<FestivalResponse> festivalList;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private List<CourseOrder> courseOrderList;
 
-    public static PlaceResponse saveOf(Place place) {
+    public static PlaceResponse of(Place place) {
         return PlaceResponse.builder()
                 .id(place.getId())
                 .name(place.getName())
@@ -43,6 +42,22 @@ public class PlaceResponse {
                 .imgAddress(place.getImgAddress())
                 .content(place.getContent())
                 .type(place.getType().getText())
+                .build();
+    }
+
+    public static PlaceResponse festivalOf(Place place) {
+        return PlaceResponse.builder()
+                .id(place.getId())
+                .name(place.getName())
+                .longitude(place.getLongitude())
+                .latitude(place.getLatitude())
+                .markerNumber(place.getMarkerNumber())
+                .imgAddress(place.getImgAddress())
+                .content(place.getContent())
+                .type(place.getType().getText())
+                .festivalList(place.getFestivalList().stream().map(
+                        FestivalResponse::of
+                ).toList())
                 .build();
     }
 }
