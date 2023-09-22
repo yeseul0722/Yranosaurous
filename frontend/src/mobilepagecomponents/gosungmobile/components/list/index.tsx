@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   StyledListButtonContainer,
   StyledListContainer,
@@ -6,28 +6,40 @@ import {
   StyledButtonBox,
   StyledButton,
 } from './List.styled';
+import Tour from '../tour';
 
 const List = (props: any) => {
-  console.log(props.tourList);
-  // 내일 할거
-  // 관광 컴포넌트 만들기
-  // 카테고리 만들기
-  // 카테고리 선택 시 map돌면서 해당 카테고리인 것만 보여주기
+  const [selectList, setSelectList] = useState('');
+  const onClick = (e: any) => {
+    if (selectList === e.target.name) {
+      setSelectList('');
+    } else {
+      setSelectList(e.target.name);
+    }
+  };
+
   return (
     <StyledListContainer>
       <StyledListTopContainer>
         <StyledListButtonContainer>
           <StyledButtonBox>
-            <StyledButton>맛집</StyledButton>
+            <StyledButton name="restaurant" onClick={onClick}>
+              맛집
+            </StyledButton>
           </StyledButtonBox>
           <StyledButtonBox>
-            <StyledButton>숙박</StyledButton>
+            <StyledButton name="lodgment" onClick={onClick}>
+              숙박
+            </StyledButton>
           </StyledButtonBox>
           <StyledButtonBox>
-            <StyledButton>관광</StyledButton>
+            <StyledButton name="tour" onClick={onClick}>
+              관광
+            </StyledButton>
           </StyledButtonBox>
         </StyledListButtonContainer>
       </StyledListTopContainer>
+      {selectList === 'tour' && <Tour tourList={props.tourList}></Tour>}
     </StyledListContainer>
   );
 };
