@@ -4,6 +4,8 @@ import {
   StyledKoreaDsTitle,
   StyledKoreaDsTitleText,
   StyledKoreaDsContentText,
+  StyledKoreaDsImg,
+  StyledKoreaDsImgContainer,
 } from './koreaDsPage.styled';
 
 const KoreaDsPage = () => {
@@ -17,6 +19,9 @@ const KoreaDsPage = () => {
           그리고 부경고사우루스🦕까지
         </StyledKoreaDsContentText>
       </StyledKoreaDsTitle>
+      <StyledKoreaDsImgContainer>
+        <StyledKoreaDsImg src="/dinosaur/koDs/Korea4.png" alt="ceratops"></StyledKoreaDsImg>
+      </StyledKoreaDsImgContainer>
     </StyledKoreaDsPage>
   );
 };

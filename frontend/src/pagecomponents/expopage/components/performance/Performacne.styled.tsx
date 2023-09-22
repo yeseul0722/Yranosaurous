@@ -29,7 +29,7 @@ const StyeldPerformanceContent = styled.div`
 `;
 
 const StyledCarouselContainer = styled.div`
-  max-width: 700px;
+  width: 700px;
 `;
 
 const StyledPerformanceInfo = styled.div`

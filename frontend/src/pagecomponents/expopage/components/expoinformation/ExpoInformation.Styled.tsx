@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const StyledExpoInfoPage = styled.div`
   display: flex;
-  margin: 100px 200px 0px 200px;
+  margin: 0px 200px;
   gap: 15px;
   min-width: 1120px;
 `;
