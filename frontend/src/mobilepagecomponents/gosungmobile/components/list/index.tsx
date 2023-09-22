@@ -7,15 +7,14 @@ import {
   StyledButton,
 } from './List.styled';
 import Tour from '../tour';
+import useGosungListStore from '../../../../stores/mobilegosung/useGosungListStore';
 
 const List = (props: any) => {
-  const [selectList, setSelectList] = useState('');
-  const onClick = (e: any) => {
-    if (selectList === e.target.name) {
-      setSelectList('');
-    } else {
-      setSelectList(e.target.name);
-    }
+  // const [selectList, setSelectList] = useState('');
+  const selectList = useGosungListStore((state: any) => state.selectList);
+  const setSelectList = useGosungListStore((state: any) => state.setSelectList);
+  const handleList = (e: any) => {
+    setSelectList(e.target.name);
   };
 
   return (
@@ -23,17 +22,17 @@ const List = (props: any) => {
       <StyledListTopContainer>
         <StyledListButtonContainer>
           <StyledButtonBox>
-            <StyledButton name="restaurant" onClick={onClick}>
+            <StyledButton name="restaurant" onClick={handleList}>
               맛집
             </StyledButton>
           </StyledButtonBox>
           <StyledButtonBox>
-            <StyledButton name="lodgment" onClick={onClick}>
+            <StyledButton name="lodgment" onClick={handleList}>
               숙박
             </StyledButton>
           </StyledButtonBox>
           <StyledButtonBox>
-            <StyledButton name="tour" onClick={onClick}>
+            <StyledButton name="tour" onClick={handleList}>
               관광
             </StyledButton>
           </StyledButtonBox>

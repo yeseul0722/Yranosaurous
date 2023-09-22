@@ -8,48 +8,62 @@ import {
   StyledTourImg,
   StyledTourName,
 } from './Tour.styled';
-import useTourStore from '../../../../stores/mobilegosung/useTourStore';
+import useTourStore from '../../../../stores/mobilegosung/useGosungListStore';
+import axios from 'axios';
+import { useTourDetailHook } from '../../../../hooks/gosung/useTourDetailHook';
 
 const MobileTour = (props: any) => {
-  const tourList = props.tourList;
-  const tour = useTourStore((state: any) => state.tour);
+  const tourList = props.tourList; // 전체 리스트
+  const selectCategory = useTourStore((state: any) => state.selectCategory); // 선택한 카테고리
+  const setSelectCategory = useTourStore((state: any) => state.setSelectCategory);
+  const resetCategory = useTourStore((state: any) => state.resetCategory);
+
+  const tour = useTourStore((state: any) => state.tour); // 선택한 관광지
   const setTour = useTourStore((state: any) => state.setTour);
-  const [selectCategory, setSelectCategory] = useState('');
-  const onClick = (e: any) => {
-    if (selectCategory === e.target.name) {
-      setSelectCategory('');
-    } else {
-      setSelectCategory(e.target.name);
-    }
-  };
+  const resetTour = useTourStore((state: any) => state.resetTour);
+
+  const { tourDetail, getTourDetail } = useTourDetailHook();
+
   useEffect(() => {
-    console.log(tour);
-  }, [tour]);
+    resetCategory();
+    resetTour();
+  }, []);
+
+  const handleSelectCategory = (e: any) => {
+    setSelectCategory(e.target.name);
+  };
+
+  const getApi = (e: any) => {
+    setTour(e.name);
+    console.log(e);
+    getTourDetail(e.id);
+  };
+
   return (
     <StyldTourCategoryContainer>
       <StyledTourCategoryButtonContainer>
-        <StyledTourCategoryButton name="MOUNTAIN" onClick={onClick}>
+        <StyledTourCategoryButton name="MOUNTAIN" onClick={handleSelectCategory}>
           산
         </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="NATURAL" onClick={onClick}>
+        <StyledTourCategoryButton name="NATURAL" onClick={handleSelectCategory}>
           자연
         </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="CAMPING" onClick={onClick}>
+        <StyledTourCategoryButton name="CAMPING" onClick={handleSelectCategory}>
           캠핑
         </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="PARK" onClick={onClick}>
+        <StyledTourCategoryButton name="PARK" onClick={handleSelectCategory}>
           공원
         </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="MUSEUM" onClick={onClick}>
+        <StyledTourCategoryButton name="MUSEUM" onClick={handleSelectCategory}>
           박물관
         </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="TEMPLE" onClick={onClick}>
+        <StyledTourCategoryButton name="TEMPLE" onClick={handleSelectCategory}>
           사원
         </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="AUDITORIUM" onClick={onClick}>
+        <StyledTourCategoryButton name="AUDITORIUM" onClick={handleSelectCategory}>
           문화재
         </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="OLD_HOUSE" onClick={onClick}>
+        <StyledTourCategoryButton name="OLD_HOUSE" onClick={handleSelectCategory}>
           전통가옥
         </StyledTourCategoryButton>
       </StyledTourCategoryButtonContainer>
@@ -57,7 +71,7 @@ const MobileTour = (props: any) => {
         {tourList.map((location: any) => {
           if (selectCategory === location.category) {
             return (
-              <StyledTourContent key={location.id} onClick={() => setTour(location.name)}>
+              <StyledTourContent key={location.id} onClick={() => getApi(location)}>
                 <StyledTourImg src={location.imgUrl} alt={location.name}></StyledTourImg>
                 <StyledTourName>{location.name}</StyledTourName>
               </StyledTourContent>
