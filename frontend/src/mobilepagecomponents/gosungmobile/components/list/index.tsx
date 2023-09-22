@@ -7,10 +7,10 @@ import {
   StyledButton,
 } from './List.styled';
 import Tour from '../tour';
+import Restaurant from '../restaurant';
 import useGosungListStore from '../../../../stores/mobilegosung/useGosungListStore';
 
 const List = (props: any) => {
-  // const [selectList, setSelectList] = useState('');
   const selectList = useGosungListStore((state: any) => state.selectList);
   const setSelectList = useGosungListStore((state: any) => state.setSelectList);
   const handleList = (e: any) => {
@@ -39,6 +39,7 @@ const List = (props: any) => {
         </StyledListButtonContainer>
       </StyledListTopContainer>
       {selectList === 'tour' && <Tour tourList={props.tourList}></Tour>}
+      {selectList === 'restaurant' && <Restaurant tourList={props.tourList}></Restaurant>}
     </StyledListContainer>
   );
 };
