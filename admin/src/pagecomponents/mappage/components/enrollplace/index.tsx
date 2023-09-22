@@ -2,6 +2,7 @@ import Button from '../../../../components/button';
 import Input from '../../../../components/input';
 import { StyledSubTitle, StyledBox, StyledTextarea } from './Enrollplace.styled';
 import usePlaceHook from '../../../../hooks/usePlaceHook';
+import enrollPlacePost from '../../../../apis/place/enrollPlacePost';
 
 interface Props {
   position: {
@@ -29,16 +30,24 @@ const Enrollplace = ({ position }: Props) => {
     'ticket',
   ];
 
-  const handleSaveClick = () => {
-    const data = {
-      위도: position.lat,
-      경도: position.lng,
-      장소TYPE: state.placeType,
-      장소명: state.placeName,
-      이미지: state.image ? state.image.name : '없음',
-      세부사항: state.details,
-    };
-    console.log(JSON.stringify(data, null, 2));
+  const handleSaveClick = async () => {
+    try {
+      const data = {
+        name: state.placeName,
+        longitude: position.lng.toString(),
+        latitude: position.lat.toString(),
+        imgAddress: state.image ? state.image.name : '',
+        content: state.details,
+        markerNumber: state.selectedMarker ? parseInt(state.selectedMarker) : 1,
+        type: state.placeType === '편의 시설' ? 'CONV' : 'PREVIEW',
+      };
+      const response = await enrollPlacePost(data);
+      if (response) {
+        console.log('Successfully posted:', response);
+      }
+    } catch (err) {
+      console.error('Error posting data:', err);
+    }
   };
 
   const handleImageClick = (alt: string) => {
