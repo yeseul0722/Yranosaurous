@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const StyledListContainer = styled.div`
   width: 100%;
-  height: 100%;
+  max-height: 90vh;
   background-color: ${(props) => props.theme.colors.white};
   border-top-right-radius: 48px;
   border-top-left-radius: 48px;
