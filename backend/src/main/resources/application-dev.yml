@@ -21,3 +21,7 @@ spring:
 logging:
   level:
     org.hibernate.SQL: debug
+
+elasticsearch:
+  host: ${ELASTICSEARCH_HOST}
+  port: ${ELASTICSEARCH_PORT}
