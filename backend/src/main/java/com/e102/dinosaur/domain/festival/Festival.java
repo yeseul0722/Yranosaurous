@@ -3,10 +3,10 @@ package com.e102.dinosaur.domain.festival;
 import com.e102.dinosaur.domain.place.Place;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Getter
@@ -18,10 +18,20 @@ public class Festival {
     private Long id;
 
     private String name;
-    private LocalDate startDate;
     private LocalDateTime startTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "place_id")
     private Place place;
+
+    @Builder
+    public Festival(String name, LocalDateTime startTime, Place place) {
+        this.name = name;
+        this.startTime = startTime;
+        this.place = place;
+    }
+
+    public void addPlace(Place place) {
+        this.place = place;
+    }
 }

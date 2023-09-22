@@ -8,6 +8,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -50,4 +51,13 @@ public class Place {
         this.courseOrderList = courseOrderList;
         this.markerNumber = markerNumber;
     }
+
+    public void addFestival(Festival festival) {
+        if (festivalList == null) {
+            festivalList = new ArrayList<>();
+        }
+        festivalList.add(festival);
+        festival.addPlace(this);
+    }
+    
 }
