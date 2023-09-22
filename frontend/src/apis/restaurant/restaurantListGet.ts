@@ -1,10 +1,10 @@
 import api from '../api';
 
-const tourDetailGet = async (tourId: any) => {
+const restaurantListGet = async (category: any) => {
   try {
     const response = await api({
       method: 'get',
-      url: `/tour/${tourId}`,
+      url: `/restaurant/${category}`,
     });
     return response;
   } catch (error) {
@@ -12,4 +12,4 @@ const tourDetailGet = async (tourId: any) => {
   }
 };
 
-export default tourDetailGet;
+export default restaurantListGet;

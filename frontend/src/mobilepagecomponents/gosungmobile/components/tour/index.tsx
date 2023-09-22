@@ -37,6 +37,8 @@ const MobileTour = (props: any) => {
     setTour(e.name);
     console.log(e);
     getTourDetail(e.id);
+    // 관광지 상세정보 조회 했음
+    // 주소로 지도 위 마커 찍기
   };
 
   return (
