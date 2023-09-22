@@ -4,6 +4,7 @@ import com.e102.dinosaur.domain.course.Course;
 import com.e102.dinosaur.domain.place.Place;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -24,4 +25,18 @@ public class CourseOrder {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "place_id")
     private Place place;
+
+    @Builder
+    public CourseOrder(int sequence) {
+        this.sequence = sequence;
+    }
+
+    public void addCourse(Course course) {
+        this.course = course;
+    }
+
+    public void addPlace(Place place) {
+        this.place = place;
+    }
+
 }

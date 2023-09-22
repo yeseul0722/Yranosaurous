@@ -1,4 +1,6 @@
 package com.e102.dinosaur.domain.courseorder;
 
-public interface CourseOrderRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CourseOrderRepository extends JpaRepository<CourseOrder, Long> {
 }
