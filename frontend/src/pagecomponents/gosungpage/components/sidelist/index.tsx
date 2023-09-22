@@ -1,10 +1,11 @@
 import React from 'react';
-import { StyledSideListContainer } from './Sidelist.styled';
-import GosungCategory from '../category';
+import { StyledMenu, StyledSideListContainer } from './Sidelist.styled';
+import GosungCategory from '../foodcategory';
 
 const GosungSideList: React.FC = () => {
   return (
     <StyledSideListContainer>
+      <StyledMenu>고성 맛집</StyledMenu>
       <GosungCategory />
     </StyledSideListContainer>
   );
