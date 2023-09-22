@@ -21,9 +21,10 @@ const StyledTitle = styled.div.attrs<any>((props) => ({}))`
     const font = props.theme.fonts.boldfont;
     return css`
       color: ${color};
-      font: ${font};
+      font-family: ${font};
       font-size: 50px;
       font-weight: 550;
+      text-align: center;
     `;
   }}
 `;
@@ -49,4 +50,17 @@ const StyledInput = styled.input`
   font-size: 17px;
 `;
 
-export { StyledMainpage, StyledBox, StyledTitle, StyledInputBox, StyledInput };
+const StyledWrongMsg = styled.div.attrs<any>((props) => ({}))`
+  ${(props) => {
+    const color = props.theme.colors.black;
+    const font = props.theme.fonts.regularfont;
+    return css`
+      color: ${color};
+      font-family: ${font};
+      font-size: 15px;
+      padding: 5px 0px 0px 30px;
+    `;
+  }}
+`;
+
+export { StyledMainpage, StyledBox, StyledTitle, StyledInputBox, StyledInput, StyledWrongMsg };

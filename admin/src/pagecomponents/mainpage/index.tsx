@@ -1,19 +1,21 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { StyledMainpage, StyledBox, StyledTitle, StyledInputBox, StyledInput } from './Mainpage.styled';
+import { StyledMainpage, StyledBox, StyledTitle, StyledInputBox, StyledInput, StyledWrongMsg } from './Mainpage.styled';
 
 const MainPage = () => {
   const [inputValue, setInputValue] = useState('');
+  const [wrongvalue, setWrongvalue] = useState(0);
   const navigate = useNavigate();
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
 
     if (inputValue === process.env.REACT_APP_ADMIN_KEY) {
+      setWrongvalue(0);
       navigate('/map');
     } else {
-      console.log('Incorrect password!');
+      setWrongvalue(wrongvalue + 1);
     }
   };
 
@@ -40,6 +42,7 @@ const MainPage = () => {
               onChange={(e) => setInputValue(e.target.value)}
             />
           </StyledInputBox>
+          {wrongvalue > 0 && <StyledWrongMsg> 틀렸습니다 ({wrongvalue}회)</StyledWrongMsg>}
           <button type="submit" style={{ display: 'none' }}>
             Submit
           </button>
