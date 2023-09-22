@@ -4,7 +4,7 @@ const StyledosunMobilePage = styled.div``;
 
 const StyledListContainer = styled.div`
   width: 100%;
-  max-height: 50%;
+
   position: absolute;
   bottom: 0px;
   z-index: 2;
