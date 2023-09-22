@@ -21,7 +21,7 @@ public class FestivalService {
 
     public FestivalResponse saveFestival(FestivalRequest festivalRequest) {
         Place place = placeRepository.findById(festivalRequest.getPlaceId())
-                .orElseThrow(() -> new BaseException("없는 장소입니다.", 7000));
+                .orElseThrow(() -> new BaseException("존재하지 않는 장소입니다.", 7000));
         Festival festival = festivalRequest.toEntity();
         place.addFestival(festival);
         festivalRepository.save(festival);

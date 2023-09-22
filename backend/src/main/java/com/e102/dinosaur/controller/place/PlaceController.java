@@ -32,4 +32,9 @@ public class PlaceController {
     public ApiResponse<?> festivalAdd(@RequestBody FestivalRequest festivalRequest) {
         return ApiUtils.success(festivalService.saveFestival(festivalRequest));
     }
+
+    @PostMapping("/course")
+    public ApiResponse<?> courseAdd(@RequestBody CourseRequest courseRequest) {
+        return ApiUtils.success(courseService.saveCourser(courseRequest));
+    }
 }
