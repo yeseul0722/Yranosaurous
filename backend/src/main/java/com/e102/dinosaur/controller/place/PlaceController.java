@@ -1,6 +1,9 @@
 package com.e102.dinosaur.controller.place;
 
+import com.e102.dinosaur.controller.place.request.CourseRequest;
+import com.e102.dinosaur.controller.place.request.FestivalRequest;
 import com.e102.dinosaur.controller.place.request.PlaceRequest;
+import com.e102.dinosaur.service.place.CourseService;
 import com.e102.dinosaur.service.place.FestivalService;
 import com.e102.dinosaur.service.place.PlaceService;
 import com.e102.dinosaur.utils.ApiResponse;
@@ -18,16 +21,15 @@ public class PlaceController {
 
     private final PlaceService placeService;
     private final FestivalService festivalService;
+    private final CourseService courseService;
 
     @PostMapping("/place")
     public ApiResponse<?> placeAdd(@RequestBody PlaceRequest placeRequest) {
-
         return ApiUtils.success(placeService.savePlace(placeRequest));
     }
 
     @PostMapping("/festival")
-    public ApiResponse<?> festivalAdd() {
-
-        return ApiUtils.success("성공입니다.");
+    public ApiResponse<?> festivalAdd(@RequestBody FestivalRequest festivalRequest) {
+        return ApiUtils.success(festivalService.saveFestival(festivalRequest));
     }
 }
