@@ -13,6 +13,8 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -38,5 +40,15 @@ public class FestivalService {
                 .map(PlaceResponse::festivalOf)
                 .toList();
     }
+
+    public List<FestivalResponse> findFestival(LocalDate startTime) {
+        LocalDateTime startDateTime = startTime.atStartOfDay();
+        LocalDateTime endDateTime = startTime.plusDays(1).atStartOfDay();
+        List<Festival> festivalList = festivalRepository.findByStartTimeBetween(startDateTime, endDateTime);
+        return festivalList.stream()
+                .map(FestivalResponse::of)
+                .toList();
+    }
+
 
 }

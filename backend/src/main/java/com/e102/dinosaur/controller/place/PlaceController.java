@@ -9,7 +9,10 @@ import com.e102.dinosaur.service.place.PlaceService;
 import com.e102.dinosaur.utils.ApiResponse;
 import com.e102.dinosaur.utils.ApiUtils;
 import lombok.RequiredArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
 
 @RestController
 @RequiredArgsConstructor
@@ -43,5 +46,11 @@ public class PlaceController {
     @GetMapping("/festivals")
     public ApiResponse<?> festivalList() {
         return ApiUtils.success(festivalService.findFestivals());
+    }
+
+
+    @GetMapping("/festival/{startTime}")
+    public ApiResponse<?> festivalList(@DateTimeFormat(pattern = "yyyy-MM-dd") @PathVariable LocalDate startTime) {
+        return ApiUtils.success(festivalService.findFestival(startTime));
     }
 }
