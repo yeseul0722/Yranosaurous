@@ -13,6 +13,7 @@ const StyledCloseButton = styled.div`
   z-index: 2;
   position: absolute;
   cursor: pointer;
+  top: 50%;
 `;
 
 export { StyledCloseButton };

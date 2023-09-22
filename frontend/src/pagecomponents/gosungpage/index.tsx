@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import GosungKakaoMapComponent from '../../components/kakaomap';
+import GosungKakaoMapComponent from './components/kakaomap';
 import GosungSideBar from '../../components/sidebar';
 import { StyledGosungPage } from './Gosung.styled';
 import GosungSideList from './components/sidelist';
 import GosungCloseButton from '../../components/closebutton';
-import GosungCategory from './components/category';
+import GosungCategory from './components/foodcategory';
 import { useMediaQuery } from 'react-responsive';
 import GosungMobile from '../../mobilepagecomponents/gosungmobile';
+
 const GosungComponent: React.FC = () => {
   const isMobile = useMediaQuery({
     query: '(max-width: 768px)',
