@@ -1,11 +1,23 @@
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
 import Sidebar from './components/sidebar';
 import Categories from './components/categories';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { PositionType } from './Map.type';
+import placesGet from '../../apis/place/placesGet';
 
 const MapPage = () => {
   const [position, setPosition] = useState<PositionType>();
+  const [places, setPlaces] = useState<any>([]);
+
+  useEffect(() => {
+    const fetchList = async () => {
+      const data = await placesGet();
+      setPlaces(data);
+      // console.log(data);
+    };
+    fetchList();
+  }, []);
+
   return (
     <div style={{ display: 'flex' }}>
       <Categories></Categories>
