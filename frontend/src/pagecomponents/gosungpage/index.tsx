@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import GosungKakaoMapComponent from '../../components/kakaomap';
+import GosungKakaoMapComponent from './components/kakaomap';
 import GosungSideBar from '../../components/sidebar';
 import { StyledGosungPage } from './Gosung.styled';
 import GosungSideList from './components/sidelist';
