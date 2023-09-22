@@ -24,7 +24,7 @@ const DsSpeciesComponent = () => {
   const [dsList, setDsList] = useState<any>([]);
   useEffect(() => {
     axios
-      .get(`http://j9e102A.p.ssafy.io:8080/api/dinosaurs`)
+      .get(`http://`)
       .then((res) => {
         // console.log(res.data.response);
         setDsList(res.data.response);
@@ -63,7 +63,7 @@ const DsSpeciesComponent = () => {
   const [DsImg, setDsImg] = useState();
 
   const openDetail = (e: any) => {
-    console.log('타겟', e);
+    // console.log('타겟', e);
     setDsId(e.target.id);
     setDsName(e.target.alt);
     setDsImg(e.target.src);
@@ -87,7 +87,7 @@ const DsSpeciesComponent = () => {
         <StyledDsSpeciesCardList>
           {currentCards.map((card: any) => (
             <StyledDsSpeciesCard key={card.id} onClick={openDetail}>
-              <StyledDsSpeciesCardImg src={card.imgAddress} alt={card.korName} />
+              <StyledDsSpeciesCardImg id={card.id} src={card.imgAddress} alt={card.korName} />
               <StyledDsSpeciesCardName>{card.korName}</StyledDsSpeciesCardName>
             </StyledDsSpeciesCard>
           ))}

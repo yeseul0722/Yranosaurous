@@ -22,7 +22,7 @@ const KoreaMap = () => {
   const [krDinosaurName, setKrDinosaurName] = useState('');
 
   const existLand = (e: any) => {
-    // console.log(e);
+    console.log(e.target);
     const sendLand = e.target.id;
     setLand(sendLand);
     if (sendLand === 'gyeonggi') {
@@ -41,7 +41,7 @@ const KoreaMap = () => {
         {/* <StyledMapArrowContainer land={land}> */}
 
         {/* 애니메이션 */}
-        <StyledCircleGyeonggi>
+        <StyledCircleGyeonggi id="gyeonggi" onClick={existLand}>
           <Lottie animationData={gyeonggi} loop autoplay />
         </StyledCircleGyeonggi>
         <StyledCircleSouthgyeongsang>

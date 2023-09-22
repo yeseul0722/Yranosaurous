@@ -24,7 +24,7 @@ const KoreasaurusPage = () => {
     console.log('click');
     // setDsInfo();
     axios
-      .get(`http://j9e102A.p.ssafy.io:8080/api/dinosaurs`)
+      .get(`http://`)
       .then((res: any) => {
         console.log(res.data.response);
       })

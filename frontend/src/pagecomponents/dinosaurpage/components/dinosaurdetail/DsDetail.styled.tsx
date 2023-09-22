@@ -37,8 +37,18 @@ const StyledDsDetailBody = styled.div`
   align-content: center;
 `;
 
+const StyledDsDetailImgContainer = styled.div`
+  width: 24rem;
+  display: flex;
+  /* background: linear-gradient(to bottom, #bebebe, #ffffff); */
+`;
+
+// const StyledDsDetailImgContainer1 = style
+
 const StyledDsDetailImg = styled.img`
-  width: 40%;
+  /* width: 40%; */
+  width: 24rem;
+  object-fit: contain;
 `;
 
 const StyledDetailTitle = styled.div``;
@@ -77,6 +87,7 @@ export {
   StyledDsDetailPage,
   StyledDsDetailWindow,
   StyledDsDetailCloseButton,
+  StyledDsDetailImgContainer,
   StyledDsDetailImg,
   StyledDsDetailBody,
   StyledDetailTitle,
