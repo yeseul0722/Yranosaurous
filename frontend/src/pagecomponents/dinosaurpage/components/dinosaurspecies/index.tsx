@@ -16,7 +16,6 @@ import {
   StyledDsSpeciesCardFigcaptionGo,
   StyledDsSpeciesCardFigcaptionGoDetail,
 } from './DsSpecies.styled';
-import Modal from '../../../../components/modal';
 import DsDetail from '../dinosaurdetail';
 import DinosaurListGet from '../../../../apis/dinosaur/dinosaurListGet';
 import { useDinosaurListHook } from '../../../../hooks/dinosaur/useDinosaurListHook';
@@ -30,10 +29,6 @@ const DsSpeciesComponent = () => {
   const { dinosaurList } = useDinosaurListHook();
 
   // 지구본 좌표
-  // const
-  // useEffect(() => {
-  //   axios.get(`http://j9e102A.p.ssafy.io:8080/api/dinosaurSub/${DsEnName}`);
-  // })
 
   //페이지 이동
   const indexLastCard = currentPage * cardsPerPage;
@@ -73,6 +68,17 @@ const DsSpeciesComponent = () => {
     setIsDetailOpen(false);
   };
 
+  // 공룡 지구본
+  const goGlobe = (e: any) => {
+    setDsId(e.target.id);
+    // console.log('globe콘솔', e.target.id);
+    // console.log('gl', DsId);
+  };
+
+  useEffect(() => {
+    console.log('useEffect', DsId);
+  }, [DsId]);
+
   return (
     <StyledDsSpeciesPage>
       {/* 타이틀 */}
@@ -90,8 +96,10 @@ const DsSpeciesComponent = () => {
               <StyledDsSpeciesCardName>| {card.korName}</StyledDsSpeciesCardName>
               <StyledDsSpeciesCardFigcaption>
                 <StyledDsSpeciesCardFigcaptionGo>
-                  <StyledDsSpeciesCardFigcaptionGoDetail>🌍 지구본에서 보기</StyledDsSpeciesCardFigcaptionGoDetail>
-                  <StyledDsSpeciesCardFigcaptionGoDetail onClick={openDetail} id={card.id}>
+                  <StyledDsSpeciesCardFigcaptionGoDetail onClick={goGlobe} id={card.id}>
+                    🌍 지구본에서 보기
+                  </StyledDsSpeciesCardFigcaptionGoDetail>
+                  <StyledDsSpeciesCardFigcaptionGoDetail onClick={openDetail} id={card.id} className={card.engName}>
                     🦕 공룡상세 정보
                   </StyledDsSpeciesCardFigcaptionGoDetail>
                 </StyledDsSpeciesCardFigcaptionGo>
@@ -102,7 +110,14 @@ const DsSpeciesComponent = () => {
 
         {/* 공룡 디테일 */}
         {isDetailOpen === true && (
-          <DsDetail isDetailOpen={isDetailOpen} DsName={DsName} DsImg={DsImg} DsId={DsId} closeDetail={closeDetail} />
+          <DsDetail
+            isDetailOpen={isDetailOpen}
+            DsName={DsName}
+            DsImg={DsImg}
+            DsId={DsId}
+            DsEName={DsEnName}
+            closeDetail={closeDetail}
+          />
         )}
 
         {/* 페이지 이동 */}

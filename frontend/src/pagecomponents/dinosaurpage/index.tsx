@@ -23,9 +23,6 @@ import PukyongsaurusPage from './components/pukyongosaurus';
 const Dinosaur = () => {
   return (
     <StyledDsPage>
-      <StyledDsSide>
-        <SidebarComponent></SidebarComponent>
-      </StyledDsSide>
       <StyledDsContent>
         <StyledDsLandingPage>
           <LandingPage></LandingPage>

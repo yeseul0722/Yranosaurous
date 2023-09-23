@@ -28,7 +28,7 @@ const DsDetail = (props: any) => {
     getDinosaurDetail(dinosaurId);
   }, []);
 
-  console.log(dinosaurDetail);
+  // console.log(dinosaurDetail);
   const DsKorName = dinosaurDetail.korName;
   const DsDetailimg = dinosaurDetail.imgAddress;
   const DsContent = dinosaurDetail.content;
