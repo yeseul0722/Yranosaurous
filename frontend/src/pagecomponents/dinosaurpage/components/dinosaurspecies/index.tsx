@@ -17,13 +17,14 @@ import {
   StyledDsSpeciesCardFigcaptionGoDetail,
 } from './DsSpecies.styled';
 import DsDetail from '../dinosaurdetail';
+import DsFirstPage from '../firstpage';
 import DinosaurListGet from '../../../../apis/dinosaur/dinosaurListGet';
 import { useDinosaurListHook } from '../../../../hooks/dinosaur/useDinosaurListHook';
 
 const DsSpeciesComponent = () => {
   // 페이지네이션
   const [currentPage, setCurrentPage] = useState(1);
-  const cardsPerPage = 8;
+  const cardsPerPage = 10;
 
   // 공룡 리스트
   const { dinosaurList } = useDinosaurListHook();
