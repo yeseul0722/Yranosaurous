@@ -15,7 +15,6 @@ import {
 import LandingPage from './components/landingpage';
 import KoreaDsPage from './components/koreadspage';
 import KoreaMapPage from './components/koreamappage';
-import SidebarComponent from './components/sidebar';
 import KoreaceratopsPage from './components/koreaceratopspage';
 import KoreasaurusPage from './components/koreanosaurus';
 import PukyongsaurusPage from './components/pukyongosaurus';

@@ -8,14 +8,17 @@ const DsFirstPage = () => {
     // 자동 회전
     globeEl.current.controls().autoRotate = true;
     globeEl.current.controls().autoRotateSpeed = 0.4;
+
+    const MAP_CENTER = { altitude: 2 };
+    globeEl.current.pointOfView(MAP_CENTER, 0);
   });
 
   return (
     <Globe
       ref={globeEl}
-      width={1000}
+      // width={1000}
       globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
-      // backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
+      backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
       backgroundColor="#000020"
       pointRadius={10}
     />

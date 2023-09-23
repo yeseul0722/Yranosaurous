@@ -26,15 +26,17 @@ const StyledDsSpeciesTitleText = styled.div`
 `;
 
 const StyledDsSpeciesBody = styled.div`
-  /* border: 1px solid yellow; */
+  height: 40rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 // 공룡 종 리스트
 const StyledDsSpeciesCardList = styled.div`
-  height: 530px;
+  height: auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
   flex-direction: row;
   align-content: flex-start;
 `;
@@ -117,6 +119,7 @@ const StyledDsSpeciesCardFigcaptionGoDetail = styled.div`
 // 페이지 이동
 const StyledDsSpeciesPagenation = styled.div`
   /* border: 1px solid blue; */
+  margin-top: 1.5rem;
 `;
 
 const StyledDsSpeciesPagenationButton = styled.div`
