@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const StyledDsDetailPage = styled.div`
   width: 100%;
   height: 100%;
-  background-color: #000020c0;
+  background-color: #000020be;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,16 +14,28 @@ const StyledDsDetailPage = styled.div`
 `;
 
 const StyledDsDetailWindow = styled.div`
-  background-color: #000020;
+  background-color: #a5a5a5;
   border-radius: 30px;
   overflow: hidden;
-  width: 60%;
-  height: 80%;
+  width: 65%;
+  height: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const StyldDsDetailWindowBorder = styled.div`
+  border: 3px solid ${(props) => props.theme.colors.white};
+  background-color: #a5a5a5;
+  width: 96%;
+  height: 93%;
+  border-radius: 30px;
+  overflow: hidden;
   display: flex;
   justify-content: space-between;
 `;
 
-const StyledDsDetailCloseButton = styled.div`
+const StyledDsDetailCloseButton = styled.div.attrs<any>((props) => ({}))`
   color: #ffffff;
   padding-top: 1.5rem;
   padding-right: 1rem;
@@ -37,75 +49,100 @@ const StyledDsDetailBody = styled.div`
   align-content: center;
 `;
 
-const StyledDsDetailImgContainer = styled.div`
+const StyledDsDetailInfoContainer = styled.div`
   width: 24rem;
   display: flex;
-  /* background: linear-gradient(to bottom, #bebebe, #ffffff); */
-  background-color: #bebebe;
+  flex-direction: column;
+  padding-top: 15px;
+  padding-left: 15px;
 `;
 
-// const StyledDsDetailImgContainer1 = style
-
 const StyledDsDetailImg = styled.img`
-  /* width: 40%; */
-  width: 24rem;
+  border-radius: 10px;
+  width: 21rem;
+  margin-left: 10px;
   object-fit: contain;
 `;
 
-const StyledDetailTitle = styled.div``;
+const StyledDetailTitle = styled.div`
+  /* border-bottom: 5px solid ${(props) => props.theme.colors.white}; */
+  /* margin-left: 10px; */
+  margin-bottom: 10px;
+  width: 20rem;
+`;
 
 const StyledDetailTitleText = styled.div`
-  border-bottom: 5px solid white;
   font-family: ${(props) => props.theme.fonts.boldfont};
   color: ${(props) => props.theme.colors.white};
   font-size: 30px;
   text-align: left;
-  margin: 2rem;
-  width: 25rem;
-  padding-bottom: 0.5rem;
-  padding-left: 0.5rem;
+  padding-left: 5px;
 `;
 
-const StyledDetailTitleTextEn = styled.div`
-  border-bottom: 5px solid white;
+const StyledDetailEnTitleText = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
   color: ${(props) => props.theme.colors.white};
   font-size: 20px;
   text-align: left;
-  margin: 2rem;
-  width: 25rem;
-  padding-bottom: 0.5rem;
-  padding-left: 0.5rem;
+  padding-left: 5px;
 `;
 
-const StyledDeTailContent = styled.div`
+const StyledDsDetailBox = styled.div`
+  margin-top: 15px;
+`;
+
+const StyledDetailContentTitle = styled.div`
+  font-family: ${(props) => props.theme.fonts.boldfont};
+  color: ${(props) => props.theme.colors.white};
+  font-size: 15px;
+  text-align: left;
+  padding-left: 10px;
+`;
+const StyledDetailContentText = styled.div`
+  font-family: ${(props) => props.theme.fonts.boldfont};
+  color: ${(props) => props.theme.colors.white};
+  font-size: 13px;
+  text-align: left;
+  padding-left: 15px;
+`;
+
+const StyledDeTailSummary = styled.div`
+  padding-top: 85px;
   display: flex;
   justify-content: center;
   overflow: scroll;
-  /* scroll-snap-type: y mandatory; */
+
+  margin: 10px;
+  justify-content: flex-start;
+  flex-direction: column;
+  /* width: 25rem; */
+
   &::-webkit-scrollbar {
     width: 0;
   }
 `;
 
-const StyledDeTailContentText = styled.div`
-  color: #ffffff;
-  width: 25rem;
-  margin-left: 1rem;
-  letter-spacing: 0.1rem;
+const StyledDeTailSummaryText = styled.div`
+  font-family: ${(props) => props.theme.fonts.dinoregularfont};
+  color: ${(props) => props.theme.colors.white};
+  padding: 10px;
   text-align: left;
 `;
 
 export {
   StyledDsDetailPage,
   StyledDsDetailWindow,
+  StyldDsDetailWindowBorder,
   StyledDsDetailCloseButton,
-  StyledDsDetailImgContainer,
+  StyledDsDetailInfoContainer,
   StyledDsDetailImg,
+  StyledDsDetailBox,
   StyledDsDetailBody,
   StyledDetailTitle,
   StyledDetailTitleText,
-  StyledDetailTitleTextEn,
-  StyledDeTailContent,
-  StyledDeTailContentText,
+  StyledDetailEnTitleText,
+  StyledDetailContentTitle,
+  StyledDetailContentText,
+  StyledDeTailSummary,
+  StyledDeTailSummaryText,
 };

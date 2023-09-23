@@ -1,7 +1,8 @@
 import React from 'react';
+import { ScrollableContainer } from './Sidebar.styled';
 
 const SidebarComponent = () => {
-  return <div>사이드바</div>;
+  return <ScrollableContainer>스크롤바</ScrollableContainer>;
 };
 
 export default SidebarComponent;
