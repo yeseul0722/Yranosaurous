@@ -44,13 +44,13 @@ const MobileLodgment = (props: any) => {
   return (
     <StyldTourCategoryContainer>
       <StyledTourCategoryButtonContainer>
-        <StyledTourCategoryButton name="모텔" onClick={handleSelectCategory}>
+        <StyledTourCategoryButton name="모텔" select={selectCategory} onClick={handleSelectCategory}>
           모텔
         </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="펜션" onClick={handleSelectCategory}>
+        <StyledTourCategoryButton name="펜션" select={selectCategory} onClick={handleSelectCategory}>
           펜션
         </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="게스트하우스" onClick={handleSelectCategory}>
+        <StyledTourCategoryButton name="게스트하우스" select={selectCategory} onClick={handleSelectCategory}>
           게스트하우스
         </StyledTourCategoryButton>
       </StyledTourCategoryButtonContainer>

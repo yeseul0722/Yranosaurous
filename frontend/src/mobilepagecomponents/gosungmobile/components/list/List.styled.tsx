@@ -26,9 +26,9 @@ const StyledButtonBox = styled.div`
   height: 45px;
 `;
 
-const StyledButton = styled.button`
+const StyledButton = styled.button.attrs<any>((props) => ({}))`
   border-radius: 20px;
-  background-color: ${(props) => props.theme.colors.light};
+  background-color: ${(props) => (props.name === props.select ? props.theme.colors.night : props.theme.colors.light)};
   color: ${(props) => props.theme.colors.white};
   font-size: 20px;
   padding-bottom: 10px;
