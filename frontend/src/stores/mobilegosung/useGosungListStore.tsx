@@ -25,8 +25,6 @@ const useGosungListStore = create((set) => ({
   setTour: (data: any) => set((state: any) => ({ tour: data })),
   resetTour: () => set(() => ({ tour: '' })), // 처음 랜더링 시 관광지 초기화
 
-  // 관광지에 대한 정보 저장
-
   // 식당 카테고리 선택
   restaurantList: [],
   setRestaurantList: (data: any) =>
@@ -39,6 +37,13 @@ const useGosungListStore = create((set) => ({
   setRestaurantDetail: (data: any) =>
     set((state: any) => ({
       restaurantDetail: data,
+    })),
+
+  // 관광지 디테일
+  tourDetail: [],
+  setTourDetail: (data: any) =>
+    set((state: any) => ({
+      tourDetail: data,
     })),
 }));
 

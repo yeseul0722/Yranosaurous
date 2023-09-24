@@ -1,13 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
 import useGosungListStore from '../../../../stores/mobilegosung/useGosungListStore';
-import Modal from '../../../../mobilecomponents/modal';
-
+import RestaurantModal from '../restaurantmodal';
+import TourModal from '../tourmodal';
 const GosungKakaoMapComponent = () => {
   const [markers, setMarkers] = useState<any[]>([]);
   const [map, setMap] = useState<any>();
   const [isOpen, setIsOpen] = useState(false);
   const restaurantDetail = useGosungListStore((state: any) => state.restaurantDetail);
+  const tourDetail = useGosungListStore((state: any) => state.tourDetail);
+  const selectList = useGosungListStore((state: any) => state.selectList);
+  const [keyword, setKeyword] = useState('');
+  // selectList에 따라 keywordSearch 안 바꿔주기
+
+  useEffect(() => {
+    if (selectList === 'restaurant') {
+      setKeyword(restaurantDetail.address);
+    } else if (selectList === 'tour') {
+      setKeyword(tourDetail.address);
+    }
+  }, [restaurantDetail, tourDetail]);
 
   const handleOpen = () => {
     setIsOpen(!isOpen);
@@ -16,7 +28,7 @@ const GosungKakaoMapComponent = () => {
     if (!map) return;
     const ps = new kakao.maps.services.Places();
 
-    ps.keywordSearch(`${restaurantDetail.address}`, (data, status, _pagination) => {
+    ps.keywordSearch(`${keyword}`, (data, status, _pagination) => {
       if (status === kakao.maps.services.Status.OK) {
         // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
         // LatLngBounds 객체에 좌표를 추가합니다
@@ -41,7 +53,7 @@ const GosungKakaoMapComponent = () => {
         map.setBounds(bounds);
       }
     });
-  }, [map, restaurantDetail.address]);
+  }, [map, keyword]);
   return (
     <Map
       center={{
@@ -70,7 +82,10 @@ const GosungKakaoMapComponent = () => {
           }}
         ></MapMarker>
       ))}
-      {isOpen && <Modal handleOpen={handleOpen} restaurantDetail={restaurantDetail}></Modal>}
+      {selectList === 'restaurant' && isOpen && (
+        <RestaurantModal handleOpen={handleOpen} restaurantDetail={restaurantDetail}></RestaurantModal>
+      )}
+      {selectList === 'tour' && isOpen && <TourModal handleOpen={handleOpen} tourDetail={tourDetail}></TourModal>}
     </Map>
   );
 };

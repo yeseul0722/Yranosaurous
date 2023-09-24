@@ -24,7 +24,7 @@ import {
   StyledCloseButton,
 } from './Modal.styled';
 
-const modal = (props: any) => {
+const restaurantmodal = (props: any) => {
   return (
     <Modal>
       <ModalWindow>
@@ -77,4 +77,4 @@ const modal = (props: any) => {
   );
 };
 
-export default modal;
+export default restaurantmodal;
