@@ -20,4 +20,11 @@ const StyledList = styled.div`
   margin-bottom: 20px;
 `;
 
-export { StyledosunMobilePage, StyledListContainer, StyledList };
+const StyledHome = styled.a`
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  top: 50px;
+  z-index: 100;
+`;
+export { StyledosunMobilePage, StyledListContainer, StyledList, StyledHome };

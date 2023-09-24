@@ -13,6 +13,7 @@ const StyledRestaurantContent = styled.div`
   width: 100%;
   height: 100px;
   display: flex;
+  gap: 10px;
 `;
 
 const StyledRestaurantImgBox = styled.div`
@@ -28,4 +29,23 @@ const StyledRestaurantImg = styled.img.attrs<any>((props) => ({
   height: 100%;
 `;
 
-export { StyledRestaurantContainer, StyledRestaurantContent, StyledRestaurantImgBox, StyledRestaurantImg };
+const StyledRestaurantInfoContainer = styled.div`
+  display: flex;
+  width: 70%;
+  flex-direction: column;
+  flex-wrap: wrap;
+`;
+
+const StyledRestaurantInfoContent = styled.div`
+  font-family: ${(props) => props.theme.fonts.regularfont};
+  font-size: 15px;
+  color: ${(props) => props.theme.colors.main};
+`;
+export {
+  StyledRestaurantContainer,
+  StyledRestaurantContent,
+  StyledRestaurantImgBox,
+  StyledRestaurantImg,
+  StyledRestaurantInfoContainer,
+  StyledRestaurantInfoContent,
+};

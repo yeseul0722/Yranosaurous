@@ -1,4 +1,3 @@
-import { async } from 'q';
 import { useState } from 'react';
 import tourDetailGet from '../../apis/tour/tourDetailGet';
 

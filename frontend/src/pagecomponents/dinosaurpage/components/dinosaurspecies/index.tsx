@@ -12,7 +12,6 @@ import {
   StyledDsSpeciesCardImg,
   StyledDsSpeciesCardName,
 } from './DsSpecies.styled';
-import Modal from '../../../../components/modal';
 import DsDetail from '../dinosaurdetail';
 
 const DsSpeciesComponent = () => {

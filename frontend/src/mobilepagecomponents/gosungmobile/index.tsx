@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyledosunMobilePage, StyledListContainer, StyledList } from './GosungMobile.styled';
+import { StyledosunMobilePage, StyledListContainer, StyledList, StyledHome } from './GosungMobile.styled';
 import Map from './components/kakaomap';
 import Button from '../../mobilecomponents/button';
 import List from './components/list';
@@ -14,6 +14,7 @@ const GosungMobileComponent = () => {
   // console.log(tourList);
   return (
     <StyledosunMobilePage>
+      <StyledHome href="/expo">홈</StyledHome>
       <StyledListContainer>
         <StyledList>
           <Button label="목록보기" use="list" onClick={() => setOpenList()}></Button>
