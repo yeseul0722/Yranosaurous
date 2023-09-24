@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledFoodCategorySection = styled.div`
-  /* height: 100vh; */
+  height: 100vh;
   overflow: auto;
 `;
 

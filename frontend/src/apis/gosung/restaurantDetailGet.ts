@@ -1,10 +1,10 @@
 import api from '../api';
 
-const RestaurantListGet = async (category: number) => {
+const RestaurantDetailGet = async (id: number) => {
   try {
     const response = await api({
       method: 'get',
-      url: `/restaurant/${category}`,
+      url: `/restaurant/detail/${id}`,
     });
     return response;
   } catch (error) {
@@ -12,4 +12,4 @@ const RestaurantListGet = async (category: number) => {
   }
 };
 
-export default RestaurantListGet;
+export default RestaurantDetailGet;
