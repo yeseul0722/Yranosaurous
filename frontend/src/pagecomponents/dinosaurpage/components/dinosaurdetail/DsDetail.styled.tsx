@@ -64,6 +64,11 @@ const StyledDsDetailImg = styled.img`
   object-fit: contain;
 `;
 
+const StyledDetailTitleBox = styled.div`
+  border: 1px solid red;
+  display: flex;
+`;
+
 const StyledDetailTitle = styled.div`
   /* border-bottom: 5px solid ${(props) => props.theme.colors.white}; */
   /* margin-left: 10px; */
@@ -74,45 +79,45 @@ const StyledDetailTitle = styled.div`
 const StyledDetailTitleText = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
   color: ${(props) => props.theme.colors.white};
-  font-size: 30px;
+  font-size: 2rem;
   text-align: left;
-  padding-left: 5px;
+  padding-left: 1rem;
 `;
 
 const StyledDetailEnTitleText = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
   color: ${(props) => props.theme.colors.white};
-  font-size: 20px;
+  font-size: 1.5rem;
   text-align: left;
-  padding-left: 5px;
+  padding-left: 1rem;
 `;
 
 const StyledDsDetailBox = styled.div`
-  margin-top: 15px;
+  margin-top: 1rem;
 `;
 
 const StyledDetailContentTitle = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
   color: ${(props) => props.theme.colors.white};
-  font-size: 15px;
+  font-size: 1.2rem;
   text-align: left;
-  padding-left: 10px;
+  padding-left: 1rem;
 `;
 const StyledDetailContentText = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
   color: ${(props) => props.theme.colors.white};
-  font-size: 13px;
+  font-size: 1rem;
   text-align: left;
-  padding-left: 15px;
+  padding-left: 1.5rem;
 `;
 
 const StyledDeTailSummary = styled.div`
-  padding-top: 85px;
+  padding-top: 6rem;
   display: flex;
   justify-content: center;
   overflow: scroll;
 
-  margin: 10px;
+  margin: 0.8rem;
   justify-content: flex-start;
   flex-direction: column;
   /* width: 25rem; */
@@ -125,8 +130,9 @@ const StyledDeTailSummary = styled.div`
 const StyledDeTailSummaryText = styled.div`
   font-family: ${(props) => props.theme.fonts.dinoregularfont};
   color: ${(props) => props.theme.colors.white};
-  padding: 10px;
+  padding: 1rem;
   text-align: left;
+  line-height: 150%;
 `;
 
 export {
@@ -138,6 +144,7 @@ export {
   StyledDsDetailImg,
   StyledDsDetailBox,
   StyledDsDetailBody,
+  StyledDetailTitleBox,
   StyledDetailTitle,
   StyledDetailTitleText,
   StyledDetailEnTitleText,
