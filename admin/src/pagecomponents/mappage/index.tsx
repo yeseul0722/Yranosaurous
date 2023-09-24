@@ -7,8 +7,17 @@ import placesGet from '../../apis/place/placesGet';
 
 const MapPage = () => {
   const [position, setPosition] = useState<PositionType>();
+  const emptyPlace = {
+    id: '',
+    name: '',
+    longitude: '',
+    latitude: '',
+    markerNumber: '',
+    type: '',
+  };
+
   const [places, setPlaces] = useState<any>([]);
-  const [sidebarProps, setSidebarProps] = useState({ use: 'enroll', position: {}, places: null });
+  const [sidebarProps, setSidebarProps] = useState({ use: 'enroll', place: { ...emptyPlace } });
 
   const imageArray = [
     'dino',
@@ -49,7 +58,14 @@ const MapPage = () => {
               lng: mouseEvent.latLng.getLng(),
             };
             setPosition(pos);
-            setSidebarProps({ use: 'enroll', position: pos, places: null });
+            setSidebarProps({
+              use: 'enroll',
+              place: {
+                ...emptyPlace,
+                longitude: pos.lng.toString(),
+                latitude: pos.lat.toString(),
+              },
+            });
           }}
         >
           {places.length > 0 &&
@@ -71,7 +87,7 @@ const MapPage = () => {
                   },
                 }}
                 onClick={() => {
-                  setSidebarProps({ use: 'update', position: {}, places: place });
+                  setSidebarProps({ use: 'update', place });
                 }}
               />
             ))}

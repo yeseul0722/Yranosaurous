@@ -5,13 +5,37 @@ import usePlaceHook from '../../../../hooks/usePlaceHook';
 import enrollPlacePost from '../../../../apis/place/enrollPlacePost';
 
 interface Props {
-  position: {
-    lat: number;
-    lng: number;
+  place: {
+    id: string;
+    name: string;
+    latitude: string;
+    longitude: string;
+    markerNumber: string;
+    type: string;
+    content: string;
+    imgAddress: string;
   };
+  use: 'enroll' | 'update';
 }
 
-const Enrollplace = ({ position }: Props) => {
+// interface State {
+//   placeName: string;
+//   selectedMarker: string;
+//   details: string;
+//   placeType: string;
+//   image: string;
+// }
+
+const Enrollplace = ({ place, use }: Props) => {
+  // const initialState: State = {
+  //   placeName: use === 'enroll' ? '' : place.name || '',
+  //   selectedMarker: use === 'enroll' ? '' : place.markerNumber || '',
+  //   details: use === 'enroll' ? '' : place.content || '',
+  //   placeType: use === 'enroll' ? '' : place.type || '',
+  //   image: use === 'enroll' ? '' : place.imgAddress || '',
+  // };
+
+  // const { state, dispatch } = usePlaceHook(initialState);
   const { state, dispatch } = usePlaceHook();
   const imageArray = [
     'dino',
@@ -34,9 +58,10 @@ const Enrollplace = ({ position }: Props) => {
     try {
       const data = {
         name: state.placeName,
-        longitude: position.lng.toString(),
-        latitude: position.lat.toString(),
-        imgAddress: state.image ? state.image.name : '',
+        longitude: place.longitude.toString(),
+        latitude: place.latitude.toString(),
+        // imgAddress: state.image ? state.image.name : '',
+        imgAddress: '',
         content: state.details,
         markerNumber: state.selectedMarker ? parseInt(state.selectedMarker) : 1,
         type: state.placeType === '편의 시설' ? 'CONV' : 'PREVIEW',
@@ -61,10 +86,10 @@ const Enrollplace = ({ position }: Props) => {
           <div>
             <StyledSubTitle>현재 위치</StyledSubTitle>
             <StyledBox>
-              <div style={{ paddingLeft: '15px' }}>위도 : {position.lat}</div>
+              <div style={{ paddingLeft: '15px' }}>위도 : {place.latitude}</div>
             </StyledBox>
             <StyledBox>
-              <div style={{ paddingLeft: '15px' }}>경도 : {position.lng}</div>
+              <div style={{ paddingLeft: '15px' }}>경도 : {place.longitude}</div>
             </StyledBox>
           </div>
 
@@ -87,7 +112,11 @@ const Enrollplace = ({ position }: Props) => {
                   style={{
                     width: '58px',
                     height: '58px',
-                    border: state.selectedMarker === `${index + 1}` ? '1.8px solid #599198' : 'none',
+                    border:
+                      state.selectedMarker === `${index + 1}` ||
+                      (place.markerNumber && place.markerNumber === `${index}`)
+                        ? '1.8px solid #599198'
+                        : 'none',
                   }}
                   onClick={() => handleImageClick(`${index + 1}`)}
                 />
@@ -122,13 +151,13 @@ const Enrollplace = ({ position }: Props) => {
             />
           </div>
 
-          <div>
+          {/* <div>
             <StyledSubTitle>이미지</StyledSubTitle>
             <input
               type="file"
               onChange={(e) => dispatch({ type: 'SET_IMAGE', payload: e.target.files ? e.target.files[0] : null })}
             />
-          </div>
+          </div> */}
 
           <div style={{ marginBottom: '20px' }}>
             <StyledSubTitle>세부사항</StyledSubTitle>
