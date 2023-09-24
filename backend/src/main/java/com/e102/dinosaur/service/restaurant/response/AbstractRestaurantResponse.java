@@ -24,6 +24,7 @@ public class AbstractRestaurantResponse {
     @Builder
     public AbstractRestaurantResponse(Long id, String storeName, int category, double rating, int ratingCnt, double score, String address, String imgAddress, List<HashTagResponse> hashTagList) {
         this.id = id;
+        this.storeName = storeName;
         this.category = category;
         this.rating = rating;
         this.ratingCnt = ratingCnt;
@@ -36,6 +37,7 @@ public class AbstractRestaurantResponse {
     public static AbstractRestaurantResponse of(Restaurant restaurant) {
         return AbstractRestaurantResponse.builder()
                 .id(restaurant.getId())
+                .storeName(restaurant.getStoreName())
                 .category(restaurant.getCategory())
                 .rating(restaurant.getRating())
                 .ratingCnt(restaurant.getRatingCnt())
