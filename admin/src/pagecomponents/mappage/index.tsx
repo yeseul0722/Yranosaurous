@@ -8,12 +8,28 @@ import placesGet from '../../apis/place/placesGet';
 const MapPage = () => {
   const [position, setPosition] = useState<PositionType>();
   const [places, setPlaces] = useState<any>([]);
+  const imageArray = [
+    'dino',
+    '3d',
+    'biking',
+    'cafe',
+    'baby',
+    'food',
+    'foodcart',
+    'museum',
+    'park',
+    'plant',
+    'play',
+    'stroller',
+    'toilet',
+    'ticket',
+  ];
 
   useEffect(() => {
     const fetchList = async () => {
       const data = await placesGet();
       setPlaces(data);
-      // console.log(data);
+      console.log(data);
     };
     fetchList();
   }, []);
@@ -32,6 +48,26 @@ const MapPage = () => {
             })
           }
         >
+          {places.length > 0 &&
+            places.map((place: any) => (
+              <MapMarker
+                key={place.id}
+                position={{ lat: parseFloat(place.latitude), lng: parseFloat(place.longitude) }}
+                image={{
+                  src: `/images/map/markers/${imageArray[place.markerNumber - 1]}.png`,
+                  size: {
+                    width: 40,
+                    height: 40,
+                  },
+                  options: {
+                    offset: {
+                      x: 13,
+                      y: 34,
+                    },
+                  },
+                }}
+              />
+            ))}
           {position && (
             <MapMarker
               position={position}
