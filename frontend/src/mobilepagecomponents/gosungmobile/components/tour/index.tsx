@@ -43,28 +43,28 @@ const MobileTour = (props: any) => {
   return (
     <StyldTourCategoryContainer>
       <StyledTourCategoryButtonContainer>
-        <StyledTourCategoryButton name="MOUNTAIN" onClick={handleSelectCategory}>
+        <StyledTourCategoryButton name="MOUNTAIN" select={selectCategory} onClick={handleSelectCategory}>
           산
         </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="NATURAL" onClick={handleSelectCategory}>
+        <StyledTourCategoryButton name="NATURAL" select={selectCategory} onClick={handleSelectCategory}>
           자연
         </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="CAMPING" onClick={handleSelectCategory}>
+        <StyledTourCategoryButton name="CAMPING" select={selectCategory} onClick={handleSelectCategory}>
           캠핑
         </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="PARK" onClick={handleSelectCategory}>
+        <StyledTourCategoryButton name="PARK" select={selectCategory} onClick={handleSelectCategory}>
           공원
         </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="MUSEUM" onClick={handleSelectCategory}>
+        <StyledTourCategoryButton name="MUSEUM" select={selectCategory} onClick={handleSelectCategory}>
           박물관
         </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="TEMPLE" onClick={handleSelectCategory}>
+        <StyledTourCategoryButton name="TEMPLE" select={selectCategory} onClick={handleSelectCategory}>
           사원
         </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="AUDITORIUM" onClick={handleSelectCategory}>
+        <StyledTourCategoryButton name="AUDITORIUM" select={selectCategory} onClick={handleSelectCategory}>
           문화재
         </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="OLD_HOUSE" onClick={handleSelectCategory}>
+        <StyledTourCategoryButton name="OLD_HOUSE" select={selectCategory} onClick={handleSelectCategory}>
           전통가옥
         </StyledTourCategoryButton>
       </StyledTourCategoryButtonContainer>

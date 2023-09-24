@@ -17,9 +17,9 @@ const StyledTourCategoryButtonContainer = styled.div`
   overflow: scroll;
 `;
 
-const StyledTourCategoryButton = styled.button`
+const StyledTourCategoryButton = styled.button.attrs<any>((props) => ({}))`
   border-radius: 20px;
-  background-color: ${(props) => props.theme.colors.light};
+  background-color: ${(props) => (props.name === props.select ? props.theme.colors.night : props.theme.colors.light)};
   color: ${(props) => props.theme.colors.white};
   font-size: 15px;
   padding-bottom: 10px;

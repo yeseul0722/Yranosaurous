@@ -23,17 +23,17 @@ const List = (props: any) => {
       <StyledListTopContainer>
         <StyledListButtonContainer>
           <StyledButtonBox>
-            <StyledButton name="restaurant" onClick={handleList}>
+            <StyledButton name="restaurant" select={selectList} onClick={handleList}>
               맛집
             </StyledButton>
           </StyledButtonBox>
           <StyledButtonBox>
-            <StyledButton name="lodgment" onClick={handleList}>
+            <StyledButton name="lodgment" select={selectList} onClick={handleList}>
               숙박
             </StyledButton>
           </StyledButtonBox>
           <StyledButtonBox>
-            <StyledButton name="tour" onClick={handleList}>
+            <StyledButton name="tour" select={selectList} onClick={handleList}>
               관광
             </StyledButton>
           </StyledButtonBox>

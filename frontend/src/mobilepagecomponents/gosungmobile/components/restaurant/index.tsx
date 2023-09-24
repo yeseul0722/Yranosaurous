@@ -40,8 +40,8 @@ const MobileRestaurant = (props: any) => {
   });
 
   const handleSelectCategory = (e: any) => {
-    setSelectCategory(e.target.id);
-    getrestaurantList(e.target.id);
+    setSelectCategory(e.target.name);
+    getrestaurantList(e.target.name);
   };
 
   const getApi = (location: any) => {
@@ -54,49 +54,49 @@ const MobileRestaurant = (props: any) => {
   return (
     <StyldTourCategoryContainer>
       <StyledTourCategoryButtonContainer>
-        <StyledTourCategoryButton id="1" onClick={handleSelectCategory}>
+        <StyledTourCategoryButton name="1" select={selectCategory} onClick={handleSelectCategory}>
           밥집
         </StyledTourCategoryButton>
-        <StyledTourCategoryButton id="2" onClick={handleSelectCategory}>
+        <StyledTourCategoryButton name="2" select={selectCategory} onClick={handleSelectCategory}>
           카페
         </StyledTourCategoryButton>
-        <StyledTourCategoryButton id="3" onClick={handleSelectCategory}>
+        <StyledTourCategoryButton name="3" select={selectCategory} onClick={handleSelectCategory}>
           술집
         </StyledTourCategoryButton>
-        <StyledTourCategoryButton id="4" onClick={handleSelectCategory}>
+        <StyledTourCategoryButton name="4" select={selectCategory} onClick={handleSelectCategory}>
           고깃집
         </StyledTourCategoryButton>
-        <StyledTourCategoryButton id="5" onClick={handleSelectCategory}>
+        <StyledTourCategoryButton name="5" select={selectCategory} onClick={handleSelectCategory}>
           횟집
         </StyledTourCategoryButton>
-        <StyledTourCategoryButton id="6" onClick={handleSelectCategory}>
+        <StyledTourCategoryButton name="6" select={selectCategory} onClick={handleSelectCategory}>
           한식
         </StyledTourCategoryButton>
-        <StyledTourCategoryButton id="7" onClick={handleSelectCategory}>
+        <StyledTourCategoryButton name="7" select={selectCategory} onClick={handleSelectCategory}>
           중식
         </StyledTourCategoryButton>
-        <StyledTourCategoryButton id="8" onClick={handleSelectCategory}>
+        <StyledTourCategoryButton name="8" select={selectCategory} onClick={handleSelectCategory}>
           일식
         </StyledTourCategoryButton>
-        <StyledTourCategoryButton id="9" onClick={handleSelectCategory}>
+        <StyledTourCategoryButton name="9" select={selectCategory} onClick={handleSelectCategory}>
           양식
         </StyledTourCategoryButton>
-        <StyledTourCategoryButton id="10" onClick={handleSelectCategory}>
+        <StyledTourCategoryButton name="10" select={selectCategory} onClick={handleSelectCategory}>
           이탈리안
         </StyledTourCategoryButton>
-        <StyledTourCategoryButton id="11" onClick={handleSelectCategory}>
+        <StyledTourCategoryButton name="11" select={selectCategory} onClick={handleSelectCategory}>
           패스트푸드
         </StyledTourCategoryButton>
-        <StyledTourCategoryButton id="12" onClick={handleSelectCategory}>
+        <StyledTourCategoryButton name="12" select={selectCategory} onClick={handleSelectCategory}>
           분식
         </StyledTourCategoryButton>
-        <StyledTourCategoryButton id="13" onClick={handleSelectCategory}>
+        <StyledTourCategoryButton name="13" select={selectCategory} onClick={handleSelectCategory}>
           국물요리
         </StyledTourCategoryButton>
-        <StyledTourCategoryButton id="14" onClick={handleSelectCategory}>
+        <StyledTourCategoryButton name="14" select={selectCategory} onClick={handleSelectCategory}>
           면요리
         </StyledTourCategoryButton>
-        <StyledTourCategoryButton id="15" onClick={handleSelectCategory}>
+        <StyledTourCategoryButton name="15" select={selectCategory} onClick={handleSelectCategory}>
           해산물
         </StyledTourCategoryButton>
       </StyledTourCategoryButtonContainer>
