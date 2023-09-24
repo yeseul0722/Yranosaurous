@@ -3,12 +3,14 @@ import { Map, MapMarker } from 'react-kakao-maps-sdk';
 import useGosungListStore from '../../../../stores/mobilegosung/useGosungListStore';
 import RestaurantModal from '../restaurantmodal';
 import TourModal from '../tourmodal';
+import LodgmentModal from '../lodgmentmodal';
 const GosungKakaoMapComponent = () => {
   const [markers, setMarkers] = useState<any[]>([]);
   const [map, setMap] = useState<any>();
   const [isOpen, setIsOpen] = useState(false);
   const restaurantDetail = useGosungListStore((state: any) => state.restaurantDetail);
   const tourDetail = useGosungListStore((state: any) => state.tourDetail);
+  const lodgmentDetail = useGosungListStore((state: any) => state.lodgmentDetail);
   const selectList = useGosungListStore((state: any) => state.selectList);
   const [keyword, setKeyword] = useState('');
   // selectList에 따라 keywordSearch 안 바꿔주기
@@ -18,8 +20,10 @@ const GosungKakaoMapComponent = () => {
       setKeyword(restaurantDetail.address);
     } else if (selectList === 'tour') {
       setKeyword(tourDetail.address);
+    } else if (selectList === 'lodgment') {
+      setKeyword(lodgmentDetail.address);
     }
-  }, [restaurantDetail, tourDetail]);
+  }, [restaurantDetail, tourDetail, lodgmentDetail, selectList]);
 
   const handleOpen = () => {
     setIsOpen(!isOpen);
@@ -86,6 +90,9 @@ const GosungKakaoMapComponent = () => {
         <RestaurantModal handleOpen={handleOpen} restaurantDetail={restaurantDetail}></RestaurantModal>
       )}
       {selectList === 'tour' && isOpen && <TourModal handleOpen={handleOpen} tourDetail={tourDetail}></TourModal>}
+      {selectList === 'lodgment' && isOpen && (
+        <LodgmentModal handleOpen={handleOpen} lodgmentDetail={lodgmentDetail}></LodgmentModal>
+      )}
     </Map>
   );
 };

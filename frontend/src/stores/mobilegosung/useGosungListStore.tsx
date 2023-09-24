@@ -45,6 +45,20 @@ const useGosungListStore = create((set) => ({
     set((state: any) => ({
       tourDetail: data,
     })),
+
+  // 숙소 리스트
+  lodgment: [],
+  setLodgment: (data: any) =>
+    set((state: any) => ({
+      lodgment: data,
+    })),
+
+  // 숙소 디테일
+  lodgmentDetail: [],
+  setLodgmentDetail: (data: any) =>
+    set((state: any) => ({
+      lodgmentDetail: data,
+    })),
 }));
 
 export default useGosungListStore;

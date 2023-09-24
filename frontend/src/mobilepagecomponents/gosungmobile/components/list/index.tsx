@@ -8,6 +8,7 @@ import {
 } from './List.styled';
 import Tour from '../tour';
 import Restaurant from '../restaurant';
+import Lodgment from '../lodgment';
 import useGosungListStore from '../../../../stores/mobilegosung/useGosungListStore';
 
 const List = (props: any) => {
@@ -40,6 +41,7 @@ const List = (props: any) => {
       </StyledListTopContainer>
       {selectList === 'tour' && <Tour tourList={props.tourList}></Tour>}
       {selectList === 'restaurant' && <Restaurant></Restaurant>}
+      {selectList === 'lodgment' && <Lodgment></Lodgment>}
     </StyledListContainer>
   );
 };
