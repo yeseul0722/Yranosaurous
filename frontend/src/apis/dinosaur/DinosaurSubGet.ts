@@ -1,10 +1,10 @@
 import api from '../api';
 
-const DinosaurCifyGet = async (dinosaurId: any) => {
+const DinosaurSubGet = async (DsEngName: any) => {
   try {
     const response = await api({
       method: 'get',
-      url: `/dinosaur/${dinosaurId}`,
+      url: `/dinosaurSub/${DsEngName}`,
     });
     return response;
   } catch (error) {
@@ -12,4 +12,4 @@ const DinosaurCifyGet = async (dinosaurId: any) => {
   }
 };
 
-export default DinosaurCifyGet;
+export default DinosaurSubGet;

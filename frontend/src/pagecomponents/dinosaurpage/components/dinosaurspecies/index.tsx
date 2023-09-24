@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import {
   StyledDsSpeciesPage,
   StyledDsSpeciesTitle,
@@ -12,14 +10,14 @@ import {
   StyledDsSpeciesCardImg,
   StyledDsSpeciesCardName,
   StyledDsSpeciesCardFigcaption,
-  StyledDsSpeciesCardFigcaptionName,
   StyledDsSpeciesCardFigcaptionGo,
   StyledDsSpeciesCardFigcaptionGoDetail,
 } from './DsSpecies.styled';
 import DsDetail from '../dinosaurdetail';
-import DsFirstPage from '../firstpage';
-import DinosaurListGet from '../../../../apis/dinosaur/dinosaurListGet';
 import { useDinosaurListHook } from '../../../../hooks/dinosaur/useDinosaurListHook';
+import CustomGlobeComponent from '../globe';
+import useDinosaurStore from '../../../../stores/dinosaur/useDinosaurStore';
+import { useDinosaurSubHook } from '../../../../hooks/dinosaur/useDinosaurSubHook';
 
 const DsSpeciesComponent = () => {
   // 페이지네이션
@@ -28,8 +26,6 @@ const DsSpeciesComponent = () => {
 
   // 공룡 리스트
   const { dinosaurList } = useDinosaurListHook();
-
-  // 지구본 좌표
 
   //페이지 이동
   const indexLastCard = currentPage * cardsPerPage;
@@ -55,7 +51,12 @@ const DsSpeciesComponent = () => {
   const [DsId, setDsId] = useState();
   const [DsName, setDsName] = useState();
   const [DsImg, setDsImg] = useState();
-  const [DsEnName, setDsEnName] = useState();
+  // const [DsEngName, setDsEngName] = useState();
+
+  const DsEngName = useDinosaurStore((state: any) => state.DsEngName);
+  const setDsEngName = useDinosaurStore((state: any) => state.setDsEngName);
+
+  const { getDinosaurSub } = useDinosaurSubHook(); // 공룡 서브
 
   const openDetail = (e: any) => {
     setDsId(e.target.id);
@@ -71,9 +72,9 @@ const DsSpeciesComponent = () => {
 
   // 공룡 지구본
   const goGlobe = (e: any) => {
-    setDsId(e.target.id);
-    // console.log('globe콘솔', e.target.id);
-    // console.log('gl', DsId);
+    console.log('engName', dinosaurList[e.target.id - 1].engName);
+    const selectDsEngName = dinosaurList[e.target.id - 1].engName;
+    getDinosaurSub(selectDsEngName);
   };
 
   useEffect(() => {
@@ -100,7 +101,7 @@ const DsSpeciesComponent = () => {
                   <StyledDsSpeciesCardFigcaptionGoDetail onClick={goGlobe} id={card.id}>
                     🌍 지구본에서 보기
                   </StyledDsSpeciesCardFigcaptionGoDetail>
-                  <StyledDsSpeciesCardFigcaptionGoDetail onClick={openDetail} id={card.id} className={card.engName}>
+                  <StyledDsSpeciesCardFigcaptionGoDetail onClick={openDetail} id={card.id}>
                     🦕 공룡상세 정보
                   </StyledDsSpeciesCardFigcaptionGoDetail>
                 </StyledDsSpeciesCardFigcaptionGo>
@@ -116,7 +117,7 @@ const DsSpeciesComponent = () => {
             DsName={DsName}
             DsImg={DsImg}
             DsId={DsId}
-            DsEName={DsEnName}
+            DsEName={DsEngName}
             closeDetail={closeDetail}
           />
         )}

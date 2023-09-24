@@ -16,7 +16,6 @@ import {
   StyledDeTailSummaryText,
   StyldDsDetailWindowBorder,
 } from './DsDetail.styled';
-import axios from 'axios';
 import { useDinosaurDetailHook } from '../../../../hooks/dinosaur/useDinosaurDetailHook';
 
 const DsDetail = (props: any) => {
@@ -32,7 +31,7 @@ const DsDetail = (props: any) => {
   const DsKorName = dinosaurDetail.korName;
   const DsDetailimg = dinosaurDetail.imgAddress;
   const DsContent = dinosaurDetail.content;
-  const DsEnName = dinosaurDetail.engName;
+  const DsEngName = dinosaurDetail.engName;
 
   return (
     <StyledDsDetailPage>
@@ -44,9 +43,9 @@ const DsDetail = (props: any) => {
               {/* 공룡 이미지 */}
               <StyledDetailTitle>
                 <StyledDetailTitleText>| {DsKorName}</StyledDetailTitleText>
-                <StyledDetailEnTitleText>| {DsEnName}</StyledDetailEnTitleText>
+                <StyledDetailEnTitleText>| {DsEngName}</StyledDetailEnTitleText>
               </StyledDetailTitle>
-              <StyledDsDetailImg src={DsDetailimg} alt={DsEnName} />
+              <StyledDsDetailImg src={DsDetailimg} alt={DsEngName} />
 
               {/* 공룡 정보 */}
               <StyledDsDetailBox>
