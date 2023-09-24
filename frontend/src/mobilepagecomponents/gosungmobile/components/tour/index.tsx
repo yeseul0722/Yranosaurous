@@ -24,10 +24,10 @@ const MobileTour = (props: any) => {
 
   const { tourDetail, getTourDetail } = useTourDetailHook();
 
-  useEffect(() => {
-    resetCategory();
-    resetTour();
-  }, []);
+  // useEffect(() => {
+  //   resetCategory();
+  //   resetTour();
+  // }, []);
 
   const handleSelectCategory = (e: any) => {
     setSelectCategory(e.target.name);

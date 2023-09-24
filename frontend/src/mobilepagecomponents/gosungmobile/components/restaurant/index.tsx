@@ -10,37 +10,45 @@ import {
   StyledRestaurantContent,
   StyledRestaurantImgBox,
   StyledRestaurantImg,
+  StyledRestaurantInfoContainer,
+  StyledRestaurantInfoContent,
 } from './Restaurant.styled';
 import useTourStore from '../../../../stores/mobilegosung/useGosungListStore';
 import { useRestaurantListHook } from '../../../../hooks/gosung/useRestaurantListHook';
+import { useRestaurantDetailHook } from '../../../../hooks/gosung/useRestaurantDetailHook';
 
 const MobileRestaurant = (props: any) => {
-  const tourList = props.tourList; // 전체 리스트
   const selectCategory = useTourStore((state: any) => state.selectCategory); // 선택한 카테고리
   const setSelectCategory = useTourStore((state: any) => state.setSelectCategory);
   const resetCategory = useTourStore((state: any) => state.resetCategory);
+  const restaurantList = useTourStore((state: any) => state.restaurantList);
+  const restaurantDetail = useTourStore((state: any) => state.restaurantDetail);
 
   const tour = useTourStore((state: any) => state.tour); // 선택한 관광지
   const setTour = useTourStore((state: any) => state.setTour);
   const resetTour = useTourStore((state: any) => state.resetTour);
 
-  const { restaurantList, getrestaurantList } = useRestaurantListHook();
+  const { getrestaurantList } = useRestaurantListHook();
+  const { getRestaurantDetail } = useRestaurantDetailHook();
+  // useEffect(() => {
+  //   resetCategory();
+  //   resetTour();
+  // }, []);
+
   useEffect(() => {
-    resetCategory();
-    resetTour();
-  }, []);
+    console.log(restaurantDetail);
+  });
 
   const handleSelectCategory = (e: any) => {
     setSelectCategory(e.target.id);
     getrestaurantList(e.target.id);
-    // 카테고리별 레스토랑 정보 받아왔음 - 완
-    // 밑에 쫙 보여주고 - 디자인 하기
-    // 그거 클릭 시 거기에 대한 상제정보 보여주면서 지도에 찍어주기
   };
 
-  const getApi = (e: any) => {
-    setTour(e.name);
-    console.log(e);
+  const getApi = (location: any) => {
+    setTour(location.name);
+    getRestaurantDetail(location.id);
+    // 맛집 클릭 시 맛집 정보를 주스턴드로 저장 했음
+    // 주소를 이용해서 마커 찍기
   };
 
   return (
@@ -99,7 +107,14 @@ const MobileRestaurant = (props: any) => {
               <StyledRestaurantImgBox>
                 <StyledRestaurantImg src={location.imgAddress} alt={location.storeName}></StyledRestaurantImg>
               </StyledRestaurantImgBox>
-              <StyledTourName>{location.storeName}</StyledTourName>
+              <StyledRestaurantInfoContainer>
+                <StyledRestaurantInfoContent>{location.storeName}</StyledRestaurantInfoContent>
+                <StyledRestaurantInfoContent>{location.rating}</StyledRestaurantInfoContent>
+                <StyledRestaurantInfoContent>{location.ratingCnt}</StyledRestaurantInfoContent>
+                {location.hashTagList?.map((tag: any) => {
+                  return <StyledRestaurantInfoContent key={tag.id}>{tag.name}</StyledRestaurantInfoContent>;
+                })}
+              </StyledRestaurantInfoContainer>
             </StyledRestaurantContent>
           );
         })}

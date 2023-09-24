@@ -39,7 +39,7 @@ const List = (props: any) => {
         </StyledListButtonContainer>
       </StyledListTopContainer>
       {selectList === 'tour' && <Tour tourList={props.tourList}></Tour>}
-      {selectList === 'restaurant' && <Restaurant tourList={props.tourList}></Restaurant>}
+      {selectList === 'restaurant' && <Restaurant></Restaurant>}
     </StyledListContainer>
   );
 };
