@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faUtensils, faHouseUser, faSuitcase } from '@fortawesome/free-solid-svg-icons';
 import { StyledCategoryContainer, StyledCircleContainer, StyledSideBarContainer } from './Sidebar.styled';
 import ThemeProvider from 'styled-components';
-import theme from '../../styles/DefaultTheme';
+import theme from '../../../../styles/DefaultTheme';
 
 const GosungSideBar: React.FC = () => {
   return (
