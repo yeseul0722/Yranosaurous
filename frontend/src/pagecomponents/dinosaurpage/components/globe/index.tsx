@@ -1,8 +1,19 @@
 import React, { useRef, useEffect } from 'react';
 import Globe from 'react-globe.gl';
+import useDinosaurStore from '../../../../stores/dinosaur/useDinosaurStore';
+import { useDinosaurSubHook } from '../../../../hooks/dinosaur/useDinosaurSubHook';
 
-const DsFirstPage = () => {
+const CustomGlobeComponent = (props: any) => {
+  const { getDinosaurSub } = useDinosaurSubHook();
+  // console.log('공룡추가정보', dinosaurSub);
   const globeEl = useRef<any>();
+
+  const DsEngName = useDinosaurStore((state: any) => state.DsEngName);
+  const dinosaurSub = useDinosaurStore((state: any) => state.dinosaurSub);
+
+  useEffect(() => {
+    console.log(dinosaurSub);
+  }, [dinosaurSub]);
 
   useEffect(() => {
     // 자동 회전
@@ -25,4 +36,4 @@ const DsFirstPage = () => {
   );
 };
 
-export default DsFirstPage;
+export default CustomGlobeComponent;
