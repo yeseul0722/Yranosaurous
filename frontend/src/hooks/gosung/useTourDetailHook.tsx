@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import tourDetailGet from '../../apis/tour/tourDetailGet';
+import useGosungListStore from '../../stores/mobilegosung/useGosungListStore';
 
 export const useTourDetailHook = () => {
-  const [tourDetail, setTourDetail] = useState();
+  const setTourDetail = useGosungListStore((state: any) => state.setTourDetail);
   const getTourDetail = async (tourId: any) => {
     const res = await tourDetailGet(tourId);
-    console.log(res);
+    setTourDetail(res.data.response);
+    console.log(res.data.response);
   };
-  return { tourDetail, getTourDetail };
+  return { getTourDetail };
 };

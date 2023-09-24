@@ -22,7 +22,7 @@ const MobileTour = (props: any) => {
   const setTour = useTourStore((state: any) => state.setTour);
   const resetTour = useTourStore((state: any) => state.resetTour);
 
-  const { tourDetail, getTourDetail } = useTourDetailHook();
+  const { getTourDetail } = useTourDetailHook();
 
   // useEffect(() => {
   //   resetCategory();
@@ -35,7 +35,6 @@ const MobileTour = (props: any) => {
 
   const getApi = (e: any) => {
     setTour(e.name);
-    console.log(e);
     getTourDetail(e.id);
     // 관광지 상세정보 조회 했음
     // 주소로 지도 위 마커 찍기
