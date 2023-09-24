@@ -76,6 +76,7 @@ const Enrollplace = ({ position }: Props) => {
                 flexWrap: 'wrap',
                 height: '260px',
                 alignContent: 'space-around',
+                cursor: 'pointer',
               }}
             >
               {imageArray.map((imageName, index) => (
