@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import DsFirstPage from './components/firstpage';
 import {
   StyledDsPage,
   StyledDsSide,
   StyledDsContent,
   StyledDsLandingPage,
+  StyledLandingGoNextPageButton,
   StyledDsFirstPage,
   StyledKoreaDsPage,
   StyledKoreaMapPage,
@@ -20,13 +21,19 @@ import KoreasaurusPage from './components/koreanosaurus';
 import PukyongsaurusPage from './components/pukyongosaurus';
 
 const Dinosaur = () => {
+  const inputForm = useRef<any>();
+  const landingToNext = () => {
+    inputForm.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   return (
     <StyledDsPage>
       <StyledDsContent>
         <StyledDsLandingPage>
           <LandingPage></LandingPage>
+          <StyledLandingGoNextPageButton onClick={landingToNext}>입장하기</StyledLandingGoNextPageButton>
         </StyledDsLandingPage>
-        <StyledDsFirstPage>
+        <StyledDsFirstPage ref={inputForm}>
           <DsFirstPage></DsFirstPage>
         </StyledDsFirstPage>
         <StyledKoreaDsPage>
