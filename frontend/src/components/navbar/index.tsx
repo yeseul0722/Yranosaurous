@@ -48,7 +48,7 @@ const NavBarComponent = () => {
       {navState === 'tour' && (
         <StyledNavBarDropDown onMouseLeave={onMouseLeave}>
           <StyledLinkDetailContainer>
-            <StyledLinkDetail></StyledLinkDetail>
+            <StyledLinkDetail href="/gosung">관광정보</StyledLinkDetail>
             <StyledLinkDetail></StyledLinkDetail>
           </StyledLinkDetailContainer>
         </StyledNavBarDropDown>
