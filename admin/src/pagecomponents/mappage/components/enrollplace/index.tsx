@@ -2,15 +2,24 @@ import Button from '../../../../components/button';
 import Input from '../../../../components/input';
 import { StyledSubTitle, StyledBox, StyledTextarea } from './Enrollplace.styled';
 import usePlaceHook from '../../../../hooks/usePlaceHook';
+import enrollPlacePost from '../../../../apis/place/enrollPlacePost';
+import { useEffect } from 'react';
 
 interface Props {
-  position: {
-    lat: number;
-    lng: number;
+  place: {
+    id: string;
+    name: string;
+    latitude: string;
+    longitude: string;
+    markerNumber: string;
+    type: string;
+    content: string;
+    imgAddress: string;
   };
+  use: 'enroll' | 'update';
 }
 
-const Enrollplace = ({ position }: Props) => {
+const Enrollplace = ({ place, use }: Props) => {
   const { state, dispatch } = usePlaceHook();
   const imageArray = [
     'dino',
@@ -29,20 +38,36 @@ const Enrollplace = ({ position }: Props) => {
     'ticket',
   ];
 
-  const handleSaveClick = () => {
-    const data = {
-      위도: position.lat,
-      경도: position.lng,
-      장소TYPE: state.placeType,
-      장소명: state.placeName,
-      이미지: state.image ? state.image.name : '없음',
-      세부사항: state.details,
-    };
-    console.log(JSON.stringify(data, null, 2));
+  useEffect(() => {
+    dispatch({ type: 'SET_PLACE_NAME', payload: place.name });
+    dispatch({ type: 'SET_SELECTED_MARKER', payload: place.markerNumber });
+    dispatch({ type: 'SET_PLACE_TYPE', payload: place.type });
+    dispatch({ type: 'SET_DETAILS', payload: place.content });
+  }, [place, dispatch]);
+
+  const handleImageClick = (index: string) => {
+    dispatch({ type: 'SET_SELECTED_MARKER', payload: index });
   };
 
-  const handleImageClick = (alt: string) => {
-    dispatch({ type: 'SET_SELECTED_MARKER', payload: alt });
+  const handleSaveClick = async () => {
+    try {
+      const data = {
+        name: state.placeName,
+        longitude: place.longitude.toString(),
+        latitude: place.latitude.toString(),
+        // imgAddress: state.image ? state.image.name : '',
+        imgAddress: '',
+        content: state.details,
+        markerNumber: state.selectedMarker ? parseInt(state.selectedMarker) : 1,
+        type: state.placeType === '편의 시설' ? 'CONV' : 'PREVIEW',
+      };
+      const response = await enrollPlacePost(data);
+      if (response) {
+        console.log('Successfully posted:', response);
+      }
+    } catch (err) {
+      console.error('Error posting data:', err);
+    }
   };
 
   return (
@@ -52,10 +77,10 @@ const Enrollplace = ({ position }: Props) => {
           <div>
             <StyledSubTitle>현재 위치</StyledSubTitle>
             <StyledBox>
-              <div style={{ paddingLeft: '15px' }}>위도 : {position.lat}</div>
+              <div style={{ paddingLeft: '15px' }}>위도 : {place.latitude}</div>
             </StyledBox>
             <StyledBox>
-              <div style={{ paddingLeft: '15px' }}>경도 : {position.lng}</div>
+              <div style={{ paddingLeft: '15px' }}>경도 : {place.longitude}</div>
             </StyledBox>
           </div>
 
@@ -67,6 +92,7 @@ const Enrollplace = ({ position }: Props) => {
                 flexWrap: 'wrap',
                 height: '260px',
                 alignContent: 'space-around',
+                cursor: 'pointer',
               }}
             >
               {imageArray.map((imageName, index) => (
@@ -77,7 +103,7 @@ const Enrollplace = ({ position }: Props) => {
                   style={{
                     width: '58px',
                     height: '58px',
-                    border: state.selectedMarker === `${index + 1}` ? '1.8px solid #599198' : 'none',
+                    border: state.selectedMarker == `${index + 1}` ? '1.8px solid #599198' : 'none',
                   }}
                   onClick={() => handleImageClick(`${index + 1}`)}
                 />
@@ -112,13 +138,13 @@ const Enrollplace = ({ position }: Props) => {
             />
           </div>
 
-          <div>
+          {/* <div>
             <StyledSubTitle>이미지</StyledSubTitle>
             <input
               type="file"
               onChange={(e) => dispatch({ type: 'SET_IMAGE', payload: e.target.files ? e.target.files[0] : null })}
             />
-          </div>
+          </div> */}
 
           <div style={{ marginBottom: '20px' }}>
             <StyledSubTitle>세부사항</StyledSubTitle>
@@ -130,8 +156,27 @@ const Enrollplace = ({ position }: Props) => {
         </div>
       </div>
       <div style={{ display: 'flex', justifyContent: 'space-between', width: '250px', paddingTop: '15px' }}>
-        <Button onClick={handleSaveClick} label="삭제 하기" ismain="false" style={{ width: '120px', height: '45px' }} />
-        <Button onClick={handleSaveClick} label="저장 하기" ismain="true" style={{ width: '120px', height: '45px' }} />
+        <Button
+          // onClick={handleSaveClick}
+          label="삭제 하기"
+          ismain="false"
+          style={{ width: '120px', height: '45px' }}
+        />
+        {use === 'enroll' ? (
+          <Button
+            onClick={handleSaveClick}
+            label="등록 하기"
+            ismain="true"
+            style={{ width: '120px', height: '45px' }}
+          />
+        ) : (
+          <Button
+            // onClick={handleSaveClick}
+            label="수정 하기"
+            ismain="true"
+            style={{ width: '120px', height: '45px' }}
+          />
+        )}
       </div>
     </div>
   );

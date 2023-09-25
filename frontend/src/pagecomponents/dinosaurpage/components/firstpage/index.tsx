@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import CustomGlobeComponent from '../globe';
-import SidebarComponent from '../sidebar';
 import DsSpeciesComponent from '../dinosaurspecies';
 import {
   StyledDinosaurPage,
+  StyledMainTitle,
   StyledCustomGlobeContainer,
   StyledDinosaurListContainer,
   StyledDsListButton,
 } from './DsFirstPage.styled';
 
-const DsFirstPage = () => {
+const DsFirstPage = (props: any) => {
   const [isOpenList, setIsOpenList] = useState(true);
 
   const openList = () => {
@@ -18,6 +18,9 @@ const DsFirstPage = () => {
 
   return (
     <StyledDinosaurPage>
+      <StyledMainTitle>
+        세계의 공룡들, <br /> 어디에서 살았을까요?
+      </StyledMainTitle>
       <StyledCustomGlobeContainer>
         <CustomGlobeComponent />
       </StyledCustomGlobeContainer>

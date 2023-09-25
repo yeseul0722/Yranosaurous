@@ -11,12 +11,14 @@ public class DinosaurResponse {
 
     private Long id;
     private String korName;
+    private String engName;
     private String imgAddress;
 
     @Builder
-    private DinosaurResponse(Long id, String korName, String imgAddress) {
+    private DinosaurResponse(Long id, String korName, String engName, String imgAddress) {
         this.id = id;
         this.korName = korName;
+        this.engName = engName;
         this.imgAddress = imgAddress;
     }
 
@@ -24,6 +26,7 @@ public class DinosaurResponse {
         return DinosaurResponse.builder()
                 .id(dinosaur.getId())
                 .korName(dinosaur.getKorName())
+                .engName(dinosaur.getEngName())
                 .imgAddress(dinosaur.getImgAddress())
                 .build();
     }
