@@ -1,5 +1,6 @@
 package com.e102.dinosaur.domain.place;
 
+import com.e102.dinosaur.controller.place.request.PlaceRequest;
 import com.e102.dinosaur.domain.courseorder.CourseOrder;
 import com.e102.dinosaur.domain.festival.Festival;
 import jakarta.persistence.*;
@@ -47,9 +48,9 @@ public class Place {
         this.imgAddress = imgAddress;
         this.content = content;
         this.type = type;
+        this.markerNumber = markerNumber;
         this.festivalList = festivalList;
         this.courseOrderList = courseOrderList;
-        this.markerNumber = markerNumber;
     }
 
     public void addFestival(Festival festival) {
@@ -59,5 +60,15 @@ public class Place {
         festivalList.add(festival);
         festival.addPlace(this);
     }
-    
+
+    public void modifyPlace(PlaceRequest placeRequest) {
+        this.name = placeRequest.getName();
+        this.longitude = placeRequest.getLongitude();
+        this.latitude = placeRequest.getLatitude();
+        this.imgAddress = placeRequest.getImgAddress();
+        this.content = placeRequest.getContent();
+        this.markerNumber = placeRequest.getMarkerNumber();
+        this.type = placeRequest.getType();
+    }
+
 }
