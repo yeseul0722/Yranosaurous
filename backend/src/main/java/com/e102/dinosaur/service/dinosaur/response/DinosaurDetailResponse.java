@@ -21,12 +21,15 @@ public class DinosaurDetailResponse {
     private String simpleContent;
     private String imgAddress;
     private String content;
+    private String summary;
+    private String length;
+    private String weight;
     private List<MuseumResponse> museums;
 
     @Builder
     private DinosaurDetailResponse(Long id, String korName, String engName, String category,
             String taste, String discoverySite, String era, String simpleContent, String imgAddress,
-            String content, List<MuseumResponse> museums) {
+            String content, String summary, String length, String weight, List<MuseumResponse> museums) {
         this.id = id;
         this.korName = korName;
         this.engName = engName;
@@ -37,6 +40,9 @@ public class DinosaurDetailResponse {
         this.simpleContent = simpleContent;
         this.imgAddress = imgAddress;
         this.content = content;
+        this.summary = summary;
+        this.length = length;
+        this.weight = weight;
         this.museums = museums;
     }
 
@@ -56,6 +62,9 @@ public class DinosaurDetailResponse {
                 .simpleContent(dinosaur.getSimpleContent())
                 .imgAddress(dinosaur.getImgAddress())
                 .content(dinosaur.getContent())
+                .summary(dinosaur.getSummary())
+                .length(dinosaur.getLength())
+                .weight(dinosaur.getWeight())
                 .museums(museums)
                 .build();
     }
