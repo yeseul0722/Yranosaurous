@@ -15,7 +15,6 @@ import {
 import LandingPage from './components/landingpage';
 import KoreaDsPage from './components/koreadspage';
 import KoreaMapPage from './components/koreamappage';
-import SidebarComponent from './components/sidebar';
 import KoreaceratopsPage from './components/koreaceratopspage';
 import KoreasaurusPage from './components/koreanosaurus';
 import PukyongsaurusPage from './components/pukyongosaurus';
@@ -23,9 +22,6 @@ import PukyongsaurusPage from './components/pukyongosaurus';
 const Dinosaur = () => {
   return (
     <StyledDsPage>
-      <StyledDsSide>
-        <SidebarComponent></SidebarComponent>
-      </StyledDsSide>
       <StyledDsContent>
         <StyledDsLandingPage>
           <LandingPage></LandingPage>
@@ -39,15 +35,15 @@ const Dinosaur = () => {
         <StyledKoreaMapPage>
           <KoreaMapPage></KoreaMapPage>
         </StyledKoreaMapPage>
-        <StyledKoreaceratopsPage>
+        {/* <StyledKoreaceratopsPage>
           <KoreaceratopsPage></KoreaceratopsPage>
-        </StyledKoreaceratopsPage>
+        </StyledKoreaceratopsPage> */}
         <StyledKoreasaurusPage>
           <KoreasaurusPage />
         </StyledKoreasaurusPage>
-        <StyledPukyongsaurusPage>
+        {/* <StyledPukyongsaurusPage>
           <PukyongsaurusPage />
-        </StyledPukyongsaurusPage>
+        </StyledPukyongsaurusPage> */}
       </StyledDsContent>
     </StyledDsPage>
   );

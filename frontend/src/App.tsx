@@ -6,12 +6,12 @@ import Dinosaur from './pagecomponents/dinosaurpage';
 import Gosung from './pagecomponents/gosungpage';
 import DsDetail from './pagecomponents/dinosaurpage/components/dinosaurdetail';
 import Guide from './pagecomponents/guide';
-import NavBar from './components/common';
+import NavBar from './components/navbar';
 function App() {
   const pathname = useLocation().pathname;
   return (
     <div className="App">
-      {pathname === '/Expo' && <NavBar />}
+      {pathname === '/expo' && <NavBar />}
       <Routes>
         <Route path="/Expo" element={<Expo />} />
         <Route path="/Dinosaur" element={<Dinosaur />} />

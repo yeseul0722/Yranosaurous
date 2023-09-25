@@ -11,7 +11,6 @@ import {
   StyledCircleSouthgyeongsang,
   StyledCircleSouthjeolla,
 } from './koreamap.styled';
-import KoreaMapPage from '../koreamappage';
 import Lottie from 'lottie-react';
 import gyeonggi from '../../lottie/bluecircle.json';
 import southgyeongsang from '../../lottie/bluecircle.json';
@@ -35,13 +34,11 @@ const KoreaMap = () => {
   };
   return (
     <StyledMapContainer>
-      {/* <StyledMapDs land={land}> */}
       <StyledMapDs>
-        <StyledMapDsName land={land}>{krDinosaurName}</StyledMapDsName>
-        {/* <StyledMapArrowContainer land={land}> */}
+        {/* <StyledMapDsName land={land}>{krDinosaurName}</StyledMapDsName> */}
 
         {/* 애니메이션 */}
-        <StyledCircleGyeonggi id="gyeonggi" onClick={existLand}>
+        {/* <StyledCircleGyeonggi id="gyeonggi" onClick={existLand}>
           <Lottie animationData={gyeonggi} loop autoplay />
         </StyledCircleGyeonggi>
         <StyledCircleSouthgyeongsang>
@@ -49,7 +46,7 @@ const KoreaMap = () => {
         </StyledCircleSouthgyeongsang>
         <StyledCircleSouthjeolla>
           <Lottie animationData={southjeolla} loop autoplay />
-        </StyledCircleSouthjeolla>
+        </StyledCircleSouthjeolla> */}
       </StyledMapDs>
       <StyledMapSvg>
         <StyledMapPath
