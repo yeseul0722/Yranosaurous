@@ -26,7 +26,7 @@ const PukyongsaurusPage = () => {
     axios
       .get(`http://`)
       .then((res: any) => {
-        console.log(res.data.response);
+        // console.log(res.data.response);
       })
       .catch((error) => {
         console.log(error);
