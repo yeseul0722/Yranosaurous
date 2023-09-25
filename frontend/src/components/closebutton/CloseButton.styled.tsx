@@ -10,7 +10,7 @@ const StyledCloseButton = styled.div`
   border-radius: 10px;
   display: flex;
   overflow: hidden;
-  z-index: 2;
+  z-index: 5;
   position: absolute;
   cursor: pointer;
   top: 50%;

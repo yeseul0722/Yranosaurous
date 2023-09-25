@@ -40,6 +40,11 @@ const StyledFoodCategoryList = styled.button`
   border: none;
   cursor: pointer;
   background-color: ${(props) => props.theme.colors.lightgray};
+  :hover,
+  :active {
+    background-color: ${(props) => props.theme.colors.light};
+    color: ${(props) => props.theme.colors.white};
+  }
 `;
 export {
   StyledFoodCategorySection,
