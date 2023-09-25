@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import DsFirstPage from './components/firstpage';
 import {
   StyledDsPage,
   StyledDsSide,
   StyledDsContent,
   StyledDsLandingPage,
+  StyledLandingGoNextPageButton,
   StyledDsFirstPage,
   StyledKoreaDsPage,
   StyledKoreaMapPage,
@@ -15,22 +16,24 @@ import {
 import LandingPage from './components/landingpage';
 import KoreaDsPage from './components/koreadspage';
 import KoreaMapPage from './components/koreamappage';
-import SidebarComponent from './components/sidebar';
 import KoreaceratopsPage from './components/koreaceratopspage';
 import KoreasaurusPage from './components/koreanosaurus';
 import PukyongsaurusPage from './components/pukyongosaurus';
 
 const Dinosaur = () => {
+  const inputForm = useRef<any>();
+  const landingToNext = () => {
+    inputForm.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   return (
     <StyledDsPage>
-      <StyledDsSide>
-        <SidebarComponent></SidebarComponent>
-      </StyledDsSide>
       <StyledDsContent>
         <StyledDsLandingPage>
           <LandingPage></LandingPage>
+          <StyledLandingGoNextPageButton onClick={landingToNext}>입장하기</StyledLandingGoNextPageButton>
         </StyledDsLandingPage>
-        <StyledDsFirstPage>
+        <StyledDsFirstPage ref={inputForm}>
           <DsFirstPage></DsFirstPage>
         </StyledDsFirstPage>
         <StyledKoreaDsPage>
@@ -39,15 +42,15 @@ const Dinosaur = () => {
         <StyledKoreaMapPage>
           <KoreaMapPage></KoreaMapPage>
         </StyledKoreaMapPage>
-        <StyledKoreaceratopsPage>
+        {/* <StyledKoreaceratopsPage>
           <KoreaceratopsPage></KoreaceratopsPage>
-        </StyledKoreaceratopsPage>
+        </StyledKoreaceratopsPage> */}
         <StyledKoreasaurusPage>
           <KoreasaurusPage />
         </StyledKoreasaurusPage>
-        <StyledPukyongsaurusPage>
+        {/* <StyledPukyongsaurusPage>
           <PukyongsaurusPage />
-        </StyledPukyongsaurusPage>
+        </StyledPukyongsaurusPage> */}
       </StyledDsContent>
     </StyledDsPage>
   );
