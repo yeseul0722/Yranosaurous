@@ -5,14 +5,17 @@ import { useNavigate } from 'react-router-dom';
 import Facility from '../facility';
 import Cource from '../cource';
 import Preview from '../preview';
+import useGuideStore from '../../../../stores/guide/useGuideStore';
 const SideBarComponent = () => {
   const Router = useNavigate();
-  const [state, setState] = useState('');
+  const selectCategory = useGuideStore((state: any) => state.selectCategory);
+  const setSelectCategory = useGuideStore((state: any) => state.setSelectCategory);
+
   const handelState = (e: any) => {
-    if (state === e.target.getAttribute('name')) {
-      setState('');
+    if (selectCategory === e.target.getAttribute('name')) {
+      setSelectCategory('');
     } else {
-      setState(e.target.getAttribute('name'));
+      setSelectCategory(e.target.getAttribute('name'));
     }
   };
   return (
@@ -26,22 +29,22 @@ const SideBarComponent = () => {
         >
           <StyledMenuIcon name="home"></StyledMenuIcon>
         </StyledMenu>
-        <StyledMenu name="cource" state={state} onClick={handelState}>
-          <StyledMenuIcon name="cource" alt="menuB" state={state}></StyledMenuIcon>
+        <StyledMenu name="cource" state={selectCategory} onClick={handelState}>
+          <StyledMenuIcon name="cource" alt="menuB" state={selectCategory}></StyledMenuIcon>
           <StyledMenuTitle>추천코스</StyledMenuTitle>
         </StyledMenu>
-        <StyledMenu name="facility" state={state} onClick={handelState}>
-          <StyledMenuIcon name="facility" alt="menuB" state={state}></StyledMenuIcon>
+        <StyledMenu name="facility" state={selectCategory} onClick={handelState}>
+          <StyledMenuIcon name="facility" alt="menuB" state={selectCategory}></StyledMenuIcon>
           <StyledMenuTitle>편의시설</StyledMenuTitle>
         </StyledMenu>
-        <StyledMenu name="preview" state={state} onClick={handelState}>
-          <StyledMenuIcon name="preview" alt="menuB" state={state}></StyledMenuIcon>
+        <StyledMenu name="preview" state={selectCategory} onClick={handelState}>
+          <StyledMenuIcon name="preview" alt="menuB" state={selectCategory}></StyledMenuIcon>
           <StyledMenuTitle>관람요소</StyledMenuTitle>
         </StyledMenu>
       </StyledSideBar>
-      {state === 'cource' && <Cource></Cource>}
-      {state === 'facility' && <Facility></Facility>}
-      {state === 'preview' && <Preview></Preview>}
+      {selectCategory === 'cource' && <Cource></Cource>}
+      {selectCategory === 'facility' && <Facility></Facility>}
+      {selectCategory === 'preview' && <Preview></Preview>}
     </StyledSideBarContainer>
   );
 };
