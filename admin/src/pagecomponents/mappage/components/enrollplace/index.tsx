@@ -3,6 +3,7 @@ import Input from '../../../../components/input';
 import { StyledSubTitle, StyledBox, StyledTextarea } from './Enrollplace.styled';
 import usePlaceHook from '../../../../hooks/usePlaceHook';
 import enrollPlacePost from '../../../../apis/place/enrollPlacePost';
+import { useEffect } from 'react';
 
 interface Props {
   place: {
@@ -18,24 +19,7 @@ interface Props {
   use: 'enroll' | 'update';
 }
 
-// interface State {
-//   placeName: string;
-//   selectedMarker: string;
-//   details: string;
-//   placeType: string;
-//   image: string;
-// }
-
 const Enrollplace = ({ place, use }: Props) => {
-  // const initialState: State = {
-  //   placeName: use === 'enroll' ? '' : place.name || '',
-  //   selectedMarker: use === 'enroll' ? '' : place.markerNumber || '',
-  //   details: use === 'enroll' ? '' : place.content || '',
-  //   placeType: use === 'enroll' ? '' : place.type || '',
-  //   image: use === 'enroll' ? '' : place.imgAddress || '',
-  // };
-
-  // const { state, dispatch } = usePlaceHook(initialState);
   const { state, dispatch } = usePlaceHook();
   const imageArray = [
     'dino',
@@ -53,6 +37,17 @@ const Enrollplace = ({ place, use }: Props) => {
     'toilet',
     'ticket',
   ];
+
+  useEffect(() => {
+    dispatch({ type: 'SET_PLACE_NAME', payload: place.name });
+    dispatch({ type: 'SET_SELECTED_MARKER', payload: place.markerNumber });
+    dispatch({ type: 'SET_PLACE_TYPE', payload: place.type });
+    dispatch({ type: 'SET_DETAILS', payload: place.content });
+  }, [place, dispatch]);
+
+  const handleImageClick = (index: string) => {
+    dispatch({ type: 'SET_SELECTED_MARKER', payload: index });
+  };
 
   const handleSaveClick = async () => {
     try {
@@ -73,10 +68,6 @@ const Enrollplace = ({ place, use }: Props) => {
     } catch (err) {
       console.error('Error posting data:', err);
     }
-  };
-
-  const handleImageClick = (alt: string) => {
-    dispatch({ type: 'SET_SELECTED_MARKER', payload: alt });
   };
 
   return (
@@ -112,11 +103,7 @@ const Enrollplace = ({ place, use }: Props) => {
                   style={{
                     width: '58px',
                     height: '58px',
-                    border:
-                      state.selectedMarker === `${index + 1}` ||
-                      (place.markerNumber && place.markerNumber === `${index}`)
-                        ? '1.8px solid #599198'
-                        : 'none',
+                    border: state.selectedMarker == `${index + 1}` ? '1.8px solid #599198' : 'none',
                   }}
                   onClick={() => handleImageClick(`${index + 1}`)}
                 />
@@ -169,8 +156,27 @@ const Enrollplace = ({ place, use }: Props) => {
         </div>
       </div>
       <div style={{ display: 'flex', justifyContent: 'space-between', width: '250px', paddingTop: '15px' }}>
-        <Button onClick={handleSaveClick} label="삭제 하기" ismain="false" style={{ width: '120px', height: '45px' }} />
-        <Button onClick={handleSaveClick} label="저장 하기" ismain="true" style={{ width: '120px', height: '45px' }} />
+        <Button
+          // onClick={handleSaveClick}
+          label="삭제 하기"
+          ismain="false"
+          style={{ width: '120px', height: '45px' }}
+        />
+        {use === 'enroll' ? (
+          <Button
+            onClick={handleSaveClick}
+            label="등록 하기"
+            ismain="true"
+            style={{ width: '120px', height: '45px' }}
+          />
+        ) : (
+          <Button
+            // onClick={handleSaveClick}
+            label="수정 하기"
+            ismain="true"
+            style={{ width: '120px', height: '45px' }}
+          />
+        )}
       </div>
     </div>
   );

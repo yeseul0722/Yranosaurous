@@ -14,6 +14,7 @@ const MapPage = () => {
     latitude: '',
     markerNumber: '',
     type: '',
+    content: '',
   };
 
   const [places, setPlaces] = useState<any>([]);
@@ -87,6 +88,7 @@ const MapPage = () => {
                   },
                 }}
                 onClick={() => {
+                  setPosition({ lat: 0, lng: 0 });
                   setSidebarProps({ use: 'update', place });
                 }}
               />
