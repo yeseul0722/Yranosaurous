@@ -26,7 +26,6 @@ public class CourseService {
 
     public String saveCourse(CourseRequest courseRequest) {
         Course course = courseRequest.toEntity();
-        System.out.println("???");
         List<CourseOrder> courseOrderList = courseRequest.getCourseOrderRequestList()
                 .stream()
                 .map(courseOrderRequest -> {
@@ -45,5 +44,21 @@ public class CourseService {
         return courseRepository.findAll().stream()
                 .map(CourseResponse::of)
                 .toList();
+    }
+
+    public CourseResponse modifyCourse(CourseRequest courseRequest, Long courseId) {
+        Course course = courseRepository.findById(courseId)
+                .orElseThrow(() -> new BaseException("존재하지 않는 코스입니다.", 7002));
+        List<CourseOrder> courseOrderList = courseRequest.getCourseOrderRequestList()
+                .stream()
+                .map(courseOrderRequest -> {
+                    Place place = placeRepository.findById(courseOrderRequest.getPlaceId())
+                            .orElseThrow(() -> new BaseException("존재하지 않는 장소입니다.", 7000));
+                    CourseOrder courseOrder = courseOrderRequest.toEntity();
+                    courseOrder.addPlace(place);
+                    return courseOrder;
+                }).toList();
+        course.modifyCourse(courseRequest, courseOrderList);
+        return CourseResponse.of(course);
     }
 }
