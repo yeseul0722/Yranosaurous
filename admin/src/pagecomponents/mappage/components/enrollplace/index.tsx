@@ -103,7 +103,7 @@ const Enrollplace = ({ place, use }: Props) => {
                   style={{
                     width: '58px',
                     height: '58px',
-                    border: state.selectedMarker === `${index + 1}` ? '1.8px solid #599198' : 'none',
+                    border: state.selectedMarker == `${index + 1}` ? '1.8px solid #599198' : 'none',
                   }}
                   onClick={() => handleImageClick(`${index + 1}`)}
                 />
