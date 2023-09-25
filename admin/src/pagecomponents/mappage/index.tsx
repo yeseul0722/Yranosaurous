@@ -75,7 +75,9 @@ const MapPage = () => {
                 key={place.id}
                 position={{ lat: parseFloat(place.latitude), lng: parseFloat(place.longitude) }}
                 image={{
-                  src: `/images/map/markers/${imageArray[place.markerNumber - 1]}.png`,
+                  src: `${process.env.REACT_APP_ADMIN_URL}/images/map/markers/${
+                    imageArray[place.markerNumber - 1]
+                  }.png`,
                   size: {
                     width: 40,
                     height: 40,
@@ -97,7 +99,7 @@ const MapPage = () => {
             <MapMarker
               position={position}
               image={{
-                src: '/images/map/curplace.png',
+                src: `${process.env.REACT_APP_ADMIN_URL}/images/map/curplace.png`,
                 size: {
                   width: 30,
                   height: 40,

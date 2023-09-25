@@ -6,21 +6,21 @@ const Categories = () => {
   return (
     <StyledCategories>
       <StyledCategory selected={selectcat === '1'} onClick={() => setselectcat('1')}>
-        <img src="/images/map/place.png" style={{ width: '35px' }} />
+        <img src={`${process.env.REACT_APP_ADMIN_URL}/images/map/place.png`} style={{ width: '35px' }} />
         <div>
           <div>장소</div>
           <div>등록</div>
         </div>
       </StyledCategory>
       <StyledCategory selected={selectcat === '2'} onClick={() => setselectcat('2')}>
-        <img src="/images/map/festival.png" style={{ width: '35px' }} />
+        <img src={`${process.env.REACT_APP_ADMIN_URL}/images/map/festival.png`} style={{ width: '35px' }} />
         <div>
           <div>공연</div>
           <div>등록</div>
         </div>
       </StyledCategory>
       <StyledCategory selected={selectcat === '3'} onClick={() => setselectcat('3')}>
-        <img src="/images/map/course.png" style={{ width: '40px' }} />
+        <img src={`${process.env.REACT_APP_ADMIN_URL}/images/map/course.png`} style={{ width: '40px' }} />
         <div>
           <div>코스</div>
           <div>등록</div>

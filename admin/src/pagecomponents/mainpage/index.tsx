@@ -25,7 +25,7 @@ const MainPage = () => {
   return (
     <StyledMainpage
       style={{
-        backgroundImage: 'url(/images/main/background.png)',
+        backgroundImage: `url(${process.env.REACT_APP_ADMIN_URL}/images/main/background.png)`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
       }}
@@ -37,7 +37,10 @@ const MainPage = () => {
         </StyledTitle>
         <form onSubmit={handleSubmit}>
           <StyledInputBox>
-            <img src="/images/main/key.png" style={{ width: '20px', marginRight: '10px' }} />
+            <img
+              src={`${process.env.REACT_APP_ADMIN_URL}/images/main/key.png`}
+              style={{ width: '20px', marginRight: '10px' }}
+            />
             <StyledInput
               type="password"
               placeholder="password"

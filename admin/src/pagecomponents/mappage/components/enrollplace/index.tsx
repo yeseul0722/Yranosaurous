@@ -98,7 +98,7 @@ const Enrollplace = ({ place, use }: Props) => {
               {imageArray.map((imageName, index) => (
                 <img
                   key={index + 1}
-                  src={`/images/map/markers/${imageName}.png`}
+                  src={`${process.env.REACT_APP_ADMIN_URL}/images/map/markers/${imageName}.png`}
                   alt={`${index + 1}`}
                   style={{
                     width: '58px',
