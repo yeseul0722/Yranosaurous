@@ -58,4 +58,9 @@ public class PlaceController {
     public ApiResponse<?> courseList() {
         return ApiUtils.success(courseService.findCourses());
     }
+
+    @PutMapping("/place/{placeId}")
+    public ApiResponse<?> placeModify(@PathVariable Long placeId, @RequestBody PlaceRequest placeRequest) {
+        return ApiUtils.success(placeService.modifyPlace(placeRequest, placeId));
+    }
 }
