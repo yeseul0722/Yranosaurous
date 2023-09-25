@@ -31,7 +31,10 @@ public class Dinosaur {
     private String era;
     private String simpleContent;
     private String imgAddress;
-
+    @Column(columnDefinition = "TEXT")
+    private String summary;
+    private String length;
+    private String weight;
     @Column(columnDefinition = "TEXT")
     private String content;
 
@@ -39,7 +42,8 @@ public class Dinosaur {
     private List<DinosaurMuseum> dinosaurMuseums;
 
     public Dinosaur(String korName, String engName, String category, String taste,
-            String discoverySite, String era, String simpleContent, String content, String imgAddress) {
+            String discoverySite, String era, String simpleContent, String content, String imgAddress,
+            String summary, String length, String weight) {
         this.korName = korName;
         this.engName = engName;
         this.category = category;
@@ -49,5 +53,8 @@ public class Dinosaur {
         this.simpleContent = simpleContent;
         this.content = content;
         this.imgAddress = imgAddress;
+        this.summary = summary;
+        this.length = length;
+        this.weight = weight;
     }
 }
