@@ -61,4 +61,8 @@ public class CourseService {
         course.modifyCourse(courseRequest, courseOrderList);
         return CourseResponse.of(course);
     }
+
+    public void deleteCourse(Long courseId) {
+        courseRepository.deleteById(courseId);
+    }
 }

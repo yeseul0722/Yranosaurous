@@ -59,4 +59,8 @@ public class FestivalService {
         festival.modifyFestival(festivalRequest, place);
         return FestivalResponse.of(festival);
     }
+
+    public void deleteFestival(Long festivalId) {
+        festivalRepository.deleteById(festivalId);
+    }
 }
