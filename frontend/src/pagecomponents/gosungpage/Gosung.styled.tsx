@@ -7,4 +7,9 @@ const StyledGosungPage = styled.div`
   }
 `;
 
-export { StyledGosungPage };
+const GosungSideBarContainer = styled.div`
+  display: flex;
+  position: relative;
+`;
+
+export { StyledGosungPage, GosungSideBarContainer };

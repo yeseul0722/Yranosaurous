@@ -3,9 +3,13 @@ import styled from 'styled-components';
 const StyledSideListContainer = styled.div`
   min-width: 360px;
   max-width: 360px;
+  height: 100%;
   flex-direction: column;
   display: flex;
   align-items: start;
+  position: absolute;
+  z-index: 3;
+  background-color: ${(props) => props.theme.colors.white};
 `;
 
 const StyledMenu = styled.div`
