@@ -35,15 +35,15 @@ const Dinosaur = () => {
         <StyledKoreaMapPage>
           <KoreaMapPage></KoreaMapPage>
         </StyledKoreaMapPage>
-        <StyledKoreaceratopsPage>
+        {/* <StyledKoreaceratopsPage>
           <KoreaceratopsPage></KoreaceratopsPage>
-        </StyledKoreaceratopsPage>
+        </StyledKoreaceratopsPage> */}
         <StyledKoreasaurusPage>
           <KoreasaurusPage />
         </StyledKoreasaurusPage>
-        <StyledPukyongsaurusPage>
+        {/* <StyledPukyongsaurusPage>
           <PukyongsaurusPage />
-        </StyledPukyongsaurusPage>
+        </StyledPukyongsaurusPage> */}
       </StyledDsContent>
     </StyledDsPage>
   );
