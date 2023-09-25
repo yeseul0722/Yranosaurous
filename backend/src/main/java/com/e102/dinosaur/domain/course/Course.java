@@ -1,5 +1,6 @@
 package com.e102.dinosaur.domain.course;
 
+import com.e102.dinosaur.controller.place.request.CourseRequest;
 import com.e102.dinosaur.domain.courseorder.CourseOrder;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -21,7 +22,7 @@ public class Course {
     private String name;
     private int timeTaken;
 
-    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CourseOrder> courseOrderList;
 
     @Builder
@@ -42,5 +43,16 @@ public class Course {
     public void addCourseOrders(List<CourseOrder> courseOrderList) {
         courseOrderList.forEach(courseOrder -> courseOrder.addCourse(this));
         this.courseOrderList = courseOrderList;
+    }
+
+    public void modifyCourse(CourseRequest courseRequest, List<CourseOrder> courseOrderList) {
+        this.name = courseRequest.getName();
+        this.timeTaken = courseRequest.getTimeTaken();
+        if (this.courseOrderList == null) {
+            this.courseOrderList = new ArrayList<>();
+        }
+        this.courseOrderList.clear();
+        courseOrderList.forEach(courseOrder -> courseOrder.addCourse(this));
+        this.courseOrderList.addAll(courseOrderList);
     }
 }
