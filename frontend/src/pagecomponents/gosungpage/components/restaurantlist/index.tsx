@@ -2,6 +2,7 @@ import React from 'react';
 import {
   StyledRestaurantContainer,
   StyledRestaurantImg,
+  StyledRestaurantInfo,
   StyledRestaurantListContainer,
   StyledRestaurantRating,
   StyledRestaurantStoreName,
@@ -26,8 +27,10 @@ const GosungRestaurantList = ({ restaurantlist }: GosungRestaurantListProps) => 
       {restaurantlist.map((restaurant) => (
         <StyledRestaurantContainer key={restaurant.id} onClick={() => HandleDetailApi(restaurant.id)}>
           <StyledRestaurantImg src={restaurant.imgAddress}></StyledRestaurantImg>
-          <StyledRestaurantStoreName>{restaurant.storeName}</StyledRestaurantStoreName>
-          <StyledRestaurantRating>{restaurant.rating}</StyledRestaurantRating>
+          <StyledRestaurantInfo>
+            <StyledRestaurantStoreName>{restaurant.storeName}</StyledRestaurantStoreName>
+            <StyledRestaurantRating>{restaurant.rating}</StyledRestaurantRating>
+          </StyledRestaurantInfo>
         </StyledRestaurantContainer>
       ))}
     </StyledRestaurantListContainer>

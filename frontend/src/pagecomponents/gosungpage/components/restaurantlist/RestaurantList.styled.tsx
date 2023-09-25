@@ -8,9 +8,17 @@ const StyledRestaurantContainer = styled.div`
   align-items: center;
 `;
 
+const StyledRestaurantInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 10px;
+`;
+
 const StyledRestaurantStoreName = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
   color: ${(props) => props.theme.colors.light};
+  font-size: 18px;
 `;
 
 const StyledRestaurantImg = styled.img`
@@ -30,4 +38,5 @@ export {
   StyledRestaurantStoreName,
   StyledRestaurantImg,
   StyledRestaurantRating,
+  StyledRestaurantInfo,
 };
