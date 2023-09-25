@@ -1,13 +1,16 @@
 import styled from 'styled-components';
 
+const StyledFoodCategorySection = styled.div`
+  height: 100vh;
+  overflow: auto;
+`;
+
 const StyledFoodCategoryContainer = styled.div`
   height: 200px;
-  width: 340px;
-  border: 1px solid;
-  /* display: flex; */
+  width: 360px;
+  /* border: 1px solid; */
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
 `;
 
 const StyledFoodCategoryBox = styled.div`
@@ -20,19 +23,28 @@ const StyledFoodCategoryBox = styled.div`
 const StyledFoodCategoryWrap = styled.div`
   width: auto;
   height: auto;
-
   display: flex;
   justify-content: center;
 `;
 
 const StyledFoodCategoryList = styled.button`
-  width: 100px;
+  width: 120px;
   height: 30px;
-  border: 1px solid pink;
   border-radius: 30px;
   margin: 3px 10px;
   justify-content: center;
   align-items: center;
   display: flex;
+  color: ${(props) => props.theme.colors.main};
+  font-family: ${(props) => props.theme.fonts.regularfont};
+  border: none;
+  cursor: pointer;
+  background-color: ${(props) => props.theme.colors.lightgray};
 `;
-export { StyledFoodCategoryContainer, StyledFoodCategoryWrap, StyledFoodCategoryList, StyledFoodCategoryBox };
+export {
+  StyledFoodCategorySection,
+  StyledFoodCategoryContainer,
+  StyledFoodCategoryWrap,
+  StyledFoodCategoryList,
+  StyledFoodCategoryBox,
+};
