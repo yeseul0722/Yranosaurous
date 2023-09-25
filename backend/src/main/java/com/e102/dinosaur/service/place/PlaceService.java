@@ -35,4 +35,8 @@ public class PlaceService {
         place.modifyPlace(placeRequest);
         return PlaceResponse.of(place);
     }
+
+    public void deletePlace(Long placeId) {
+        placeRepository.deleteById(placeId);
+    }
 }
