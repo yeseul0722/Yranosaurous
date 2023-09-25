@@ -63,4 +63,9 @@ public class PlaceController {
     public ApiResponse<?> placeModify(@PathVariable Long placeId, @RequestBody PlaceRequest placeRequest) {
         return ApiUtils.success(placeService.modifyPlace(placeRequest, placeId));
     }
+
+    @PutMapping("/festival/{festivalId}")
+    public ApiResponse<?> festivalModify(@PathVariable Long festivalId, @RequestBody FestivalRequest festivalRequest) {
+        return ApiUtils.success(festivalService.modifyFestival(festivalRequest, festivalId));
+    }
 }

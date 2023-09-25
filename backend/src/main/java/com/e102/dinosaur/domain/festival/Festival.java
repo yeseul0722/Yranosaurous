@@ -1,5 +1,6 @@
 package com.e102.dinosaur.domain.festival;
 
+import com.e102.dinosaur.controller.place.request.FestivalRequest;
 import com.e102.dinosaur.domain.place.Place;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -33,5 +34,10 @@ public class Festival {
 
     public void addPlace(Place place) {
         this.place = place;
+    }
+
+    public void modifyFestival(FestivalRequest festivalRequest, Place place) {
+        this.name = festivalRequest.getName();
+        this.startTime = festivalRequest.getStartTime();
     }
 }

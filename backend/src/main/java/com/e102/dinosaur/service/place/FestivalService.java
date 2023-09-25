@@ -51,4 +51,12 @@ public class FestivalService {
     }
 
 
+    public FestivalResponse modifyFestival(FestivalRequest festivalRequest, Long festivalId) {
+        Festival festival = festivalRepository.findById(festivalId)
+                .orElseThrow(() -> new BaseException("존재하지 않는 공연입니다.", 7001));
+        Place place = placeRepository.findById(festivalRequest.getPlaceId())
+                .orElseThrow(() -> new BaseException("존재하지 않는 장소입니다.", 7000));
+        festival.modifyFestival(festivalRequest, place);
+        return FestivalResponse.of(festival);
+    }
 }
