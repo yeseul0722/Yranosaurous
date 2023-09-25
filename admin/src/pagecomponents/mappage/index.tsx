@@ -88,6 +88,7 @@ const MapPage = () => {
                   },
                 }}
                 onClick={() => {
+                  setPosition({ lat: 0, lng: 0 });
                   setSidebarProps({ use: 'update', place });
                 }}
               />
