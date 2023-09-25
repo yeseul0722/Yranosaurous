@@ -4,16 +4,19 @@ const StyledSideBarContainer = styled.div`
   min-width: 50px;
   max-width: 50px;
   height: 100vh;
-  border-right: 1px solid lightgray;
+  border-right: 1px solid ${(props) => props.theme.colors.lightgray};
 `;
 
 const StyledCategoryContainer = styled.div`
-  border-bottom: 1px solid lightgray;
+  /* border-bottom: 1px solid ${(props) => props.theme.colors.lightgray}; */
   height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-family: ${(props) => props.theme.fonts.boldfont};
+  color: ${(props) => props.theme.colors.light};
+  cursor: pointer;
 `;
 
 const StyledCircleContainer = styled.div`
