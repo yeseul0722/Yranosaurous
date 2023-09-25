@@ -22,6 +22,24 @@ const StyledDsContent = styled.div`
 
 const StyledDsLandingPage = styled.div`
   scroll-snap-align: start;
+  position: relative;
+`;
+
+const StyledLandingGoNextPageButton = styled.div`
+  background-color: #3d5a61;
+  color: ${(props) => props.theme.colors.white};
+  font-family: ${(props) => props.theme.fonts.dinoboldfont};
+  width: 10rem;
+  height: 3rem;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: absolute;
+  top: 25rem;
+  left: 42rem;
 `;
 
 const StyledDsFirstPage = styled.div`
@@ -51,6 +69,7 @@ export {
   StyledDsContent,
   StyledDsSide,
   StyledDsLandingPage,
+  StyledLandingGoNextPageButton,
   StyledDsFirstPage,
   StyledKoreaDsPage,
   StyledKoreaMapPage,
