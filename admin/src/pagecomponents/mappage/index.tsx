@@ -14,6 +14,7 @@ const MapPage = () => {
     latitude: '',
     markerNumber: '',
     type: '',
+    content: '',
   };
 
   const [places, setPlaces] = useState<any>([]);
