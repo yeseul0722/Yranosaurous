@@ -11,7 +11,7 @@ function App() {
   const pathname = useLocation().pathname;
   return (
     <div className="App">
-      {pathname === '/Expo' && <NavBar />}
+      {/* {pathname === '/Expo' && <NavBar />} */}
       <Routes>
         <Route path="/Expo" element={<Expo />} />
         <Route path="/Dinosaur" element={<Dinosaur />} />
