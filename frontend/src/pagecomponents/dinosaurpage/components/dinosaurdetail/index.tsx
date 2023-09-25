@@ -31,7 +31,9 @@ const DsDetail = (props: any) => {
   const DsKorName = dinosaurDetail.korName;
   const DsDetailimg = dinosaurDetail.imgAddress;
   const DsContent = dinosaurDetail.content;
+  const DsContent2 = DsContent ? DsContent.replaceAll('.', '. <br>') : '';
   const DsEngName = dinosaurDetail.engName;
+  console.log(DsContent);
 
   return (
     <StyledDsDetailPage>
@@ -69,7 +71,9 @@ const DsDetail = (props: any) => {
             <StyledDetailTitleText>| {DsKorName}의 이야기</StyledDetailTitleText>
             {/* </StyledDetailTitle> */}
             <StyledDeTailSummaryText>
-              트리케라톱스는 후기 백악기 (6800만 년 전 ~ 6500만 년 전)에 살았으며 북아메리카에서 발견된 각룡류인
+              {/* {DsContent2} */}
+              <span dangerouslySetInnerHTML={{ __html: DsContent2 }} />
+              {/* 트리케라톱스는 후기 백악기 (6800만 년 전 ~ 6500만 년 전)에 살았으며 북아메리카에서 발견된 각룡류인
               초식공룡입니다. 트리케라톱스는 머리에 세 개의 뿔과 넓은 프릴을 가진 특징을 가졌습니다. 각룡류 중에서
               몸집이 큰 편에 속하여 육상 공룡중 머리가 가장 큰 것에 속하고 있습니다.
               <br />
@@ -81,7 +85,7 @@ const DsDetail = (props: any) => {
               <br />
               트리케라톱스는 후기 백악기 (6800만 년 전 ~ 6500만 년 전)에 살았으며 북아메리카에서 발견된 각룡류인
               초식공룡입니다. 트리케라톱스는 머리에 세 개의 뿔과 넓은 프릴을 가진 특징을 가졌습니다. 각룡류 중에서
-              몸집이 큰 편에 속하여 육상 공룡중 머리가 가장 큰 것에 속하고 있습니다.
+              몸집이 큰 편에 속하여 육상 공룡중 머리가 가장 큰 것에 속하고 있습니다. */}
             </StyledDeTailSummaryText>
           </StyledDeTailSummary>
           <StyledDsDetailCloseButton onClick={props.closeDetail}>X</StyledDsDetailCloseButton>
