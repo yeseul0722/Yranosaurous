@@ -43,5 +43,17 @@ const StyledShowTitle = styled.div.attrs<any>((props) => ({}))`
     `;
   }}
 `;
+const StyledShowText = styled.div.attrs<any>((props) => ({}))`
+  ${(props) => {
+    const font = props.theme.fonts.regularfont;
+    const black = props.theme.colors.black;
 
-export { StyledSubTitle, StyledBox, StyledShowTitle };
+    return css`
+      font-family: ${font};
+      font-size: 17px;
+      color: ${black};
+    `;
+  }}
+`;
+
+export { StyledSubTitle, StyledBox, StyledShowTitle, StyledShowText };
