@@ -39,7 +39,7 @@ const StyledFileInputLabel = styled.label`
   height: 100%;
   background-color: ${(props) => props.theme.colors.main};
   color: ${(props) => props.theme.colors.white};
-  border-radius: 35px;
+  border-radius: 5px;
   text-align: center;
   line-height: 35px;
   cursor: pointer;
