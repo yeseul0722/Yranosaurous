@@ -58,4 +58,38 @@ public class PlaceController {
     public ApiResponse<?> courseList() {
         return ApiUtils.success(courseService.findCourses());
     }
+
+    @PutMapping("/place/{placeId}")
+    public ApiResponse<?> placeModify(@PathVariable Long placeId, @RequestBody PlaceRequest placeRequest) {
+        return ApiUtils.success(placeService.modifyPlace(placeRequest, placeId));
+    }
+
+    @PutMapping("/festival/{festivalId}")
+    public ApiResponse<?> festivalModify(@PathVariable Long festivalId, @RequestBody FestivalRequest festivalRequest) {
+        return ApiUtils.success(festivalService.modifyFestival(festivalRequest, festivalId));
+    }
+
+    @PutMapping("/course/{courseId}")
+    public ApiResponse<?> courseModify(@PathVariable Long courseId, @RequestBody CourseRequest courseRequest) {
+        return ApiUtils.success(courseService.modifyCourse(courseRequest, courseId));
+    }
+
+    @DeleteMapping("/place/{placeId}")
+    public ApiResponse<?> placeDelete(@PathVariable Long placeId) {
+        placeService.deletePlace(placeId);
+        return ApiUtils.success("삭제 성공");
+    }
+
+    @DeleteMapping("/festival/{festivalId}")
+    public ApiResponse<?> festivalDelete(@PathVariable Long festivalId) {
+        festivalService.deleteFestival(festivalId);
+        return ApiUtils.success("삭제 성공");
+    }
+
+    @DeleteMapping("/course/{courseId}")
+    public ApiResponse<?> courseDelete(@PathVariable Long courseId) {
+        courseService.deleteCourse(courseId);
+        return ApiUtils.success("삭제 성공");
+    }
+
 }

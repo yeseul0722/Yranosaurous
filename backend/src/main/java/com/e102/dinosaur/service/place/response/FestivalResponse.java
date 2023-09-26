@@ -17,12 +17,14 @@ public class FestivalResponse {
     private Long id;
     private String name;
     private LocalDateTime startTime;
+    private Long placeId;
 
     public static FestivalResponse of(Festival festival) {
         return FestivalResponse.builder()
                 .id(festival.getId())
                 .name(festival.getName())
                 .startTime(festival.getStartTime())
+                .placeId(festival.getPlace().getId())
                 .build();
     }
 
