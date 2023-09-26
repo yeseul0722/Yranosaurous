@@ -6,6 +6,7 @@ interface State {
   details: string;
   placeType: string;
   imageURL: string;
+  imagePreviewUrl: string;
 }
 
 const initialState: State = {
@@ -14,6 +15,7 @@ const initialState: State = {
   details: '',
   placeType: '',
   imageURL: '',
+  imagePreviewUrl: '',
 };
 
 type Action =
@@ -21,7 +23,8 @@ type Action =
   | { type: 'SET_SELECTED_MARKER'; payload: string }
   | { type: 'SET_DETAILS'; payload: string }
   | { type: 'SET_PLACE_TYPE'; payload: string }
-  | { type: 'SET_IMAGE_URL'; payload: string };
+  | { type: 'SET_IMAGE_URL'; payload: string }
+  | { type: 'SET_IMAGE_PREVIEW_URL'; payload: string };
 
 const reducer = (state: State, action: Action): State => {
   switch (action.type) {
@@ -35,6 +38,8 @@ const reducer = (state: State, action: Action): State => {
       return { ...state, placeType: action.payload };
     case 'SET_IMAGE_URL':
       return { ...state, imageURL: action.payload };
+    case 'SET_IMAGE_PREVIEW_URL':
+      return { ...state, imagePreviewUrl: action.payload };
     default:
       return state;
   }
