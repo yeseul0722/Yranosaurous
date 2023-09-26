@@ -1,196 +1,227 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 const StyledKoreasaurusPage = styled.div`
-  height: 100%;
+  /* height: 100%; */
+  height: 300vh;
   /* background-color: ${(props) => props.theme.colors.night}; */
-  /* background-image: url('/dinosaur/backgroundimg.jpg'); */
+  background-image: url('/dinosaur/backgroundimg.jpg');
   background: rgba(0, 0, 0, 0.5) url('/dinosaur/background60.png');
   background-size: cover;
   display: flex;
   flex-direction: column;
-`;
-
-const StyledKoreasaurusPageFirst = styled.div`
-  height: 100vh;
-  /* border: 1px solid red; */
-  display: flex;
-  justify-content: space-between;
-`;
-
-const StyledKoreasaurusPageSecond = styled.div`
-  height: 100vh;
-  /* border: 1px solid red; */
-  display: flex;
-  justify-content: space-between;
-  padding-right: 5rem;
-  padding-left: 5rem;
-`;
-
-const StyledKoreasaurusBody = styled.div`
-  /* border: 1px solid red; */
-  padding-top: 5rem;
-  padding-left: 5rem;
-  text-align: left;
+  padding: 3rem;
   position: relative;
 `;
 
-const StyledKoreasaurusGeneration = styled.div`
-  border: 1px solid yellow;
-`;
-
-const StyledKoreasaursTag = styled.div`
-  /* border: 1px solid green; */
-  color: ${(props) => props.theme.colors.white};
-  font-family: ${(props) => props.theme.fonts.dinoboldfont};
-  font-size: 1.5rem;
-  margin: 1rem;
-`;
-
-const StyledKoreasaursTitleNumber = styled.div`
-  background-color: ${(props) => props.theme.colors.light};
-  border-radius: 100%;
-  width: 10rem;
-  height: 10rem;
-  position: absolute;
-  top: 11rem;
-  /* left: 1rem; */
-  color: #000000;
-  font-size: 50px;
-  text-align: center;
+const StyledKoreasaursTitleNum = styled.div`
+  border: 0.8rem solid #324247;
+  color: #324247;
+  font-size: 10rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  border-radius: 100%;
+  width: 13rem;
+  height: 13rem;
+  position: absolute;
+  z-index: 1;
+  top: 12rem;
+  left: 5rem;
+`;
+
+const StyledKoreasaursFirstContent = styled.div`
+  color: ${(props) => props.theme.colors.white};
+  font-family: ${(props) => props.theme.fonts.dinoboldfont};
+  /* border: 1px solid red; */
+  text-align: left;
+  padding-top: 17rem;
+  padding-left: 9rem;
+  z-index: 50;
+  width: 55%;
 `;
 
 const StyledKoreasaurusTitle = styled.div`
-  /* border: 1px solid yellowgreen; */
-  color: ${(props) => props.theme.colors.white};
-  font-family: ${(props) => props.theme.fonts.dinoboldfont};
-  font-size: 3rem;
-  margin-left: 1rem;
-  margin-bottom: 3rem;
-  z-index: 100;
-`;
-
-const StyledKoreasaurusLittleTitle = styled.div`
-  /* border: 1px solid yellowgreen; */
-  color: ${(props) => props.theme.colors.white};
-  font-family: ${(props) => props.theme.fonts.dinoboldfont};
-  font-size: 2rem;
-  margin-left: 1rem;
-  margin-top: 3rem;
-`;
-
-const StyledKoreasaurusContent = styled.div`
   /* border: 1px solid blue; */
-  color: ${(props) => props.theme.colors.white};
-  font-family: ${(props) => props.theme.fonts.dinoboldfont};
-  font-size: 1.3rem;
-  line-height: 150%;
-  margin: 1rem;
+  font-size: 4rem;
+  margin-bottom: 1rem;
 `;
 
-const StyledKoreasaurusFigure = styled.div`
+const StyledKoreasaursLittleTitle = styled.div`
   /* border: 1px solid yellow; */
-  display: flex;
-  flex-direction: column;
-  /* justify-content: space-between; */
-  position: relative;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 `;
 
-const StyledKoreasaurusImg = styled.img.attrs<any>((props) => ({
+const StyledKoreasaursSummary = styled.div`
+  /* border: 1px solid green; */
+  font-size: 1.2rem;
+  line-height: 150%;
+`;
+
+const StyledKoreasaursImage1 = styled.img.attrs<any>((props) => ({
   src: props.src,
   alt: props.alt,
 }))`
   /* border: 1px solid aquamarine; */
-  width: 45rem;
-  height: 48rem;
-  object-fit: contain;
+  position: absolute;
+  right: 6rem;
+  top: 8rem;
+  width: 40rem;
 `;
 
-const StyledKoreasaurusCircle = styled.div`
-  width: 8rem;
-  height: 8rem;
+const StyledKoreasaursImage2 = styled.img.attrs<any>((props) => ({
+  src: props.src,
+  alt: props.alt,
+}))`
+  /* border: 1px solid aquamarine; */
   position: absolute;
-  top: 30rem;
-  left: 22rem;
-  /* filter: invert(0%); */
-`;
-const StyledKoreasaurusCircleWeight = styled.div`
-  width: 8rem;
-  height: 8rem;
-  position: absolute;
+  right: 11rem;
   top: 20rem;
+  height: 30rem;
+`;
+
+const StyledKoreasaursImage2LottieLine = styled.div`
+  /* border: 1px solid pink; */
+  position: absolute;
+  width: 15rem;
+  filter: invert(100%);
+  top: 58rem;
+  left: 42rem;
+  transform: rotate(0deg);
+`;
+
+const StyledKoreasaursImage2LottieBackLine = styled.div`
+  background-color: #ffffff;
+  position: absolute;
+  /* border-radius: 50px;
+  width: 1rem;
+  height: 8rem; */
+  top: 38rem;
+  right: 24rem;
+`;
+
+const StyledKoreasaursImage2LottieCircle = styled.div`
+  position: absolute;
+  width: 5rem;
+  filter: invert(100%);
+  top: 60rem;
+  left: 37rem;
+`;
+
+const StyledKoreasaursImage2WeightText = styled.div`
+  color: ${(props) => props.theme.colors.white};
+  font-family: ${(props) => props.theme.fonts.dinoboldfont};
+  font-size: 3rem;
+  position: absolute;
+  top: 61rem;
+  left: 57rem;
+`;
+
+const StyledKoreasaursSizeContainer = styled.div`
+  /* border: 1px solid pink; */
+  margin-top: 15rem;
+  margin-bottom: 10rem;
+  color: ${(props) => props.theme.colors.white};
+  font-family: ${(props) => props.theme.fonts.dinoboldfont};
+`;
+
+const StyledKoreasaursSizetImage = styled.img.attrs<any>((props) => ({
+  src: props.src,
+  alt: props.alt,
+}))`
+  /* border: 1px solid aquamarine; */
+  height: 40rem;
+`;
+
+const StyledKoreasaursSizetImageLottie = styled.div`
+  /* border: 1px solid pink; */
+  position: absolute;
+  width: 60rem;
+  filter: invert(100%);
+  top: 60rem;
   left: 10rem;
-  /* filter: invert(80%); */
+  transform: rotate(41deg);
 `;
 
-const StyledKoreasaurusLine = styled.div`
-  width: 20rem;
-  position: absolute;
-  top: 29rem;
-  left: 16rem;
-  filter: invert(100%);
-`;
-const StyledKoreasaurusLineWeight = styled.div`
-  width: 20rem;
-  position: absolute;
-  top: 19rem;
-  left: 4rem;
-  filter: invert(100%);
-`;
-
-const StyledKoreasaurusInfo = styled.div`
-  border: 1px solid orange;
-  height: 10rem;
-  display: flex;
-`;
-
-const StyledKoreasaurusHeight = styled.div`
-  /* border: 1px solid blue; */
+const StyledKoreasaursSizeText = styled.div`
   color: ${(props) => props.theme.colors.white};
   font-family: ${(props) => props.theme.fonts.dinoboldfont};
+  font-size: 3rem;
   position: absolute;
-  top: 45rem;
-  left: 24rem;
-  font-size: 2rem;
-`;
-const StyledKoreasaurusWeight = styled.div`
-  /* border: 1px solid blue; */
-  color: ${(props) => props.theme.colors.white};
-  font-family: ${(props) => props.theme.fonts.dinoboldfont};
-  position: absolute;
-  top: 35rem;
-  left: 11rem;
-  font-size: 2rem;
+  top: 75rem;
+  left: 25rem;
 `;
 
-const StyledKoreaSaursGoWatch = styled.div`
+const StyledKoreasaursSecondContent = styled.div`
+  /* border: 1px solid pink; */
+  color: ${(props) => props.theme.colors.white};
+  font-family: ${(props) => props.theme.fonts.dinoboldfont};
+  padding: 3rem;
+  text-align: left;
+`;
+
+const StyledKoreasaursSecondSummary = styled.div`
   /* border: 1px solid red; */
-  color: ${(props) => props.theme.colors.white};
-  font-family: ${(props) => props.theme.fonts.dinoboldfont};
-  margin-top: 3rem;
+  line-height: 150%;
+  font-size: 1.2rem;
+  padding-left: 1rem;
+`;
+
+const StyledKoreasaursThirdContent = styled.div`
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-around;
+  padding: 5rem;
+`;
+
+const rotateBorder = keyframes`
+  0% {
+    transform: rotate(0deg);
+    border-color: #E0ECED;
+  }
+  25% {
+    border-color: #9CC0C4;
+  }
+  50% {
+    border-color: #599198;
+  }
+  75% {
+    border-color: #9CC0C4;
+  }
+  100% {
+    transform: rotate(360deg);
+    border-color: #E0ECED;
+  }
+`;
+
+const StyledKoreasaursThirdBox = styled.div`
+  width: 13rem;
+  height: 13rem;
+  border: 10px solid;
+  border-radius: 100%;
+  animation: ${rotateBorder} 3s linear infinite;
 `;
 
 export {
   StyledKoreasaurusPage,
-  StyledKoreasaurusPageFirst,
-  StyledKoreasaurusPageSecond,
-  StyledKoreasaurusBody,
-  StyledKoreasaurusGeneration,
-  StyledKoreasaursTag,
+  StyledKoreasaursFirstContent,
   StyledKoreasaurusTitle,
-  StyledKoreasaursTitleNumber,
-  StyledKoreasaurusLittleTitle,
-  StyledKoreasaurusContent,
-  StyledKoreasaurusFigure,
-  StyledKoreasaurusCircle,
-  StyledKoreasaurusCircleWeight,
-  StyledKoreasaurusLine,
-  StyledKoreasaurusLineWeight,
-  StyledKoreasaurusImg,
-  StyledKoreasaurusInfo,
-  StyledKoreasaurusHeight,
-  StyledKoreasaurusWeight,
-  StyledKoreaSaursGoWatch,
+  StyledKoreasaursLittleTitle,
+  StyledKoreasaursTitleNum,
+  StyledKoreasaursSummary,
+  StyledKoreasaursImage1,
+  StyledKoreasaursImage2,
+  StyledKoreasaursImage2LottieBackLine,
+  StyledKoreasaursImage2LottieLine,
+  StyledKoreasaursImage2LottieCircle,
+  StyledKoreasaursImage2WeightText,
+  StyledKoreasaursSizeContainer,
+  StyledKoreasaursSizetImage,
+  StyledKoreasaursSizetImageLottie,
+  StyledKoreasaursSizeText,
+  StyledKoreasaursSecondContent,
+  StyledKoreasaursSecondSummary,
+  StyledKoreasaursThirdContent,
+  StyledKoreasaursThirdBox,
 };
