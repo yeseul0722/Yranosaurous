@@ -3,45 +3,34 @@ import { Map, MapMarker } from 'react-kakao-maps-sdk';
 import { StyledKakaoMapContainer } from './KakaoMap.styled';
 import { useRestaurantStore } from '../../../../stores/restaurants/useRestaurantApiStore';
 
-interface GeocoderResult {
-  y: any;
-  x: any;
-}
-
-const GosungKakaoMapComponent: React.FC = () => {
+const GosungKakaoMapComponent = () => {
   const { restaurantList } = useRestaurantStore();
-  const [markers, setMarkers] = useState<JSX.Element[]>([]);
+  const [markers, setMarkers] = useState<any[]>([]); //좌표로 변환한 값 담는 리스트
+
+  //restaurantlist에서 주소들 좌표로 변환하기
+  useEffect(() => {
+    const geocodeAddresses = async () => {
+      const newMarkers = [];
+      for (const restaurant of restaurantList) {
+        const result: any = await new Promise((resolve, reject) => {
+          geocoder.addressSearch(restaurant.address, (result, status) => {
+            if (status === kakao.maps.services.Status.OK) {
+              resolve(result);
+            }
+          });
+        });
+        if (result.length > 0) {
+          newMarkers.push(result[0]);
+        }
+      }
+      setMarkers(newMarkers);
+    };
+    geocodeAddresses();
+  }, [restaurantList]);
 
   console.log(markers, 'markers');
 
-  useEffect(() => {
-    const geocoder = new kakao.maps.services.Geocoder();
-
-    restaurantList.forEach((restaurant) => {
-      geocoder.addressSearch(
-        restaurant.address,
-        function (result: GeocoderResult[], status: kakao.maps.services.Status) {
-          // 정상적으로 검색이 완료됐으면
-          if (status === kakao.maps.services.Status.OK && result[0]) {
-            const coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-
-            // 결과값으로 받은 위치를 마커로 표시합니다
-            setMarkers((prev) => [
-              ...prev,
-              <MapMarker
-                key={`${coords.getLat()}-${coords.getLng()}`}
-                position={{
-                  lat: coords.getLat(),
-                  lng: coords.getLng(),
-                }}
-                clickable={true}
-              />,
-            ]);
-          }
-        },
-      );
-    });
-  }, [restaurantList]);
+  const geocoder = new kakao.maps.services.Geocoder();
 
   return (
     <Map
@@ -56,7 +45,9 @@ const GosungKakaoMapComponent: React.FC = () => {
       }}
       level={3}
     >
-      {markers}
+      {markers.map((marker, index) => (
+        <MapMarker key={index} position={{ lat: marker.y, lng: marker.x }} />
+      ))}
     </Map>
   );
 };

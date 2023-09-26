@@ -19,7 +19,7 @@ const GosungComponent = () => {
 
   const handleButtonClick = () => {
     setShowSideList(!showSideList);
-    setShowDetails(false);
+    setShowDetails(!showDetails);
   };
 
   const { restaurantDetail } = useRestaurantDetailStore();
