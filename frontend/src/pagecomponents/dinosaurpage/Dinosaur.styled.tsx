@@ -38,7 +38,7 @@ const StyledLandingGoNextPageButton = styled.div`
   font-size: 1.5rem;
   cursor: pointer;
   position: absolute;
-  top: 25rem;
+  top: 22rem;
   left: 42rem;
 `;
 
