@@ -18,7 +18,7 @@ const StyledMenu = styled.div.attrs<any>((props) => ({}))`
   flex-direction: column;
   border-bottom: 0.5px solid ${(props) => props.theme.colors.white};
   gap: 5px;
-  background-color: ${(props) => (props.name === props.state ? props.theme.colors.light : props.theme.colors.main)};
+  background-color: ${(props) => (props.name === props.state ? props.theme.colors.white : props.theme.colors.main)};
   cursor: pointer;
 `;
 
@@ -33,7 +33,7 @@ const StyledMenuIcon = styled.img.attrs<any>((props) => ({
 const StyledMenuTitle = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
   font-size: 15px;
-  color: ${(props) => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.black};
 `;
 
 export { StyledSideBarContainer, StyledSideBar, StyledMenu, StyledMenuIcon, StyledMenuTitle };

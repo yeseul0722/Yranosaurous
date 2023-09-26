@@ -27,21 +27,38 @@ const NavBarComponent = () => {
         <StyledName>와이라노사우르스</StyledName>
       </StyledLogoContainer>
       <StyledEndComponent>
-        <StyledLinkText name="expo" navstate={navState} onMouseEnter={onMouseEnter}>
+        <StyledLinkText
+          name="expo"
+          href="/Guide"
+          navstate={navState}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+        >
           Expo
         </StyledLinkText>
-        <StyledLinkText name="tour" navstate={navState} onMouseEnter={onMouseEnter}>
+        <StyledLinkText
+          name="tour"
+          href="/Gosung"
+          navstate={navState}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+        >
           고성관광
         </StyledLinkText>
-        <StyledLinkText name="dino" navstate={navState} onMouseEnter={onMouseEnter}>
+        <StyledLinkText
+          name="dino"
+          href="/Dinosaur"
+          navstate={navState}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+        >
           공룡
         </StyledLinkText>
       </StyledEndComponent>
-      {navState === 'expo' && (
+      {/* {navState === 'expo' && (
         <StyledNavBarDropDown onMouseLeave={onMouseLeave}>
           <StyledLinkDetailContainer>
             <StyledLinkDetail>행사장 안내</StyledLinkDetail>
-            <StyledLinkDetail>공연 정보</StyledLinkDetail>
           </StyledLinkDetailContainer>
         </StyledNavBarDropDown>
       )}
@@ -60,7 +77,7 @@ const NavBarComponent = () => {
             <StyledLinkDetail></StyledLinkDetail>
           </StyledLinkDetailContainer>
         </StyledNavBarDropDown>
-      )}
+      )} */}
     </StyledNavBar>
   );
 };

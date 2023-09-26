@@ -18,6 +18,13 @@ const StyledButton = styled.button.attrs<ButtonStyles>((props) => ({}))`
             font-size : 24px;
             padding : 10px;
         `,
+      mobileticket: `
+            border-radius : 20px;
+            background-color : ${main};
+            color : ${white};
+            font-size : 14px;
+            
+      `,
     };
     return css`
       display: flex;
