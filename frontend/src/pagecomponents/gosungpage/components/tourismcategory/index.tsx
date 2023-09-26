@@ -1,7 +1,11 @@
 import React from 'react';
 
 const GosungTourismCategory = () => {
-  return <div>Tourism</div>;
+  return (
+    <div>
+      <div>Tourism</div>
+    </div>
+  );
 };
 
 export default GosungTourismCategory;
