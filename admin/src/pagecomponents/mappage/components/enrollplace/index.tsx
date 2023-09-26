@@ -1,9 +1,12 @@
 import Button from '../../../../components/button';
 import Input from '../../../../components/input';
-import { StyledSubTitle, StyledBox, StyledTextarea } from './Enrollplace.styled';
+import { StyledSubTitle, StyledBox, StyledTextarea, StyledFileInputLabel, HiddenFileInput } from './Enrollplace.styled';
 import usePlaceHook from '../../../../hooks/usePlaceHook';
 import enrollPlacePost from '../../../../apis/place/enrollPlacePost';
 import { useEffect } from 'react';
+import { imgstorage } from '../../../../apis/firebase/firebase.config';
+import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
+import { v4 as uuid } from 'uuid';
 
 interface Props {
   place: {
@@ -36,6 +39,7 @@ const Enrollplace = ({ place, use }: Props) => {
     'stroller',
     'toilet',
     'ticket',
+    'drawing',
   ];
 
   useEffect(() => {
@@ -43,10 +47,61 @@ const Enrollplace = ({ place, use }: Props) => {
     dispatch({ type: 'SET_SELECTED_MARKER', payload: place.markerNumber });
     dispatch({ type: 'SET_PLACE_TYPE', payload: place.type });
     dispatch({ type: 'SET_DETAILS', payload: place.content });
+    dispatch({ type: 'SET_IMAGE_URL', payload: place.imgAddress });
+    dispatch({ type: 'SET_IMAGE_PREVIEW_URL', payload: '' });
   }, [place, dispatch]);
 
   const handleImageClick = (index: string) => {
     dispatch({ type: 'SET_SELECTED_MARKER', payload: index });
+  };
+
+  const handleImageChange = async (event: any) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        dispatch({ type: 'SET_IMAGE_PREVIEW_URL', payload: reader.result as string });
+      };
+      reader.readAsDataURL(file);
+
+      const fileName = uuid();
+      const reference = ref(imgstorage, fileName);
+
+      try {
+        await uploadBytes(reference, file);
+        const imgUrl = await getDownloadURL(reference);
+        dispatch({ type: 'SET_IMAGE_URL', payload: imgUrl });
+      } catch (error) {
+        // console.error('Error uploading image:', error);
+      }
+    }
+  };
+
+  const handleImageDelete = async () => {
+    if (state.imageURL) {
+      try {
+        // Firebase의 이미지 삭제
+        const reference = ref(imgstorage, getFileNameFromURL(state.imageURL));
+        await deleteObject(reference);
+
+        // State 업데이트
+        dispatch({ type: 'SET_IMAGE_URL', payload: '' });
+        dispatch({ type: 'SET_IMAGE_PREVIEW_URL', payload: '' });
+      } catch (error) {
+        // console.error('Error deleting image:', error);
+      }
+    }
+  };
+
+  const getFileNameFromURL = (url: string) => {
+    try {
+      const uri = new URL(url);
+      const path = uri.pathname;
+      return path.substring(path.lastIndexOf('/') + 1);
+    } catch (error) {
+      // console.error('Error parsing URL:', error);
+      return '';
+    }
   };
 
   const handleSaveClick = async () => {
@@ -55,25 +110,24 @@ const Enrollplace = ({ place, use }: Props) => {
         name: state.placeName,
         longitude: place.longitude.toString(),
         latitude: place.latitude.toString(),
-        // imgAddress: state.image ? state.image.name : '',
-        imgAddress: '',
+        imgAddress: state.imageURL,
         content: state.details,
         markerNumber: state.selectedMarker ? parseInt(state.selectedMarker) : 1,
         type: state.placeType === '편의 시설' ? 'CONV' : 'PREVIEW',
       };
       const response = await enrollPlacePost(data);
       if (response) {
-        console.log('Successfully posted:', response);
+        // console.log('Successfully posted:', response);
       }
     } catch (err) {
-      console.error('Error posting data:', err);
+      // console.error('Error posting data:', err);
     }
   };
 
   return (
     <div>
       <div style={{ height: '77vh', overflowY: 'auto', overflowX: 'hidden', paddingRight: '7px' }}>
-        <div style={{ display: 'flex', gap: '13px', flexDirection: 'column' }}>
+        <div style={{ display: 'flex', gap: '18px', flexDirection: 'column' }}>
           <div>
             <StyledSubTitle>현재 위치</StyledSubTitle>
             <StyledBox>
@@ -138,13 +192,21 @@ const Enrollplace = ({ place, use }: Props) => {
             />
           </div>
 
-          {/* <div>
-            <StyledSubTitle>이미지</StyledSubTitle>
-            <input
-              type="file"
-              onChange={(e) => dispatch({ type: 'SET_IMAGE', payload: e.target.files ? e.target.files[0] : null })}
-            />
-          </div> */}
+          <div style={{ position: 'relative', height: '35px' }}>
+            {state.imageURL ? (
+              <div style={{ display: 'flex', gap: '20px' }}>
+                <div style={{ width: '50%', height: '35px' }}>
+                  <Button onClick={handleImageDelete} ismain="true" label="이미지 삭제"></Button>
+                </div>
+                <img src={state.imageURL} alt="Uploaded" style={{ maxHeight: '35px' }} />
+              </div>
+            ) : (
+              <>
+                <StyledFileInputLabel htmlFor="fileInput">이미지 추가</StyledFileInputLabel>
+                <HiddenFileInput id="fileInput" onChange={handleImageChange} />
+              </>
+            )}
+          </div>
 
           <div style={{ marginBottom: '20px' }}>
             <StyledSubTitle>세부사항</StyledSubTitle>
