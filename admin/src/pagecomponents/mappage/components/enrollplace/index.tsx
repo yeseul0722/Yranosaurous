@@ -8,6 +8,7 @@ import { imgstorage } from '../../../../apis/firebase/firebase.config';
 import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
 import { v4 as uuid } from 'uuid';
 import updatePlacePut from '../../../../apis/place/updatePlacePut';
+import deletePlaceDelete from '../../../../apis/place/deletePlaceDelete';
 
 interface Props {
   place: {
@@ -145,6 +146,16 @@ const Enrollplace = ({ place, use }: Props) => {
       // console.error('Error put data:', err);
     }
   };
+  const handleDeleteClick = async () => {
+    try {
+      const response = await deletePlaceDelete(place.id);
+      if (response) {
+        console.log('Successfully deleted : ', response);
+      }
+    } catch (err) {
+      console.error('Error delete data:', err);
+    }
+  };
 
   return (
     <div>
@@ -241,7 +252,7 @@ const Enrollplace = ({ place, use }: Props) => {
       </div>
       <div style={{ display: 'flex', justifyContent: 'space-between', width: '250px', paddingTop: '15px' }}>
         <Button
-          // onClick={handleSaveClick}
+          onClick={handleDeleteClick}
           label="삭제 하기"
           ismain="false"
           style={{ width: '120px', height: '45px' }}
