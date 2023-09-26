@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   StyledPerformanceContainer,
   StyledNavContainer,
@@ -13,7 +13,19 @@ import {
   StyledGoPerformance,
 } from './Performacne.styled';
 import PerformanceCarousel from '../performancecarousel';
+import { useFestivalListHook } from '../../../../hooks/festival/useFestivalListHook';
+import { useMediaQuery } from 'react-responsive';
 const Performance = () => {
+  const { todayFestivalList, getTodayFestivalList } = useFestivalListHook();
+  const today = new Date();
+  const formattedDate = `${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today
+    .getDate()
+    .toString()
+    .padStart(2, '0')}`;
+  useEffect(() => {
+    getTodayFestivalList(formattedDate);
+  }, []);
+
   return (
     <StyledPerformanceContainer>
       <StyledNavContainer>
