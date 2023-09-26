@@ -33,6 +33,27 @@ const StyledBox = styled.div.attrs<any>((props) => ({}))`
   }}
 `;
 
+const StyledFileInputLabel = styled.label`
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: ${(props) => props.theme.colors.main};
+  color: ${(props) => props.theme.colors.white};
+  border-radius: 35px;
+  text-align: center;
+  line-height: 35px;
+  cursor: pointer;
+  font-family: ${(props) => props.theme.fonts.regularfont};
+  &:active {
+    margin-left: 3px;
+    margin-top: 3px;
+  }
+`;
+
+const HiddenFileInput = styled.input.attrs({ type: 'file' })`
+  display: none;
+`;
+
 const StyledTextarea = styled(TextareaAutosize).attrs<any>((props) => ({}))`
   width: 243px;
   padding-top: 8px;
@@ -49,4 +70,4 @@ const StyledTextarea = styled(TextareaAutosize).attrs<any>((props) => ({}))`
   }
 `;
 
-export { StyledSubTitle, StyledBox, StyledTextarea };
+export { StyledSubTitle, StyledBox, StyledTextarea, StyledFileInputLabel, HiddenFileInput };
