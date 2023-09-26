@@ -35,6 +35,7 @@ const MapPage = () => {
     'stroller',
     'toilet',
     'ticket',
+    'drawing',
   ];
 
   useEffect(() => {

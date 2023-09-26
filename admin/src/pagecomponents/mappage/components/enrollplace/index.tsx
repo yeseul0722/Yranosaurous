@@ -39,6 +39,7 @@ const Enrollplace = ({ place, use }: Props) => {
     'stroller',
     'toilet',
     'ticket',
+    'drawing',
   ];
 
   useEffect(() => {
