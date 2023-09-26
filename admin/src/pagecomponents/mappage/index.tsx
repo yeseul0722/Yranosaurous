@@ -15,6 +15,7 @@ const MapPage = () => {
     markerNumber: '',
     type: '',
     content: '',
+    imgAddress: '',
   };
 
   const [places, setPlaces] = useState<any>([]);

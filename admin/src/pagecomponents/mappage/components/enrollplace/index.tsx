@@ -47,6 +47,8 @@ const Enrollplace = ({ place, use }: Props) => {
     dispatch({ type: 'SET_SELECTED_MARKER', payload: place.markerNumber });
     dispatch({ type: 'SET_PLACE_TYPE', payload: place.type });
     dispatch({ type: 'SET_DETAILS', payload: place.content });
+    dispatch({ type: 'SET_IMAGE_URL', payload: place.imgAddress });
+    dispatch({ type: 'SET_IMAGE_PREVIEW_URL', payload: '' });
   }, [place, dispatch]);
 
   const handleImageClick = (index: string) => {
@@ -108,8 +110,7 @@ const Enrollplace = ({ place, use }: Props) => {
         name: state.placeName,
         longitude: place.longitude.toString(),
         latitude: place.latitude.toString(),
-        // imgAddress: state.image ? state.image.name : '',
-        imgAddress: '',
+        imgAddress: state.imageURL,
         content: state.details,
         markerNumber: state.selectedMarker ? parseInt(state.selectedMarker) : 1,
         type: state.placeType === '편의 시설' ? 'CONV' : 'PREVIEW',
