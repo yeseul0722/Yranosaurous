@@ -1,9 +1,12 @@
 import courcesListGet from '../../apis/guide/courcesListGet';
-
+import react, { useState } from 'react';
+import useGuideStore from '../../stores/guide/useGuideStore';
 export const useCourcesListHook = () => {
+  // const [courceList, setCourcelist] = useState();
+  const setCourcelist = useGuideStore((state: any) => state.setCourcelist);
   const getCourcesList = async () => {
     const res = await courcesListGet();
-    console.log(res.data.response);
+    setCourcelist(res.data.response);
   };
   return { getCourcesList };
 };

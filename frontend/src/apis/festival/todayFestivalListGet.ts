@@ -1,6 +1,6 @@
 import api from '../api';
 
-const FestivalListGet = async (date: any) => {
+const TodayFestivalListGet = async (date: any) => {
   try {
     const response = await api({
       method: 'get',
@@ -12,4 +12,4 @@ const FestivalListGet = async (date: any) => {
   }
 };
 
-export default FestivalListGet;
+export default TodayFestivalListGet;

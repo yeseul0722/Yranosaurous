@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
-import FestivalListGet from '../../apis/festival/festivalListGet';
+import TodayFestivalListGet from '../../apis/festival/todayFestivalListGet';
 import { async } from 'q';
 
 export const useFestivalListHook = () => {
-  const [festivalList, setFestivalList] = useState();
+  const [todayFestivalList, setTodayFestivalList] = useState();
 
-  const getFestivalList = async (today: any) => {
-    const res = await FestivalListGet(today);
-    setFestivalList(res.data.response);
+  const getTodayFestivalList = async (today: any) => {
+    const res = await TodayFestivalListGet(today);
+    setTodayFestivalList(res.data.response);
   };
 
-  return { festivalList, getFestivalList };
+  return { todayFestivalList, getTodayFestivalList };
 };

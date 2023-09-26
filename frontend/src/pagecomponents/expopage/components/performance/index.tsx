@@ -16,15 +16,16 @@ import PerformanceCarousel from '../performancecarousel';
 import { useFestivalListHook } from '../../../../hooks/festival/useFestivalListHook';
 import { useMediaQuery } from 'react-responsive';
 const Performance = () => {
-  const { festivalList, getFestivalList } = useFestivalListHook();
+  const { todayFestivalList, getTodayFestivalList } = useFestivalListHook();
   const today = new Date();
   const formattedDate = `${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today
     .getDate()
     .toString()
     .padStart(2, '0')}`;
   useEffect(() => {
-    getFestivalList(formattedDate);
+    getTodayFestivalList(formattedDate);
   }, []);
+
   return (
     <StyledPerformanceContainer>
       <StyledNavContainer>
