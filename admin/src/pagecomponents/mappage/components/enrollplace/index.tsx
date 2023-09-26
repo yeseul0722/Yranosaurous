@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import { imgstorage } from '../../../../apis/firebase/firebase.config';
 import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
 import { v4 as uuid } from 'uuid';
+import updatePlacePut from '../../../../apis/place/updatePlacePut';
 
 interface Props {
   place: {
@@ -124,6 +125,26 @@ const Enrollplace = ({ place, use }: Props) => {
     }
   };
 
+  const handleUpdateClick = async () => {
+    try {
+      const data = {
+        name: state.placeName,
+        longitude: place.longitude.toString(),
+        latitude: place.latitude.toString(),
+        imgAddress: state.imageURL,
+        content: state.details,
+        markerNumber: state.selectedMarker ? parseInt(state.selectedMarker) : 1,
+        type: state.placeType === '편의 시설' ? 'CONV' : 'PREVIEW',
+      };
+      const response = await updatePlacePut(place.id, data);
+      if (response) {
+        // console.log('Successfully putted:', response);
+      }
+    } catch (err) {
+      // console.error('Error put data:', err);
+    }
+  };
+
   return (
     <div>
       <div style={{ height: '77vh', overflowY: 'auto', overflowX: 'hidden', paddingRight: '7px' }}>
@@ -233,7 +254,7 @@ const Enrollplace = ({ place, use }: Props) => {
           />
         ) : (
           <Button
-            // onClick={handleSaveClick}
+            onClick={handleUpdateClick}
             label="수정 하기"
             ismain="true"
             style={{ width: '120px', height: '45px' }}
