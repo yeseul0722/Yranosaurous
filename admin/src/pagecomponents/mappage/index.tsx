@@ -37,6 +37,7 @@ const MapPage = () => {
     'toilet',
     'ticket',
     'drawing',
+    'bridge',
   ];
 
   useEffect(() => {
