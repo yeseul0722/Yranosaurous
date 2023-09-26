@@ -53,26 +53,26 @@ const KoreasaurusPage = () => {
         <StyledKoreasaurusFigure>
           <StyledKoreasaurusImg src="/dinosaur/koDs/Koreanosaurus.png" alt="Koreasaurus"></StyledKoreasaurusImg>
           {/* 키 */}
-          <StyledKoreasaurusCircle onClick={clickDsInfo}>
+          {/* <StyledKoreasaurusCircle onClick={clickDsInfo}>
             <Lottie animationData={circle} loop autoplay />
           </StyledKoreasaurusCircle>
           <StyledKoreasaurusLine>
             <Lottie animationData={Line} loop autoplay />
           </StyledKoreasaurusLine>
-          <StyledKoreasaurusHeight>1.8m</StyledKoreasaurusHeight>
+          <StyledKoreasaurusHeight>1.8m</StyledKoreasaurusHeight> */}
           {/* 몸무게 */}
-          <StyledKoreasaurusCircleWeight>
+          {/* <StyledKoreasaurusCircleWeight>
             <Lottie animationData={circle} loop autoplay />
           </StyledKoreasaurusCircleWeight>
           <StyledKoreasaurusLineWeight>
             <Lottie animationData={Line} loop autoplay />
           </StyledKoreasaurusLineWeight>
-          <StyledKoreasaurusWeight>0.08T</StyledKoreasaurusWeight>
+          <StyledKoreasaurusWeight>0.08T</StyledKoreasaurusWeight> */}
         </StyledKoreasaurusFigure>
       </StyledKoreasaurusPageFirst>
       <StyledKoreasaurusPageSecond>
         <StyledKoreasaurusFigure>
-          <StyledKoreasaurusImg src="/dinosaur/koDs/Koreanosaurus001.png" alt="Koreasaurus2"></StyledKoreasaurusImg>
+          <StyledKoreasaurusImg src="/dinosaur/koDs/koreasaursBack.png" alt="Koreasaurus2"></StyledKoreasaurusImg>
         </StyledKoreasaurusFigure>
         <StyledKoreasaurusBody>
           <StyledKoreasaurusContent>

@@ -20,7 +20,7 @@ const LandingPage = () => {
   return (
     <StyledDsLandingPage>
       <StyledLandingTitleText>
-        온라인에서 만나보는 <br /> 2023경남고성공룡세계엑스포
+        온라인으로 즐기는 <br /> 세계와 한국의 공룡 탐험
       </StyledLandingTitleText>
       <StyledLandingGlobe>
         <Globe
