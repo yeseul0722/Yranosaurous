@@ -4,6 +4,9 @@ import { StyledSubTitle, StyledBox, StyledTextarea } from './Enrollplace.styled'
 import usePlaceHook from '../../../../hooks/usePlaceHook';
 import enrollPlacePost from '../../../../apis/place/enrollPlacePost';
 import { useEffect } from 'react';
+import { imgstorage } from '../../../../apis/firebase/firebase.config';
+import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
+import { v4 as uuid } from 'uuid';
 
 interface Props {
   place: {
@@ -47,6 +50,22 @@ const Enrollplace = ({ place, use }: Props) => {
 
   const handleImageClick = (index: string) => {
     dispatch({ type: 'SET_SELECTED_MARKER', payload: index });
+  };
+
+  const handleImageChange = async (event: any) => {
+    const file = event.target.files[0];
+    if (file) {
+      const fileName = uuid();
+      const reference = ref(imgstorage, fileName);
+
+      try {
+        await uploadBytes(reference, file);
+        const imgUrl = await getDownloadURL(reference);
+        dispatch({ type: 'SET_IMAGE_URL', payload: imgUrl });
+      } catch (error) {
+        console.error('Error uploading image:', error);
+      }
+    }
   };
 
   const handleSaveClick = async () => {
@@ -138,13 +157,10 @@ const Enrollplace = ({ place, use }: Props) => {
             />
           </div>
 
-          {/* <div>
+          <div>
             <StyledSubTitle>이미지</StyledSubTitle>
-            <input
-              type="file"
-              onChange={(e) => dispatch({ type: 'SET_IMAGE', payload: e.target.files ? e.target.files[0] : null })}
-            />
-          </div> */}
+            <input type="file" onChange={handleImageChange} />
+          </div>
 
           <div style={{ marginBottom: '20px' }}>
             <StyledSubTitle>세부사항</StyledSubTitle>
