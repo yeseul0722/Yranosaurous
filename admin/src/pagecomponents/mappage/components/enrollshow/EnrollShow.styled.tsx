@@ -31,5 +31,17 @@ const StyledBox = styled.div.attrs<any>((props) => ({}))`
     `;
   }}
 `;
+const StyledShowTitle = styled.div.attrs<any>((props) => ({}))`
+  ${(props) => {
+    const font = props.theme.fonts.boldfont;
+    const dark = props.theme.colors.dark;
 
-export { StyledSubTitle, StyledBox };
+    return css`
+      font-family: ${font};
+      font-size: 17px;
+      color: ${dark};
+    `;
+  }}
+`;
+
+export { StyledSubTitle, StyledBox, StyledShowTitle };
