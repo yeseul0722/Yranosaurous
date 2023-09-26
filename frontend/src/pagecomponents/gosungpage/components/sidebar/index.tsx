@@ -2,10 +2,9 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faUtensils, faHouseUser, faSuitcase } from '@fortawesome/free-solid-svg-icons';
 import { StyledCategoryContainer, StyledCircleContainer, StyledSideBarContainer } from './Sidebar.styled';
-import ThemeProvider from 'styled-components';
-import theme from '../../../../styles/DefaultTheme';
+import { useStore } from 'zustand';
 
-const GosungSideBar: React.FC = () => {
+const GosungSideBar = () => {
   return (
     <StyledSideBarContainer>
       <StyledCategoryContainer>
@@ -19,7 +18,7 @@ const GosungSideBar: React.FC = () => {
       </StyledCategoryContainer>
       <StyledCategoryContainer>
         <FontAwesomeIcon icon={faHouseUser} style={{ marginBottom: '10px' }} />
-        <div>여행</div>
+        <div>숙소</div>
       </StyledCategoryContainer>
       <StyledCategoryContainer>
         <FontAwesomeIcon icon={faSuitcase} style={{ marginBottom: '10px' }} />

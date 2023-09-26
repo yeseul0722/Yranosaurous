@@ -1,13 +1,21 @@
 import React from 'react';
 import { useRestaurantDetailStore } from '../../../../stores/restaurants/useRestaurantDetailApiStore';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import Rating from '@mui/material/Rating';
 import {
+  StyledRating,
+  StyledRestaurantAd,
   StyledRestaurantDetailContainer,
   StyledRestaurantDetailImg,
   StyledRestaurantImgWrap,
+  StyledRestaurantInfo,
   StyledRestaurantName,
   StyledRestauranthashtags,
   Styledhashtag,
+  StyledRestaurantAdContainer,
 } from './RestaurantDetail.styled';
+import GosungRestaurantMenu from '../restaurantmenu';
 
 const GosungRestaurantDetail = () => {
   const { restaurantDetail } = useRestaurantDetailStore();
@@ -23,6 +31,16 @@ const GosungRestaurantDetail = () => {
           <Styledhashtag key={tag.id}>#{tag.name}</Styledhashtag>
         ))}
       </StyledRestauranthashtags>
+      <StyledRestaurantInfo>
+        <StyledRestaurantAdContainer>
+          <FontAwesomeIcon icon={faLocationDot} />
+          <StyledRestaurantAd>{restaurantDetail.address}</StyledRestaurantAd>
+        </StyledRestaurantAdContainer>
+        <StyledRating>
+          <Rating name="read-only" value={restaurantDetail.rating} readOnly /> {restaurantDetail.rating}
+        </StyledRating>
+      </StyledRestaurantInfo>
+      {/* <GosungRestaurantMenu /> */}
     </StyledRestaurantDetailContainer>
   );
 };

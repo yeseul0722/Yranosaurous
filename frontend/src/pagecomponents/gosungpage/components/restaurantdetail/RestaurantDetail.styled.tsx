@@ -5,9 +5,7 @@ const StyledRestaurantDetailContainer = styled.div`
   /* height: 100%; */
   width: 360px;
   display: flex;
-  /* position: relative; */
   z-index: 10;
-  /* border: 1px solid black; */
   background-color: ${(props) => props.theme.colors.white};
   flex-direction: column;
 `;
@@ -55,7 +53,31 @@ const Styledhashtag = styled.div`
   margin-right: 5px;
   padding-right: 6px;
   padding-left: 6px;
-  /* width: 20px; */
+`;
+
+const StyledRestaurantInfo = styled.div`
+  margin-top: 15px;
+  font-family: ${(props) => props.theme.fonts.regularfont};
+  padding-bottom: 15px;
+  border-bottom: 1px solid ${(props) => props.theme.colors.lightgray};
+`;
+
+const StyledRestaurantAdContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const StyledRestaurantAd = styled.div`
+  margin-left: 10px;
+`;
+
+const StyledRating = styled.div`
+  font-family: ${(props) => props.theme.fonts.regularfont};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
 `;
 
 export {
@@ -65,4 +87,8 @@ export {
   StyledRestaurantName,
   StyledRestauranthashtags,
   Styledhashtag,
+  StyledRestaurantInfo,
+  StyledRestaurantAd,
+  StyledRating,
+  StyledRestaurantAdContainer,
 };
