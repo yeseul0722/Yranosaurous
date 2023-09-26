@@ -1,26 +1,13 @@
 import Button from '../../../../components/button';
 import Input from '../../../../components/input';
-import { StyledSubTitle, StyledBox, StyledTextarea } from './Enrollplace.styled';
+import { StyledSubTitle, StyledBox, StyledTextarea, StyledFileInputLabel, HiddenFileInput } from './Enrollplace.styled';
 import usePlaceHook from '../../../../hooks/usePlaceHook';
-import enrollPlacePost from '../../../../apis/place/enrollPlacePost';
-import { useEffect } from 'react';
+import { useHandlePlaceHook } from '../../../../hooks/useHandlePlaceHook';
+import { EnrollPlacePropsType } from './Enrollplace.type';
 
-interface Props {
-  place: {
-    id: string;
-    name: string;
-    latitude: string;
-    longitude: string;
-    markerNumber: string;
-    type: string;
-    content: string;
-    imgAddress: string;
-  };
-  use: 'enroll' | 'update';
-}
-
-const Enrollplace = ({ place, use }: Props) => {
+const Enrollplace = ({ place, use }: EnrollPlacePropsType) => {
   const { state, dispatch } = usePlaceHook();
+
   const imageArray = [
     'dino',
     '3d',
@@ -36,44 +23,23 @@ const Enrollplace = ({ place, use }: Props) => {
     'stroller',
     'toilet',
     'ticket',
+    'drawing',
+    'bridge',
   ];
 
-  useEffect(() => {
-    dispatch({ type: 'SET_PLACE_NAME', payload: place.name });
-    dispatch({ type: 'SET_SELECTED_MARKER', payload: place.markerNumber });
-    dispatch({ type: 'SET_PLACE_TYPE', payload: place.type });
-    dispatch({ type: 'SET_DETAILS', payload: place.content });
-  }, [place, dispatch]);
-
-  const handleImageClick = (index: string) => {
-    dispatch({ type: 'SET_SELECTED_MARKER', payload: index });
-  };
-
-  const handleSaveClick = async () => {
-    try {
-      const data = {
-        name: state.placeName,
-        longitude: place.longitude.toString(),
-        latitude: place.latitude.toString(),
-        // imgAddress: state.image ? state.image.name : '',
-        imgAddress: '',
-        content: state.details,
-        markerNumber: state.selectedMarker ? parseInt(state.selectedMarker) : 1,
-        type: state.placeType === '편의 시설' ? 'CONV' : 'PREVIEW',
-      };
-      const response = await enrollPlacePost(data);
-      if (response) {
-        console.log('Successfully posted:', response);
-      }
-    } catch (err) {
-      console.error('Error posting data:', err);
-    }
-  };
+  const {
+    handleImageClick,
+    handleImageChange,
+    handleImageDelete,
+    handleSaveClick,
+    handleUpdateClick,
+    handleDeleteClick,
+  } = useHandlePlaceHook(state, dispatch, place, use);
 
   return (
     <div>
       <div style={{ height: '77vh', overflowY: 'auto', overflowX: 'hidden', paddingRight: '7px' }}>
-        <div style={{ display: 'flex', gap: '13px', flexDirection: 'column' }}>
+        <div style={{ display: 'flex', gap: '18px', flexDirection: 'column' }}>
           <div>
             <StyledSubTitle>현재 위치</StyledSubTitle>
             <StyledBox>
@@ -138,13 +104,21 @@ const Enrollplace = ({ place, use }: Props) => {
             />
           </div>
 
-          {/* <div>
-            <StyledSubTitle>이미지</StyledSubTitle>
-            <input
-              type="file"
-              onChange={(e) => dispatch({ type: 'SET_IMAGE', payload: e.target.files ? e.target.files[0] : null })}
-            />
-          </div> */}
+          <div style={{ position: 'relative', height: '35px' }}>
+            {state.imageURL ? (
+              <div style={{ display: 'flex', gap: '20px' }}>
+                <div style={{ width: '50%', height: '35px' }}>
+                  <Button onClick={handleImageDelete} ismain="true" label="이미지 삭제"></Button>
+                </div>
+                <img src={state.imageURL} alt="Uploaded" style={{ maxHeight: '35px' }} />
+              </div>
+            ) : (
+              <>
+                <StyledFileInputLabel htmlFor="fileInput">이미지 추가</StyledFileInputLabel>
+                <HiddenFileInput id="fileInput" onChange={handleImageChange} />
+              </>
+            )}
+          </div>
 
           <div style={{ marginBottom: '20px' }}>
             <StyledSubTitle>세부사항</StyledSubTitle>
@@ -157,7 +131,7 @@ const Enrollplace = ({ place, use }: Props) => {
       </div>
       <div style={{ display: 'flex', justifyContent: 'space-between', width: '250px', paddingTop: '15px' }}>
         <Button
-          // onClick={handleSaveClick}
+          onClick={handleDeleteClick}
           label="삭제 하기"
           ismain="false"
           style={{ width: '120px', height: '45px' }}
@@ -171,7 +145,7 @@ const Enrollplace = ({ place, use }: Props) => {
           />
         ) : (
           <Button
-            // onClick={handleSaveClick}
+            onClick={handleUpdateClick}
             label="수정 하기"
             ismain="true"
             style={{ width: '120px', height: '45px' }}

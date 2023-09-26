@@ -5,15 +5,17 @@ interface State {
   selectedMarker: string;
   details: string;
   placeType: string;
-  image: File | null;
+  imageURL: string;
+  imagePreviewUrl: string;
 }
 
 const initialState: State = {
   placeName: '',
   selectedMarker: '',
   details: '',
-  placeType: '편의 시설',
-  image: null,
+  placeType: '',
+  imageURL: '',
+  imagePreviewUrl: '',
 };
 
 type Action =
@@ -21,7 +23,8 @@ type Action =
   | { type: 'SET_SELECTED_MARKER'; payload: string }
   | { type: 'SET_DETAILS'; payload: string }
   | { type: 'SET_PLACE_TYPE'; payload: string }
-  | { type: 'SET_IMAGE'; payload: File | null };
+  | { type: 'SET_IMAGE_URL'; payload: string }
+  | { type: 'SET_IMAGE_PREVIEW_URL'; payload: string };
 
 const reducer = (state: State, action: Action): State => {
   switch (action.type) {
@@ -33,8 +36,10 @@ const reducer = (state: State, action: Action): State => {
       return { ...state, details: action.payload };
     case 'SET_PLACE_TYPE':
       return { ...state, placeType: action.payload };
-    case 'SET_IMAGE':
-      return { ...state, image: action.payload };
+    case 'SET_IMAGE_URL':
+      return { ...state, imageURL: action.payload };
+    case 'SET_IMAGE_PREVIEW_URL':
+      return { ...state, imagePreviewUrl: action.payload };
     default:
       return state;
   }
