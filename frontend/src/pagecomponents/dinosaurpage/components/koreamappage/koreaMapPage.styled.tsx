@@ -130,7 +130,8 @@ const StyledKoreaMapSelectLottie = styled.div.attrs<any>((props) => ({}))`
       visibility: hidden;
       height: 5rem;
       width: 5rem;
-      ${selectDs[selectDsName]}
+      filter: invert(100%);
+      ${selectDs[selectDsName]};
     `;
   }}
 `;

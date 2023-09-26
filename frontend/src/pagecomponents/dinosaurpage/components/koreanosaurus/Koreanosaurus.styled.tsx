@@ -4,7 +4,7 @@ const StyledKoreasaurusPage = styled.div`
   height: 100%;
   /* background-color: ${(props) => props.theme.colors.night}; */
   /* background-image: url('/dinosaur/backgroundimg.jpg'); */
-  background: rgba(0, 0, 0, 0.5) url('/dinosaur/background.png');
+  background: rgba(0, 0, 0, 0.5) url('/dinosaur/background60.png');
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -114,7 +114,7 @@ const StyledKoreasaurusCircle = styled.div`
   position: absolute;
   top: 30rem;
   left: 22rem;
-  filter: invert(80%);
+  /* filter: invert(0%); */
 `;
 const StyledKoreasaurusCircleWeight = styled.div`
   width: 8rem;
@@ -122,7 +122,7 @@ const StyledKoreasaurusCircleWeight = styled.div`
   position: absolute;
   top: 20rem;
   left: 10rem;
-  filter: invert(80%);
+  /* filter: invert(80%); */
 `;
 
 const StyledKoreasaurusLine = styled.div`

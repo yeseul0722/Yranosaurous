@@ -19,9 +19,8 @@ const LandingPage = () => {
   });
   return (
     <StyledDsLandingPage>
-      {/* <StyledLandingPagescreen> */}
       <StyledLandingTitleText>
-        우리 지구🌍에는 <br /> 어떤 공룡들이 살았을까?
+        온라인에서 만나보는 <br /> 2023경남고성공룡세계엑스포
       </StyledLandingTitleText>
       <StyledLandingGlobe>
         <Globe
