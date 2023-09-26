@@ -1,25 +1,10 @@
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Categories from '../categories';
 import Sidebar from '../sidebar';
 import { useGetShowsHook } from '../../../../hooks/useGetShowsHook';
-interface Festival {
-  id: number;
-  name: string;
-  startTime: string;
-  placeName: string;
-}
+import { Festival, Place } from '../../Map.type';
 
-interface Place {
-  id: number;
-  name: string;
-  longitude: string;
-  latitude: string;
-  markerNumber: number;
-  imgAddress: string;
-  content: string;
-  type: string;
-}
 const ShowMap = () => {
   const shows = useGetShowsHook();
   const [festivals, setFestivals] = useState<Festival[]>([]);
