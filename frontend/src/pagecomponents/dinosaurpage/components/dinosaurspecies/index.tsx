@@ -54,7 +54,7 @@ const DsSpeciesComponent = () => {
 
   const DsEngName = useDinosaurStore((state: any) => state.DsEngName);
   const setDsEngName = useDinosaurStore((state: any) => state.setDsEngName);
-  // 2-1. 주스턴드 호출
+  // 주스턴드2-1. 주스턴드 호출
   const setDsKorName = useDinosaurStore((state: any) => state.setDsKorName);
 
   const { getDinosaurSub } = useDinosaurSubHook(); // 공룡 서브
@@ -77,7 +77,7 @@ const DsSpeciesComponent = () => {
     const selectDsEngName = dinosaurList[e.target.id - 1].engName;
     getDinosaurSub(selectDsEngName);
 
-    // 2-2. 저장함수(저장할값)
+    // 주스턴드2-2. 저장함수(저장할값)
     setDsEngName(selectDsEngName);
     setDsKorName(selectDsKorName);
   };
