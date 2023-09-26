@@ -6,7 +6,7 @@ import { useDinosaurSubHook } from '../../../../hooks/dinosaur/useDinosaurSubHoo
 const CustomGlobeComponent = (props: any) => {
   // 기본설정
   const globeEl = useRef<any>();
-  // 3. 주스턴드 호출
+  // 주스턴드3. 주스턴드 호출
   const DsEngName = useDinosaurStore((state: any) => state.DsEngName);
   const DsKorName = useDinosaurStore((state: any) => state.DsKorName);
 

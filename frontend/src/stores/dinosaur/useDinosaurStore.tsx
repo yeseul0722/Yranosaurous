@@ -2,7 +2,7 @@ import { create } from 'zustand';
 
 const useDinosaurStore = create((set) => ({
   // 공룡 영어 이름
-  // 1. store에 등록
+  // 주스턴드1. store에 등록
   DsEngName: '',
   setDsEngName: (data: any) => set((state: any) => ({ DsEngName: data })),
   // 공룡 서브
