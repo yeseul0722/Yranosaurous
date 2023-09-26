@@ -55,6 +55,12 @@ const Enrollplace = ({ place, use }: Props) => {
   const handleImageChange = async (event: any) => {
     const file = event.target.files[0];
     if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        dispatch({ type: 'SET_IMAGE_PREVIEW_URL', payload: reader.result as string });
+      };
+      reader.readAsDataURL(file);
+
       const fileName = uuid();
       const reference = ref(imgstorage, fileName);
 
@@ -160,6 +166,9 @@ const Enrollplace = ({ place, use }: Props) => {
           <div>
             <StyledSubTitle>이미지</StyledSubTitle>
             <input type="file" onChange={handleImageChange} />
+            {state.imagePreviewUrl && (
+              <img src={state.imagePreviewUrl} alt="Preview" style={{ maxWidth: '120px', maxHeight: '45px' }} />
+            )}
           </div>
 
           <div style={{ marginBottom: '20px' }}>
