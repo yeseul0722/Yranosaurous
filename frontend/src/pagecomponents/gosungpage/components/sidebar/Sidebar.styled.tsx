@@ -30,4 +30,38 @@ const StyledCircleContainer = styled.div`
   padding: 7px;
 `;
 
-export { StyledSideBarContainer, StyledCategoryContainer, StyledCircleContainer };
+const StyledRestaurantIcon = styled.div`
+  background-image: url('/gosung/맛집.png');
+  width: 30px;
+  height: 30px;
+  margin-bottom: 10px;
+  background-size: cover;
+  background-position: center;
+`;
+
+const StyledAccomodationIcon = styled.div`
+  background-image: url('/gosung/숙소.png');
+  width: 30px;
+  height: 30px;
+  margin-bottom: 10px;
+  background-size: cover;
+  background-position: center;
+`;
+
+const StyledSightseeingIcon = styled.div`
+  background-image: url('/gosung/관광.png');
+  width: 30px;
+  height: 30px;
+  margin-bottom: 10px;
+  background-size: cover;
+  background-position: center;
+`;
+
+export {
+  StyledSideBarContainer,
+  StyledCategoryContainer,
+  StyledCircleContainer,
+  StyledRestaurantIcon,
+  StyledAccomodationIcon,
+  StyledSightseeingIcon,
+};

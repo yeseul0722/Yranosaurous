@@ -1,12 +1,37 @@
 import React from 'react';
 import { StyledMenu, StyledSideListContainer } from './Sidelist.styled';
-import GosungCategory from '../foodcategory';
+import FoodCategory from '../foodcategory';
+import { useSideBarStore } from '../../../../stores/gosung/useSideBarStore';
+import GosungAccomoCategory from '../accomocategory';
+import GosungTourismCategory from '../tourismcategory';
 
 const GosungSideList = () => {
+  const selectedCategory = useSideBarStore((state) => state.selectedCategory);
+
+  let menuName;
+  let CategoryComponent;
+
+  switch (selectedCategory) {
+    case '맛집':
+      menuName = '고성 맛집';
+      CategoryComponent = <FoodCategory />;
+      break;
+    case '숙소':
+      menuName = '고성 숙소';
+      CategoryComponent = <GosungAccomoCategory />;
+      break;
+    case '관광':
+      menuName = '고성 관광';
+      CategoryComponent = <GosungTourismCategory />;
+      break;
+    default:
+      menuName = null;
+  }
+
   return (
     <StyledSideListContainer>
-      <StyledMenu>고성 맛집</StyledMenu>
-      <GosungCategory />
+      <StyledMenu>{menuName}</StyledMenu>
+      {CategoryComponent}
     </StyledSideListContainer>
   );
 };

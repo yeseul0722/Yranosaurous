@@ -6,7 +6,7 @@ type Store = {
   setSelectedCategory: (category: string) => void;
 };
 
-export const useStore = create<Store>((set) => ({
+export const useSideBarStore = create<Store>((set) => ({
   selectedCategory: '맛집',
   setSelectedCategory: (category) => set({ selectedCategory: category }),
 }));
