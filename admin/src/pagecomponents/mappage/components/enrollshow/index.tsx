@@ -1,7 +1,8 @@
+import { EnrollShowPropsType } from '../../Map.type';
 import { StyledBox, StyledSubTitle } from './EnrollShow.styled';
-import { EnrollShowPropsType } from './EnrollShow.type';
 
-const EnrollShow = ({ place }: EnrollShowPropsType) => {
+const EnrollShow = ({ place, festivals }: EnrollShowPropsType) => {
+  console.log('festival', festivals);
   return (
     <div>
       {place && (
