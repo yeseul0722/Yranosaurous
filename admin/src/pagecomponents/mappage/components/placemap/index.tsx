@@ -1,11 +1,13 @@
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
-import { useEffect, useState } from 'react';
-import placesGet from '../../../../apis/place/placesGet';
+import { useState } from 'react';
 import { PositionType } from '../../Map.type';
 import Categories from '../categories';
 import Sidebar from '../sidebar';
+import { useGetPlacesHook } from '../../../../hooks/useGetPlacesHook';
 
-const EnrollMap = () => {
+const PlaceMap = () => {
+  const places = useGetPlacesHook();
+
   const [position, setPosition] = useState<PositionType>();
   const emptyPlace = {
     id: '',
@@ -18,7 +20,6 @@ const EnrollMap = () => {
     imgAddress: '',
   };
 
-  const [places, setPlaces] = useState<any>([]);
   const [sidebarProps, setSidebarProps] = useState({ use: 'enroll', place: { ...emptyPlace } });
 
   const imageArray = [
@@ -39,15 +40,6 @@ const EnrollMap = () => {
     'drawing',
     'bridge',
   ];
-
-  useEffect(() => {
-    const fetchList = async () => {
-      const data = await placesGet();
-      setPlaces(data);
-      console.log(data);
-    };
-    fetchList();
-  }, []);
 
   return (
     <div style={{ display: 'flex' }}>
@@ -123,4 +115,4 @@ const EnrollMap = () => {
   );
 };
 
-export default EnrollMap;
+export default PlaceMap;
