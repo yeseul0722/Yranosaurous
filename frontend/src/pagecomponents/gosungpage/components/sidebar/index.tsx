@@ -25,9 +25,9 @@ const GosungSideBar = () => {
         <StyledRestaurantIcon />
         <div>맛집</div>
       </StyledCategoryContainer>
-      <StyledCategoryContainer onClick={() => setSelectedCategory('숙소')}>
+      <StyledCategoryContainer onClick={() => setSelectedCategory('숙박')}>
         <StyledAccomodationIcon />
-        <div>숙소</div>
+        <div>숙박</div>
       </StyledCategoryContainer>
       <StyledCategoryContainer onClick={() => setSelectedCategory('관광')}>
         <StyledSightseeingIcon />

@@ -16,8 +16,8 @@ const GosungSideList = () => {
       menuName = '고성 맛집';
       CategoryComponent = <FoodCategory />;
       break;
-    case '숙소':
-      menuName = '고성 숙소';
+    case '숙박':
+      menuName = '고성 숙박';
       CategoryComponent = <GosungAccomoCategory />;
       break;
     case '관광':
