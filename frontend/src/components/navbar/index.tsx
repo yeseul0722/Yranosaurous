@@ -27,13 +27,31 @@ const NavBarComponent = () => {
         <StyledName>와이라노사우르스</StyledName>
       </StyledLogoContainer>
       <StyledEndComponent>
-        <StyledLinkText name="expo" href="/Guide" navstate={navState} onMouseEnter={onMouseEnter}>
+        <StyledLinkText
+          name="expo"
+          href="/Guide"
+          navstate={navState}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+        >
           Expo
         </StyledLinkText>
-        <StyledLinkText name="tour" href="/Gosung" navstate={navState} onMouseEnter={onMouseEnter}>
+        <StyledLinkText
+          name="tour"
+          href="/Gosung"
+          navstate={navState}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+        >
           고성관광
         </StyledLinkText>
-        <StyledLinkText name="dino" href="/Dinosaur" navstate={navState} onMouseEnter={onMouseEnter}>
+        <StyledLinkText
+          name="dino"
+          href="/Dinosaur"
+          navstate={navState}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+        >
           공룡
         </StyledLinkText>
       </StyledEndComponent>

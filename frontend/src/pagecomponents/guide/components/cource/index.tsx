@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { StyledMenuContainer, StyledMenuContentContainer, StyledMenuTitle } from '../../Guide.styled';
-import { useCourcesListHook } from '../../../../hooks/guide/useCourcesListHook';
 import {
   StyledCourceImage,
   StyledCourceImageContainer,
   StyledCourceSelectContainer,
   StyledCourcePlace,
-} from './Cource.styled';
+} from '../../Guide.styled';
 import { useCourceHook } from '../../../../hooks/guide/useCourceHook';
 import useGuideStore from '../../../../stores/guide/useGuideStore';
 
@@ -31,7 +30,7 @@ const Cource = () => {
     'drawing',
     'bridge',
   ];
-  console.log(courseOrderList);
+
   return (
     <StyledMenuContainer>
       <StyledMenuTitle>추천 코스</StyledMenuTitle>

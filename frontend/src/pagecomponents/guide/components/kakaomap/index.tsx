@@ -34,7 +34,7 @@ const GosungKakaoMapComponent = () => {
   };
 
   useEffect(() => {
-    if (selectCategory === 'facility') {
+    if (selectCategory === 'facility' || selectCategory === 'preview') {
       setLatitude(place.latitude);
       setLongitude(place.longitude);
     }
@@ -53,7 +53,7 @@ const GosungKakaoMapComponent = () => {
       }}
       level={4}
     >
-      {selectCategory === 'facility' && (
+      {(selectCategory === 'facility' || selectCategory === 'preview') && (
         <MapMarker // 마커를 생성합니다
           position={{
             // 마커가 표시될 위치입니다
@@ -86,7 +86,7 @@ const GosungKakaoMapComponent = () => {
             title={position.title} // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
           />
         ))}
-      {selectCategory === 'facility' && isOpen && null}
+      {(selectCategory === 'facility' || selectCategory === 'preview') && isOpen && null}
       {selectCategory === 'cource' && isOpen && null}
       {/* 이미지 여기에 모달로 넣기 */}
     </Map>
