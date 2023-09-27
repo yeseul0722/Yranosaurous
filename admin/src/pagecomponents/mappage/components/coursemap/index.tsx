@@ -1,10 +1,10 @@
 import { Map, MapMarker, Polyline } from 'react-kakao-maps-sdk';
 import { useState } from 'react';
-import { useGetPlacesHook } from '../../../hooks/useGetPlacesHook';
-import { PositionType } from '../Map.type';
-import Categories from '../components/categories';
-import Sidebar from '../components/sidebar';
-import { useGetCoursesHook } from '../../../hooks/useGetCoursesHook';
+import { useGetPlacesHook } from '../../../../hooks/useGetPlacesHook';
+import { PositionType } from '../../Map.type';
+import Categories from '../categories';
+import Sidebar from '../sidebar';
+import { useGetCoursesHook } from '../../../../hooks/useGetCoursesHook';
 const CourseMap = () => {
   const places = useGetPlacesHook();
   const courses = useGetCoursesHook();
