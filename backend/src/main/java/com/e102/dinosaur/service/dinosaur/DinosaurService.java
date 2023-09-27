@@ -8,6 +8,7 @@ import com.e102.dinosaur.exception.BaseException;
 import com.e102.dinosaur.service.dinosaur.response.DinosaurDetailResponse;
 import com.e102.dinosaur.service.dinosaur.response.DinosaurResponse;
 import com.e102.dinosaur.service.dinosaur.response.DinosaurSubResponse;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
@@ -25,6 +26,7 @@ public class DinosaurService {
     public List<DinosaurResponse> getDinosaurs() {
         return dinosaurRepository.findAll().stream()
                 .map(DinosaurResponse::from)
+                .sorted()
                 .collect(Collectors.toList());
     }
 
