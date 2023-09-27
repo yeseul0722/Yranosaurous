@@ -15,8 +15,6 @@ const GosungCategory = () => {
 
   const HandleApi = async (category: number) => {
     const response = await RestaurantListGet(category);
-    console.log(response);
-    console.log(response.data.response);
 
     setRestaurantList(response.data.response);
   };

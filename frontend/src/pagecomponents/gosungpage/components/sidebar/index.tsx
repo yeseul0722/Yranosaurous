@@ -1,11 +1,19 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faUtensils, faHouseUser, faSuitcase } from '@fortawesome/free-solid-svg-icons';
-import { StyledCategoryContainer, StyledCircleContainer, StyledSideBarContainer } from './Sidebar.styled';
-import ThemeProvider from 'styled-components';
-import theme from '../../../../styles/DefaultTheme';
+import {
+  StyledAccomodationIcon,
+  StyledCategoryContainer,
+  StyledCircleContainer,
+  StyledRestaurantIcon,
+  StyledSideBarContainer,
+  StyledSightseeingIcon,
+} from './Sidebar.styled';
+import { useSideBarStore } from '../../../../stores/gosung/useSideBarStore';
 
-const GosungSideBar: React.FC = () => {
+const GosungSideBar = () => {
+  const setSelectedCategory = useSideBarStore((state) => state.setSelectedCategory);
+
   return (
     <StyledSideBarContainer>
       <StyledCategoryContainer>
@@ -13,16 +21,16 @@ const GosungSideBar: React.FC = () => {
           <FontAwesomeIcon icon={faBars} />
         </StyledCircleContainer>
       </StyledCategoryContainer>
-      <StyledCategoryContainer>
-        <FontAwesomeIcon icon={faUtensils} style={{ marginBottom: '10px' }} />
+      <StyledCategoryContainer onClick={() => setSelectedCategory('맛집')}>
+        <StyledRestaurantIcon />
         <div>맛집</div>
       </StyledCategoryContainer>
-      <StyledCategoryContainer>
-        <FontAwesomeIcon icon={faHouseUser} style={{ marginBottom: '10px' }} />
-        <div>여행</div>
+      <StyledCategoryContainer onClick={() => setSelectedCategory('숙박')}>
+        <StyledAccomodationIcon />
+        <div>숙박</div>
       </StyledCategoryContainer>
-      <StyledCategoryContainer>
-        <FontAwesomeIcon icon={faSuitcase} style={{ marginBottom: '10px' }} />
+      <StyledCategoryContainer onClick={() => setSelectedCategory('관광')}>
+        <StyledSightseeingIcon />
         <div>관광</div>
       </StyledCategoryContainer>
     </StyledSideBarContainer>

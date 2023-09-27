@@ -6,6 +6,8 @@ const StyledRestaurantContainer = styled.div`
   height: 200px;
   display: flex;
   align-items: center;
+  border-bottom: 1px solid ${(props) => props.theme.colors.lightgray};
+  cursor: pointer;
 `;
 
 const StyledRestaurantInfo = styled.div`
