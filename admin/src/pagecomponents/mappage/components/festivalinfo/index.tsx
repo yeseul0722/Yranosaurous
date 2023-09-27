@@ -1,7 +1,19 @@
+import showDelete from '../../../../apis/show/showDelete';
 import Button from '../../../../components/button';
 import { StyledBox, StyledShowText, StyledShowTitle, StyledTimeContainer } from './Festivalinfo.styled';
 
 const FestivalInfo = ({ festival }: any) => {
+  const handleDeleteClick = async () => {
+    try {
+      const response = await showDelete(festival.id);
+      if (response) {
+        console.log('Successfully deleted : ', response);
+      }
+    } catch (err) {
+      console.error('Error delete data:', err);
+    }
+  };
+
   return (
     <StyledBox>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
