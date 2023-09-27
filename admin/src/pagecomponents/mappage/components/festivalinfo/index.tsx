@@ -19,7 +19,7 @@ const FestivalInfo = ({ festival }: any) => {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <StyledShowTitle>{festival.name}</StyledShowTitle>
         <div style={{ height: '25px', width: '45px', marginTop: '2px' }}>
-          <Button ismain="true" label={'삭제'} />
+          <Button ismain="true" label={'삭제'} onClick={handleDeleteClick} />
         </div>
       </div>
       <StyledTimeContainer>
