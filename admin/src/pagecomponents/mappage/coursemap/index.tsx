@@ -1,4 +1,4 @@
-import { Map, MapMarker } from 'react-kakao-maps-sdk';
+import { Map, MapMarker, Polyline } from 'react-kakao-maps-sdk';
 import { useState } from 'react';
 import { useGetPlacesHook } from '../../../hooks/useGetPlacesHook';
 import { PositionType } from '../Map.type';
@@ -22,6 +22,7 @@ const CourseMap = () => {
   };
 
   const [sidebarProps, setSidebarProps] = useState({ use: 'enroll', place: { ...emptyPlace } });
+  const colors = ['#FFFF00', '#00FF00', '#0000FF', '#FF0000', '#FF00FF', '#00FFFF'];
 
   const imageArray = [
     'dino',
@@ -91,24 +92,18 @@ const CourseMap = () => {
                 }}
               />
             ))}
-          {position && (
-            <MapMarker
-              position={position}
-              image={{
-                src: `${process.env.REACT_APP_ADMIN_URL}/images/map/curplace.png`,
-                size: {
-                  width: 30,
-                  height: 40,
-                },
-                options: {
-                  offset: {
-                    x: 13,
-                    y: 34,
-                  },
-                },
-              }}
-            />
-          )}
+
+          {courses &&
+            courses.map((course: any, index: number) => (
+              <Polyline
+                key={course.id} // 각 Polyline 컴포넌트에 유니크한 key prop 추가
+                path={course.courseOrderList.map((order: any) => ({
+                  lat: parseFloat(order.place.latitude),
+                  lng: parseFloat(order.place.longitude),
+                }))}
+                strokeColor={colors[index % colors.length]}
+              />
+            ))}
         </Map>
         <Sidebar {...sidebarProps}></Sidebar>
       </div>
