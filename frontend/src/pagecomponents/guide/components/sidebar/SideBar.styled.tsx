@@ -7,7 +7,7 @@ const StyledSideBar = styled.div`
   height: 100vh;
   width: 72px;
   z-index: 100;
-  background-color: ${(props) => props.theme.colors.main};
+  background-color: white;
 `;
 
 const StyledMenu = styled.div.attrs<any>((props) => ({}))`
@@ -16,9 +16,9 @@ const StyledMenu = styled.div.attrs<any>((props) => ({}))`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  border-bottom: 0.5px solid ${(props) => props.theme.colors.white};
+  border-bottom: 0.5px solid ${(props) => props.theme.colors.main};
   gap: 5px;
-  background-color: ${(props) => (props.name === props.state ? props.theme.colors.white : props.theme.colors.main)};
+  background-color: ${(props) => (props.name === props.state ? props.theme.colors.light : 'white')};
   cursor: pointer;
 `;
 

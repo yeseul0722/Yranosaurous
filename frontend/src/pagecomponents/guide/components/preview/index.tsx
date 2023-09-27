@@ -9,10 +9,11 @@ import {
 } from '../../Guide.styled';
 import { useFestivalListHook } from '../../../../hooks/guide/useFestivalListHook';
 import { usePlacesListHook } from '../../../../hooks/guide/usePlacesListHook';
+import useGuideStore from '../../../../stores/guide/useGuideStore';
 
 const Preview = () => {
   const { getFestivalList } = useFestivalListHook();
-  const { placesList, getPlacesList, handlePlace } = usePlacesListHook();
+  const { placesList, selectPlace, getPlacesList, handlePlace } = usePlacesListHook();
   const imageArray = [
     'dino',
     '3d',
@@ -45,11 +46,18 @@ const Preview = () => {
       {placesList.map((place: any) => {
         if (place.type === '관람 요소') {
           return (
-            <StyledCourceSelectContainer key={place.id} onClick={() => onClick(place)}>
+            <StyledCourceSelectContainer
+              name={place.name}
+              select={selectPlace}
+              key={place.id}
+              onClick={() => onClick(place)}
+            >
               <StyledCourceImageContainer>
                 <StyledCourceImage marker={imageArray[place.markerNumber - 1]}></StyledCourceImage>
               </StyledCourceImageContainer>
-              <StyledCourcePlace>{place.name}</StyledCourcePlace>
+              <StyledCourcePlace name={place.name} select={selectPlace}>
+                {place.name}
+              </StyledCourcePlace>
             </StyledCourceSelectContainer>
           );
         }

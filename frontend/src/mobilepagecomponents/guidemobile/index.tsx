@@ -26,3 +26,5 @@ const GuideMobile = () => {
 };
 
 export default GuideMobile;
+
+// 이동 마다 지도 중심 바꾸기, 지도 좀 더 작게
