@@ -23,6 +23,7 @@ const StyledDsSpeciesTitleText = styled.div`
   font-size: 30px;
   padding: 5px;
   color: ${(props) => props.theme.colors.white};
+  cursor: default;
 `;
 
 const StyledDsSpeciesBody = styled.div`
@@ -51,6 +52,7 @@ const StyledDsSpeciesCard = styled.div`
   margin: 10px;
   border-radius: 10px;
   overflow: hidden;
+  cursor: pointer;
 `;
 
 const StyledDsSpeciesCardImg = styled.img.attrs<any>((props) => ({
@@ -124,6 +126,7 @@ const StyledDsSpeciesPagenation = styled.div`
 
 const StyledDsSpeciesPagenationButton = styled.div`
   /* border: 1px solid green; */
+  cursor: pointer;
 `;
 
 export {

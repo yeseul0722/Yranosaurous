@@ -43,6 +43,7 @@ const StyledKoreaMapTitleText = styled.div`
   font-family: ${(props) => props.theme.fonts.dinoboldfont};
   text-align: left;
   padding-bottom: 0.5rem;
+  cursor: default;
 `;
 
 const StyledKoreaMapText = styled.div`
@@ -60,6 +61,7 @@ const StyledKoreaMapSelect = styled.div.attrs<any>((props) => ({}))`
   margin-bottom: 2rem;
   color: ${(props) => props.theme.colors.white};
   font-family: ${(props) => props.theme.fonts.dinoboldfont};
+  cursor: default;
   z-index: 100;
 
   ${({ id }) => {
