@@ -3,9 +3,10 @@ import Button from '../../../../components/button';
 import { EnrollShowPropsType } from '../../Map.type';
 import { StyledBox, StyledShowText, StyledShowTitle, StyledSubTitle } from './EnrollShow.styled';
 import Input from '../../../../components/input';
+import FestivalInfo from '../festivalinfo';
 
 const EnrollShow = ({ place, festivals }: EnrollShowPropsType) => {
-  const [inputs, setInputs] = useState<{ name: string; date: string; time: string }[]>([]); // 타입 명시
+  const [inputs, setInputs] = useState<{ name: string; date: string; time: string }[]>([]);
 
   const handleAddClick = () => {
     setInputs([...inputs, { name: '', date: '', time: '' }]);
@@ -22,25 +23,20 @@ const EnrollShow = ({ place, festivals }: EnrollShowPropsType) => {
     <div>
       <div style={{ height: '77vh', overflowY: 'auto', overflowX: 'hidden', paddingRight: '7px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
-          {place && (
-            <div>
-              <StyledSubTitle>장소 이름</StyledSubTitle>
-              <StyledBox>
-                <div style={{ paddingLeft: '15px' }}>{place.name}</div>
-              </StyledBox>
-            </div>
-          )}
+          <div>
+            <StyledSubTitle>장소 이름</StyledSubTitle>
+            <StyledBox>
+              <div style={{ paddingLeft: '15px' }}> {place && place.name ? place.name : ''}</div>
+            </StyledBox>
+          </div>
+          {!place && <StyledSubTitle> 등록된 장소를 클릭해주세요!</StyledSubTitle>}
           {festivals && festivals.length > 0 && (
             <div>
               <StyledSubTitle>공연 목록</StyledSubTitle>
               <div>
                 {festivals.map((festival) => (
-                  <div key={festival.id}>
-                    <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
-                      <StyledShowTitle>{festival.name}</StyledShowTitle>
-                      <StyledShowText>{festival.startTime.split('T')[0].split('-').join('.')}</StyledShowText>
-                      <StyledShowText>{festival.startTime.split('T')[1]}</StyledShowText>
-                    </div>
+                  <div key={festival.id} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                    <FestivalInfo festival={festival} />
                   </div>
                 ))}
               </div>
@@ -62,7 +58,7 @@ const EnrollShow = ({ place, festivals }: EnrollShowPropsType) => {
               }}
             >
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <div style={{ height: '35px', width: '180px' }}>
+                <div style={{ height: '35px', width: '135px' }}>
                   <Input
                     type="text"
                     placeholder="공연 이름"
@@ -70,19 +66,29 @@ const EnrollShow = ({ place, festivals }: EnrollShowPropsType) => {
                     onChange={(e: any) => handleChange(index, 'name', e.target.value)}
                   />
                 </div>
-                <div style={{ height: '35px', width: '50px', marginTop: '2px' }}>
-                  <Button ismain="true" label={'삭제'} onClick={() => handleDeleteClick(index)} />
+                <div style={{ display: 'flex', gap: '3px' }}>
+                  <div style={{ height: '39px', width: '45px' }}>
+                    <Button
+                      ismain="false"
+                      label={'삭제'}
+                      style={{ border: '1.6px solid #599198' }}
+                      onClick={() => handleDeleteClick(index)}
+                    />
+                  </div>
+                  <div style={{ height: '39px', width: '45px' }}>
+                    <Button ismain="true" label={'저장'} />
+                  </div>
                 </div>
               </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <div style={{ width: '48%', height: '35px' }}>
+              <div style={{ display: 'flex', gap: '11px' }}>
+                <div style={{ width: '47%', height: '35px' }}>
                   <Input
                     type="date"
                     value={input.date}
                     onChange={(e: any) => handleChange(index, 'date', e.target.value)}
                   />
                 </div>
-                <div style={{ width: '48%', height: '35px' }}>
+                <div style={{ width: '47%', height: '35px' }}>
                   <Input
                     type="time"
                     value={input.time}
@@ -94,16 +100,6 @@ const EnrollShow = ({ place, festivals }: EnrollShowPropsType) => {
           ))}
         </div>
       </div>
-      {place && (
-        <div style={{ display: 'flex', justifyContent: 'space-between', width: '250px', paddingTop: '15px' }}>
-          <div style={{ width: '120px', height: '45px' }}>
-            <Button ismain="false" label={'삭제하기'} />
-          </div>
-          <div style={{ width: '120px', height: '45px' }}>
-            <Button ismain="true" label={'저장하기'} />
-          </div>
-        </div>
-      )}
     </div>
   );
 };
