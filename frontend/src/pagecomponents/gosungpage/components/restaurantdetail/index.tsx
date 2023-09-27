@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRestaurantDetailStore } from '../../../../stores/restaurants/useRestaurantDetailApiStore';
+import { useRestaurantDetailStore } from '../../../../stores/gosung/restaurants/useRestaurantDetailApiStore';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import Rating from '@mui/material/Rating';
@@ -27,9 +27,8 @@ const GosungRestaurantDetail = () => {
       </StyledRestaurantImgWrap>
       <StyledRestaurantName>{restaurantDetail.storeName}</StyledRestaurantName>
       <StyledRestauranthashtags>
-        {restaurantDetail.hashTagList.map((tag: any) => (
-          <Styledhashtag key={tag.id}>#{tag.name}</Styledhashtag>
-        ))}
+        {restaurantDetail.hashTagList &&
+          restaurantDetail.hashTagList.map((tag: any) => <Styledhashtag key={tag.id}>#{tag.name}</Styledhashtag>)}
       </StyledRestauranthashtags>
       <StyledRestaurantInfo>
         <StyledRestaurantAdContainer>

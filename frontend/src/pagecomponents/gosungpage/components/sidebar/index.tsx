@@ -1,10 +1,12 @@
 import React from 'react';
+import { Router, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faUtensils, faHouseUser, faSuitcase } from '@fortawesome/free-solid-svg-icons';
 import {
   StyledAccomodationIcon,
   StyledCategoryContainer,
   StyledCircleContainer,
+  StyledHomeIcon,
   StyledRestaurantIcon,
   StyledSideBarContainer,
   StyledSightseeingIcon,
@@ -12,14 +14,17 @@ import {
 import { useSideBarStore } from '../../../../stores/gosung/useSideBarStore';
 
 const GosungSideBar = () => {
+  const Router = useNavigate();
   const setSelectedCategory = useSideBarStore((state) => state.setSelectedCategory);
 
   return (
     <StyledSideBarContainer>
-      <StyledCategoryContainer>
-        <StyledCircleContainer>
-          <FontAwesomeIcon icon={faBars} />
-        </StyledCircleContainer>
+      <StyledCategoryContainer
+        onClick={() => {
+          Router('/Expo');
+        }}
+      >
+        <StyledHomeIcon />
       </StyledCategoryContainer>
       <StyledCategoryContainer onClick={() => setSelectedCategory('맛집')}>
         <StyledRestaurantIcon />
