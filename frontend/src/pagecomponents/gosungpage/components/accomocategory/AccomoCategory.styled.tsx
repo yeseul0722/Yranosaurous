@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledAccomoCategoryList = styled.button`
-  width: 120px;
+  width: 100px;
   height: 30px;
   border-radius: 30px;
   margin: 3px 10px;
@@ -21,4 +21,10 @@ const StyledAccomoCategoryList = styled.button`
   }
 `;
 
-export { StyledAccomoCategoryList };
+const StyledAccomoCategoryWrap = styled.div`
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+`;
+export { StyledAccomoCategoryList, StyledAccomoCategoryWrap };

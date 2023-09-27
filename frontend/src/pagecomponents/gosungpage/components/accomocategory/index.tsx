@@ -1,13 +1,13 @@
 import React from 'react';
-import { StyledAccomoCategoryList } from './AccomoCategory.styled';
+import { StyledAccomoCategoryList, StyledAccomoCategoryWrap } from './AccomoCategory.styled';
 
 const GosungAccomoCategory = () => {
   return (
-    <div>
+    <StyledAccomoCategoryWrap>
       <StyledAccomoCategoryList>모텔</StyledAccomoCategoryList>
       <StyledAccomoCategoryList>펜션</StyledAccomoCategoryList>
       <StyledAccomoCategoryList>게스트하우스</StyledAccomoCategoryList>
-    </div>
+    </StyledAccomoCategoryWrap>
   );
 };
 
