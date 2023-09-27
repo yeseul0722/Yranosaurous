@@ -31,29 +31,14 @@ const StyledBox = styled.div.attrs<any>((props) => ({}))`
     `;
   }}
 `;
-const StyledShowTitle = styled.div.attrs<any>((props) => ({}))`
+const StyledFestivalList = styled.div.attrs<any>((props) => ({}))`
   ${(props) => {
-    const font = props.theme.fonts.boldfont;
-    const dark = props.theme.colors.dark;
-
     return css`
-      font-family: ${font};
-      font-size: 17px;
-      color: ${dark};
-    `;
-  }}
-`;
-const StyledShowText = styled.div.attrs<any>((props) => ({}))`
-  ${(props) => {
-    const font = props.theme.fonts.regularfont;
-    const black = props.theme.colors.black;
-
-    return css`
-      font-family: ${font};
-      font-size: 17px;
-      color: ${black};
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
     `;
   }}
 `;
 
-export { StyledSubTitle, StyledBox, StyledShowTitle, StyledShowText };
+export { StyledBox, StyledFestivalList, StyledSubTitle };
