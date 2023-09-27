@@ -16,9 +16,6 @@ import {
 import LandingPage from './components/landingpage';
 import KoreaDsPage from './components/koreadspage';
 import KoreaMapPage from './components/koreamappage';
-import KoreaceratopsPage from './components/koreaceratopspage';
-import KoreasaurusPage from './components/koreanosaurus';
-import PukyongsaurusPage from './components/pukyongosaurus';
 
 const Dinosaur = () => {
   const inputForm = useRef<any>();
@@ -42,15 +39,6 @@ const Dinosaur = () => {
         <StyledKoreaMapPage>
           <KoreaMapPage></KoreaMapPage>
         </StyledKoreaMapPage>
-        {/* <StyledKoreaceratopsPage>
-          <KoreaceratopsPage></KoreaceratopsPage>
-        </StyledKoreaceratopsPage> */}
-        <StyledKoreasaurusPage>
-          <KoreasaurusPage />
-        </StyledKoreasaurusPage>
-        {/* <StyledPukyongsaurusPage>
-          <PukyongsaurusPage />
-        </StyledPukyongsaurusPage> */}
       </StyledDsContent>
     </StyledDsPage>
   );
