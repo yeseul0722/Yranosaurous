@@ -45,16 +45,16 @@ const EnrollShow = ({ place, festivals }: EnrollShowPropsType) => {
           </div>
           {!place && <StyledSubTitle> 등록된 장소를 클릭해주세요!</StyledSubTitle>}
           {festivals && festivals.length > 0 && (
-            <StyledFestivalList>
+            <div>
               <StyledSubTitle>공연 목록</StyledSubTitle>
-              <div>
+              <StyledFestivalList>
                 {festivals.map((festival) => (
                   <div key={festival.id} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                     <FestivalInfo festival={festival} />
                   </div>
                 ))}
-              </div>
-            </StyledFestivalList>
+              </StyledFestivalList>
+            </div>
           )}
           {place && (
             <div style={{ height: '35px' }}>
