@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-public class DinosaurResponse {
+public class DinosaurResponse implements Comparable<DinosaurResponse> {
 
     private Long id;
     private String korName;
@@ -29,5 +29,10 @@ public class DinosaurResponse {
                 .engName(dinosaur.getEngName())
                 .imgAddress(dinosaur.getImgAddress())
                 .build();
+    }
+
+    @Override
+    public int compareTo(DinosaurResponse dinosaurResponse) {
+        return this.korName.compareTo(dinosaurResponse.getKorName());
     }
 }
