@@ -1,8 +1,18 @@
+import { useState } from 'react';
 import Button from '../../../../components/button';
 import { EnrollShowPropsType } from '../../Map.type';
 import { StyledBox, StyledShowText, StyledShowTitle, StyledSubTitle } from './EnrollShow.styled';
+import Input from '../../../../components/input';
 
 const EnrollShow = ({ place, festivals }: EnrollShowPropsType) => {
+  const [inputs, setInputs] = useState<{ name: string; date: string; time: string }[]>([]); // 타입 명시
+
+  const handleAddClick = () => {
+    setInputs([...inputs, { name: '', date: '', time: '' }]);
+  };
+  const handleChange = (index: number, field: string, value: string) => {
+    setInputs((prevInputs) => prevInputs.map((input, i) => (i === index ? { ...input, [field]: value } : input)));
+  };
   return (
     <div>
       <div style={{ height: '77vh', overflowY: 'auto', overflowX: 'hidden', paddingRight: '7px' }}>
@@ -33,18 +43,59 @@ const EnrollShow = ({ place, festivals }: EnrollShowPropsType) => {
           )}
           {place && (
             <div style={{ height: '35px' }}>
-              <Button ismain="true" label={'공연 추가하기'} />
+              <Button ismain="true" label={'공연 추가하기'} onClick={handleAddClick} />
             </div>
           )}
+          {inputs.map((input, index) => (
+            <div
+              key={index}
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                height: '90px',
+                justifyContent: 'space-around',
+              }}
+            >
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <div style={{ height: '35px', width: '180px' }}>
+                  <Input
+                    type="text"
+                    placeholder="공연 이름"
+                    value={input.name}
+                    onChange={(e: any) => handleChange(index, 'name', e.target.value)}
+                  />
+                </div>
+                <div style={{ height: '35px', width: '50px', marginTop: '2px' }}>
+                  <Button ismain="true" label={'삭제'} />
+                </div>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <div style={{ width: '48%', height: '35px' }}>
+                  <Input
+                    type="date"
+                    value={input.date}
+                    onChange={(e: any) => handleChange(index, 'date', e.target.value)}
+                  />
+                </div>
+                <div style={{ width: '48%', height: '35px' }}>
+                  <Input
+                    type="time"
+                    value={input.time}
+                    onChange={(e: any) => handleChange(index, 'time', e.target.value)}
+                  />
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
       {place && (
         <div style={{ display: 'flex', justifyContent: 'space-between', width: '250px', paddingTop: '15px' }}>
           <div style={{ width: '120px', height: '45px' }}>
-            <Button ismain="false" label={'공연 삭제하기'} />
+            <Button ismain="false" label={'삭제하기'} />
           </div>
           <div style={{ width: '120px', height: '45px' }}>
-            <Button ismain="true" label={'공연 수정하기'} />
+            <Button ismain="true" label={'저장하기'} />
           </div>
         </div>
       )}
