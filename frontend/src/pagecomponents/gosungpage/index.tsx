@@ -6,7 +6,7 @@ import GosungSideList from './components/sidelist';
 import GosungCloseButton from '../../components/closebutton';
 import GosungCategory from './components/foodcategory';
 import GosungRestaurantDetail from './components/restaurantdetail';
-import { useRestaurantDetailStore } from '../../stores/restaurants/useRestaurantDetailApiStore';
+import { useRestaurantDetailStore } from '../../stores/gosung/restaurants/useRestaurantDetailApiStore';
 import { useMediaQuery } from 'react-responsive';
 import GosungMobile from '../../mobilepagecomponents/gosungmobile';
 import { useSideBarStore } from '../../stores/gosung/useSideBarStore';

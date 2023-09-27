@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
 import { StyledKakaoMapContainer } from './KakaoMap.styled';
-import { useRestaurantStore } from '../../../../stores/restaurants/useRestaurantApiStore';
+import { useRestaurantStore } from '../../../../stores/gosung/restaurants/useRestaurantApiStore';
 
 const GosungKakaoMapComponent = () => {
   const { restaurantList } = useRestaurantStore();
@@ -45,9 +45,7 @@ const GosungKakaoMapComponent = () => {
       }}
       level={3}
     >
-      {markers.map((marker, index) => (
-        <MapMarker key={index} position={{ lat: marker.y, lng: marker.x }} />
-      ))}
+      {markers && markers.map((marker, index) => <MapMarker key={index} position={{ lat: marker.y, lng: marker.x }} />)}
     </Map>
   );
 };

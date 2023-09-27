@@ -8,7 +8,7 @@ import {
 } from './FoodCategory.styled';
 import RestaurantListGet from '../../../../apis/gosung/restaurantListGet';
 import GosungRestaurantList from '../restaurantlist';
-import { useRestaurantStore } from '../../../../stores/restaurants/useRestaurantApiStore';
+import { useRestaurantStore } from '../../../../stores/gosung/restaurants/useRestaurantApiStore';
 
 const GosungCategory = () => {
   const { restaurantList, setRestaurantList } = useRestaurantStore();

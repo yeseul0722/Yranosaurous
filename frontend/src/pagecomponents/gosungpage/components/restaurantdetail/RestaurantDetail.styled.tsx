@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useRestaurantStore } from '../../../../stores/restaurants/useRestaurantApiStore';
+import { useRestaurantStore } from '../../../../stores/gosung/restaurants/useRestaurantApiStore';
 
 const StyledRestaurantDetailContainer = styled.div`
   /* height: 100%; */

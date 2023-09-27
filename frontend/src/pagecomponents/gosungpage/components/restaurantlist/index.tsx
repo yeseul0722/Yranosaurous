@@ -7,7 +7,7 @@ import {
   StyledRestaurantRating,
   StyledRestaurantStoreName,
 } from './RestaurantList.styled';
-import { useRestaurantDetailStore } from '../../../../stores/restaurants/useRestaurantDetailApiStore';
+import { useRestaurantDetailStore } from '../../../../stores/gosung/restaurants/useRestaurantDetailApiStore';
 import RestaurantDetailGet from '../../../../apis/gosung/restaurantDetailGet';
 
 interface GosungRestaurantListProps {
@@ -24,15 +24,16 @@ const GosungRestaurantList = ({ restaurantlist }: GosungRestaurantListProps) => 
   };
   return (
     <StyledRestaurantListContainer>
-      {restaurantlist.map((restaurant) => (
-        <StyledRestaurantContainer key={restaurant.id} onClick={() => HandleDetailApi(restaurant.id)}>
-          <StyledRestaurantImg src={restaurant.imgAddress}></StyledRestaurantImg>
-          <StyledRestaurantInfo>
-            <StyledRestaurantStoreName>{restaurant.storeName}</StyledRestaurantStoreName>
-            <StyledRestaurantRating>{restaurant.rating}</StyledRestaurantRating>
-          </StyledRestaurantInfo>
-        </StyledRestaurantContainer>
-      ))}
+      {restaurantlist &&
+        restaurantlist.map((restaurant) => (
+          <StyledRestaurantContainer key={restaurant.id} onClick={() => HandleDetailApi(restaurant.id)}>
+            <StyledRestaurantImg src={restaurant.imgAddress}></StyledRestaurantImg>
+            <StyledRestaurantInfo>
+              <StyledRestaurantStoreName>{restaurant.storeName}</StyledRestaurantStoreName>
+              <StyledRestaurantRating>{restaurant.rating}</StyledRestaurantRating>
+            </StyledRestaurantInfo>
+          </StyledRestaurantContainer>
+        ))}
     </StyledRestaurantListContainer>
   );
 };
