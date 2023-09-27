@@ -13,6 +13,11 @@ const EnrollShow = ({ place, festivals }: EnrollShowPropsType) => {
   const handleChange = (index: number, field: string, value: string) => {
     setInputs((prevInputs) => prevInputs.map((input, i) => (i === index ? { ...input, [field]: value } : input)));
   };
+
+  const handleDeleteClick = (index: number) => {
+    setInputs((prevInputs) => prevInputs.filter((_, i) => i !== index));
+  };
+
   return (
     <div>
       <div style={{ height: '77vh', overflowY: 'auto', overflowX: 'hidden', paddingRight: '7px' }}>
@@ -66,7 +71,7 @@ const EnrollShow = ({ place, festivals }: EnrollShowPropsType) => {
                   />
                 </div>
                 <div style={{ height: '35px', width: '50px', marginTop: '2px' }}>
-                  <Button ismain="true" label={'삭제'} />
+                  <Button ismain="true" label={'삭제'} onClick={() => handleDeleteClick(index)} />
                 </div>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
