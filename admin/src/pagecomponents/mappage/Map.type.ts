@@ -23,7 +23,24 @@ export interface Place {
   type: string;
 }
 
+export interface CourseOrder {
+  id: number; // 코스 순서 아이디
+  sequence: number; // 코스 순서
+  place: Place;
+}
+
+export interface Course {
+  id: number; // 코스 아이디
+  name: string; // 코스 이름
+  timeTaken: number; // 코스 소요시간 (Assuming this is a number)
+  courseOrderList: CourseOrder[];
+}
+
 export interface EnrollShowPropsType {
   place: Place | null;
   festivals: Festival[];
+}
+export interface EnrollCoursePropsType {
+  place: Place | null;
+  courses: Course[];
 }
