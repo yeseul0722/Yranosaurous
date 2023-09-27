@@ -19,7 +19,7 @@ const StyledButton = styled.button.attrs<ButtonType>((props) => ({}))`
       background-color: ${bgcolor};
       color: ${color};
       border: none;
-      border-radius: 35px;
+      border-radius: 5px;
       &:active {
         margin-left: 3px;
         margin-top: 3px;
