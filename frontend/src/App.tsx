@@ -7,12 +7,14 @@ import Gosung from './pagecomponents/gosungpage';
 import DsDetail from './pagecomponents/dinosaurpage/components/dinosaurdetail';
 import Guide from './pagecomponents/guide';
 import NavBar from './components/navbar';
+import MainLanding from './pagecomponents/mainlanding';
 function App() {
   const pathname = useLocation().pathname;
   return (
     <div className="App">
       {/* {pathname === '/Expo' && <NavBar />} */}
       <Routes>
+        <Route path="/" element={<MainLanding />} />
         <Route path="/Expo" element={<Expo />} />
         <Route path="/Dinosaur" element={<Dinosaur />} />
         <Route path="/Gosung" element={<Gosung />} />

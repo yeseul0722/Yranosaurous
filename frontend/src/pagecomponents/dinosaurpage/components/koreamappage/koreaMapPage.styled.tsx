@@ -1,10 +1,31 @@
 import styled, { css } from 'styled-components';
 
-const StyledKoreaMapPage = styled.div`
-  height: 100vh;
-  background-color: ${(props) => props.theme.colors.night};
-  display: flex;
-  position: relative;
+const StyledKoreaMapPage = styled.div.attrs<any>((props) => ({}))`
+  ${(props) => {
+    const selectDsName = props.selectDsName;
+    const selectDs: any = {
+      koreaceratops: `
+      background-image: url('/dinosaur/koreaBack/ceratops.png');
+      background-size: contain;
+      `,
+      koreanosaurus: `
+      background-image: url('/dinosaur/koreaBack/koreasaurs.png');
+      background-size: contain;
+      `,
+      pukyongosaurus: `
+      background-image: url('/dinosaur/koreaBack/puky.png');
+      background-size: contain;
+      `,
+    };
+    return css`
+      height: 100%;
+      background-color: ${(props) => props.theme.colors.night};
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      ${selectDs[selectDsName]};
+    `;
+  }}
 `;
 
 const StyledKoreaMapContent = styled.div`
@@ -97,14 +118,6 @@ const StyledKoreaMapSelectText = styled.div`
   text-align: left;
 `;
 
-// const StyledKoreaMapSelectLottie = styled.div`
-//   border: 1px solid red;
-//   width: 5rem;
-//   height: 5rem;
-//   position: absolute;
-//   top: 15rem;
-//   left: 60rem;
-// `;
 const StyledKoreaMapSelectLottie = styled.div.attrs<any>((props) => ({}))`
   ${(props) => {
     const selectDsName = props.selectDsName;
@@ -130,7 +143,8 @@ const StyledKoreaMapSelectLottie = styled.div.attrs<any>((props) => ({}))`
       visibility: hidden;
       height: 5rem;
       width: 5rem;
-      ${selectDs[selectDsName]}
+      filter: invert(100%);
+      ${selectDs[selectDsName]};
     `;
   }}
 `;
@@ -169,6 +183,10 @@ const StyledKoreaMapBackgroundLottie = styled.div`
   /* margin-left: 45vw; */
 `;
 
+const StyledDsPage = styled.div`
+  scroll-snap-align: start;
+`;
+
 export {
   StyledKoreaMapPage,
   StyledKoreaMapContent,
@@ -185,4 +203,5 @@ export {
   StyledKoreaMapDs,
   StyledKoreaMapDsName,
   StyledKoreaMapBackgroundLottie,
+  StyledDsPage,
 };

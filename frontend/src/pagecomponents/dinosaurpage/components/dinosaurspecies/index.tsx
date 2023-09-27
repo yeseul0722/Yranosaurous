@@ -51,10 +51,11 @@ const DsSpeciesComponent = () => {
   const [DsId, setDsId] = useState();
   const [DsName, setDsName] = useState();
   const [DsImg, setDsImg] = useState();
-  // const [DsEngName, setDsEngName] = useState();
 
   const DsEngName = useDinosaurStore((state: any) => state.DsEngName);
   const setDsEngName = useDinosaurStore((state: any) => state.setDsEngName);
+  // 주스턴드2-1. 주스턴드 호출
+  const setDsKorName = useDinosaurStore((state: any) => state.setDsKorName);
 
   const { getDinosaurSub } = useDinosaurSubHook(); // 공룡 서브
 
@@ -72,14 +73,14 @@ const DsSpeciesComponent = () => {
 
   // 공룡 지구본
   const goGlobe = (e: any) => {
-    console.log('engName', dinosaurList[e.target.id - 1].engName);
+    const selectDsKorName = dinosaurList[e.target.id - 1].korName;
     const selectDsEngName = dinosaurList[e.target.id - 1].engName;
     getDinosaurSub(selectDsEngName);
-  };
 
-  useEffect(() => {
-    console.log('useEffect', DsId);
-  }, [DsId]);
+    // 주스턴드2-2. 저장함수(저장할값)
+    setDsEngName(selectDsEngName);
+    setDsKorName(selectDsKorName);
+  };
 
   return (
     <StyledDsSpeciesPage>

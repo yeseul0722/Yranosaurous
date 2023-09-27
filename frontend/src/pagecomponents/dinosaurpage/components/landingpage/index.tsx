@@ -19,9 +19,8 @@ const LandingPage = () => {
   });
   return (
     <StyledDsLandingPage>
-      {/* <StyledLandingPagescreen> */}
       <StyledLandingTitleText>
-        우리 지구🌍에는 <br /> 어떤 공룡들이 살았을까?
+        온라인으로 즐기는 <br /> 세계와 한국의 공룡 탐험
       </StyledLandingTitleText>
       <StyledLandingGlobe>
         <Globe
