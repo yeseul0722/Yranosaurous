@@ -3,7 +3,7 @@
 source .deploy.env
 
 echo "> gradle 빌드  "
-./gradlew build
+./gradlew clean build
 
 echo "> 도커 빌드"
 docker build -t slbin/dino-dev .
