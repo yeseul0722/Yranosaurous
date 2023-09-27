@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react';
-import showsGet from '../apis/show/showsGet';
+import coursesGet from '../apis/course/coursesGet';
 
-export const useGetShowsHook = () => {
+export const useGetCoursesHook = () => {
   const [places, setPlaces] = useState<any>([]);
 
   useEffect(() => {
     const fetchList = async () => {
       try {
-        const data = await showsGet();
+        const data = await coursesGet();
         setPlaces(data);
-        // console.log(data);
       } catch (error) {
         // console.error('Error fetching places:', error);
       }
