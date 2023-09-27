@@ -20,6 +20,7 @@ const StyledKoreaceratopsTitle = styled.div`
   color: ${(props) => props.theme.colors.white};
   font-family: ${(props) => props.theme.fonts.dinoboldfont};
   font-size: 3rem;
+  cursor: default;
 `;
 
 const StyledKoreaceratopsLittleTitle = styled.div`

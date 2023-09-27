@@ -14,6 +14,7 @@ const StyledKoreaDsTitle = styled.div`
   /* padding: 5rem; */
   position: absolute;
   padding-top: 5rem;
+  cursor: default;
 `;
 
 const StyledKoreaDsTitleText = styled.div`

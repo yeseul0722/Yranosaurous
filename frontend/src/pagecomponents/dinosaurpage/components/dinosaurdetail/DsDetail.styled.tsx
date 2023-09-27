@@ -40,6 +40,7 @@ const StyledDsDetailCloseButton = styled.div.attrs<any>((props) => ({}))`
   padding-top: 1.5rem;
   padding-right: 1rem;
   font-size: 30px;
+  cursor: pointer;
 `;
 
 const StyledDsDetailBody = styled.div`
@@ -82,6 +83,7 @@ const StyledDetailTitleText = styled.div`
   font-size: 2rem;
   text-align: left;
   padding-left: 1rem;
+  cursor: default;
 `;
 
 const StyledDetailEnTitleText = styled.div`
@@ -90,6 +92,7 @@ const StyledDetailEnTitleText = styled.div`
   font-size: 1.5rem;
   text-align: left;
   padding-left: 1rem;
+  cursor: default;
 `;
 
 const StyledDsDetailBox = styled.div`
@@ -102,6 +105,7 @@ const StyledDetailContentTitle = styled.div`
   font-size: 1.2rem;
   text-align: left;
   padding-left: 1rem;
+  cursor: default;
 `;
 const StyledDetailContentText = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
@@ -109,6 +113,7 @@ const StyledDetailContentText = styled.div`
   font-size: 1rem;
   text-align: left;
   padding-left: 1.5rem;
+  cursor: default;
 `;
 
 const StyledDeTailSummary = styled.div`
@@ -133,6 +138,7 @@ const StyledDeTailSummaryText = styled.div`
   padding: 1rem;
   text-align: left;
   line-height: 150%;
+  cursor: default;
 `;
 
 export {

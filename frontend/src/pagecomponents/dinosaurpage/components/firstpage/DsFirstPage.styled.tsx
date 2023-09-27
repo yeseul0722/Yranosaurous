@@ -11,6 +11,7 @@ const StyledDinosaurPage = styled.div.attrs<any>((props) => ({}))`
 const StyledMainTitle = styled.div`
   color: ${(props) => props.theme.colors.white};
   font-family: ${(props) => props.theme.fonts.dinoboldfont};
+  cursor: default;
   font-size: 3rem;
   position: absolute;
   z-index: 50;
@@ -50,6 +51,7 @@ const StyledDsListButton = styled.div`
   align-items: center;
   z-index: 50;
   box-shadow: -4px 5px 3px 2px #2b2c38;
+  cursor: pointer;
 `;
 
 export {

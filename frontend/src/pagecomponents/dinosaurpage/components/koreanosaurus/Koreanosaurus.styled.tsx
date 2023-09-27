@@ -39,6 +39,7 @@ const StyledKoreasaursFirstContent = styled.div`
   padding-left: 9rem;
   z-index: 50;
   width: 55%;
+  cursor: default;
 `;
 
 const StyledKoreasaurusTitle = styled.div`
@@ -116,6 +117,7 @@ const StyledKoreasaursImage2WeightText = styled.div`
   position: absolute;
   top: 61rem;
   left: 57rem;
+  cursor: default;
 `;
 
 const StyledKoreasaursSizeContainer = styled.div`
@@ -151,6 +153,7 @@ const StyledKoreasaursSizeText = styled.div`
   position: absolute;
   top: 75rem;
   left: 25rem;
+  cursor: default;
 `;
 
 const StyledKoreasaursSecondContent = styled.div`
@@ -159,6 +162,7 @@ const StyledKoreasaursSecondContent = styled.div`
   font-family: ${(props) => props.theme.fonts.dinoboldfont};
   padding: 3rem;
   text-align: left;
+  cursor: default;
 `;
 
 const StyledKoreasaursSecondSummary = styled.div`

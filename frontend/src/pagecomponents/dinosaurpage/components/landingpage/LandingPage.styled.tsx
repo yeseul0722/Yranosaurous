@@ -23,6 +23,7 @@ const StyledLandingTitleText = styled.div`
   font-family: ${(props) => props.theme.fonts.dinoboldfont};
   font-size: 4rem;
   line-height: 150%;
+  cursor: default;
 `;
 
 const StyledLandingGlobe = styled.div`
