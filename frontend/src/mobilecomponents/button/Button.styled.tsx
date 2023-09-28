@@ -15,10 +15,9 @@ const StyledButton = styled.button.attrs<ButtonStyles>((props) => ({}))`
         `,
       list: `
             border-radius : 48px;
-            background-color : ${white};
-            color : ${main};
-            font-size : 24px;
-            padding : 10px;
+            background-color : ${main};
+            color : ${white};
+            font-size : 12px;
         `,
       category: `
         border-radius : 20px;
