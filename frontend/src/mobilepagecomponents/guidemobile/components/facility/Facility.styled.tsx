@@ -7,7 +7,7 @@ const StyledMoblilFacilitySelectContainer = styled.div.attrs<any>((props) => ({}
 
 const StyledMobileFacilityImageContainer = styled.div``;
 const StyledMobileFacilityImage = styled.img.attrs<any>((props) => ({
-  src: `markers/${props.marker}.png`,
+  src: `/markers/${props.marker}.png`,
 }))``;
 
 const StyledMobileFacility = styled.div.attrs<any>((props) => ({}))`

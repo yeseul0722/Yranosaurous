@@ -14,13 +14,14 @@ import {
 } from '../tour/Tour.styled';
 import { useLodgmentListHook } from '../../../../hooks/gosung/useLodgmentListHook';
 import { useLodgmentDetailHook } from '../../../../hooks/gosung/useLodgmentDetailHook';
+import useGosungListStore from '../../../../stores/mobilegosung/useGosungListStore';
 
 const MobileLodgment = (props: any) => {
   const lodgment = useTourStore((state: any) => state.lodgment); // 숙소 리스트
   const selectCategory = useTourStore((state: any) => state.selectCategory); // 선택한 카테고리
   const setSelectCategory = useTourStore((state: any) => state.setSelectCategory);
   const resetCategory = useTourStore((state: any) => state.resetCategory);
-
+  const setOpenList = useGosungListStore((state: any) => state.setOpenList);
   const tour = useTourStore((state: any) => state.tour); // 선택한 관광지
   const setTour = useTourStore((state: any) => state.setTour);
   const resetTour = useTourStore((state: any) => state.resetTour);
@@ -37,6 +38,7 @@ const MobileLodgment = (props: any) => {
   };
 
   const getApi = (e: any) => {
+    setOpenList();
     setTour(e.name);
     getLodgmentDetail(e.id);
   };

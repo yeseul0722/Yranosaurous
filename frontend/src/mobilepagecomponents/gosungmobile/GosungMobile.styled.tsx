@@ -13,11 +13,23 @@ const StyledListContainer = styled.div`
   align-items: center;
 `;
 
-const StyledImgContainer = styled.div``;
+const StyledListPositionContainer = styled.div`
+  position: relative;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+`;
+
+const StyledImgContainer = styled.div`
+  position: absolute;
+  right: 8px;
+  bottom: 10px;
+  width: 70px;
+  height: 70px;
+`;
 
 const StyledImg = styled.img.attrs<any>((props) => ({
-  src: props.src,
-  alt: props.alt,
+  src: '/mobile/MobileMenu.png',
 }))`
   width: 100%;
   height: 100%;
@@ -36,4 +48,12 @@ const StyledHome = styled.a`
   top: 50px;
   z-index: 100;
 `;
-export { StyledosunMobilePage, StyledListContainer, StyledImgContainer, StyledImg, StyledList, StyledHome };
+export {
+  StyledosunMobilePage,
+  StyledListContainer,
+  StyledListPositionContainer,
+  StyledImgContainer,
+  StyledImg,
+  StyledList,
+  StyledHome,
+};

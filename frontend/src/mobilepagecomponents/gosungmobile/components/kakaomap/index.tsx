@@ -78,7 +78,7 @@ const GosungKakaoMapComponent = () => {
           clickable={true} // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
           onClick={handleOpen}
           image={{
-            src: 'map/marker.svg', // 마커이미지의 주소입니다
+            src: '/map/marker.svg', // 마커이미지의 주소입니다
             size: {
               width: 40,
               height: 40,
