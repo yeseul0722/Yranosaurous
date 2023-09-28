@@ -37,7 +37,7 @@ const ModalContainer = styled.div`
 
 const ModalTopContainer = styled.div.attrs<any>((props) => ({}))`
   max-width: 100%;
-  height: 15%;
+  height: 25%;
   display: flex;
   flex-direction: column;
 `;
