@@ -16,6 +16,7 @@ import {
 import useTourStore from '../../../../stores/mobilegosung/useGosungListStore';
 import { useRestaurantListHook } from '../../../../hooks/gosung/useRestaurantListHook';
 import { useRestaurantDetailHook } from '../../../../hooks/gosung/useRestaurantDetailHook';
+import useGosungListStore from '../../../../stores/mobilegosung/useGosungListStore';
 
 const MobileRestaurant = (props: any) => {
   const selectCategory = useTourStore((state: any) => state.selectCategory); // 선택한 카테고리
@@ -23,7 +24,7 @@ const MobileRestaurant = (props: any) => {
   const resetCategory = useTourStore((state: any) => state.resetCategory);
   const restaurantList = useTourStore((state: any) => state.restaurantList);
   const restaurantDetail = useTourStore((state: any) => state.restaurantDetail);
-
+  const setOpenList = useGosungListStore((state: any) => state.setOpenList);
   const tour = useTourStore((state: any) => state.tour); // 선택한 관광지
   const setTour = useTourStore((state: any) => state.setTour);
   const resetTour = useTourStore((state: any) => state.resetTour);
@@ -47,6 +48,7 @@ const MobileRestaurant = (props: any) => {
   const getApi = (location: any) => {
     setTour(location.name);
     getRestaurantDetail(location.id);
+    setOpenList();
     // 맛집 클릭 시 맛집 정보를 주스턴드로 저장 했음
     // 주소를 이용해서 마커 찍기
   };

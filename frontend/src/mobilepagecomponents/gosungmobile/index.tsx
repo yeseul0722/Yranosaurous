@@ -6,6 +6,7 @@ import {
   StyledImg,
   StyledList,
   StyledHome,
+  StyledListPositionContainer,
 } from './GosungMobile.styled';
 import Map from './components/kakaomap';
 import Button from '../../mobilecomponents/button';
@@ -23,12 +24,14 @@ const GosungMobileComponent = () => {
     <StyledosunMobilePage>
       <StyledHome href="/expo">홈</StyledHome>
       <StyledListContainer>
-        <StyledImgContainer>
-          <StyledImg src="mobile/MobileMenu.png" alt="menu" />
-        </StyledImgContainer>
-        <StyledList>
-          <Button label="목록보기" use="list" onClick={() => setOpenList()}></Button>
-        </StyledList>
+        <StyledListPositionContainer>
+          <StyledImgContainer onClick={() => setOpenList()}>
+            <StyledImg />
+          </StyledImgContainer>
+          <StyledList>
+            <Button label="목록보기" use="list" onClick={() => setOpenList()}></Button>
+          </StyledList>
+        </StyledListPositionContainer>
         {openList && <List tourList={tourList}></List>}
       </StyledListContainer>
       <Map></Map>

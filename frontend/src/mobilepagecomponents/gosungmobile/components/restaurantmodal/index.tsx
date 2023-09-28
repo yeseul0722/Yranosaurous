@@ -22,6 +22,15 @@ import {
   StyledReviewItem,
   StyledReview,
   StyledCloseButton,
+  StyledMenuReviewContainer,
+  StyledImgaContainer,
+  StyledMenuTitleContainer,
+  StyledReviewTitleContainer,
+  StyledAddressTitleContainer,
+  StyledAddressTitle,
+  StyledAddress,
+  StyledCloseButtonContainer,
+  StyledCloseButtonBox,
 } from './Modal.styled';
 
 const restaurantmodal = (props: any) => {
@@ -29,49 +38,64 @@ const restaurantmodal = (props: any) => {
     <Modal>
       <ModalWindow>
         <ModalContainer>
+          <StyledCloseButtonContainer>
+            <StyledCloseButtonBox onClick={props.handleOpen}>
+              <StyledCloseButton></StyledCloseButton>
+            </StyledCloseButtonBox>
+          </StyledCloseButtonContainer>
           <ModalTopContainer>
-            <ModalImgContainer>
-              <ModalImage src={props.restaurantDetail.imgAddress} alt={props.restaurantDetail.storeName} />
-            </ModalImgContainer>
-            <ModalTopContent>
-              <ModalTopTitle>{props.restaurantDetail.storeName}</ModalTopTitle>
-              <StyledAddressContainer>{props.restaurantDetail.address}</StyledAddressContainer>
+            <StyledHashTagContainer>
+              {props.restaurantDetail.hashTagList.map((tag: any) => {
+                return <StyledHashTag key={tag.id}>#{tag.name}</StyledHashTag>;
+              })}
+            </StyledHashTagContainer>
+            <ModalTopTitle>{props.restaurantDetail.storeName}</ModalTopTitle>
+            {/* <ModalTopContent>
               <StyledRatinContainer>
                 <StyledStar>★</StyledStar>
                 <StyledRating>{props.restaurantDetail.rating}</StyledRating>
               </StyledRatinContainer>
-              <StyledHashTagContainer>
-                {props.restaurantDetail.hashTagList.map((tag: any) => {
-                  return <StyledHashTag key={tag.id}>#{tag.name}</StyledHashTag>;
-                })}
-              </StyledHashTagContainer>
-            </ModalTopContent>
+            </ModalTopContent> */}
           </ModalTopContainer>
-
-          <StyledMenuTitle>메뉴</StyledMenuTitle>
-          <StyledMenuContainer>
-            {props.restaurantDetail.menuResponseList.map((menu: any) => {
-              return (
-                <StyledMenuItem key={menu.id}>
-                  <StyledMenu>{menu.name}</StyledMenu>
-                  <StyledMenu>{menu.price}</StyledMenu>
-                </StyledMenuItem>
-              );
-            })}
-          </StyledMenuContainer>
-
-          <StyledReviewTitle>리뷰</StyledReviewTitle>
-          <StyledReviewContainer>
-            {props.restaurantDetail.reviewResponseList.map((review: any) => {
-              return (
-                <StyledReviewItem key={review.id}>
-                  <StyledReview href={review.reviewAddress}>{review.title}</StyledReview>
-                </StyledReviewItem>
-              );
-            })}
-          </StyledReviewContainer>
+          <StyledMenuReviewContainer>
+            <StyledImgaContainer>
+              <ModalImage src={props.restaurantDetail.imgAddress} alt={props.restaurantDetail.storeName} />
+            </StyledImgaContainer>
+            <StyledAddressTitleContainer>
+              <StyledAddressTitle>| 주소</StyledAddressTitle>
+            </StyledAddressTitleContainer>
+            <StyledAddressContainer>
+              <StyledAddress>{props.restaurantDetail.address}</StyledAddress>
+            </StyledAddressContainer>
+            <StyledMenuTitleContainer>
+              <StyledMenuTitle>| 메뉴</StyledMenuTitle>
+            </StyledMenuTitleContainer>
+            <StyledMenuContainer>
+              {props.restaurantDetail.menuResponseList.map((menu: any) => {
+                return (
+                  <StyledMenuItem key={menu.id}>
+                    <StyledMenu>{menu.name}</StyledMenu>
+                    <StyledMenu>{menu.price}</StyledMenu>
+                  </StyledMenuItem>
+                );
+              })}
+            </StyledMenuContainer>
+            <StyledReviewTitleContainer>
+              <StyledReviewTitle>| 리뷰</StyledReviewTitle>
+            </StyledReviewTitleContainer>
+            <StyledReviewContainer>
+              {props.restaurantDetail.reviewResponseList.map((review: any, index: any) => {
+                return (
+                  <StyledReviewItem key={review.id} index={index}>
+                    <StyledReview index={index} href={review.reviewAddress}>
+                      {review.title}
+                    </StyledReview>
+                  </StyledReviewItem>
+                );
+              })}
+            </StyledReviewContainer>
+          </StyledMenuReviewContainer>
         </ModalContainer>
-        <StyledCloseButton onClick={props.handleOpen}>닫기</StyledCloseButton>
       </ModalWindow>
     </Modal>
   );

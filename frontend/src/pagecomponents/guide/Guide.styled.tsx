@@ -53,7 +53,7 @@ const StyledCourceImageContainer = styled.div`
 `;
 
 const StyledCourceImage = styled.img.attrs<any>((props) => ({
-  src: `markers/${props.marker}.png`,
+  src: `/markers/${props.marker}.png`,
 }))`
   width: 100%;
   height: 100%;
