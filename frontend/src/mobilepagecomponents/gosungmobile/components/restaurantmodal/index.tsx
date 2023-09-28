@@ -32,7 +32,7 @@ import {
   StyledCloseButtonContainer,
   StyledCloseButtonBox,
 } from './Modal.styled';
-
+import Rating from 'react-rating';
 const restaurantmodal = (props: any) => {
   return (
     <Modal>
@@ -50,12 +50,12 @@ const restaurantmodal = (props: any) => {
               })}
             </StyledHashTagContainer>
             <ModalTopTitle>{props.restaurantDetail.storeName}</ModalTopTitle>
-            {/* <ModalTopContent>
-              <StyledRatinContainer>
-                <StyledStar>★</StyledStar>
-                <StyledRating>{props.restaurantDetail.rating}</StyledRating>
-              </StyledRatinContainer>
-            </ModalTopContent> */}
+            <Rating
+              initialRating={props.restaurantDetail.rating}
+              fullSymbol={<img src="/rating/stards.png" alt="Full Star" />}
+              emptySymbol={<img src="/rating/stards2.png" alt="Empty Star" />}
+              fractions={10}
+            ></Rating>
           </ModalTopContainer>
           <StyledMenuReviewContainer>
             <StyledImgaContainer>
