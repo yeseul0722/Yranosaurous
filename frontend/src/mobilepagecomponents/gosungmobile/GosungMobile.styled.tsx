@@ -4,7 +4,6 @@ const StyledosunMobilePage = styled.div``;
 
 const StyledListContainer = styled.div`
   width: 100%;
-
   position: absolute;
   bottom: 0px;
   z-index: 2;
@@ -14,9 +13,19 @@ const StyledListContainer = styled.div`
   align-items: center;
 `;
 
+const StyledImgContainer = styled.div``;
+
+const StyledImg = styled.img.attrs<any>((props) => ({
+  src: props.src,
+  alt: props.alt,
+}))`
+  width: 100%;
+  height: 100%;
+`;
+
 const StyledList = styled.div`
-  width: 150px;
-  height: 40px;
+  width: 80px;
+  height: 35px;
   margin-bottom: 20px;
 `;
 
@@ -27,4 +36,4 @@ const StyledHome = styled.a`
   top: 50px;
   z-index: 100;
 `;
-export { StyledosunMobilePage, StyledListContainer, StyledList, StyledHome };
+export { StyledosunMobilePage, StyledListContainer, StyledImgContainer, StyledImg, StyledList, StyledHome };
