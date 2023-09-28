@@ -8,7 +8,7 @@ import { useGetCoursesHook } from '../../../../hooks/useGetCoursesHook';
 const CourseMap = () => {
   const places = useGetPlacesHook();
   const courses = useGetCoursesHook();
-  console.log(courses);
+  // console.log(courses);
   const [position, setPosition] = useState<PositionType>();
   const emptyPlace = {
     id: '',
@@ -105,7 +105,7 @@ const CourseMap = () => {
               />
             ))}
         </Map>
-        <Sidebar {...sidebarProps}></Sidebar>
+        <Sidebar places={places} courses={courses}></Sidebar>
       </div>
     </div>
   );
