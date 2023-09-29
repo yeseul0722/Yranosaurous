@@ -8,6 +8,8 @@ const EnrollCourse = (props: any) => {
   // console.log(props.place);
   const [places, setPlaces] = useState<any[]>([]);
   const [showInput, setShowInput] = useState(false);
+  const [courseName, setCourseName] = useState('');
+  const [timeTaken, setTimeTaken] = useState('');
 
   const { selectedCourseIndex, selectedCourse, setSelectedCourseIndex, setSelectedCourse } = useCourseStore();
   useEffect(() => {
@@ -31,6 +33,30 @@ const EnrollCourse = (props: any) => {
     setShowInput(true);
     setSelectedCourse(null);
     setSelectedCourseIndex(-1);
+  };
+
+  const handleSaveClick = () => {
+    if (!courseName || !timeTaken || places.length === 0) {
+      alert('코스 이름, 소요 시간 및 장소를 정확하게 기입해주세요.');
+      return;
+    }
+
+    try {
+      const courseOrderRequestList = places.map((place, index) => ({
+        sequence: index + 1,
+        placeId: place.id,
+      }));
+
+      const data = {
+        name: courseName,
+        timeTaken: parseInt(timeTaken, 10),
+        courseOrderRequestList,
+      };
+
+      console.log(data);
+    } catch (error) {
+      // console.error('Error while creating payload: ', error);
+    }
   };
 
   return (
@@ -81,11 +107,21 @@ const EnrollCourse = (props: any) => {
           <div style={{ display: 'flex', gap: '10px', flexDirection: 'column' }}>
             <div>
               <StyledSubTitle>코스 이름</StyledSubTitle>
-              <Input type="text" style={{ height: '33px' }} />
+              <Input
+                type="text"
+                style={{ height: '33px' }}
+                value={courseName}
+                onChange={(e: any) => setCourseName(e.target.value)}
+              />
             </div>
             <div>
               <StyledSubTitle>소요 시간(분)</StyledSubTitle>
-              <Input type="text" style={{ height: '33px' }} />
+              <Input
+                type="text"
+                style={{ height: '33px' }}
+                value={timeTaken}
+                onChange={(e: any) => setTimeTaken(e.target.value)}
+              />
             </div>
             <div>
               <StyledSubTitle>장소 목록</StyledSubTitle>
@@ -114,7 +150,7 @@ const EnrollCourse = (props: any) => {
             <Button ismain="false" label={'삭제하기'} />
           </div>
           <div style={{ width: '120px', height: '45px' }}>
-            <Button ismain="true" label={'저장하기'} />
+            <Button ismain="true" label={'저장하기'} onClick={handleSaveClick} />
           </div>
         </div>
       )}
