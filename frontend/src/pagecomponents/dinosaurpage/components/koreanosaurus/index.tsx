@@ -69,19 +69,18 @@ const KoreasaurusPage = () => {
       {/* 크기 비교 이미지 */}
       <StyledKoreasaursSizeContainer>
         <StyledKoreasaursSizetImage src="/dinosaur/koDs/koreasaursBack.png" alt="size" />
+        {/* 두번째 내용 */}
+        <StyledKoreasaursSecondContent>
+          <StyledKoreasaursLittleTitle>| 코리아노사우루스의 이야기</StyledKoreasaursLittleTitle>
+          <StyledKoreasaursSecondSummary>
+            코리아노사우루스는 사족보행과 이족보행을 병행하여 걸었을 것으로 추정하고 있습니다. 한국(Korea) 이라는 단어가
+            공룡의 이름으로 처음으로 국제학계에 공식적으로 등록되었습니다. 발견당시 암석속에 단단히 묻혀 있어 공룡의
+            정체를 파악하는 데에만 5년이라는 기간이 소요 됐습니다. 힙실로포돈트류 공룡들에 비해 강력하고 큰 어깨뼈와
+            윗팔뼈가 발달했기 때문에 땅을 파는 동작에 매우 능했을 것으로 추측하고 있습니다. 코리아노사우루스 뼈 화석은
+            천연기념물 제418호 전남 보성군 공룡알화석산지의 알둥지 화석들이 발견된 곳에서 발견되었습니다.
+          </StyledKoreasaursSecondSummary>
+        </StyledKoreasaursSecondContent>
       </StyledKoreasaursSizeContainer>
-
-      {/* 두번째 내용 */}
-      <StyledKoreasaursSecondContent>
-        <StyledKoreasaursLittleTitle>| 코리아노사우루스의 이야기</StyledKoreasaursLittleTitle>
-        <StyledKoreasaursSecondSummary>
-          코리아노사우루스는 사족보행과 이족보행을 병행하여 걸었을 것으로 추정하고 있습니다. 한국(Korea) 이라는 단어가
-          공룡의 이름으로 처음으로 국제학계에 공식적으로 등록되었습니다. 발견당시 암석속에 단단히 묻혀 있어 공룡의
-          정체를 파악하는 데에만 5년이라는 기간이 소요 됐습니다. 힙실로포돈트류 공룡들에 비해 강력하고 큰 어깨뼈와
-          윗팔뼈가 발달했기 때문에 땅을 파는 동작에 매우 능했을 것으로 추측하고 있습니다. 코리아노사우루스 뼈 화석은
-          천연기념물 제418호 전남 보성군 공룡알화석산지의 알둥지 화석들이 발견된 곳에서 발견되었습니다.
-        </StyledKoreasaursSecondSummary>
-      </StyledKoreasaursSecondContent>
 
       {/* 세번째 내용 */}
       <StyledKoreasaursThirdContent>
