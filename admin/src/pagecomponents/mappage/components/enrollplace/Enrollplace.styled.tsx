@@ -55,7 +55,7 @@ const HiddenFileInput = styled.input.attrs({ type: 'file' })`
 `;
 
 const StyledTextarea = styled(TextareaAutosize).attrs<any>((props) => ({}))`
-  width: 243px;
+  width: 235px;
   padding-top: 8px;
   min-height: 25px;
   border: 1.75px solid ${(props) => props.theme.colors.main};
