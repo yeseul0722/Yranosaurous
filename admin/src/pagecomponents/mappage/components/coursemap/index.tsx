@@ -1,7 +1,7 @@
 import { Map, MapMarker, Polyline } from 'react-kakao-maps-sdk';
 import { useState } from 'react';
 import { useGetPlacesHook } from '../../../../hooks/useGetPlacesHook';
-import { Place, PositionType } from '../../Map.type';
+import { Place } from '../../Map.type';
 import Categories from '../categories';
 import Sidebar from '../sidebar';
 import { useGetCoursesHook } from '../../../../hooks/useGetCoursesHook';
@@ -14,7 +14,7 @@ const CourseMap = () => {
 
   const [place, setPlace] = useState<Place | null>(null);
 
-  const colors = ['#FFFF00', '#00FF00', '#0000FF', '#FF0000', '#FF00FF', '#00FFFF'];
+  // const colors = ['#FFFF00', '#00FF00', '#0000FF', '#FF0000', '#FF00FF', '#00FFFF'];
 
   const imageArray = [
     'dino',
@@ -82,7 +82,7 @@ const CourseMap = () => {
                 lat: parseFloat(order.place.latitude),
                 lng: parseFloat(order.place.longitude),
               }))}
-              strokeColor={colors[selectedCourse.id % colors.length]} // 예시입니다. 적절한 색을 선택하세요.
+              strokeColor={'#599198'}
             />
           )}
         </Map>
