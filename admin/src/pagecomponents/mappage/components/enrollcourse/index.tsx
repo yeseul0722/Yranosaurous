@@ -57,6 +57,9 @@ const EnrollCourse = (props: any) => {
       };
       const response = await enrollCoursePost(data);
       toggleRefresh();
+      setCourseName('');
+      setTimeTaken('');
+      setPlaces([]);
       // console.log(response);
     } catch (error) {}
   };
@@ -70,6 +73,9 @@ const EnrollCourse = (props: any) => {
     try {
       const response = await courseDelete(selectedCourse.id.toString());
       toggleRefresh();
+      setCourseName('');
+      setTimeTaken('');
+      setPlaces([]);
       // console.log(response);
     } catch (error) {}
   };
