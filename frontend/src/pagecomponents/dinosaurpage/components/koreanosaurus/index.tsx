@@ -83,11 +83,11 @@ const KoreasaurusPage = () => {
       </StyledKoreasaursSizeContainer>
 
       {/* 세번째 내용 */}
-      <StyledKoreasaursThirdContent>
+      {/* <StyledKoreasaursThirdContent>
         <StyledKoreasaursThirdBox></StyledKoreasaursThirdBox>
         <StyledKoreasaursThirdBox></StyledKoreasaursThirdBox>
         <StyledKoreasaursThirdBox></StyledKoreasaursThirdBox>
-      </StyledKoreasaursThirdContent>
+      </StyledKoreasaursThirdContent> */}
     </StyledKoreasaurusPage>
   );
 };

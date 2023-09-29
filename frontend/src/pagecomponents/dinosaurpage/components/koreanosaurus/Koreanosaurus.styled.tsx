@@ -2,7 +2,7 @@ import styled, { keyframes } from 'styled-components';
 
 const StyledKoreasaurusPage = styled.div`
   /* height: 100%; */
-  height: 300vh;
+  height: 144vh;
   /* background-color: ${(props) => props.theme.colors.night}; */
   background-image: url('/dinosaur/backgroundimg.jpg');
   background: rgba(0, 0, 0, 0.5) url('/dinosaur/background60.png');
@@ -31,10 +31,9 @@ const StyledKoreasaursTitleNum = styled.div`
 `;
 
 const StyledKoreasaursFirstContent = styled.div`
-  border: 1px solid red;
+  /* border: 1px solid red; */
   color: ${(props) => props.theme.colors.white};
   font-family: ${(props) => props.theme.fonts.dinoboldfont};
-  /* border: 1px solid red; */
   text-align: left;
   padding-top: 17rem;
   padding-left: 9rem;
@@ -122,7 +121,7 @@ const StyledKoreasaursImage2WeightText = styled.div`
 `;
 
 const StyledKoreasaursSizeContainer = styled.div`
-  /* border: 1px solid pink;   */
+  /* border: 1px solid pink; */
   margin-top: 5rem;
   margin-bottom: 10rem;
   color: ${(props) => props.theme.colors.white};
@@ -179,7 +178,7 @@ const StyledKoreasaursThirdContent = styled.div`
   /* border: 1px solid red; */
   display: flex;
   justify-content: space-around;
-  padding: 5rem;
+  /* padding: 5rem; */
 `;
 
 const rotateBorder = keyframes`
