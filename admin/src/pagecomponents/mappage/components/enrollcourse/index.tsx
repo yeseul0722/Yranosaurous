@@ -4,6 +4,8 @@ import { StyledBox, StyledCourseMap, StyledSidebar, StyledSubTitle } from './Enr
 import Input from '../../../../components/input';
 import useCourseStore from '../../../../stores/course/useCourseStore';
 import enrollCoursePost from '../../../../apis/course/enrollCoursePost';
+import showDelete from '../../../../apis/show/showDelete';
+import courseDelete from '../../../../apis/course/courseDelete';
 
 const EnrollCourse = (props: any) => {
   // console.log(props.place);
@@ -59,7 +61,21 @@ const EnrollCourse = (props: any) => {
       // console.error('Error while creating payload: ', error);
     }
   };
+  const handleDeleteClick = async () => {
+    if (!selectedCourse) {
+      alert('삭제할 코스를 선택해주세요.');
+      return;
+    }
 
+    console.log(selectedCourse.id.toString());
+    try {
+      const response = await courseDelete(selectedCourse.id.toString());
+      console.log(response);
+      // 예: 코스 목록을 다시 불러오기 or 선택된 코스를 UI에서 제거하기 등
+    } catch (error) {
+      console.error('Error while deleting course: ', error);
+    }
+  };
   return (
     <div>
       <StyledSidebar>
@@ -148,7 +164,7 @@ const EnrollCourse = (props: any) => {
       {props.courses && (
         <div style={{ display: 'flex', justifyContent: 'space-between', width: '250px', paddingTop: '15px' }}>
           <div style={{ width: '120px', height: '45px' }}>
-            <Button ismain="false" label={'삭제하기'} />
+            <Button ismain="false" label={'삭제하기'} onClick={handleDeleteClick} />
           </div>
           <div style={{ width: '120px', height: '45px' }}>
             <Button ismain="true" label={'저장하기'} onClick={handleSaveClick} />
