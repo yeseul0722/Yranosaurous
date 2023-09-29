@@ -15,8 +15,6 @@ const CourseMap = () => {
 
   const [place, setPlace] = useState<Place | null>(null);
 
-  // const colors = ['#FFFF00', '#00FF00', '#0000FF', '#FF0000', '#FF00FF', '#00FFFF'];
-
   const imageArray = [
     'dino',
     '3d',

@@ -100,7 +100,7 @@ const Enrollplace = ({ place, use }: EnrollPlacePropsType) => {
             <Input
               value={state.placeName}
               onChange={(e: any) => dispatch({ type: 'SET_PLACE_NAME', payload: e.target.value })}
-              style={{ height: '33px' }}
+              style={{ height: '33px', width: '235px' }}
             />
           </div>
 

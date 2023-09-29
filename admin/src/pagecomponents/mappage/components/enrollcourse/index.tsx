@@ -105,7 +105,7 @@ const EnrollCourse = (props: any) => {
               <StyledSubTitle>코스 이름</StyledSubTitle>
               <Input
                 type="text"
-                style={{ height: '33px' }}
+                style={{ height: '33px', width: '235px' }}
                 value={courseName}
                 onChange={(e: any) => setCourseName(e.target.value)}
               />
@@ -114,7 +114,7 @@ const EnrollCourse = (props: any) => {
               <StyledSubTitle>소요 시간(분)</StyledSubTitle>
               <Input
                 type="text"
-                style={{ height: '33px' }}
+                style={{ height: '33px', width: '235px' }}
                 value={timeTaken}
                 onChange={(e: any) => setTimeTaken(e.target.value)}
               />
@@ -123,7 +123,9 @@ const EnrollCourse = (props: any) => {
               <StyledSubTitle>장소 목록</StyledSubTitle>
               {places.map((place, index) => (
                 <div key={index} style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <StyledBox style={{ width: '200px' }}>{place.name}</StyledBox>
+                  <StyledBox style={{ width: '200px' }}>
+                    <div style={{ paddingLeft: '15px' }}>{place.name}</div>
+                  </StyledBox>
                   <div style={{ width: '35px', height: '37px' }}>
                     <Button
                       ismain="true"
