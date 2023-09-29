@@ -6,7 +6,6 @@ import Categories from '../categories';
 import Sidebar from '../sidebar';
 import { useGetCoursesHook } from '../../../../hooks/useGetCoursesHook';
 import useCourseStore from '../../../../stores/course/useCourseStore';
-import { useRefreshCoursesStore } from '../../../../stores/course/useRefreshCourseStore';
 const CourseMap = () => {
   const places = useGetPlacesHook();
   const courses = useGetCoursesHook();

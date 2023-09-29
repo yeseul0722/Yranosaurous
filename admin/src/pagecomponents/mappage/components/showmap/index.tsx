@@ -9,6 +9,9 @@ const ShowMap = () => {
   const shows = useGetShowsHook();
   const [festivals, setFestivals] = useState<Festival[]>([]);
   const [place, setPlace] = useState<Place | null>(null);
+  const resetPlace = () => {
+    setPlace(null);
+  };
 
   const imageArray = [
     'dino',
@@ -69,7 +72,7 @@ const ShowMap = () => {
               />
             ))}
         </Map>
-        <Sidebar place={place} festivals={festivals} />
+        <Sidebar place={place} festivals={festivals} resetPlace={resetPlace} />
       </div>
     </div>
   );
