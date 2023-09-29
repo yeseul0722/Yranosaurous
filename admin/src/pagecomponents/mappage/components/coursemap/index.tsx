@@ -5,10 +5,13 @@ import { Place, PositionType } from '../../Map.type';
 import Categories from '../categories';
 import Sidebar from '../sidebar';
 import { useGetCoursesHook } from '../../../../hooks/useGetCoursesHook';
+import useCourseStore from '../../../../stores/course/useCourseStore';
 const CourseMap = () => {
   const places = useGetPlacesHook();
   const courses = useGetCoursesHook();
-  // console.log(courses);
+
+  const { selectedCourse } = useCourseStore();
+
   const [place, setPlace] = useState<Place | null>(null);
 
   const colors = ['#FFFF00', '#00FF00', '#0000FF', '#FF0000', '#FF00FF', '#00FFFF'];
@@ -72,17 +75,16 @@ const CourseMap = () => {
               />
             ))}
 
-          {courses &&
-            courses.map((course: any, index: number) => (
-              <Polyline
-                key={course.id} // 각 Polyline 컴포넌트에 유니크한 key prop 추가
-                path={course.courseOrderList.map((order: any) => ({
-                  lat: parseFloat(order.place.latitude),
-                  lng: parseFloat(order.place.longitude),
-                }))}
-                strokeColor={colors[index % colors.length]}
-              />
-            ))}
+          {selectedCourse && (
+            <Polyline
+              key={selectedCourse.id}
+              path={selectedCourse.courseOrderList.map((order: any) => ({
+                lat: parseFloat(order.place.latitude),
+                lng: parseFloat(order.place.longitude),
+              }))}
+              strokeColor={colors[selectedCourse.id % colors.length]} // 예시입니다. 적절한 색을 선택하세요.
+            />
+          )}
         </Map>
         <Sidebar place={place} courses={courses}></Sidebar>
       </div>
