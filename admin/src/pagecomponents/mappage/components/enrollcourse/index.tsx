@@ -4,11 +4,10 @@ import { StyledBox, StyledCourseMap, StyledSidebar, StyledSubTitle } from './Enr
 import Input from '../../../../components/input';
 import useCourseStore from '../../../../stores/course/useCourseStore';
 import enrollCoursePost from '../../../../apis/course/enrollCoursePost';
-import showDelete from '../../../../apis/show/showDelete';
 import courseDelete from '../../../../apis/course/courseDelete';
+import CourseInfo from '../courseinfo';
 
 const EnrollCourse = (props: any) => {
-  // console.log(props.place);
   const [places, setPlaces] = useState<any[]>([]);
   const [showInput, setShowInput] = useState(false);
   const [courseName, setCourseName] = useState('');
@@ -56,10 +55,8 @@ const EnrollCourse = (props: any) => {
         courseOrderRequestList,
       };
       const response = await enrollCoursePost(data);
-      console.log(response);
-    } catch (error) {
-      // console.error('Error while creating payload: ', error);
-    }
+      // console.log(response);
+    } catch (error) {}
   };
   const handleDeleteClick = async () => {
     if (!selectedCourse) {
@@ -67,14 +64,11 @@ const EnrollCourse = (props: any) => {
       return;
     }
 
-    console.log(selectedCourse.id.toString());
+    // console.log(selectedCourse.id.toString());
     try {
       const response = await courseDelete(selectedCourse.id.toString());
-      console.log(response);
-      // 예: 코스 목록을 다시 불러오기 or 선택된 코스를 UI에서 제거하기 등
-    } catch (error) {
-      console.error('Error while deleting course: ', error);
-    }
+      // console.log(response);
+    } catch (error) {}
   };
   return (
     <div>
@@ -93,32 +87,7 @@ const EnrollCourse = (props: any) => {
             <Button ismain={showInput ? 'true' : 'false'} label="+" onClick={handleAddButtonClick} />
           </div>
         </StyledCourseMap>
-        {selectedCourse && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <div>
-              <StyledSubTitle>코스 이름</StyledSubTitle>
-              <StyledBox>
-                <div style={{ paddingLeft: '15px' }}>{selectedCourse.name}</div>
-              </StyledBox>
-            </div>
-            <div>
-              <StyledSubTitle>소요시간</StyledSubTitle>
-              <StyledBox>
-                <div style={{ paddingLeft: '15px' }}>{selectedCourse.timeTaken}</div>
-              </StyledBox>
-            </div>
-            <div>
-              <StyledSubTitle>장소 순서</StyledSubTitle>
-              <ul>
-                {selectedCourse.courseOrderList.map((order: any) => (
-                  <StyledBox key={order.id}>
-                    <div style={{ paddingLeft: '15px' }}>{order.place.name}</div>
-                  </StyledBox>
-                ))}
-              </ul>
-            </div>
-          </div>
-        )}
+        <CourseInfo />
 
         {showInput && (
           <div style={{ display: 'flex', gap: '10px', flexDirection: 'column' }}>
