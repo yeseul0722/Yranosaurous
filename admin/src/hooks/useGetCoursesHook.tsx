@@ -1,20 +1,22 @@
 import { useEffect, useState } from 'react';
 import coursesGet from '../apis/course/coursesGet';
+import { useRefreshCoursesStore } from '../stores/course/useRefreshCourseStore';
 
 export const useGetCoursesHook = () => {
   const [places, setPlaces] = useState<any>([]);
+  const { shouldRefresh } = useRefreshCoursesStore();
 
   useEffect(() => {
-    const fetchList = async () => {
+    const fetchCourses = async () => {
       try {
         const data = await coursesGet();
         setPlaces(data);
       } catch (error) {
-        // console.error('Error fetching places:', error);
+        // Handle Error
       }
     };
-    fetchList();
-  }, []);
 
+    fetchCourses();
+  }, [shouldRefresh]);
   return places;
 };

@@ -1,7 +1,7 @@
 import { useCategoryStore } from '../../stores/useCategoryStore';
 import EnrollMap from './components/placemap';
 import ShowMap from './components/showmap';
-import CourseMap from './coursemap';
+import CourseMap from './components/coursemap';
 
 const MapPage = () => {
   const { selectcat } = useCategoryStore();
