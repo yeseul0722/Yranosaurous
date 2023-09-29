@@ -7,6 +7,7 @@ import useCourseStore from '../../../../stores/course/useCourseStore';
 const EnrollCourse = (props: any) => {
   // console.log(props.place);
   const [places, setPlaces] = useState<any[]>([]);
+  const [showInput, setShowInput] = useState(false);
 
   const { selectedCourseIndex, selectedCourse, setSelectedCourseIndex, setSelectedCourse } = useCourseStore();
   useEffect(() => {
@@ -21,8 +22,7 @@ const EnrollCourse = (props: any) => {
     }
   }, [props.place]);
 
-  const [showInput, setShowInput] = useState(false);
-  const handleButtonClick = (index: number) => {
+  const handleCourseClick = (index: number) => {
     setSelectedCourseIndex(index);
     setSelectedCourse(props.courses[index]);
     setShowInput(false);
@@ -32,6 +32,7 @@ const EnrollCourse = (props: any) => {
     setSelectedCourse(null);
     setSelectedCourseIndex(-1);
   };
+
   return (
     <div>
       <StyledSidebar>
@@ -41,7 +42,7 @@ const EnrollCourse = (props: any) => {
               <Button
                 ismain={selectedCourseIndex === index ? 'true' : 'false'}
                 label={course.name}
-                onClick={() => handleButtonClick(index)}
+                onClick={() => handleCourseClick(index)}
               />
             </div>
           ))}
@@ -49,6 +50,32 @@ const EnrollCourse = (props: any) => {
             <Button ismain={showInput ? 'true' : 'false'} label="+" onClick={handleAddButtonClick} />
           </div>
         </StyledCourseMap>
+        {selectedCourse && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <div>
+              <StyledSubTitle>코스 이름</StyledSubTitle>
+              <StyledBox>
+                <div style={{ paddingLeft: '15px' }}>{selectedCourse.name}</div>
+              </StyledBox>
+            </div>
+            <div>
+              <StyledSubTitle>소요시간</StyledSubTitle>
+              <StyledBox>
+                <div style={{ paddingLeft: '15px' }}>{selectedCourse.timeTaken}</div>
+              </StyledBox>
+            </div>
+            <div>
+              <StyledSubTitle>장소 순서</StyledSubTitle>
+              <ul>
+                {selectedCourse.courseOrderList.map((order: any) => (
+                  <StyledBox key={order.id}>
+                    <div style={{ paddingLeft: '15px' }}>{order.place.name}</div>
+                  </StyledBox>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
 
         {showInput && (
           <div style={{ display: 'flex', gap: '10px', flexDirection: 'column' }}>
