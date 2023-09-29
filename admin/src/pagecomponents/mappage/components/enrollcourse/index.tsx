@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Button from '../../../../components/button';
-import { StyledCourseMap } from './Enrollcourse.styled';
+import { StyledBox, StyledCourseMap, StyledSidebar, StyledSubTitle } from './Enrollcourse.styled';
+import Input from '../../../../components/input';
 
 const EnrollCourse = (props: any) => {
   console.log(props.courses);
@@ -16,11 +17,13 @@ const EnrollCourse = (props: any) => {
     setShowInput(false);
   };
   const handleAddButtonClick = () => {
-    setShowInput(true); // + 버튼을 클릭하면 input 태그가 나타남
+    setShowInput(true);
+    setSelectedCourse(null);
+    setSelectedCourseIndex(-1);
   };
   return (
     <div>
-      <div style={{ height: '77vh', overflowY: 'auto', overflowX: 'hidden', paddingRight: '7px' }}>
+      <StyledSidebar>
         <StyledCourseMap>
           {props.courses.map((course: any, index: number) => (
             <div key={course.id} style={{ display: 'inline-block' }}>
@@ -35,21 +38,38 @@ const EnrollCourse = (props: any) => {
             <Button ismain={showInput ? 'true' : 'false'} label="+" onClick={handleAddButtonClick} />
           </div>
         </StyledCourseMap>
-        {showInput && <input type="text" placeholder="코스 이름을 입력하세요" />}
-        {props.courses.length > 0 && selectedCourse && (
+        {showInput && (
           <div>
-            <div>코스 이름: {selectedCourse.name}</div>
-            <div>소요 시간: {selectedCourse.timeTaken}</div>
-            <ul>
-              {selectedCourse.courseOrderList.map((order: any) => (
-                <li key={order.id}>
-                  장소 이름: {order.place.name}, ID: {order.place.id}, Sequence: {order.sequence}
-                </li>
-              ))}
-            </ul>
+            <Input type="text" placeholder="코스 이름을 입력하세요" />
           </div>
         )}
-      </div>
+        {selectedCourse && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <div>
+              <StyledSubTitle>코스 이름</StyledSubTitle>
+              <StyledBox>
+                <div style={{ paddingLeft: '15px' }}>{selectedCourse.name}</div>
+              </StyledBox>
+            </div>
+            <div>
+              <StyledSubTitle>소요시간</StyledSubTitle>
+              <StyledBox>
+                <div style={{ paddingLeft: '15px' }}>{selectedCourse.timeTaken}</div>
+              </StyledBox>
+            </div>
+            <div>
+              <StyledSubTitle>장소 순서</StyledSubTitle>
+              <ul>
+                {selectedCourse.courseOrderList.map((order: any) => (
+                  <StyledBox key={order.id}>
+                    <div style={{ paddingLeft: '15px' }}>{order.place.name}</div>
+                  </StyledBox>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
+      </StyledSidebar>
 
       {props.courses && (
         <div style={{ display: 'flex', justifyContent: 'space-between', width: '250px', paddingTop: '15px' }}>
