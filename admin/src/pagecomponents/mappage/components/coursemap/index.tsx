@@ -37,11 +37,7 @@ const CourseMap = () => {
     <div style={{ display: 'flex' }}>
       <Categories></Categories>
       <div style={{ position: 'relative', width: '100vw', height: '100vh' }}>
-        <Map
-          level={3}
-          center={{ lat: 35.057861892100966, lng: 128.39958604747372 }}
-          style={{ width: '100%', height: '100%' }}
-        >
+        <Map center={{ lat: 35.057861892100966, lng: 128.39958604747372 }} style={{ width: '100%', height: '100%' }}>
           {places.length > 0 &&
             places.map((place: any) => (
               <MapMarker
