@@ -1,16 +1,21 @@
 import showDelete from '../../../../apis/show/showDelete';
 import Button from '../../../../components/button';
+import { useRefreshCoursesStore } from '../../../../stores/course/useRefreshCourseStore';
 import { StyledBox, StyledShowText, StyledShowTitle, StyledTimeContainer } from './Festivalinfo.styled';
 
-const FestivalInfo = ({ festival }: any) => {
+const FestivalInfo = ({ festival, onFestivalDelete }: any) => {
+  const { toggleRefresh } = useRefreshCoursesStore();
+
   const handleDeleteClick = async () => {
     try {
       const response = await showDelete(festival.id);
       if (response) {
-        console.log('Successfully deleted : ', response);
+        // console.log('Successfully deleted : ', response);
+        if (onFestivalDelete) onFestivalDelete();
+        toggleRefresh();
       }
     } catch (err) {
-      console.error('Error delete data:', err);
+      // console.error('Error delete data:', err);
     }
   };
 

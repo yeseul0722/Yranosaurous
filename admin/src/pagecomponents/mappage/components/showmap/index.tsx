@@ -9,6 +9,9 @@ const ShowMap = () => {
   const shows = useGetShowsHook();
   const [festivals, setFestivals] = useState<Festival[]>([]);
   const [place, setPlace] = useState<Place | null>(null);
+  const resetPlace = () => {
+    setPlace(null);
+  };
 
   const imageArray = [
     'dino',
@@ -33,7 +36,7 @@ const ShowMap = () => {
     <div style={{ display: 'flex' }}>
       <Categories />
       <div style={{ position: 'relative', width: '100vw', height: '100vh' }}>
-        <Map center={{ lat: 35.056820163386156, lng: 128.39756122959787 }} style={{ width: '100%', height: '100%' }}>
+        <Map center={{ lat: 35.057861892100966, lng: 128.39958604747372 }} style={{ width: '100%', height: '100%' }}>
           {shows &&
             shows.length > 0 &&
             shows.map((show: any) => (
@@ -69,7 +72,7 @@ const ShowMap = () => {
               />
             ))}
         </Map>
-        <Sidebar place={place} festivals={festivals} />
+        <Sidebar place={place} festivals={festivals} resetPlace={resetPlace} />
       </div>
     </div>
   );

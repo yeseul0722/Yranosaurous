@@ -5,15 +5,21 @@ import { StyledBox, StyledFestivalList, StyledSubTitle } from './EnrollShow.styl
 import Input from '../../../../components/input';
 import FestivalInfo from '../festivalinfo';
 import enrollShowPost from '../../../../apis/show/enrollShowPost';
+import { useRefreshCoursesStore } from '../../../../stores/course/useRefreshCourseStore';
 
-const EnrollShow = ({ place, festivals }: EnrollShowPropsType) => {
+const EnrollShow = ({ place, festivals, resetPlace }: EnrollShowPropsType & { resetPlace: () => void }) => {
   const [input, setInput] = useState<{ name: string; date: string; time: string } | null>(null);
-
+  const { toggleRefresh } = useRefreshCoursesStore();
   const handleAddClick = () => {
     setInput({ name: '', date: '', time: '' });
   };
   const handleSaveClick = async () => {
     // console.log(`${input?.date} ${input?.time}`);
+    if (!input?.name || !input?.date || !input?.time || !place?.id) {
+      alert('이름/날짜/시간을 정확하게 기입해주세요.');
+      return;
+    }
+
     try {
       const data = {
         name: input?.name,
@@ -22,6 +28,9 @@ const EnrollShow = ({ place, festivals }: EnrollShowPropsType) => {
       };
       const response = await enrollShowPost(data);
       if (response) {
+        toggleRefresh();
+        resetPlace();
+        setInput(null);
         // console.log('Successfully posted:', response);
       }
     } catch (err) {
@@ -44,13 +53,19 @@ const EnrollShow = ({ place, festivals }: EnrollShowPropsType) => {
             </StyledBox>
           </div>
           {!place && <StyledSubTitle> 등록된 장소를 클릭해주세요!</StyledSubTitle>}
-          {festivals && festivals.length > 0 && (
+          {place && festivals && festivals.length > 0 && (
             <div>
               <StyledSubTitle>공연 목록</StyledSubTitle>
               <StyledFestivalList>
                 {festivals.map((festival) => (
                   <div key={festival.id} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                    <FestivalInfo festival={festival} />
+                    <FestivalInfo
+                      festival={festival}
+                      onFestivalDelete={() => {
+                        setInput(null);
+                        resetPlace();
+                      }}
+                    />
                   </div>
                 ))}
               </StyledFestivalList>
@@ -85,7 +100,9 @@ const EnrollShow = ({ place, festivals }: EnrollShowPropsType) => {
                       ismain="false"
                       label={'삭제'}
                       style={{ border: '1.6px solid #599198' }}
-                      onClick={() => setInput(null)} // input 객체 삭제
+                      onClick={() => {
+                        setInput(null);
+                      }} // input 객체 삭제
                     />
                   </div>
                   <div style={{ height: '39px', width: '45px' }}>
