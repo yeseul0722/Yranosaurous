@@ -1,51 +1,71 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Lottie from 'lottie-react';
-import circle from './dsCircle.json';
+import DottedLine from '../../lottie/dottedLine.json';
+import circle from '../../lottie/dsCircle.json';
+
 import {
+  StyledCeratopsFirstContent,
   StyledKoreaceratopsPage,
-  StyledKoreaceratopsBody,
-  StyledKoreaceratopsGeneration,
-  StyledKoreaceratopsTitle,
-  StyledKoreaceratopsLittleTitle,
-  StyledKoreaceratopsContent,
-  StyledKoreaceratopsFigure,
-  StyledKoreaceratopsImg,
-  StyledKoreaceratopsCircle,
-  StyledKoreaceratopsInfo,
-  StyledKoreaceratopsHeight,
-  StyledKoreaceratopsWeight,
+  StyledCeratopsLittleTitle,
+  StyledCeratopsTitle,
+  StyledCeratopsSummary,
+  StyledCeratopsImage1,
+  StyledCeratopsSizeImage1,
+  StyledCeratopsSecondContent,
+  StyledCeratopsSizeContainer,
+  StyledCeratopsSizeImgContainer,
+  StyledCeratopsLottieLength,
+  StyledCeratopsLengthText,
+  StyledCeratopsLottieWeight,
+  StyledCeratopsWeightText,
 } from './Koreaceratops.styled';
 
 const KoreaceratopsPage = () => {
-  const clickDsInfo = () => {
-    console.log('click');
-    // setDsInfo();
-  };
   return (
     <StyledKoreaceratopsPage>
-      <StyledKoreaceratopsBody>
-        <StyledKoreaceratopsGeneration>
-          <img src="/dinosaur/koDs/Koreaceratops_gen.png" />
-        </StyledKoreaceratopsGeneration>
-        <StyledKoreaceratopsLittleTitle>최초로 한국 이름을 딴 화성 뿔공룡,</StyledKoreaceratopsLittleTitle>
-        <StyledKoreaceratopsTitle>코리아케라톱스</StyledKoreaceratopsTitle>
-        <StyledKoreaceratopsContent>
-          코리아노사우루스 보성엔시스는 후기 백악기 (8500만 년 전 ~ 8300만 년 전)에 살았으며 한국의 보성군에서 발견된
-          육식공룡입니다. 코리아노사우루스라는 이름은 한국에서 발견된 공룡이라는 뜻에서 비롯되었습니다. 오랜 기간 동안의
-          발굴 및 복원 작업을 거쳐 세상에 공개되었으며, 조각류의 원시적 형태를 보이고 있습니다.
-        </StyledKoreaceratopsContent>
-      </StyledKoreaceratopsBody>
-      <StyledKoreaceratopsFigure>
-        <StyledKoreaceratopsImg src="/dinosaur/koDs/Koreaceratops_001.png" alt="Koreaceratops"></StyledKoreaceratopsImg>
-        <StyledKoreaceratopsCircle onClick={clickDsInfo}>
-          <Lottie animationData={circle} loop autoplay />
-        </StyledKoreaceratopsCircle>
-        <StyledKoreaceratopsInfo>
-          <StyledKoreaceratopsHeight>1.8m</StyledKoreaceratopsHeight>
-          <StyledKoreaceratopsWeight>0.08T</StyledKoreaceratopsWeight>
-        </StyledKoreaceratopsInfo>
-      </StyledKoreaceratopsFigure>
+      {/* absolute */}
+      <StyledCeratopsImage1 src="/dinosaur/koDs/ceratops.png" alt="image1"></StyledCeratopsImage1>
+      <StyledCeratopsLottieLength>
+        <Lottie animationData={DottedLine} loop autoplay />
+      </StyledCeratopsLottieLength>
+      <StyledCeratopsLengthText>1.8M</StyledCeratopsLengthText>
+      <StyledCeratopsLottieWeight>
+        <Lottie animationData={circle} loop autoplay />
+      </StyledCeratopsLottieWeight>
+      <StyledCeratopsWeightText>80KG</StyledCeratopsWeightText>
+
+      {/* 첫번째 내용 */}
+      <StyledCeratopsFirstContent>
+        <StyledCeratopsLittleTitle>한국 최초 뿔공룡, 천연기념물</StyledCeratopsLittleTitle>
+        <StyledCeratopsTitle>코리아케라톱스 화성엔시스</StyledCeratopsTitle>
+        <StyledCeratopsSummary>
+          코리아케라톱스는 전기 백악기 (1억 4500만 년 전 ~ 1억 만 년 전)에 살았으며 한국에서 발견된 원시 각룡류
+          초식공룡입니다. <br /> 코리아케라톱스 화성엔시스는 ‘화성에서 발견된 한국 뿔 달린 얼굴’ 이라는 이름의 의미를
+          가지고 있는 공룡으로서 각룡류의 특징인 부리 형태의 주둥이를 가지고 있었을 것으로 추정되며 꼬리의 신경배돌기는
+          꼬리 척추마디보다 5개나 긴 것이 특징입니다. 하반신만 발견되었지만 남겨진 골격은 코리아케라톱스가 이족보행을
+          하였음을 보여줍니다.
+        </StyledCeratopsSummary>
+      </StyledCeratopsFirstContent>
+
+      {/* 두번째 내용 */}
+      <StyledCeratopsSizeContainer>
+        <StyledCeratopsSecondContent>
+          <StyledCeratopsLittleTitle>| 코리아케라톱스의 이야기</StyledCeratopsLittleTitle>
+          <StyledCeratopsSummary>
+            코리아케라톱스 화성엔시스는 한국 최초로 발견된 원시 각룡류입니다.가장 큰 특징은 높고 납작한 꼬리로 헤엄을 잘
+            칠 수 있는 형태를 갖고 있다는 것입니다. 또 다른 특징은 발목 관절이 매우 발달되어 있어 잘 달릴 수 있는 능력이
+            있었던 것으로 밝혀졌습니다. 아직 뿔이 발달하지 않은 원시 각룡류일 뿐만 아니라 크기도 작았기 때문에
+            육식공룡의 공격을 받으면 물속으로 피해서 도망갔을 것으로 추측하고 있습니다. 우리나라에서 발견된 무수한
+            공룡발자국 속에서 각룡류 발자국은 한 개도 발견된 적이 없었기 때문에 각룡류 공룡뼈가 발견되었다는 것은
+            우리나라에도 다양한 공룡이 살았었음을 알려주는 중요한 발견입니다.
+          </StyledCeratopsSummary>
+        </StyledCeratopsSecondContent>
+        <StyledCeratopsSizeImgContainer>
+          <StyledCeratopsSizeImage1 src="/dinosaur/koDs/ceratopsSize.png" alt="sizeImage1" />
+          <StyledCeratopsSizeImage1 src="/dinosaur/koDs/ceratopsSize2.png" alt="sizeImage1" />
+        </StyledCeratopsSizeImgContainer>
+      </StyledCeratopsSizeContainer>
     </StyledKoreaceratopsPage>
   );
 };
