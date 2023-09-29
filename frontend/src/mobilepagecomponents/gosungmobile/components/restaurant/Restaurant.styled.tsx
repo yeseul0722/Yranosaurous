@@ -11,14 +11,25 @@ const StyledRestaurantContainer = styled.div`
 
 const StyledRestaurantContent = styled.div`
   width: 100%;
-  height: 100px;
+  height: auto;
   display: flex;
-  gap: 10px;
+
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+`;
+
+const StyledRestaurantImgContainer = styled.div`
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  margin: 10px;
 `;
 
 const StyledRestaurantImgBox = styled.div`
-  width: 30%;
+  width: 100px;
   height: 100px;
+  border: 5px solid ${(props) => props.theme.colors.main};
+  border-radius: 50%;
 `;
 
 const StyledRestaurantImg = styled.img.attrs<any>((props) => ({
@@ -27,25 +38,60 @@ const StyledRestaurantImg = styled.img.attrs<any>((props) => ({
 }))`
   width: 100%;
   height: 100%;
+  border-radius: 50%;
 `;
 
 const StyledRestaurantInfoContainer = styled.div`
   display: flex;
-  width: 70%;
+  width: 60%;
   flex-direction: column;
-  flex-wrap: wrap;
+  justify-content: space-evenly;
 `;
 
 const StyledRestaurantInfoContent = styled.div`
   font-family: ${(props) => props.theme.fonts.regularfont};
-  font-size: 15px;
-  color: ${(props) => props.theme.colors.main};
+  font-size: 12px;
+  color: ${(props) => props.theme.colors.black};
+`;
+const StyledRestaurantName = styled.div`
+  display: flex;
+  font-family: ${(props) => props.theme.fonts.boldfont};
+  font-size: 18px;
+  color: ${(props) => props.theme.colors.black};
+`;
+
+const StyledRestaurantHashTagContainer = styled.div`
+  display: flex;
+  width: 90%;
+  overflow: scroll;
+  flex-wrap: wrap;
+`;
+const StyledRestaurantHashTag = styled.div`
+  font-family: ${(props) => props.theme.fonts.boldfont};
+  font-size: 12px;
+  color: ${(props) => props.theme.colors.black};
+  margin-right: 5px;
+`;
+const StyledRatinContainer = styled.div`
+  display: flex;
+`;
+const StyledRating = styled.div`
+  font-family: ${(props) => props.theme.fonts.boldfont};
+  font-size: 12px;
+  color: ${(props) => props.theme.colors.black};
+  margin-right: 5px;
 `;
 export {
   StyledRestaurantContainer,
   StyledRestaurantContent,
+  StyledRestaurantImgContainer,
   StyledRestaurantImgBox,
   StyledRestaurantImg,
   StyledRestaurantInfoContainer,
   StyledRestaurantInfoContent,
+  StyledRestaurantName,
+  StyledRestaurantHashTagContainer,
+  StyledRestaurantHashTag,
+  StyledRatinContainer,
+  StyledRating,
 };

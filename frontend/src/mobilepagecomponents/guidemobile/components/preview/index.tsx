@@ -34,7 +34,7 @@ const MobilePreview = () => {
     handlePlace(place);
   };
   return (
-    <div>
+    <div style={{ height: '50vh', overflow: 'scroll' }}>
       {placesList.map((place: any) => {
         if (place.type === '관람 요소') {
           return (

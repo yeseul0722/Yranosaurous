@@ -4,20 +4,27 @@ import {
   StyledTourCategoryButtonContainer,
   StyledTourCategoryButton,
   StyledTourName,
+  StyledCategotyContainer,
 } from '../tour/Tour.styled';
 import {
   StyledRestaurantContainer,
   StyledRestaurantContent,
+  StyledRestaurantImgContainer,
   StyledRestaurantImgBox,
   StyledRestaurantImg,
   StyledRestaurantInfoContainer,
   StyledRestaurantInfoContent,
+  StyledRestaurantName,
+  StyledRestaurantHashTagContainer,
+  StyledRestaurantHashTag,
+  StyledRatinContainer,
+  StyledRating,
 } from './Restaurant.styled';
 import useTourStore from '../../../../stores/mobilegosung/useGosungListStore';
 import { useRestaurantListHook } from '../../../../hooks/gosung/useRestaurantListHook';
 import { useRestaurantDetailHook } from '../../../../hooks/gosung/useRestaurantDetailHook';
 import useGosungListStore from '../../../../stores/mobilegosung/useGosungListStore';
-
+import Rating from 'react-rating';
 const MobileRestaurant = (props: any) => {
   const selectCategory = useTourStore((state: any) => state.selectCategory); // 선택한 카테고리
   const setSelectCategory = useTourStore((state: any) => state.setSelectCategory);
@@ -36,9 +43,9 @@ const MobileRestaurant = (props: any) => {
   //   resetTour();
   // }, []);
 
-  useEffect(() => {
-    console.log(restaurantDetail);
-  });
+  // useEffect(() => {
+  //   console.log(restaurantDetail);
+  // });
 
   const handleSelectCategory = (e: any) => {
     setSelectCategory(e.target.name);
@@ -56,66 +63,91 @@ const MobileRestaurant = (props: any) => {
   return (
     <StyldTourCategoryContainer>
       <StyledTourCategoryButtonContainer>
-        <StyledTourCategoryButton name="1" select={selectCategory} onClick={handleSelectCategory}>
-          밥집
-        </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="2" select={selectCategory} onClick={handleSelectCategory}>
-          카페
-        </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="3" select={selectCategory} onClick={handleSelectCategory}>
-          술집
-        </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="4" select={selectCategory} onClick={handleSelectCategory}>
-          고깃집
-        </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="5" select={selectCategory} onClick={handleSelectCategory}>
-          횟집
-        </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="6" select={selectCategory} onClick={handleSelectCategory}>
-          한식
-        </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="7" select={selectCategory} onClick={handleSelectCategory}>
-          중식
-        </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="8" select={selectCategory} onClick={handleSelectCategory}>
-          일식
-        </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="9" select={selectCategory} onClick={handleSelectCategory}>
-          양식
-        </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="10" select={selectCategory} onClick={handleSelectCategory}>
-          이탈리안
-        </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="11" select={selectCategory} onClick={handleSelectCategory}>
-          패스트푸드
-        </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="12" select={selectCategory} onClick={handleSelectCategory}>
-          분식
-        </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="13" select={selectCategory} onClick={handleSelectCategory}>
-          국물요리
-        </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="14" select={selectCategory} onClick={handleSelectCategory}>
-          면요리
-        </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="15" select={selectCategory} onClick={handleSelectCategory}>
-          해산물
-        </StyledTourCategoryButton>
+        <StyledCategotyContainer>
+          <StyledTourCategoryButton name="1" select={selectCategory} onClick={handleSelectCategory}>
+            밥집
+          </StyledTourCategoryButton>
+          <StyledTourCategoryButton name="2" select={selectCategory} onClick={handleSelectCategory}>
+            카페
+          </StyledTourCategoryButton>
+          <StyledTourCategoryButton name="3" select={selectCategory} onClick={handleSelectCategory}>
+            술집
+          </StyledTourCategoryButton>
+        </StyledCategotyContainer>
+        <StyledCategotyContainer>
+          <StyledTourCategoryButton name="4" select={selectCategory} onClick={handleSelectCategory}>
+            고깃집
+          </StyledTourCategoryButton>
+          <StyledTourCategoryButton name="5" select={selectCategory} onClick={handleSelectCategory}>
+            횟집
+          </StyledTourCategoryButton>
+          <StyledTourCategoryButton name="6" select={selectCategory} onClick={handleSelectCategory}>
+            한식
+          </StyledTourCategoryButton>
+        </StyledCategotyContainer>
+        <StyledCategotyContainer>
+          <StyledTourCategoryButton name="7" select={selectCategory} onClick={handleSelectCategory}>
+            중식
+          </StyledTourCategoryButton>
+          <StyledTourCategoryButton name="8" select={selectCategory} onClick={handleSelectCategory}>
+            일식
+          </StyledTourCategoryButton>
+          <StyledTourCategoryButton name="9" select={selectCategory} onClick={handleSelectCategory}>
+            양식
+          </StyledTourCategoryButton>
+        </StyledCategotyContainer>
+        <StyledCategotyContainer>
+          <StyledTourCategoryButton name="10" select={selectCategory} onClick={handleSelectCategory}>
+            이탈리안
+          </StyledTourCategoryButton>
+          <StyledTourCategoryButton name="11" select={selectCategory} onClick={handleSelectCategory}>
+            패스트푸드
+          </StyledTourCategoryButton>
+          <StyledTourCategoryButton name="12" select={selectCategory} onClick={handleSelectCategory}>
+            분식
+          </StyledTourCategoryButton>
+        </StyledCategotyContainer>
+        <StyledCategotyContainer>
+          <StyledTourCategoryButton name="13" select={selectCategory} onClick={handleSelectCategory}>
+            국물요리
+          </StyledTourCategoryButton>
+          <StyledTourCategoryButton name="14" select={selectCategory} onClick={handleSelectCategory}>
+            면요리
+          </StyledTourCategoryButton>
+          <StyledTourCategoryButton name="15" select={selectCategory} onClick={handleSelectCategory}>
+            해산물
+          </StyledTourCategoryButton>
+        </StyledCategotyContainer>
       </StyledTourCategoryButtonContainer>
       <StyledRestaurantContainer>
         {restaurantList?.map((location: any) => {
           return (
             <StyledRestaurantContent key={location.id} onClick={() => getApi(location)}>
-              <StyledRestaurantImgBox>
-                <StyledRestaurantImg src={location.imgAddress} alt={location.storeName}></StyledRestaurantImg>
-              </StyledRestaurantImgBox>
+              <StyledRestaurantImgContainer>
+                <StyledRestaurantImgBox>
+                  <StyledRestaurantImg src={location.imgAddress} alt={location.storeName}></StyledRestaurantImg>
+                </StyledRestaurantImgBox>
+              </StyledRestaurantImgContainer>
               <StyledRestaurantInfoContainer>
-                <StyledRestaurantInfoContent>{location.storeName}</StyledRestaurantInfoContent>
-                <StyledRestaurantInfoContent>{location.rating}</StyledRestaurantInfoContent>
-                <StyledRestaurantInfoContent>{location.ratingCnt}</StyledRestaurantInfoContent>
-                {location.hashTagList?.map((tag: any) => {
-                  return <StyledRestaurantInfoContent key={tag.id}>{tag.name}</StyledRestaurantInfoContent>;
-                })}
+                <StyledRestaurantName> | {location.storeName}</StyledRestaurantName>
+                <StyledRestaurantHashTagContainer>
+                  {location.hashTagList?.map((tag: any) => {
+                    return <StyledRestaurantHashTag key={tag.id}>#{tag.name}</StyledRestaurantHashTag>;
+                  })}
+                </StyledRestaurantHashTagContainer>
+                <StyledRatinContainer>
+                  <StyledRating>{location.rating}</StyledRating>
+                  <Rating
+                    initialRating={location.rating}
+                    fullSymbol={
+                      <img src="/rating/stards.png" alt="Full Star" style={{ maxWidth: '15px', maxHeight: '15px' }} />
+                    }
+                    emptySymbol={
+                      <img src="/rating/stards2.png" alt="Empty Star" style={{ maxWidth: '15px', maxHeight: '15px' }} />
+                    }
+                    fractions={10}
+                  ></Rating>
+                </StyledRatinContainer>
               </StyledRestaurantInfoContainer>
             </StyledRestaurantContent>
           );

@@ -41,12 +41,20 @@ const StyledList = styled.div`
   margin-bottom: 20px;
 `;
 
-const StyledHome = styled.a`
+const StyledHome = styled.div`
   cursor: pointer;
   position: absolute;
-  left: 0;
-  top: 50px;
+  left: 3%;
+  top: 3%;
   z-index: 100;
+  width: 50px;
+  height: 50px;
+`;
+const StyledHomeImg = styled.img.attrs<any>((props) => ({
+  src: '/map/menuC.png',
+}))`
+  width: 100%;
+  height: 100%;
 `;
 export {
   StyledosunMobilePage,
@@ -56,4 +64,5 @@ export {
   StyledImg,
   StyledList,
   StyledHome,
+  StyledHomeImg,
 };

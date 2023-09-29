@@ -5,6 +5,10 @@ import {
   StyledListTopContainer,
   StyledButtonBox,
   StyledButton,
+  StyledButtonContainer,
+  StyledButtonImageContainer,
+  StlyedButtonImg,
+  StyledOpenListCotainer,
 } from './List.styled';
 import Cource from '../cource';
 import Facility from '../facility';
@@ -15,28 +19,43 @@ const List = (props: any) => {
   const selectCategory = useGuideStore((state: any) => state.selectCategory);
   const setSelectCategory = useGuideStore((state: any) => state.setSelectCategory);
   const handleList = (e: any) => {
-    setSelectCategory(e.target.name);
+    setSelectCategory(e.target.id);
   };
 
   return (
     <StyledListContainer>
       <StyledListTopContainer>
         <StyledListButtonContainer>
-          <StyledButtonBox>
-            <StyledButton name="cource" select={selectCategory} onClick={handleList}>
+          {/* <StyledButtonBox> */}
+          <StyledButtonContainer id="cource" select={selectCategory} onClick={handleList}>
+            <StyledButtonImageContainer id="cource" select={selectCategory}>
+              <StlyedButtonImg src="/gosung/맛집.png"></StlyedButtonImg>
+            </StyledButtonImageContainer>
+            <StyledButton id="cource" select={selectCategory} onClick={handleList}>
               추천 코스
             </StyledButton>
-          </StyledButtonBox>
-          <StyledButtonBox>
-            <StyledButton name="facility" select={selectCategory} onClick={handleList}>
+          </StyledButtonContainer>
+          {/* </StyledButtonBox> */}
+          {/* <StyledButtonBox> */}
+          <StyledButtonContainer id="facility" select={selectCategory} onClick={handleList}>
+            <StyledButtonImageContainer id="facility" select={selectCategory}>
+              <StlyedButtonImg src="/gosung/맛집.png"></StlyedButtonImg>
+            </StyledButtonImageContainer>
+            <StyledButton id="facility" select={selectCategory} onClick={handleList}>
               편의 시설
             </StyledButton>
-          </StyledButtonBox>
-          <StyledButtonBox>
-            <StyledButton name="preview" select={selectCategory} onClick={handleList}>
+          </StyledButtonContainer>
+          {/* </StyledButtonBox> */}
+          {/* <StyledButtonBox> */}
+          <StyledButtonContainer id="preview" select={selectCategory} onClick={handleList}>
+            <StyledButtonImageContainer id="preview" select={selectCategory}>
+              <StlyedButtonImg src="/gosung/맛집.png"></StlyedButtonImg>
+            </StyledButtonImageContainer>
+            <StyledButton id="preview" select={selectCategory} onClick={handleList}>
               관람 요소
             </StyledButton>
-          </StyledButtonBox>
+          </StyledButtonContainer>
+          {/* </StyledButtonBox> */}
         </StyledListButtonContainer>
       </StyledListTopContainer>
       {selectCategory === 'cource' && <Cource></Cource>}
