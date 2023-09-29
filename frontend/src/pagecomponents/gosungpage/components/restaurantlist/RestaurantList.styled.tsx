@@ -20,7 +20,7 @@ const StyledRestaurantInfo = styled.div`
 const StyledRestaurantStoreName = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
   color: ${(props) => props.theme.colors.light};
-  font-size: 18px;
+  font-size: 17px;
 `;
 
 const StyledRestaurantImg = styled.img`

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 const StyledSideListContainer = styled.div`
-  min-width: 360px;
-  max-width: 360px;
+  min-width: 410px;
+  max-width: 410px;
   height: 100vh;
   flex-direction: column;
   display: flex;

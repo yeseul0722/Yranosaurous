@@ -9,6 +9,7 @@ import {
 } from './RestaurantList.styled';
 import { useRestaurantDetailStore } from '../../../../stores/gosung/restaurants/useRestaurantDetailApiStore';
 import RestaurantDetailGet from '../../../../apis/gosung/restaurantDetailGet';
+import { useCategoryDetailStore } from '../../../../stores/gosung/useCategoryDetailStore';
 
 interface GosungRestaurantListProps {
   restaurantlist: any[];
@@ -16,17 +17,18 @@ interface GosungRestaurantListProps {
 
 const GosungRestaurantList = ({ restaurantlist }: GosungRestaurantListProps) => {
   const { restaurantDetail, setRestaurantDetail } = useRestaurantDetailStore();
+  const { selectedDetail, setSelectedDetail } = useCategoryDetailStore();
 
-  const HandleDetailApi = async (id: number) => {
+  const handleDetailApi = async (id: number) => {
     const response = await RestaurantDetailGet(id);
-    console.log(response.data.response);
     setRestaurantDetail(response.data.response);
+    setSelectedDetail(id);
   };
   return (
     <StyledRestaurantListContainer>
       {restaurantlist &&
         restaurantlist.map((restaurant) => (
-          <StyledRestaurantContainer key={restaurant.id} onClick={() => HandleDetailApi(restaurant.id)}>
+          <StyledRestaurantContainer key={restaurant.id} onClick={() => handleDetailApi(restaurant.id)}>
             <StyledRestaurantImg src={restaurant.imgAddress}></StyledRestaurantImg>
             <StyledRestaurantInfo>
               <StyledRestaurantStoreName>{restaurant.storeName}</StyledRestaurantStoreName>

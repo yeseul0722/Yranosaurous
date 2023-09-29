@@ -3,6 +3,9 @@ import styled from 'styled-components';
 const StyledFoodCategorySection = styled.div`
   height: 100vh;
   overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const StyledFoodCategoryContainer = styled.div`
