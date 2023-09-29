@@ -97,7 +97,7 @@ const EnrollCourse = (props: any) => {
           </div>
         </StyledCourseMap>
 
-        <CourseInfo />
+        {selectedCourse && <CourseInfo />}
 
         {showInput && (
           <div style={{ display: 'flex', gap: '10px', flexDirection: 'column' }}>
