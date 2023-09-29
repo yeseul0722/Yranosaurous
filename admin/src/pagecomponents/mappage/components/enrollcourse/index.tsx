@@ -6,13 +6,14 @@ import useCourseStore from '../../../../stores/course/useCourseStore';
 import enrollCoursePost from '../../../../apis/course/enrollCoursePost';
 import courseDelete from '../../../../apis/course/courseDelete';
 import CourseInfo from '../courseinfo';
+import { useRefreshCoursesStore } from '../../../../stores/course/useRefreshCourseStore';
 
 const EnrollCourse = (props: any) => {
   const [places, setPlaces] = useState<any[]>([]);
   const [showInput, setShowInput] = useState(false);
   const [courseName, setCourseName] = useState('');
   const [timeTaken, setTimeTaken] = useState('');
-
+  const { toggleRefresh } = useRefreshCoursesStore();
   const { selectedCourseIndex, selectedCourse, setSelectedCourseIndex, setSelectedCourse } = useCourseStore();
   useEffect(() => {
     if (props.courses && props.courses.length > 0) {
@@ -55,6 +56,7 @@ const EnrollCourse = (props: any) => {
         courseOrderRequestList,
       };
       const response = await enrollCoursePost(data);
+      toggleRefresh();
       // console.log(response);
     } catch (error) {}
   };
@@ -67,6 +69,7 @@ const EnrollCourse = (props: any) => {
     // console.log(selectedCourse.id.toString());
     try {
       const response = await courseDelete(selectedCourse.id.toString());
+      toggleRefresh();
       // console.log(response);
     } catch (error) {}
   };
@@ -87,6 +90,7 @@ const EnrollCourse = (props: any) => {
             <Button ismain={showInput ? 'true' : 'false'} label="+" onClick={handleAddButtonClick} />
           </div>
         </StyledCourseMap>
+
         <CourseInfo />
 
         {showInput && (
