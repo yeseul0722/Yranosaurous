@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-const StyledTourismListContainer = styled.div``;
+const StyledAccomoListContainer = styled.div``;
 
-const StyledTourismContainer = styled.div`
+const StyledAccomoContainer = styled.div`
   height: 200px;
   display: flex;
   align-items: center;
@@ -10,24 +10,35 @@ const StyledTourismContainer = styled.div`
   cursor: pointer;
 `;
 
-const StyledTourismInfo = styled.div`
+const StyledAccomoListInfo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin-left: 10px;
 `;
 
-const StyledTourismName = styled.div`
+const StyledAccomoStoreName = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
   color: ${(props) => props.theme.colors.light};
   font-size: 17px;
 `;
 
-const StyledTourismImg = styled.img`
+const StyledAccomoImg = styled.img`
   height: 150px;
   width: 150px;
   border-radius: 10px;
   margin: 10px;
 `;
 
-export { StyledTourismContainer, StyledTourismImg, StyledTourismInfo, StyledTourismName, StyledTourismListContainer };
+const StyledAccomoRating = styled.div`
+  font-family: ${(props) => props.theme.fonts.regularfont};
+`;
+
+export {
+  StyledAccomoImg,
+  StyledAccomoListContainer,
+  StyledAccomoListInfo,
+  StyledAccomoRating,
+  StyledAccomoStoreName,
+  StyledAccomoContainer,
+};

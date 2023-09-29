@@ -1,15 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { StyledAccomoCategoryList, StyledAccomoCategoryWrap } from './AccomoCategory.styled';
-import AccomodationListGet from '../../../../apis/gosung/AccomodationListGet';
+import {
+  StyledAccomoCategoryBox,
+  StyledAccomoCategoryContainer,
+  StyledAccomoCategoryList,
+  StyledAccomoCategorySection,
+  StyledAccomoCategoryWrap,
+} from './AccomoCategory.styled';
+import AccomodationListGet from '../../../../apis/gosung/accomodationListGet';
 import { useAccommodationApiStore } from '../../../../stores/gosung/accommodation/useAccommodationApiStore';
+import GosungAccomoList from '../accomolist';
+import { useCategoryStore } from '../../../../stores/gosung/useCategoryStore';
 
 const GosungAccomoCategory = () => {
   // const [motelData, setMotelData] = useState([]);
   // const [pensionData, setPensionData] = useState([]);
   // const [guesthouseData, setGuesthouseData] = useState([]);
-  const { motelData, pensionData, guestHouseData, setMotelData, setPensionData, setGuestHouseData } =
+  const { motelData, pensionData, guesthouseData, setMotelData, setPensionData, setGuesthouseData } =
     useAccommodationApiStore();
-  const [selectedCategory, setSelectedCategory] = useState('모텔');
+  const { selectedCategory, setSelectedCategory } = useCategoryStore();
+  const [selectedItems, setSelectedItems] = useState<any[]>([]);
+  const [selectedAccomoCategory, setAccomoSelectedCategory] = useState<string>('');
 
   const HandleApi = async () => {
     const response = await AccomodationListGet();
@@ -17,25 +27,42 @@ const GosungAccomoCategory = () => {
 
     const motelItems = data.filter((item: any) => item.category === '모텔');
     const pensionItems = data.filter((item: any) => item.category === '펜션');
-    const guestHouseItems = data.filter((item: any) => item.category === '게스트하우스');
+    const guesthouseItems = data.filter((item: any) => item.category === '게스트하우스');
 
     // Saving the data in the store
     setMotelData(motelItems);
     setPensionData(pensionItems);
-    setGuestHouseData(guestHouseItems);
+    setGuesthouseData(guesthouseItems);
   };
   useEffect(() => {
     HandleApi();
   }, []);
 
+  useEffect(() => {
+    if (selectedCategory === '모텔') {
+      setSelectedItems(motelData);
+    } else if (selectedCategory === '펜션') {
+      setSelectedItems(pensionData);
+    } else if (selectedCategory === '게스트하우스') {
+      setSelectedItems(guesthouseData);
+    }
+  }, [motelData, pensionData, guesthouseData, selectedCategory]);
+
   return (
-    <StyledAccomoCategoryWrap>
-      <StyledAccomoCategoryList onClick={() => setSelectedCategory('모텔')}>모텔</StyledAccomoCategoryList>
-      <StyledAccomoCategoryList onClick={() => setSelectedCategory('펜션')}>펜션</StyledAccomoCategoryList>
-      <StyledAccomoCategoryList onClick={() => setSelectedCategory('게스트하우스')}>
-        게스트하우스
-      </StyledAccomoCategoryList>
-    </StyledAccomoCategoryWrap>
+    <StyledAccomoCategorySection>
+      <StyledAccomoCategoryContainer>
+        <StyledAccomoCategoryBox>
+          <StyledAccomoCategoryWrap>
+            <StyledAccomoCategoryList onClick={() => setSelectedCategory('모텔')}>모텔</StyledAccomoCategoryList>
+            <StyledAccomoCategoryList onClick={() => setSelectedCategory('펜션')}>펜션</StyledAccomoCategoryList>
+            <StyledAccomoCategoryList onClick={() => setSelectedCategory('게스트하우스')}>
+              게스트하우스
+            </StyledAccomoCategoryList>
+          </StyledAccomoCategoryWrap>
+        </StyledAccomoCategoryBox>
+      </StyledAccomoCategoryContainer>
+      <GosungAccomoList accomoList={selectedItems} />
+    </StyledAccomoCategorySection>
   );
 };
 

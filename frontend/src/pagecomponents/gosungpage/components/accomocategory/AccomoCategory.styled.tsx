@@ -1,5 +1,28 @@
 import styled from 'styled-components';
 
+const StyledAccomoCategorySection = styled.div`
+  height: 100vh;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+const StyledAccomoCategoryContainer = styled.div`
+  height: 70px;
+  width: 360px;
+  /* border: 1px solid; */
+  justify-content: center;
+  align-items: center;
+`;
+
+const StyledAccomoCategoryBox = styled.div`
+  height: auto;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+`;
+
 const StyledAccomoCategoryList = styled.button`
   width: 100px;
   height: 30px;
@@ -25,4 +48,10 @@ const StyledAccomoCategoryWrap = styled.div`
   display: flex;
   justify-content: center;
 `;
-export { StyledAccomoCategoryList, StyledAccomoCategoryWrap };
+export {
+  StyledAccomoCategoryList,
+  StyledAccomoCategoryWrap,
+  StyledAccomoCategorySection,
+  StyledAccomoCategoryBox,
+  StyledAccomoCategoryContainer,
+};

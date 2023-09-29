@@ -1,7 +1,5 @@
 import React from 'react';
 import { Router, useNavigate } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faUtensils, faHouseUser, faSuitcase } from '@fortawesome/free-solid-svg-icons';
 import {
   StyledAccomodationIcon,
   StyledCategoryContainer,

@@ -9,14 +9,17 @@ import {
 import RestaurantListGet from '../../../../apis/gosung/restaurantListGet';
 import GosungRestaurantList from '../restaurantlist';
 import { useRestaurantStore } from '../../../../stores/gosung/restaurants/useRestaurantApiStore';
+import { useCategoryStore } from '../../../../stores/gosung/useCategoryStore';
 
 const GosungCategory = () => {
   const { restaurantList, setRestaurantList } = useRestaurantStore();
+  const { selectedCategory, setSelectedCategory } = useCategoryStore();
 
   const HandleApi = async (category: number) => {
     const response = await RestaurantListGet(category);
 
     setRestaurantList(response.data.response);
+    setSelectedCategory(category);
   };
 
   return (
