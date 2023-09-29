@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import showsGet from '../apis/show/showsGet';
+import { useRefreshCoursesStore } from '../stores/course/useRefreshCourseStore';
 
 export const useGetShowsHook = () => {
   const [places, setPlaces] = useState<any>([]);
+  const { shouldRefresh } = useRefreshCoursesStore();
 
   useEffect(() => {
     const fetchList = async () => {
@@ -15,7 +17,7 @@ export const useGetShowsHook = () => {
       }
     };
     fetchList();
-  }, []);
+  }, [shouldRefresh]);
 
   return places;
 };

@@ -14,7 +14,9 @@ const Sidebar = (props: any) => {
       {selectcat === '2' && <StyledTitle>공연 등록/수정하기</StyledTitle>}
       {selectcat === '3' && <StyledTitle>코스 등록/수정하기</StyledTitle>}
       {selectcat === '1' && <Enrollplace place={props.place} use={props.use} />}
-      {selectcat === '2' && <EnrollShow place={props.place} festivals={props.festivals} />}
+      {selectcat === '2' && (
+        <EnrollShow place={props.place} festivals={props.festivals} resetPlace={props.resetPlace} />
+      )}
       {selectcat === '3' && <EnrollCourse place={props.place} courses={props.courses} />}
     </StyledSidebar>
   );
