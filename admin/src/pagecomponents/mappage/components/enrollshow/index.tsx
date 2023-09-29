@@ -15,6 +15,11 @@ const EnrollShow = ({ place, festivals, resetPlace }: EnrollShowPropsType & { re
   };
   const handleSaveClick = async () => {
     // console.log(`${input?.date} ${input?.time}`);
+    if (!input?.name || !input?.date || !input?.time || !place?.id) {
+      alert('이름/날짜/시간을 정확하게 기입해주세요.');
+      return;
+    }
+
     try {
       const data = {
         name: input?.name,
