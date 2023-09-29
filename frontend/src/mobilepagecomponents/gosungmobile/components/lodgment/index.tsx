@@ -11,6 +11,7 @@ import {
   StyledTourContent,
   StyledTourImg,
   StyledTourName,
+  StyledCategotyContainer,
 } from '../tour/Tour.styled';
 import { useLodgmentListHook } from '../../../../hooks/gosung/useLodgmentListHook';
 import { useLodgmentDetailHook } from '../../../../hooks/gosung/useLodgmentDetailHook';
@@ -24,7 +25,7 @@ const MobileLodgment = (props: any) => {
   const setOpenList = useGosungListStore((state: any) => state.setOpenList);
   const tour = useTourStore((state: any) => state.tour); // 선택한 관광지
   const setTour = useTourStore((state: any) => state.setTour);
-  const resetTour = useTourStore((state: any) => state.resetTour);
+  const resetLodgmentDetail = useTourStore((state: any) => state.resetLodgmentDetail);
 
   const { getlodgmentList } = useLodgmentListHook();
   const { getLodgmentDetail } = useLodgmentDetailHook();
@@ -46,15 +47,17 @@ const MobileLodgment = (props: any) => {
   return (
     <StyldTourCategoryContainer>
       <StyledTourCategoryButtonContainer>
-        <StyledTourCategoryButton name="모텔" select={selectCategory} onClick={handleSelectCategory}>
-          모텔
-        </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="펜션" select={selectCategory} onClick={handleSelectCategory}>
-          펜션
-        </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="게스트하우스" select={selectCategory} onClick={handleSelectCategory}>
-          게스트하우스
-        </StyledTourCategoryButton>
+        <StyledCategotyContainer>
+          <StyledTourCategoryButton name="모텔" select={selectCategory} onClick={handleSelectCategory}>
+            모텔
+          </StyledTourCategoryButton>
+          <StyledTourCategoryButton name="펜션" select={selectCategory} onClick={handleSelectCategory}>
+            펜션
+          </StyledTourCategoryButton>
+          <StyledTourCategoryButton name="게스트하우스" select={selectCategory} onClick={handleSelectCategory}>
+            게스트하우스
+          </StyledTourCategoryButton>
+        </StyledCategotyContainer>
       </StyledTourCategoryButtonContainer>
       <StyledTourListContainer>
         {lodgment.map((location: any) => {

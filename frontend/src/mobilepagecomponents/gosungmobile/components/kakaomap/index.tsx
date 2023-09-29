@@ -13,8 +13,26 @@ const GosungKakaoMapComponent = () => {
   const lodgmentDetail = useGosungListStore((state: any) => state.lodgmentDetail);
   const selectList = useGosungListStore((state: any) => state.selectList);
   const [keyword, setKeyword] = useState('');
-  // selectList에 따라 keywordSearch 안 바꿔주기
-
+  const imageArray = [
+    '밥집',
+    '카페',
+    '술집',
+    '고깃집',
+    '횟집',
+    '한식',
+    '중식',
+    '일식',
+    '양식',
+    '이탈리안',
+    '패스트푸드',
+    '분식',
+    '국물요리',
+    '면요리',
+    '해산물',
+  ];
+  useEffect(() => {
+    console.log(tourDetail);
+  }, [tourDetail]);
   useEffect(() => {
     if (selectList === 'restaurant') {
       setKeyword(restaurantDetail.address);
@@ -71,21 +89,28 @@ const GosungKakaoMapComponent = () => {
       level={4}
       onCreate={setMap}
     >
-      {markers.map((marker: any) => (
-        <MapMarker
-          key={`marker-${marker.content}-${marker.position.lat},${marker.position.lng}`}
-          position={marker.position}
-          clickable={true} // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
-          onClick={handleOpen}
-          image={{
-            src: '/map/marker.svg', // 마커이미지의 주소입니다
-            size: {
-              width: 40,
-              height: 40,
-            }, // 마커이미지의 크기입니다
-          }}
-        ></MapMarker>
-      ))}
+      {((selectList === 'restaurant' && restaurantDetail) ||
+        (selectList === 'tour' && tourDetail) ||
+        (selectList === 'lodgment' && lodgmentDetail)) &&
+        markers.map((marker: any) => (
+          <MapMarker
+            key={`marker-${marker.content}-${marker.position.lat},${marker.position.lng}`}
+            position={marker.position}
+            clickable={true} // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+            onClick={handleOpen}
+            image={{
+              src: `${
+                (selectList === 'restaurant' && `${imageArray[restaurantDetail.category - 1]}.png`) ||
+                (selectList === 'lodgment' && `/gosung/${lodgmentDetail.category}.png`) ||
+                (selectList === 'tour' && `/gosung/${tourDetail.category}.png`)
+              }`, // 마커이미지의 주소입니다
+              size: {
+                width: 40,
+                height: 40,
+              }, // 마커이미지의 크기입니다
+            }}
+          ></MapMarker>
+        ))}
       {selectList === 'restaurant' && isOpen && (
         <RestaurantModal handleOpen={handleOpen} restaurantDetail={restaurantDetail}></RestaurantModal>
       )}

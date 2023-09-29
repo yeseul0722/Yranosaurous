@@ -7,6 +7,7 @@ import {
   StyledTourContent,
   StyledTourImg,
   StyledTourName,
+  StyledCategotyContainer,
 } from './Tour.styled';
 import useTourStore from '../../../../stores/mobilegosung/useGosungListStore';
 import axios from 'axios';
@@ -45,30 +46,36 @@ const MobileTour = (props: any) => {
   return (
     <StyldTourCategoryContainer>
       <StyledTourCategoryButtonContainer>
-        <StyledTourCategoryButton name="MOUNTAIN" select={selectCategory} onClick={handleSelectCategory}>
-          산
-        </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="NATURAL" select={selectCategory} onClick={handleSelectCategory}>
-          자연
-        </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="CAMPING" select={selectCategory} onClick={handleSelectCategory}>
-          캠핑
-        </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="PARK" select={selectCategory} onClick={handleSelectCategory}>
-          공원
-        </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="MUSEUM" select={selectCategory} onClick={handleSelectCategory}>
-          박물관
-        </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="TEMPLE" select={selectCategory} onClick={handleSelectCategory}>
-          사원
-        </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="AUDITORIUM" select={selectCategory} onClick={handleSelectCategory}>
-          문화재
-        </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="OLD_HOUSE" select={selectCategory} onClick={handleSelectCategory}>
-          전통가옥
-        </StyledTourCategoryButton>
+        <StyledCategotyContainer>
+          <StyledTourCategoryButton name="MOUNTAIN" select={selectCategory} onClick={handleSelectCategory}>
+            산
+          </StyledTourCategoryButton>
+          <StyledTourCategoryButton name="NATURAL" select={selectCategory} onClick={handleSelectCategory}>
+            자연
+          </StyledTourCategoryButton>
+          <StyledTourCategoryButton name="CAMPING" select={selectCategory} onClick={handleSelectCategory}>
+            캠핑
+          </StyledTourCategoryButton>
+        </StyledCategotyContainer>
+        <StyledCategotyContainer>
+          <StyledTourCategoryButton name="PARK" select={selectCategory} onClick={handleSelectCategory}>
+            공원
+          </StyledTourCategoryButton>
+          <StyledTourCategoryButton name="MUSEUM" select={selectCategory} onClick={handleSelectCategory}>
+            박물관
+          </StyledTourCategoryButton>
+          <StyledTourCategoryButton name="TEMPLE" select={selectCategory} onClick={handleSelectCategory}>
+            사원
+          </StyledTourCategoryButton>
+        </StyledCategotyContainer>
+        <StyledCategotyContainer>
+          <StyledTourCategoryButton name="AUDITORIUM" select={selectCategory} onClick={handleSelectCategory}>
+            문화재
+          </StyledTourCategoryButton>
+          <StyledTourCategoryButton name="OLD_HOUSE" select={selectCategory} onClick={handleSelectCategory}>
+            전통가옥
+          </StyledTourCategoryButton>
+        </StyledCategotyContainer>
       </StyledTourCategoryButtonContainer>
       <StyledTourListContainer>
         {tourList.map((location: any) => {

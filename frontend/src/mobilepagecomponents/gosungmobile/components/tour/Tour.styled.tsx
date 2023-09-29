@@ -7,27 +7,27 @@ const StyldTourCategoryContainer = styled.div`
 
 const StyledTourCategoryButtonContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  padding: 20px;
-  max-height: 20vh;
+  flex-direction: column;
+  /* gap: 20px; */
+  /* padding: 20px; */
+  /* max-height: 20vh; */
   overflow: scroll;
 `;
 
 const StyledTourCategoryButton = styled.button.attrs<any>((props) => ({}))`
-  border-radius: 20px;
-  background-color: ${(props) => (props.name === props.select ? props.theme.colors.night : props.theme.colors.light)};
-  color: ${(props) => props.theme.colors.white};
+  /* border-radius: 20px; */
+  background-color: ${(props) => (props.name === props.select ? props.theme.colors.menu : props.theme.colors.main)};
+  color: ${(props) => (props.name === props.select ? props.theme.colors.main : props.theme.colors.white)};
   font-size: 15px;
   padding-bottom: 10px;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   border: hidden;
   width: 100px;
+  flex: 1;
 
   font-family: ${(props) => props.theme.fonts.regularfont};
 `;
@@ -64,6 +64,11 @@ const StyledTourName = styled.div`
   left: 10px;
 `;
 
+const StyledCategotyContainer = styled.div`
+  display: flex;
+  width: 100%;
+`;
+
 export {
   StyldTourCategoryContainer,
   StyledTourCategoryButtonContainer,
@@ -72,4 +77,5 @@ export {
   StyledTourContent,
   StyledTourImg,
   StyledTourName,
+  StyledCategotyContainer,
 };
