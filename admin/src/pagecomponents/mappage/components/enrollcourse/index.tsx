@@ -3,6 +3,7 @@ import Button from '../../../../components/button';
 import { StyledBox, StyledCourseMap, StyledSidebar, StyledSubTitle } from './Enrollcourse.styled';
 import Input from '../../../../components/input';
 import useCourseStore from '../../../../stores/course/useCourseStore';
+import enrollCoursePost from '../../../../apis/course/enrollCoursePost';
 
 const EnrollCourse = (props: any) => {
   // console.log(props.place);
@@ -35,7 +36,7 @@ const EnrollCourse = (props: any) => {
     setSelectedCourseIndex(-1);
   };
 
-  const handleSaveClick = () => {
+  const handleSaveClick = async () => {
     if (!courseName || !timeTaken || places.length === 0) {
       alert('코스 이름, 소요 시간 및 장소를 정확하게 기입해주세요.');
       return;
@@ -52,8 +53,8 @@ const EnrollCourse = (props: any) => {
         timeTaken: parseInt(timeTaken, 10),
         courseOrderRequestList,
       };
-
-      console.log(data);
+      const response = await enrollCoursePost(data);
+      console.log(response);
     } catch (error) {
       // console.error('Error while creating payload: ', error);
     }
