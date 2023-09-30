@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import TodayFestivalListGet from '../../apis/festival/todayFestivalListGet';
 import { async } from 'q';
 
-export const useFestivalListHook = () => {
+export const useTodayFestivalListHook = () => {
   const [todayFestivalList, setTodayFestivalList] = useState();
 
   const getTodayFestivalList = async (today: any) => {
