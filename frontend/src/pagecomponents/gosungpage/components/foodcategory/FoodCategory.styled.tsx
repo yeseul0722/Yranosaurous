@@ -3,6 +3,9 @@ import styled from 'styled-components';
 const StyledFoodCategorySection = styled.div`
   height: 100vh;
   overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const StyledFoodCategoryContainer = styled.div`
@@ -37,13 +40,11 @@ const StyledFoodCategoryList = styled.button`
   display: flex;
   color: ${(props) => props.theme.colors.main};
   font-family: ${(props) => props.theme.fonts.regularfont};
-  border: none;
   cursor: pointer;
-  background-color: ${(props) => props.theme.colors.lightgray};
-  /* background-color: white; */
-  :hover,
-  :active {
-    background-color: ${(props) => props.theme.colors.light};
+  border: 1px solid ${(props) => props.theme.colors.lightgray};
+  background-color: white;
+  &:hover {
+    background-color: ${(props) => props.theme.colors.main};
     color: ${(props) => props.theme.colors.white};
   }
 `;

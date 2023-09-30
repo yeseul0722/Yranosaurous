@@ -17,8 +17,12 @@ const StyledCategoryContainer = styled.div`
   align-items: center;
   flex-direction: column;
   font-family: ${(props) => props.theme.fonts.boldfont};
-  color: ${(props) => props.theme.colors.light};
+  color: ${(props) => props.theme.colors.main};
   cursor: pointer;
+  &:hover {
+    background-color: ${(props) => props.theme.colors.main};
+    color: ${(props) => props.theme.colors.white};
+  }
 `;
 
 const StyledCircleContainer = styled.div`
@@ -28,6 +32,15 @@ const StyledCircleContainer = styled.div`
   border-radius: 50%;
   border: 2px solid;
   padding: 7px;
+`;
+
+const StyledHomeIcon = styled.div`
+  background-image: url('/gosung/dinosaur.png');
+  width: 45px;
+  height: 45px;
+  margin-bottom: 10px;
+  background-size: cover;
+  background-position: center;
 `;
 
 const StyledRestaurantIcon = styled.div`
@@ -64,4 +77,5 @@ export {
   StyledRestaurantIcon,
   StyledAccomodationIcon,
   StyledSightseeingIcon,
+  StyledHomeIcon,
 };
