@@ -28,6 +28,13 @@ const useGuideStore = create((set) => ({
       positions: [...state.positions, data],
     })),
   resetPositions: () => set(() => ({ positions: [] })),
+
+  // 편의시설, 관람요소에서 선택한 장소
+  selectPlace: '',
+  setSelectPlace: (data: any) =>
+    set((state: any) => ({
+      selectPlace: data,
+    })),
 }));
 
 export default useGuideStore;

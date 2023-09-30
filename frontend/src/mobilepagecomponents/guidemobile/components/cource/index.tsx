@@ -7,6 +7,13 @@ import {
 import { useCourcesListHook } from '../../../../hooks/guide/useCourcesListHook';
 import { useCourceHook } from '../../../../hooks/guide/useCourceHook';
 import useGuideStore from '../../../../stores/guide/useGuideStore';
+import {
+  StyledMobileFacility,
+  StyledMobileFacilityContainer,
+  StyledMobileFacilityImage,
+  StyledMobileFacilityImageContainer,
+  StyledMoblilFacilitySelectContainer,
+} from '../facility/Facility.styled';
 
 const MobileCource = () => {
   const { getCourcesList } = useCourcesListHook();
@@ -55,9 +62,20 @@ const MobileCource = () => {
           );
         })}
       </StyledTourCategoryButtonContainer>
-      <div>
+      <div style={{ maxHeight: '50vh', overflow: 'scroll' }}>
         {courseOrderList?.map((cource: any) => {
-          return <div key={cource.id}>{cource.place.name}</div>;
+          return (
+            <StyledMoblilFacilitySelectContainer key={cource.id}>
+              <StyledMobileFacilityImageContainer>
+                <StyledMobileFacilityImage
+                  marker={imageArray[cource.place.markerNumber - 1]}
+                ></StyledMobileFacilityImage>
+              </StyledMobileFacilityImageContainer>
+              <StyledMobileFacilityContainer>
+                <StyledMobileFacility>{cource.place.name}</StyledMobileFacility>
+              </StyledMobileFacilityContainer>
+            </StyledMoblilFacilitySelectContainer>
+          );
         })}
       </div>
     </StyldTourCategoryContainer>

@@ -9,9 +9,11 @@ import {
 } from '../../Guide.styled';
 import { usePlacesListHook } from '../../../../hooks/guide/usePlacesListHook';
 import useGuideStore from '../../../../stores/guide/useGuideStore';
+import useMobileGuide from '../../../../stores/guide/useMobileGuide';
 
 const Facility = () => {
-  const { placesList, selectPlace, getPlacesList, handlePlace } = usePlacesListHook();
+  const { placesList, getPlacesList, handlePlace } = usePlacesListHook();
+  const selectPlace = useGuideStore((state: any) => state.selectPlace);
   const imageArray = [
     'dino',
     '3d',
@@ -65,9 +67,3 @@ const Facility = () => {
 };
 
 export default Facility;
-
-{
-  /* <StyledMenuContent onClick={() => onClick(place)} key={place.id}>
-              {place.name}
-            </StyledMenuContent> */
-}

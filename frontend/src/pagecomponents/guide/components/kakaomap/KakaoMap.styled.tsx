@@ -4,4 +4,5 @@ const StyledKakaoMapContainer = styled.div`
   position: relative;
 `;
 
-export { StyledKakaoMapContainer };
+const StyledMarkerContentContainer = styled.div``;
+export { StyledKakaoMapContainer, StyledMarkerContentContainer };
