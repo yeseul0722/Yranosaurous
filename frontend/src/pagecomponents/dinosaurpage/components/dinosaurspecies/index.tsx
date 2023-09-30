@@ -54,10 +54,10 @@ const DsSpeciesComponent = () => {
 
   const DsEngName = useDinosaurStore((state: any) => state.DsEngName);
   const setDsEngName = useDinosaurStore((state: any) => state.setDsEngName);
-  // 주스턴드2-1. 주스턴드 호출
+  // 주스턴드2-1. 호출
   const setDsKorName = useDinosaurStore((state: any) => state.setDsKorName);
 
-  const { getDinosaurSub } = useDinosaurSubHook(); // 공룡 서브
+  // const { getDinosaurSub } = useDinosaurSubHook(); // 공룡 서브
 
   const openDetail = (e: any) => {
     setDsId(e.target.id);
@@ -72,14 +72,19 @@ const DsSpeciesComponent = () => {
   };
 
   // 공룡 지구본
-  const goGlobe = (e: any) => {
-    const selectDsKorName = dinosaurList[e.target.id - 1].korName;
-    const selectDsEngName = dinosaurList[e.target.id - 1].engName;
-    getDinosaurSub(selectDsEngName);
 
-    // 주스턴드2-2. 저장함수(저장할값)
-    setDsEngName(selectDsEngName);
-    setDsKorName(selectDsKorName);
+  const goGlobe = (e: any) => {
+    const clickId = parseInt(e.target.id);
+
+    for (let i = 0; i < 99; i++) {
+      // console.log(clickId, dinosaurList[i].id);
+      if (dinosaurList[i].id === clickId) {
+        console.log('toGlobe', dinosaurList[i].engName);
+
+        // 주스턴드2-2. 저장함수(저장할값)
+        setDsEngName(dinosaurList[i].engName);
+      }
+    }
   };
 
   return (
