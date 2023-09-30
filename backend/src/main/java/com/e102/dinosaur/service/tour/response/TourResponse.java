@@ -12,13 +12,15 @@ public class TourResponse {
     private Long id;
     private String name;
     private String category;
+    private String address;
     private String imgUrl;
 
     @Builder
-    private TourResponse(Long id, String name, String category, String imgUrl) {
+    private TourResponse(Long id, String name, String category, String address, String imgUrl) {
         this.id = id;
         this.name = name;
         this.category = category;
+        this.address = address;
         this.imgUrl = imgUrl;
     }
 
@@ -27,6 +29,7 @@ public class TourResponse {
                 .id(tour.getId())
                 .name(tour.getName())
                 .category(tour.getCategory())
+                .address(tour.getAddress())
                 .imgUrl(tour.getImgUrl())
                 .build();
     }
