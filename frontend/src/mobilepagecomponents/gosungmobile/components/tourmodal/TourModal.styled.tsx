@@ -23,25 +23,23 @@ const ModalWindow = styled.div.attrs<any>((props) => ({}))`
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
+  background-color: ${(props) => props.theme.colors.main};
 `;
 
 const ModalContainer = styled.div`
-  width: 80%;
-  height: 80%;
-  border: 1px solid black;
+  width: 100%;
+  height: 100%;
   border-radius: 20px;
-  padding: 10px;
   margin: 0px 15px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
 `;
 
 const ModalTopContainer = styled.div.attrs<any>((props) => ({}))`
   max-width: 100%;
-  height: 20%;
+  height: 25%;
   display: flex;
+  flex-direction: column;
 `;
 
 const ModalImgContainer = styled.div.attrs<any>((props) => ({}))`
@@ -55,6 +53,7 @@ const ModalImage = styled.img.attrs<any>((props) => ({
 }))`
   width: 100%;
   height: 100%;
+  border-radius: 50%;
 `;
 
 const ModalTopContent = styled.div`
@@ -67,39 +66,93 @@ const ModalTopContent = styled.div`
 
 const ModalTopTitle = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
-  /* font-size: 10px; */
-  color: ${(props) => props.theme.colors.main};
+  font-size: 32px;
+  color: ${(props) => props.theme.colors.white};
 `;
 
+const StyledAddressTitleContainer = styled.div`
+  display: flex;
+  width: 100%;
+`;
+const StyledAddressTitle = styled.div`
+  font-family: ${(props) => props.theme.fonts.boldfont};
+  font-size: 18px;
+  color: ${(props) => props.theme.colors.black};
+  margin-bottom: 10px;
+  margin-left: 30px;
+`;
 const StyledAddressContainer = styled.div`
-  font-family: ${(props) => props.theme.fonts.regularfont};
-  /* font-size: 10px; */
+  width: 100%;
+  display: flex;
+  margin-bottom: 10px;
+`;
+const StyledAddress = styled.div`
+  font-family: ${(props) => props.theme.fonts.boldfont};
+  font-size: 12px;
   color: ${(props) => props.theme.colors.black};
   overflow: scroll;
+  padding-left: 30px;
 `;
-
-const StyledCloseButton = styled.button`
-  padding: 5px;
+const StyledCloseButtonContainer = styled.div`
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+`;
+const StyledCloseButtonBox = styled.div`
+  width: 25px;
+  height: 25px;
+  margin-right: 3%;
+`;
+const StyledCloseButton = styled.img.attrs<any>((props) => ({
+  src: '/mobile/CloseButton.png',
+}))`
+  /* padding: 5px;
   font-family: ${(props) => props.theme.fonts.boldfont};
   background-color: ${(props) => props.theme.colors.light};
   color: ${(props) => props.theme.colors.black};
-  border-radius: 5px;
+  border-radius: 5px; */
+
+  width: 100%;
+  height: 100%;
 `;
 
 const StyledContentContainer = styled.div`
-  background-color: ${(props) => props.theme.colors.light};
   border-radius: 20px;
   width: 90%;
-  height: 64%;
+  height: 50%;
   overflow: scroll;
   padding: 10px;
+  margin-bottom: 10px;
 `;
 
 const StyeldContent = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
-  color: ${(props) => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.main};
 `;
-
+const StyledImgaContainer = styled.div`
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  transform: translateY(-50%);
+`;
+const StyledMenuReviewContainer = styled.div`
+  width: 100%;
+  height: 65%;
+  background-color: ${(props) => props.theme.colors.white};
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: absolute;
+  bottom: 0;
+`;
 export {
   Modal,
   ModalWindow,
@@ -113,4 +166,11 @@ export {
   StyledCloseButton,
   StyledContentContainer,
   StyeldContent,
+  StyledAddressTitleContainer,
+  StyledAddressTitle,
+  StyledAddress,
+  StyledCloseButtonContainer,
+  StyledCloseButtonBox,
+  StyledImgaContainer,
+  StyledMenuReviewContainer,
 };

@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import {
   StyldTourCategoryContainer,
-  StyledTourCategoryButton,
   StyledTourCategoryButtonContainer,
+  StyledTourCategoryButton,
 } from './Cource.styled';
 import { useCourcesListHook } from '../../../../hooks/guide/useCourcesListHook';
 import { useCourceHook } from '../../../../hooks/guide/useCourceHook';

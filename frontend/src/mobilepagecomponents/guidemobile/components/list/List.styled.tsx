@@ -3,20 +3,18 @@ import styled from 'styled-components';
 const StyledListContainer = styled.div`
   width: 100%;
   max-height: 90vh;
-  background-color: ${(props) => props.theme.colors.white};
-  border-top-right-radius: 48px;
-  border-top-left-radius: 48px;
+  background-color: ${(props) => props.theme.colors.main};
 `;
 
 const StyledListTopContainer = styled.div`
-  padding: 20px;
-  border-bottom: 1px solid ${(props) => props.theme.colors.light};
+  /* padding: 20px; */
+  /* border-bottom: 1px solid ${(props) => props.theme.colors.light}; */
 `;
 
 const StyledListButtonContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
 `;
 const StyledButtonBox = styled.div`
   display: flex;
@@ -24,23 +22,75 @@ const StyledButtonBox = styled.div`
   align-items: center;
   width: 120px;
   height: 45px;
+  flex: 1;
 `;
 
-const StyledButton = styled.button.attrs<any>((props) => ({}))`
-  border-radius: 20px;
-  background-color: ${(props) => (props.name === props.select ? props.theme.colors.night : props.theme.colors.light)};
-  color: ${(props) => props.theme.colors.white};
-  font-size: 20px;
-  padding-bottom: 10px;
+// const StyledButton = styled.button.attrs<any>((props) => ({}))`
+//   /* border-radius: 20px; */
+//   background-color: ${(props) => (props.name === props.select ? props.theme.colors.night : props.theme.colors.light)};
+//   color: ${(props) => props.theme.colors.white};
+//   font-size: 20px;
+//   padding-bottom: 10px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   border: hidden;
+//   width: 100%;
+//   height: 100%;
+//   font-family: ${(props) => props.theme.fonts.regularfont};
+//   flex: 1;
+//   cursor: pointer;
+// `;
+
+const StyledButtonContainer = styled.div.attrs<any>((props) => ({}))`
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: hidden;
+  background-color: ${(props) => (props.id === props.select ? props.theme.colors.menu : props.theme.colors.main)};
+  padding: 5px 0px;
+`;
+const StyledButtonImageContainer = styled.div.attrs<any>((props) => ({}))`
+  min-height: 0px;
+  min-width: 0px;
+  max-height: 50px;
+  max-width: 50px;
+  background-color: ${(props) => (props.id === props.select ? props.theme.colors.menu : props.theme.colors.main)};
+  color: ${(props) => (props.id === props.select ? props.theme.colors.main : props.theme.colors.white)};
+  border: none;
+`;
+const StlyedButtonImg = styled.img.attrs<any>((props) => ({
+  src: props.src,
+}))`
   width: 100%;
   height: 100%;
-  font-family: ${(props) => props.theme.fonts.regularfont};
+`;
 
+const StyledButton = styled.div.attrs<any>((props) => ({}))`
+  background-color: ${(props) => (props.id === props.select ? props.theme.colors.menu : props.theme.colors.main)};
+  color: ${(props) => (props.id === props.select ? props.theme.colors.main : props.theme.colors.white)};
+  font-size: 20px;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  border: none;
+  /* width: 100%; */
+  font-family: ${(props) => props.theme.fonts.regularfont};
+  /* flex: 1; */
   cursor: pointer;
 `;
 
-export { StyledListContainer, StyledListTopContainer, StyledListButtonContainer, StyledButtonBox, StyledButton };
+const StyledOpenListCotainer = styled.div`
+  background-color: ${(props) => props.theme.colors.menu};
+`;
+export {
+  StyledListContainer,
+  StyledListTopContainer,
+  StyledListButtonContainer,
+  StyledButtonBox,
+  StyledButton,
+  StyledButtonContainer,
+  StyledButtonImageContainer,
+  StlyedButtonImg,
+  StyledOpenListCotainer,
+};

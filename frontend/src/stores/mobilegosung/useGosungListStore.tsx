@@ -1,6 +1,6 @@
 import { create } from 'zustand';
-
-const useGosungListStore = create((set) => ({
+import { useGosungListStoretype } from './useGosungListStore.type';
+const useGosungListStore = create<useGosungListStoretype>((set) => ({
   // 목록보기 열기 닫기
   openList: false,
   setOpenList: () => set((state: any) => ({ openList: !state.openList })), // 목록 열고 닫기
@@ -38,6 +38,7 @@ const useGosungListStore = create((set) => ({
     set((state: any) => ({
       restaurantDetail: data,
     })),
+  resetRestaurantDetail: () => set(() => ({ restaurantDetail: [] })),
 
   // 관광지 디테일
   tourDetail: [],
@@ -45,6 +46,7 @@ const useGosungListStore = create((set) => ({
     set((state: any) => ({
       tourDetail: data,
     })),
+  resetTourDetail: () => set(() => ({ tourDetail: [] })),
 
   // 숙소 리스트
   lodgment: [],
@@ -59,6 +61,7 @@ const useGosungListStore = create((set) => ({
     set((state: any) => ({
       lodgmentDetail: data,
     })),
+  resetLodgmentDetail: () => set(() => ({ lodgmentDetail: [] })),
 }));
 
 export default useGosungListStore;

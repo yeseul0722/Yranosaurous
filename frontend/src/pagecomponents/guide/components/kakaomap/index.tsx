@@ -63,8 +63,8 @@ const GosungKakaoMapComponent = () => {
           image={{
             src: `/markers/${imageArray[place.markerNumber - 1]}.png`, // 마커이미지의 주소입니다
             size: {
-              width: 40,
-              height: 40,
+              width: 50,
+              height: 50,
             }, // 마커이미지의 크기입니다
           }}
         />
@@ -77,8 +77,8 @@ const GosungKakaoMapComponent = () => {
             image={{
               src: `/markers/${imageArray[position.markerNumber - 1]}.png`, // 마커이미지의 주소입니다
               size: {
-                width: 40,
-                height: 40,
+                width: 50,
+                height: 50,
               }, // 마커이미지의 크기입니다
             }}
             clickable={true} // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다

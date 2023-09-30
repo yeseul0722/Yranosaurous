@@ -9,6 +9,7 @@ const theme: DefaultTheme = {
     lightgray: '#E4E7EC',
     gray: 'rgba(0, 0, 0, 0.50)',
     night: '#000020',
+    menu: '#E0ECED',
   },
   fonts: {
     dinolightfont: 'dinolightfont',

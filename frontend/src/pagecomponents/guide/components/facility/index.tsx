@@ -8,9 +8,10 @@ import {
   StyledCourceSelectContainer,
 } from '../../Guide.styled';
 import { usePlacesListHook } from '../../../../hooks/guide/usePlacesListHook';
+import useGuideStore from '../../../../stores/guide/useGuideStore';
 
 const Facility = () => {
-  const { placesList, getPlacesList, handlePlace } = usePlacesListHook();
+  const { placesList, selectPlace, getPlacesList, handlePlace } = usePlacesListHook();
   const imageArray = [
     'dino',
     '3d',
@@ -36,7 +37,6 @@ const Facility = () => {
   const onClick = (place: any) => {
     handlePlace(place);
   };
-  console.log(placesList);
 
   return (
     <StyledMenuContainer>
@@ -44,11 +44,18 @@ const Facility = () => {
       {placesList.map((place: any) => {
         if (place.type === '편의 시설') {
           return (
-            <StyledCourceSelectContainer key={place.id} onClick={() => onClick(place)}>
+            <StyledCourceSelectContainer
+              name={place.name}
+              select={selectPlace}
+              key={place.id}
+              onClick={() => onClick(place)}
+            >
               <StyledCourceImageContainer>
                 <StyledCourceImage marker={imageArray[place.markerNumber - 1]}></StyledCourceImage>
               </StyledCourceImageContainer>
-              <StyledCourcePlace>{place.name}</StyledCourcePlace>
+              <StyledCourcePlace name={place.name} select={selectPlace}>
+                {place.name}
+              </StyledCourcePlace>
             </StyledCourceSelectContainer>
           );
         }
