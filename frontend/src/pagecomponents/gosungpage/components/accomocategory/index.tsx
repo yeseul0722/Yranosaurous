@@ -6,7 +6,7 @@ import {
   StyledAccomoCategorySection,
   StyledAccomoCategoryWrap,
 } from './AccomoCategory.styled';
-import AccomodationListGet from '../../../../apis/gosung/accomodationListGet';
+import AccomodationListGet from '../../../../apis/gosung/AccomodationListGet';
 import { useAccommodationApiStore } from '../../../../stores/gosung/accommodation/useAccommodationApiStore';
 import GosungAccomoList from '../accomolist';
 import { useCategoryStore } from '../../../../stores/gosung/useCategoryStore';
