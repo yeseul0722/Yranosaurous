@@ -7,27 +7,27 @@ const StyldTourCategoryContainer = styled.div`
 
 const StyledTourCategoryButtonContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  padding: 20px;
-  max-height: 20vh;
+  flex-direction: column;
+  /* gap: 20px; */
+  /* padding: 20px; */
+  /* max-height: 20vh; */
   overflow: scroll;
 `;
 
 const StyledTourCategoryButton = styled.button.attrs<any>((props) => ({}))`
-  border-radius: 20px;
-  background-color: ${(props) => (props.name === props.select ? props.theme.colors.night : props.theme.colors.light)};
-  color: ${(props) => props.theme.colors.white};
+  /* border-radius: 20px; */
+  background-color: ${(props) => (props.name === props.select ? props.theme.colors.menu : props.theme.colors.main)};
+  color: ${(props) => (props.name === props.select ? props.theme.colors.main : props.theme.colors.white)};
   font-size: 15px;
   padding-bottom: 10px;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   border: hidden;
   width: 100px;
+  flex: 1;
 
   font-family: ${(props) => props.theme.fonts.regularfont};
 `;
@@ -35,18 +35,23 @@ const StyledTourCategoryButton = styled.button.attrs<any>((props) => ({}))`
 const StyledTourListContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  /* align-items: center; */
   justify-content: space-between;
   gap: 20px;
   overflow: scroll;
   max-height: 40vh;
   padding: 10px;
 `;
+
+const StyledTourContentContainer = styled.div`
+  /* position: relative; */
+  height: auto;
+  border: 1px solid ${(props) => props.theme.colors.main};
+  border-radius: 10px;
+`;
 const StyledTourContent = styled.div`
   width: 100px;
   height: 100px;
-  border: 1px solid black;
-  position: relative;
 `;
 
 const StyledTourImg = styled.img.attrs<any>((props) => ({
@@ -55,13 +60,21 @@ const StyledTourImg = styled.img.attrs<any>((props) => ({
 }))`
   width: 100%;
   height: 100%;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 `;
 const StyledTourName = styled.div`
   font-family: ${(props) => props.theme.fonts.regularfont};
   font-size: 15px;
-  position: absolute;
+  width: 100px;
+  /* position: absolute;
   bottom: 0px;
-  left: 10px;
+  left: 10px; */
+`;
+
+const StyledCategotyContainer = styled.div`
+  display: flex;
+  width: 100%;
 `;
 
 export {
@@ -69,7 +82,9 @@ export {
   StyledTourCategoryButtonContainer,
   StyledTourCategoryButton,
   StyledTourListContainer,
+  StyledTourContentContainer,
   StyledTourContent,
   StyledTourImg,
   StyledTourName,
+  StyledCategotyContainer,
 };

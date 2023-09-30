@@ -8,10 +8,11 @@ const StyledNavBarContainer = styled.div`
   justify-content: space-around;
   position: relative;
 `;
-const StyledServiceName = styled.div`
+const StyledServiceName = styled.a`
   display: flex;
   font-family: ${(props) => props.theme.fonts.boldfont};
   color: ${(props) => props.theme.colors.white};
+  text-decoration: none;
 `;
 
 const StyledMenuContainer = styled.div.attrs<any>((props) => ({}))`

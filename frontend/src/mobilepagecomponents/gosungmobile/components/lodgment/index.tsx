@@ -11,19 +11,37 @@ import {
   StyledTourContent,
   StyledTourImg,
   StyledTourName,
+  StyledCategotyContainer,
+  StyledTourContentContainer,
 } from '../tour/Tour.styled';
 import { useLodgmentListHook } from '../../../../hooks/gosung/useLodgmentListHook';
 import { useLodgmentDetailHook } from '../../../../hooks/gosung/useLodgmentDetailHook';
+import useGosungListStore from '../../../../stores/mobilegosung/useGosungListStore';
+import {
+  StyledRestaurantContainer,
+  StyledRestaurantContent,
+  StyledRestaurantHashTag,
+  StyledRestaurantHashTagContainer,
+  StyledRestaurantImg,
+  StyledRestaurantImgBox,
+  StyledRestaurantImgContainer,
+  StyledRestaurantInfoContainer,
+  StyledRestaurantName,
+  StyledRatinContainer,
+  StyledRating,
+} from '../restaurant/Restaurant.styled';
+
+import Rating from 'react-rating';
 
 const MobileLodgment = (props: any) => {
   const lodgment = useTourStore((state: any) => state.lodgment); // 숙소 리스트
   const selectCategory = useTourStore((state: any) => state.selectCategory); // 선택한 카테고리
   const setSelectCategory = useTourStore((state: any) => state.setSelectCategory);
   const resetCategory = useTourStore((state: any) => state.resetCategory);
-
+  const setOpenList = useGosungListStore((state: any) => state.setOpenList);
   const tour = useTourStore((state: any) => state.tour); // 선택한 관광지
   const setTour = useTourStore((state: any) => state.setTour);
-  const resetTour = useTourStore((state: any) => state.resetTour);
+  const resetLodgmentDetail = useTourStore((state: any) => state.resetLodgmentDetail);
 
   const { getlodgmentList } = useLodgmentListHook();
   const { getLodgmentDetail } = useLodgmentDetailHook();
@@ -37,6 +55,7 @@ const MobileLodgment = (props: any) => {
   };
 
   const getApi = (e: any) => {
+    setOpenList();
     setTour(e.name);
     getLodgmentDetail(e.id);
   };
@@ -44,28 +63,71 @@ const MobileLodgment = (props: any) => {
   return (
     <StyldTourCategoryContainer>
       <StyledTourCategoryButtonContainer>
-        <StyledTourCategoryButton name="모텔" select={selectCategory} onClick={handleSelectCategory}>
-          모텔
-        </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="펜션" select={selectCategory} onClick={handleSelectCategory}>
-          펜션
-        </StyledTourCategoryButton>
-        <StyledTourCategoryButton name="게스트하우스" select={selectCategory} onClick={handleSelectCategory}>
-          게스트하우스
-        </StyledTourCategoryButton>
+        <StyledCategotyContainer>
+          <StyledTourCategoryButton name="모텔" select={selectCategory} onClick={handleSelectCategory}>
+            모텔
+          </StyledTourCategoryButton>
+          <StyledTourCategoryButton name="펜션" select={selectCategory} onClick={handleSelectCategory}>
+            펜션
+          </StyledTourCategoryButton>
+          <StyledTourCategoryButton name="게스트하우스" select={selectCategory} onClick={handleSelectCategory}>
+            게스트하우스
+          </StyledTourCategoryButton>
+        </StyledCategotyContainer>
       </StyledTourCategoryButtonContainer>
-      <StyledTourListContainer>
+      {/* <StyledTourListContainer>
         {lodgment.map((location: any) => {
           if (selectCategory === location.category) {
             return (
-              <StyledTourContent key={location.id} onClick={() => getApi(location)}>
-                <StyledTourImg src={location.imgAddress} alt={location.name}></StyledTourImg>
+              <StyledTourContentContainer key={location.id} onClick={() => getApi(location)}>
+                <StyledTourContent>
+                  <StyledTourImg src={location.imgAddress} alt={location.name}></StyledTourImg>
+                </StyledTourContent>
                 <StyledTourName>{location.name}</StyledTourName>
-              </StyledTourContent>
+              </StyledTourContentContainer>
             );
           }
         })}
-      </StyledTourListContainer>
+      </StyledTourListContainer> */}
+      <StyledRestaurantContainer>
+        {lodgment?.map((location: any) => {
+          if (selectCategory === location.category) {
+            return (
+              <StyledRestaurantContent key={location.id} onClick={() => getApi(location)}>
+                <StyledRestaurantImgContainer>
+                  <StyledRestaurantImgBox>
+                    <StyledRestaurantImg src={location.imgAddress} alt={location.name}></StyledRestaurantImg>
+                  </StyledRestaurantImgBox>
+                </StyledRestaurantImgContainer>
+                <StyledRestaurantInfoContainer>
+                  <StyledRestaurantName> | {location.name}</StyledRestaurantName>
+                  <StyledRestaurantHashTagContainer>
+                    <StyledRestaurantHashTag>{location.address}</StyledRestaurantHashTag>
+                  </StyledRestaurantHashTagContainer>
+                  <StyledRatinContainer>
+                    <StyledRating>{location.rating}</StyledRating>
+                    <Rating
+                      readonly={true}
+                      initialRating={location.rating}
+                      fullSymbol={
+                        <img src="/rating/stards.png" alt="Full Star" style={{ maxWidth: '15px', maxHeight: '15px' }} />
+                      }
+                      emptySymbol={
+                        <img
+                          src="/rating/stards2.png"
+                          alt="Empty Star"
+                          style={{ maxWidth: '15px', maxHeight: '15px' }}
+                        />
+                      }
+                      fractions={10}
+                    ></Rating>
+                  </StyledRatinContainer>
+                </StyledRestaurantInfoContainer>
+              </StyledRestaurantContent>
+            );
+          }
+        })}
+      </StyledRestaurantContainer>
     </StyldTourCategoryContainer>
   );
 };
