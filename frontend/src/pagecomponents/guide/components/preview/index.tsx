@@ -10,10 +10,12 @@ import {
 import { useFestivalListHook } from '../../../../hooks/guide/useFestivalListHook';
 import { usePlacesListHook } from '../../../../hooks/guide/usePlacesListHook';
 import useGuideStore from '../../../../stores/guide/useGuideStore';
+import useMobileGuide from '../../../../stores/guide/useMobileGuide';
 
 const Preview = () => {
   const { getFestivalList } = useFestivalListHook();
-  const { placesList, selectPlace, getPlacesList, handlePlace } = usePlacesListHook();
+  const { placesList, getPlacesList, handlePlace } = usePlacesListHook();
+  const selectPlace = useMobileGuide((state: any) => state.selectPlace);
   const imageArray = [
     'dino',
     '3d',
@@ -39,7 +41,6 @@ const Preview = () => {
   const onClick = (place: any) => {
     handlePlace(place);
   };
-  console.log(placesList);
   return (
     <StyledMenuContainer>
       <StyledMenuTitle>관람 요소</StyledMenuTitle>

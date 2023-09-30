@@ -23,7 +23,7 @@ const StyledMenu = styled.div.attrs<any>((props) => ({}))`
 `;
 
 const StyledMenuIcon = styled.img.attrs<any>((props) => ({
-  src: props.state === props.name ? '/map/menuC.png' : '/map/menuA.png',
+  src: props.src,
   alt: props.alt,
 }))`
   width: 36px;

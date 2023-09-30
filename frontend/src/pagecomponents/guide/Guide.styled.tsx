@@ -64,7 +64,19 @@ const StyledCourcePlace = styled.div.attrs<any>((props) => ({}))`
   color: ${(props) => (props.select === props.name ? props.theme.colors.white : props.theme.colors.main)};
   margin-left: 40px;
 `;
-
+const StyledCourceSelectContainer2 = styled.div.attrs<any>((props) => ({}))`
+  display: flex;
+  align-items: center;
+  height: 60px;
+  border-bottom: 1px solid ${(props) => props.theme.colors.light};
+  background-color: ${(props) => props.theme.colors.white};
+  cursor: pointer;
+`;
+const StyledCourcePlace2 = styled.div.attrs<any>((props) => ({}))`
+  font-family: ${(props) => props.theme.fonts.boldfont};
+  color: ${(props) => props.theme.colors.main};
+  margin-left: 40px;
+`;
 export {
   StyledGuidePage,
   StyledMenuContainer,
@@ -75,4 +87,6 @@ export {
   StyledCourceImageContainer,
   StyledCourceImage,
   StyledCourcePlace,
+  StyledCourceSelectContainer2,
+  StyledCourcePlace2,
 };

@@ -2,13 +2,18 @@ import React, { useEffect } from 'react';
 import { usePlacesListHook } from '../../../../hooks/guide/usePlacesListHook';
 import {
   StyledMobileFacility,
+  StyledMobileFacilityContainer,
   StyledMobileFacilityImage,
   StyledMobileFacilityImageContainer,
   StyledMoblilFacilitySelectContainer,
 } from '../facility/Facility.styled';
+import useMobileGuide from '../../../../stores/guide/useMobileGuide';
+import useGuideStore from '../../../../stores/guide/useGuideStore';
 
 const MobilePreview = () => {
-  const { placesList, selectPlace, getPlacesList, handlePlace } = usePlacesListHook();
+  const { place, placesList, getPlacesList, handlePlace } = usePlacesListHook();
+  const setOpenList = useMobileGuide((state: any) => state.setOpenList);
+  const selectPlace = useGuideStore((state: any) => state.selectPlace);
   const imageArray = [
     'dino',
     '3d',
@@ -30,11 +35,14 @@ const MobilePreview = () => {
   useEffect(() => {
     getPlacesList();
   }, []);
+  useEffect(() => {
+    setOpenList();
+  }, [place]);
   const onClick = (place: any) => {
     handlePlace(place);
   };
   return (
-    <div style={{ height: '50vh', overflow: 'scroll' }}>
+    <div style={{ maxHeight: '50vh', overflow: 'scroll' }}>
       {placesList.map((place: any) => {
         if (place.type === '관람 요소') {
           return (
@@ -47,9 +55,11 @@ const MobilePreview = () => {
               <StyledMobileFacilityImageContainer>
                 <StyledMobileFacilityImage marker={imageArray[place.markerNumber - 1]}></StyledMobileFacilityImage>
               </StyledMobileFacilityImageContainer>
-              <StyledMobileFacility name={place.name} select={selectPlace}>
-                {place.name}
-              </StyledMobileFacility>
+              <StyledMobileFacilityContainer>
+                <StyledMobileFacility name={place.name} select={selectPlace}>
+                  {place.name}
+                </StyledMobileFacility>
+              </StyledMobileFacilityContainer>
             </StyledMoblilFacilitySelectContainer>
           );
         }
