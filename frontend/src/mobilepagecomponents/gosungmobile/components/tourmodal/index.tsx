@@ -11,6 +11,13 @@ import {
   StyledCloseButton,
   StyledContentContainer,
   StyeldContent,
+  StyledAddressTitleContainer,
+  StyledAddressTitle,
+  StyledAddress,
+  StyledCloseButtonContainer,
+  StyledCloseButtonBox,
+  StyledImgaContainer,
+  StyledMenuReviewContainer,
 } from './TourModal.styled';
 
 const TourModal = (props: any) => {
@@ -18,20 +25,29 @@ const TourModal = (props: any) => {
     <Modal>
       <ModalWindow>
         <ModalContainer>
+          <StyledCloseButtonContainer>
+            <StyledCloseButtonBox onClick={props.handleOpen}>
+              <StyledCloseButton></StyledCloseButton>
+            </StyledCloseButtonBox>
+          </StyledCloseButtonContainer>
           <ModalTopContainer>
-            <ModalImgContainer>
-              <ModalImage src={props.tourDetail.imgUrl} alt={props.tourDetail.name} />
-            </ModalImgContainer>
-            <ModalTopContent>
-              <ModalTopTitle>{props.tourDetail.name}</ModalTopTitle>
-              <StyledAddressContainer>{props.tourDetail.address}</StyledAddressContainer>
-            </ModalTopContent>
+            <ModalTopTitle>{props.tourDetail.name}</ModalTopTitle>
           </ModalTopContainer>
-          <StyledContentContainer>
-            <StyeldContent>{props.tourDetail.content}</StyeldContent>
-          </StyledContentContainer>
+          <StyledMenuReviewContainer>
+            <StyledImgaContainer>
+              <ModalImage src={props.tourDetail.imgUrl} />
+            </StyledImgaContainer>
+            <StyledAddressTitleContainer>
+              <StyledAddressTitle>| 주소</StyledAddressTitle>
+            </StyledAddressTitleContainer>
+            <StyledAddressContainer>
+              <StyledAddress>{props.tourDetail.address}</StyledAddress>
+            </StyledAddressContainer>
+            <StyledContentContainer>
+              <StyeldContent>{props.tourDetail.content}</StyeldContent>
+            </StyledContentContainer>
+          </StyledMenuReviewContainer>
         </ModalContainer>
-        <StyledCloseButton onClick={props.handleOpen}>닫기</StyledCloseButton>
       </ModalWindow>
     </Modal>
   );
