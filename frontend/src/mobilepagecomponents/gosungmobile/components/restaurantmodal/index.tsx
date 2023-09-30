@@ -51,6 +51,7 @@ const restaurantmodal = (props: any) => {
             </StyledHashTagContainer>
             <ModalTopTitle>{props.restaurantDetail.storeName}</ModalTopTitle>
             <Rating
+              readonly={true}
               initialRating={props.restaurantDetail.rating}
               fullSymbol={<img src="/rating/stards.png" alt="Full Star" />}
               emptySymbol={<img src="/rating/stards2.png" alt="Empty Star" />}

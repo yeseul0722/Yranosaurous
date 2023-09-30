@@ -138,6 +138,7 @@ const MobileRestaurant = (props: any) => {
                 <StyledRatinContainer>
                   <StyledRating>{location.rating}</StyledRating>
                   <Rating
+                    readonly={true}
                     initialRating={location.rating}
                     fullSymbol={
                       <img src="/rating/stards.png" alt="Full Star" style={{ maxWidth: '15px', maxHeight: '15px' }} />

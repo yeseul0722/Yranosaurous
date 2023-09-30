@@ -30,10 +30,9 @@ const GosungKakaoMapComponent = () => {
     '면요리',
     '해산물',
   ];
+
   useEffect(() => {
-    console.log(tourDetail);
-  }, [tourDetail]);
-  useEffect(() => {
+    setIsOpen(false);
     if (selectList === 'restaurant') {
       setKeyword(restaurantDetail.address);
     } else if (selectList === 'tour') {
@@ -96,7 +95,6 @@ const GosungKakaoMapComponent = () => {
           <MapMarker
             key={`marker-${marker.content}-${marker.position.lat},${marker.position.lng}`}
             position={marker.position}
-            clickable={true} // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
             onClick={handleOpen}
             image={{
               src: `${
@@ -109,15 +107,17 @@ const GosungKakaoMapComponent = () => {
                 height: 40,
               }, // 마커이미지의 크기입니다
             }}
-          ></MapMarker>
+          >
+            {isOpen && selectList === 'lodgment' && <div> {lodgmentDetail.address}</div>}
+          </MapMarker>
         ))}
       {selectList === 'restaurant' && isOpen && (
         <RestaurantModal handleOpen={handleOpen} restaurantDetail={restaurantDetail}></RestaurantModal>
       )}
       {selectList === 'tour' && isOpen && <TourModal handleOpen={handleOpen} tourDetail={tourDetail}></TourModal>}
-      {selectList === 'lodgment' && isOpen && (
+      {/* {selectList === 'lodgment' && isOpen && (
         <LodgmentModal handleOpen={handleOpen} lodgmentDetail={lodgmentDetail}></LodgmentModal>
-      )}
+      )} */}
     </Map>
   );
 };

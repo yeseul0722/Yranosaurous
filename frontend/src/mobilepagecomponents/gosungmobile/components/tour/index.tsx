@@ -5,6 +5,7 @@ import {
   StyledTourCategoryButton,
   StyledTourListContainer,
   StyledTourContent,
+  StyledTourContentContainer,
   StyledTourImg,
   StyledTourName,
   StyledCategotyContainer,
@@ -81,10 +82,12 @@ const MobileTour = (props: any) => {
         {tourList.map((location: any) => {
           if (selectCategory === location.category) {
             return (
-              <StyledTourContent key={location.id} onClick={() => getApi(location)}>
-                <StyledTourImg src={location.imgUrl} alt={location.name}></StyledTourImg>
+              <StyledTourContentContainer key={location.id} onClick={() => getApi(location)}>
+                <StyledTourContent>
+                  <StyledTourImg src={location.imgUrl} alt={location.name}></StyledTourImg>
+                </StyledTourContent>
                 <StyledTourName>{location.name}</StyledTourName>
-              </StyledTourContent>
+              </StyledTourContentContainer>
             );
           }
         })}
