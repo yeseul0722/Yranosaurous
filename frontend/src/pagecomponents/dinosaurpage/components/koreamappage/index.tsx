@@ -22,18 +22,27 @@ import {
   StyledDsPage,
 } from './koreaMapPage.styled';
 import KoreasaurusPage from '../koreanosaurus';
+import KoreaceratopsPage from '../koreaceratopspage';
 import useDinosaurStore from '../../../../stores/dinosaur/useDinosaurStore';
+import PukyongsaurusPage from '../pukyongosaurus';
 
-// const KoreaMapPage = ({ land }: { land: any }) => {
 const KoreaMapPage = () => {
-  // 공룡 이름 클릭시 해당 공룡 상세페이지로 이동
-  const inputForm = useRef<any>();
-  const goDsPage = () => {
-    inputForm.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-
   const [selectDsName, setSelectDsName] = useState();
   const [selectDsHover, setSelectDsHover] = useState();
+
+  // 공룡 이름 클릭시 해당 공룡 상세페이지로 이동
+  const goKoreaSaursInput = useRef<any>();
+  const goKoreaSaurs = () => {
+    goKoreaSaursInput.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+  const goKoreaCeratopsInput = useRef<any>();
+  const goKoreaCeratops = () => {
+    goKoreaCeratopsInput.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+  const goPukyongInput = useRef<any>();
+  const goPukyong = () => {
+    goPukyongInput.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   const selectDs = (e: any) => {
     setSelectDsName(e.target.id);
@@ -51,7 +60,7 @@ const KoreaMapPage = () => {
 
         {/* 공룡 선택 */}
         {/* 보성 */}
-        <StyledKoreaMapSelect id="koreanosaurus" onMouseOver={selectDs} onClick={goDsPage}>
+        <StyledKoreaMapSelect id="koreanosaurus" onMouseOver={selectDs} onClick={goKoreaSaurs}>
           <StyledKoreaMapSelectNumber id="koreanosaurus">01</StyledKoreaMapSelectNumber>
           <StyledKoreaMApSelectContentBox id="koreanosaurus">
             <StyledKoreaMapSelectTitle id="koreanosaurus">
@@ -62,7 +71,7 @@ const KoreaMapPage = () => {
         </StyledKoreaMapSelect>
 
         {/* 화성 */}
-        <StyledKoreaMapSelect id="koreaceratops" onMouseOver={selectDs} onClick={goDsPage}>
+        <StyledKoreaMapSelect id="koreaceratops" onMouseOver={selectDs} onClick={goKoreaCeratops}>
           <StyledKoreaMapSelectNumber id="koreaceratops">02</StyledKoreaMapSelectNumber>
           <StyledKoreaMApSelectContentBox id="koreaceratops">
             <StyledKoreaMapSelectTitle id="koreaceratops">
@@ -73,7 +82,7 @@ const KoreaMapPage = () => {
         </StyledKoreaMapSelect>
 
         {/* 하동 */}
-        <StyledKoreaMapSelect id="pukyongosaurus" onMouseOver={selectDs} onClick={goDsPage}>
+        <StyledKoreaMapSelect id="pukyongosaurus" onMouseOver={selectDs} onClick={goPukyong}>
           <StyledKoreaMapSelectNumber id="pukyongosaurus">03</StyledKoreaMapSelectNumber>
           <StyledKoreaMApSelectContentBox id="pukyongosaurus">
             <StyledKoreaMapSelectTitle id="pukyongosaurus">
@@ -91,8 +100,18 @@ const KoreaMapPage = () => {
       </StyledKoreaMapSelectLottie>
 
       {/* 2페이지 - 코리아노사우루스 */}
-      <StyledDsPage ref={inputForm}>
+      <StyledDsPage ref={goKoreaSaursInput}>
         <KoreasaurusPage></KoreasaurusPage>
+      </StyledDsPage>
+
+      {/* 3페이지 - 코리아케라톱스 */}
+      <StyledDsPage ref={goKoreaCeratopsInput}>
+        <KoreaceratopsPage />
+      </StyledDsPage>
+
+      {/* 4페이지 - 부경고사우루스 */}
+      <StyledDsPage ref={goPukyongInput}>
+        <PukyongsaurusPage />
       </StyledDsPage>
     </StyledKoreaMapPage>
   );
