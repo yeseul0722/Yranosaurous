@@ -13,10 +13,10 @@ import {
   StyledGoPerformance,
 } from './Performacne.styled';
 import PerformanceCarousel from '../performancecarousel';
-import { useFestivalListHook } from '../../../../hooks/festival/useFestivalListHook';
+import { useTodayFestivalListHook } from '../../../../hooks/festival/useTodayFestivalListHook';
 import { useMediaQuery } from 'react-responsive';
 const Performance = () => {
-  const { todayFestivalList, getTodayFestivalList } = useFestivalListHook();
+  const { todayFestivalList, getTodayFestivalList } = useTodayFestivalListHook();
   const today = new Date();
   const formattedDate = `${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today
     .getDate()
@@ -25,6 +25,10 @@ const Performance = () => {
   useEffect(() => {
     getTodayFestivalList(formattedDate);
   }, []);
+
+  useEffect(() => {
+    console.log(todayFestivalList);
+  }, [todayFestivalList]);
 
   return (
     <StyledPerformanceContainer>
