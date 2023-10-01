@@ -15,7 +15,7 @@ import useMobileGuide from '../../../../stores/guide/useMobileGuide';
 const Preview = () => {
   const { getFestivalList } = useFestivalListHook();
   const { placesList, getPlacesList, handlePlace } = usePlacesListHook();
-  const selectPlace = useMobileGuide((state: any) => state.selectPlace);
+  const selectPlace = useGuideStore((state: any) => state.selectPlace);
   const imageArray = [
     'dino',
     '3d',
@@ -41,6 +41,7 @@ const Preview = () => {
   const onClick = (place: any) => {
     handlePlace(place);
   };
+
   return (
     <StyledMenuContainer>
       <StyledMenuTitle>관람 요소</StyledMenuTitle>

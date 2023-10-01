@@ -23,6 +23,7 @@ const ExpoPageComponent = () => {
           <Ticket></Ticket>
           <Tourism></Tourism>
           <Performance></Performance>
+          <div style={{ height: '1px' }}></div>
         </StyledExpoPageContainer>
       ) : (
         <ExpoMobile></ExpoMobile>
