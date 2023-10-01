@@ -12,10 +12,12 @@ import {
   StyledKoreaceratopsPage,
   StyledKoreasaurusPage,
   StyledPukyongsaurusPage,
+  StyledGoGosung,
 } from './Dinosaur.styled';
 import LandingPage from './components/landingpage';
 import KoreaDsPage from './components/koreadspage';
 import KoreaMapPage from './components/koreamappage';
+import { useNavigate } from 'react-router-dom';
 
 const Dinosaur = () => {
   const inputForm = useRef<any>();
@@ -23,8 +25,17 @@ const Dinosaur = () => {
     inputForm.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
+  const navigate = useNavigate();
+  const goGosung = () => {
+    console.log('click');
+    navigate('/expo');
+  };
+
   return (
     <StyledDsPage>
+      {/* absoulute */}
+      <StyledGoGosung src="/dinosaur/dinosaur.png" alt="" onClick={goGosung} />
+
       <StyledDsContent>
         <StyledDsLandingPage>
           <LandingPage></LandingPage>

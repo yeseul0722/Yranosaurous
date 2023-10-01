@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Lottie from 'lottie-react';
 import DottedLine from '../../lottie/dottedLine.json';
 import circle from '../../lottie/dsCircle.json';
+import TtsPaly from '../ttsplay';
 
 import {
   StyledpukyongsaurusPage,
@@ -21,6 +22,9 @@ import {
 } from './Pukyongosaurus.styled';
 
 const PukyongsaurusPage = () => {
+  const ttsUrl1 = '/dinosaur/tts/pukyong1.mp3';
+  const ttsUrl2 = '/dinosaur/tts/pukyong2.mp3';
+
   return (
     <StyledpukyongsaurusPage>
       {/* absolute */}
@@ -36,7 +40,9 @@ const PukyongsaurusPage = () => {
 
       {/* 첫번째 내용 */}
       <StyledPukyongFirstContent>
-        <StyledPukongLitteTitle>한반도의 최초의 공룡</StyledPukongLitteTitle>
+        <StyledPukongLitteTitle>
+          한반도의 최초의 공룡 <TtsPaly src={ttsUrl1} />{' '}
+        </StyledPukongLitteTitle>
         <StyledPukongTitle>부경고사우루스</StyledPukongTitle>
         <StyledPukongSummary>
           부경고사우루스는 전기 백악기 (1억 3600만 년 전 ~ 1억3000만 년 전)에 살았으며 한국의 경상남도 하동군에서 발견된
@@ -51,7 +57,9 @@ const PukyongsaurusPage = () => {
           <StyledPukyongSizeImage1 src="/dinosaur/koDs/pukyong.png" alt="pukyongSize" />
         </StyledPukyongSizeImgContainer>
         <StyledPukyongSecondContent>
-          <StyledPukongLitteTitle>| 부경고사우루스의 이야기</StyledPukongLitteTitle>
+          <StyledPukongLitteTitle>
+            | 부경고사우루스의 이야기 <TtsPaly src={ttsUrl2} />
+          </StyledPukongLitteTitle>
           <StyledPukongSummary>
             부경대학교의 이름을 따서 공룡의 속명을 부경고사우루스 라고 정했고, 새천년이 시작되는 해에 발표했다고 해서
             종명을 천년(millenniumi) 으로 붙였습니다. 2004년 1월 클리블랜드 자연사 박물관의 공룡 목록에서 속으로는

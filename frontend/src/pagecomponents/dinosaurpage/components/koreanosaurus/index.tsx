@@ -4,6 +4,7 @@ import Lottie from 'lottie-react';
 import circle from './dsCircle.json';
 import Line from '../../lottie/line.json';
 import DottedLine from '../../lottie/dottedLine.json';
+import TtsPaly from '../ttsplay';
 import {
   StyledKoreasaurusPage,
   StyledKoreasaursFirstContent,
@@ -29,6 +30,8 @@ import {
 
 const KoreasaurusPage = () => {
   const [dsInfo, setDsInfo] = useState();
+  const ttsUrl1 = '/dinosaur/tts/koreasaur1.mp3';
+  const ttsUrl2 = '/dinosaur/tts/koreasaur2.mp3';
 
   const clickDsInfo = () => {
     console.log('click');
@@ -39,7 +42,6 @@ const KoreasaurusPage = () => {
       {/* absoulte */}
       <StyledKoreasaursTitleNum>01</StyledKoreasaursTitleNum>
       <StyledKoreasaursImage1 src="/dinosaur/koDs/Koreanosaurus001.png" alt="koreano" />
-      {/* <StyledKoreasaursImage2 src="/dinosaur/koDs/Koreanosaurus.png" alt="koreano" /> */}
       <StyledKoreasaursImage2LottieBackLine></StyledKoreasaursImage2LottieBackLine>
       <StyledKoreasaursImage2LottieLine>
         <Lottie animationData={DottedLine} loop autoplay />
@@ -55,7 +57,9 @@ const KoreasaurusPage = () => {
 
       {/* 첫번째 내용 */}
       <StyledKoreasaursFirstContent>
-        <StyledKoreasaursLittleTitle>최초의 한국 지명을 딴 공룡,</StyledKoreasaursLittleTitle>
+        <StyledKoreasaursLittleTitle>
+          최초의 한국 지명을 딴 공룡, <TtsPaly src={ttsUrl1} />
+        </StyledKoreasaursLittleTitle>
         <StyledKoreasaurusTitle>코리아노사우루스 보성엔시스</StyledKoreasaurusTitle>
         <StyledKoreasaursSummary>
           코리아노사우루스 보성엔시스는 후기 백악기 (8500만 년 전 ~ 8300만 년 전)에 살았으며 한국의 보성군에서 발견된
@@ -71,7 +75,9 @@ const KoreasaurusPage = () => {
         <StyledKoreasaursSizetImage src="/dinosaur/koDs/koreasaursBack.png" alt="size" />
         {/* 두번째 내용 */}
         <StyledKoreasaursSecondContent>
-          <StyledKoreasaursLittleTitle>| 코리아노사우루스의 이야기</StyledKoreasaursLittleTitle>
+          <StyledKoreasaursLittleTitle>
+            | 코리아노사우루스의 이야기 <TtsPaly src={ttsUrl2} />
+          </StyledKoreasaursLittleTitle>
           <StyledKoreasaursSecondSummary>
             코리아노사우루스는 사족보행과 이족보행을 병행하여 걸었을 것으로 추정하고 있습니다. 한국(Korea) 이라는 단어가
             공룡의 이름으로 처음으로 국제학계에 공식적으로 등록되었습니다. 발견당시 암석속에 단단히 묻혀 있어 공룡의
