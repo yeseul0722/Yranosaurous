@@ -54,8 +54,8 @@ const ExpoMainMapComponent = () => {
     <Map
       id="map"
       center={{
-        lat: 35.057175,
-        lng: 128.3975,
+        lat: 35.056375,
+        lng: 128.398,
       }}
       style={{
         width: '500px',
