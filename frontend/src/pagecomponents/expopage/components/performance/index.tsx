@@ -3,57 +3,77 @@ import {
   StyledPerformanceContainer,
   StyledNavContainer,
   StyledNav,
+  StyledPerformanceContentContainer,
   StyeldPerformanceContent,
-  StyledCarouselContainer,
   StyledPerformanceInfo,
   StyledText,
-  StyledBoxContainer,
-  StyledBox,
-  StyledGoPerformanceContainer,
-  StyledGoPerformance,
+  StyledTitle,
+  StyledContent,
+  StyledMapContainer,
+  StyledTable,
+  StyledTableHead,
+  CustomTableRow,
+  StyledContentContainer,
 } from './Performacne.styled';
 import PerformanceCarousel from '../performancecarousel';
-import { useTodayFestivalListHook } from '../../../../hooks/festival/useTodayFestivalListHook';
-import { useMediaQuery } from 'react-responsive';
+import { useTodayFestivalHook } from '../../../../hooks/festival/useTodayFestivalHook';
+import useGuideStore from '../../../../stores/guide/useGuideStore';
+import Map from '../kakaomap';
 const Performance = () => {
-  const { todayFestivalList, getTodayFestivalList } = useTodayFestivalListHook();
-  const today = new Date();
-  const formattedDate = `${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today
-    .getDate()
-    .toString()
-    .padStart(2, '0')}`;
+  const { todayFestivalList, getTodayFestivalList, handleFestival } = useTodayFestivalHook();
+  const festival = useGuideStore((state: any) => state.festival);
+  const festivalID = useGuideStore((state: any) => state.festivalID);
   useEffect(() => {
-    getTodayFestivalList(formattedDate);
+    getTodayFestivalList();
   }, []);
 
   useEffect(() => {
-    console.log(todayFestivalList);
-  }, [todayFestivalList]);
+    console.log(festival);
+  }, [festival]);
 
   return (
     <StyledPerformanceContainer>
       <StyledNavContainer>
         <StyledNav>엑스포 공연 안내</StyledNav>
       </StyledNavContainer>
-      <StyeldPerformanceContent>
-        <StyledCarouselContainer>
-          <PerformanceCarousel></PerformanceCarousel>
-        </StyledCarouselContainer>
-        <StyledPerformanceInfo>
-          <StyledText>오늘의 공연</StyledText>
-          <StyledBoxContainer>
-            <StyledBox>퍼레이드</StyledBox>
-            <StyledBox>마술</StyledBox>
-            <StyledBox>주제공연</StyledBox>
-            <StyledBox>퍼레이드</StyledBox>
-            <StyledBox>마술</StyledBox>
-            <StyledBox>주제공연</StyledBox>
-          </StyledBoxContainer>
-          <StyledGoPerformanceContainer>
-            <StyledGoPerformance>공연정보 더보기 ➜</StyledGoPerformance>
-          </StyledGoPerformanceContainer>
-        </StyledPerformanceInfo>
-      </StyeldPerformanceContent>
+      <StyledPerformanceContentContainer>
+        <StyeldPerformanceContent>
+          <StyledPerformanceInfo>
+            <StyledText>오늘의 공연</StyledText>
+            <StyledTable>
+              <StyledTableHead>
+                <CustomTableRow>
+                  <StyledTitle>시간</StyledTitle>
+                  <StyledTitle>공연명</StyledTitle>
+                  <StyledTitle>공연장소</StyledTitle>
+                </CustomTableRow>
+              </StyledTableHead>
+              <StyledContentContainer>
+                {todayFestivalList?.map((festival: any) => {
+                  const dateTime = new Date(festival.startTime);
+                  const timeString = dateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                  return (
+                    <CustomTableRow onClick={() => handleFestival(festival)} key={festival.id}>
+                      <StyledContent festivalID={festivalID} id={festival.id}>
+                        {timeString}
+                      </StyledContent>
+                      <StyledContent festivalID={festivalID} id={festival.id}>
+                        {festival.name}
+                      </StyledContent>
+                      <StyledContent festivalID={festivalID} id={festival.id}>
+                        {festival.placeName}
+                      </StyledContent>
+                    </CustomTableRow>
+                  );
+                })}
+              </StyledContentContainer>
+            </StyledTable>
+          </StyledPerformanceInfo>
+        </StyeldPerformanceContent>
+        <StyledMapContainer>
+          <Map></Map>
+        </StyledMapContainer>
+      </StyledPerformanceContentContainer>
     </StyledPerformanceContainer>
   );
 };

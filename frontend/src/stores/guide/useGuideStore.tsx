@@ -35,6 +35,20 @@ const useGuideStore = create((set) => ({
     set((state: any) => ({
       selectPlace: data,
     })),
+
+  // 엑스포 메인 공연 장소
+  festival: '',
+  setFestival: (data: any) =>
+    set((state: any) => ({
+      festival: data,
+    })),
+
+  // 선택한 장소
+  festivalID: '',
+  setFestivalID: (data: any) =>
+    set((state: any) => ({
+      festivalID: data,
+    })),
 }));
 
 export default useGuideStore;
