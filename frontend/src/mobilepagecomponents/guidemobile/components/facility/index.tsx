@@ -4,11 +4,17 @@ import {
   StyledMoblilFacilitySelectContainer,
   StyledMobileFacilityImageContainer,
   StyledMobileFacilityImage,
+  StyledMobileFacilityContainer,
   StyledMobileFacility,
+  Test,
 } from './Facility.styled';
+import useMobileGuide from '../../../../stores/guide/useMobileGuide';
+import useGuideStore from '../../../../stores/guide/useGuideStore';
 
 const MobileFacility = () => {
-  const { placesList, selectPlace, getPlacesList, handlePlace } = usePlacesListHook();
+  const { place, placesList, getPlacesList, handlePlace } = usePlacesListHook();
+  const setOpenList = useMobileGuide((state: any) => state.setOpenList);
+  const selectPlace = useGuideStore((state: any) => state.selectPlace);
   const imageArray = [
     'dino',
     '3d',
@@ -33,9 +39,12 @@ const MobileFacility = () => {
   const onClick = (place: any) => {
     handlePlace(place);
   };
-
+  useEffect(() => {
+    setOpenList();
+    console.log(place);
+  }, [place]);
   return (
-    <div>
+    <div style={{ maxHeight: '50vh', overflow: 'scroll' }}>
       {placesList.map((place: any) => {
         if (place.type === '편의 시설') {
           return (
@@ -45,12 +54,16 @@ const MobileFacility = () => {
               key={place.id}
               onClick={() => onClick(place)}
             >
-              <StyledMobileFacilityImageContainer>
-                <StyledMobileFacilityImage marker={imageArray[place.markerNumber - 1]}></StyledMobileFacilityImage>
-              </StyledMobileFacilityImageContainer>
-              <StyledMobileFacility name={place.name} select={selectPlace}>
-                {place.name}
-              </StyledMobileFacility>
+              <Test>
+                <StyledMobileFacilityImageContainer>
+                  <StyledMobileFacilityImage marker={imageArray[place.markerNumber - 1]}></StyledMobileFacilityImage>
+                </StyledMobileFacilityImageContainer>
+                <StyledMobileFacilityContainer>
+                  <StyledMobileFacility name={place.name} select={selectPlace}>
+                    {place.name}
+                  </StyledMobileFacility>
+                </StyledMobileFacilityContainer>
+              </Test>
             </StyledMoblilFacilitySelectContainer>
           );
         }

@@ -27,18 +27,23 @@ const SideBarComponent = () => {
             Router('/Expo');
           }}
         >
-          <StyledMenuIcon name="home"></StyledMenuIcon>
+          <StyledMenuIcon name="home" src="/map/menuC.png"></StyledMenuIcon>
         </StyledMenu>
         <StyledMenu name="cource" state={selectCategory} onClick={handelState}>
-          <StyledMenuIcon name="cource" alt="menuB" state={selectCategory}></StyledMenuIcon>
+          <StyledMenuIcon name="cource" alt="menuB" src="/mobile/추천코스.png" state={selectCategory}></StyledMenuIcon>
           <StyledMenuTitle>추천코스</StyledMenuTitle>
         </StyledMenu>
         <StyledMenu name="facility" state={selectCategory} onClick={handelState}>
-          <StyledMenuIcon name="facility" alt="menuB" state={selectCategory}></StyledMenuIcon>
+          <StyledMenuIcon
+            name="facility"
+            alt="menuB"
+            src="/mobile/편의시설.png"
+            state={selectCategory}
+          ></StyledMenuIcon>
           <StyledMenuTitle>편의시설</StyledMenuTitle>
         </StyledMenu>
         <StyledMenu name="preview" state={selectCategory} onClick={handelState}>
-          <StyledMenuIcon name="preview" alt="menuB" state={selectCategory}></StyledMenuIcon>
+          <StyledMenuIcon name="preview" alt="menuB" src="/mobile/관람요소.png" state={selectCategory}></StyledMenuIcon>
           <StyledMenuTitle>관람요소</StyledMenuTitle>
         </StyledMenu>
       </StyledSideBar>

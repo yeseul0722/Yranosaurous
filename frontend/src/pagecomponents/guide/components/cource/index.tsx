@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { StyledMenuContainer, StyledMenuContentContainer, StyledMenuTitle } from '../../Guide.styled';
+import {
+  StyledCourcePlace2,
+  StyledCourceSelectContainer2,
+  StyledMenuContainer,
+  StyledMenuContentContainer,
+  StyledMenuTitle,
+} from '../../Guide.styled';
 import {
   StyledCourceImage,
   StyledCourceImageContainer,
@@ -37,12 +43,12 @@ const Cource = () => {
       <StyledMenuContentContainer>
         {courseOrderList?.map((cource: any) => {
           return (
-            <StyledCourceSelectContainer key={cource.id}>
+            <StyledCourceSelectContainer2 key={cource.id}>
               <StyledCourceImageContainer>
                 <StyledCourceImage marker={imageArray[cource.place.markerNumber - 1]} />
               </StyledCourceImageContainer>
-              <StyledCourcePlace>{cource.place.name}</StyledCourcePlace>
-            </StyledCourceSelectContainer>
+              <StyledCourcePlace2>{cource.place.name}</StyledCourcePlace2>
+            </StyledCourceSelectContainer2>
           );
         })}
       </StyledMenuContentContainer>

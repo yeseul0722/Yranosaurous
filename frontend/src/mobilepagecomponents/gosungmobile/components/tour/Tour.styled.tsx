@@ -7,40 +7,45 @@ const StyldTourCategoryContainer = styled.div`
 
 const StyledTourCategoryButtonContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  flex-direction: column;
-  /* gap: 20px; */
-  /* padding: 20px; */
-  /* max-height: 20vh; */
+  gap: 20px;
+  padding: 20px 20px 0px 20px;
+  max-height: 20vh;
   overflow: scroll;
+  flex-direction: row;
+  flex-wrap: wrap;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 `;
 
 const StyledTourCategoryButton = styled.button.attrs<any>((props) => ({}))`
-  /* border-radius: 20px; */
-  background-color: ${(props) => (props.name === props.select ? props.theme.colors.menu : props.theme.colors.main)};
-  color: ${(props) => (props.name === props.select ? props.theme.colors.main : props.theme.colors.white)};
-  font-size: 15px;
-  padding-bottom: 10px;
-  /* display: flex;
+  border-radius: 20px;
+  background-color: ${(props) => (props.name === props.select ? props.theme.colors.white : props.theme.colors.main)};
+  color: ${(props) => (props.name === props.select ? props.theme.colors.black : props.theme.colors.white)};
+  font-size: 13px;
+  padding: 5px 20px;
+  display: flex;
   align-items: center;
-  justify-content: center; */
-  border: hidden;
-  width: 100px;
-  flex: 1;
+  justify-content: center;
+  border: ${(props) => (props.name === props.select ? `2px solid ${props.theme.colors.black}` : 'hidden')};
+  /* width: 100px; */
+  /* flex: 1; */
 
-  font-family: ${(props) => props.theme.fonts.regularfont};
+  font-family: ${(props) => props.theme.fonts.boldfont};
 `;
 
 const StyledTourListContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  /* align-items: center; */
-  justify-content: space-between;
-  gap: 20px;
+  justify-content: center;
+  /* gap: 20px; */
   overflow: scroll;
   max-height: 40vh;
-  padding: 10px;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 `;
 
 const StyledTourContentContainer = styled.div`
@@ -48,6 +53,8 @@ const StyledTourContentContainer = styled.div`
   height: auto;
   border: 1px solid ${(props) => props.theme.colors.main};
   border-radius: 10px;
+  background-color: ${(props) => props.theme.colors.white};
+  margin: 3%;
 `;
 const StyledTourContent = styled.div`
   width: 100px;
