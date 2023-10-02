@@ -31,4 +31,9 @@ public class RestaurantController {
         return ApiUtils.success(restaurantService.findOneRestaurant(id));
     }
 
+    @GetMapping("/restaurant/hashtag/{hashTag}")
+    public ApiResponse<?> restaurantDetailsByHashTag(@PathVariable String hashTag) {
+        return ApiUtils.success(restaurantService.findRestaurantByHashTag(hashTag));
+    }
+
 }
