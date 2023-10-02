@@ -10,25 +10,29 @@ const CustomGlobeComponent = (props: any) => {
   const DsEngName = useDinosaurStore((state: any) => state.DsEngName);
 
   // 좌표 넣기
-  // const { isLat, isLng } = useDinosaurSubHook();
-  const { dinosaurSubList } = useDinosaurSubHook();
-  console.log('globe', dinosaurSubList);
+  const { isLat, isLng, dinosaurSubList, getDinosaurSubList } = useDinosaurSubHook(); // 공룡 서브
+
+  useEffect(() => {
+    if (DsEngName) {
+      getDinosaurSubList(DsEngName);
+    }
+  }, [DsEngName]);
 
   const [appearLat, setAppearLat] = useState<number>();
   const [appearLng, setAppearLng] = useState<number>();
 
-  // useEffect(() => {
-  // const numLat = parseFloat(isLat[0]);
-  // const numLng = parseFloat(isLng[0]);
-  //   setAppearLat(numLat);
-  //   setAppearLng(numLng);
+  useEffect(() => {
+    const numLat = parseFloat(isLat[0]);
+    const numLng = parseFloat(isLng[0]);
+    setAppearLat(numLat);
+    setAppearLng(numLng);
 
-  //   // 공룡 선택시 카메라 초점 변경
-  //   if (globeEl.current && numLat && numLng) {
-  //     // 값이 없으면 지구본 사라짐
-  //     globeEl.current.pointOfView({ lat: numLat, lng: numLng, altitude: 1.5 }, 0);
-  //   }
-  // }, [isLat, isLng, globeEl]);
+    // 공룡 선택시 카메라 초점 변경
+    if (globeEl.current && numLat && numLng) {
+      // 값이 없으면 지구본 사라짐
+      globeEl.current.pointOfView({ lat: numLat, lng: numLng, altitude: 1.5 }, 0);
+    }
+  }, [isLat, isLng, globeEl]);
 
   // 공룡 위치 좌표등록
   const location = {
@@ -46,6 +50,10 @@ const CustomGlobeComponent = (props: any) => {
     globeEl.current.pointOfView(MAP_CENTER, 0);
   });
 
+  const labelClick = () => {
+    console.log(12);
+  };
+
   return (
     <Globe
       ref={globeEl}
@@ -59,6 +67,7 @@ const CustomGlobeComponent = (props: any) => {
       labelColor={useCallback(() => 'white', [])}
       labelDotRadius={0.5}
       labelAltitude={0.05}
+      onLabelClick={labelClick}
     />
   );
 };

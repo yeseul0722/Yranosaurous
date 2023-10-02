@@ -27,19 +27,31 @@ const StyledDsSpeciesTitleText = styled.div`
 `;
 
 const StyledDsSpeciesBody = styled.div`
-  height: 40rem;
+  height: auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 `;
 
 // 공룡 종 리스트
 const StyledDsSpeciesCardList = styled.div`
-  height: auto;
+  height: 40rem;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   align-content: flex-start;
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+`;
+
+const SearchInput = styled.input`
+  font-family: ${(props) => props.theme.fonts.dinoboldfont};
+  width: 18rem;
+  height: 2rem;
+  margin-left: 0.8rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
 `;
 
 // 공룡카드
@@ -134,6 +146,7 @@ export {
   StyledDsSpeciesTitle,
   StyledDsSpeciesTitleText,
   StyledDsSpeciesBody,
+  SearchInput,
   StyledDsSpeciesCardList,
   StyledDsSpeciesCard,
   StyledDsSpeciesPagenation,

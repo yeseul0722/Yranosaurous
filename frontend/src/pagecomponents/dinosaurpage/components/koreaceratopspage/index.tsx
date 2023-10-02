@@ -3,6 +3,7 @@ import axios from 'axios';
 import Lottie from 'lottie-react';
 import DottedLine from '../../lottie/dottedLine.json';
 import circle from '../../lottie/dsCircle.json';
+import TtsPaly from '../ttsplay';
 
 import {
   StyledCeratopsFirstContent,
@@ -22,6 +23,9 @@ import {
 } from './Koreaceratops.styled';
 
 const KoreaceratopsPage = () => {
+  const ttsUrlCera1 = '/dinosaur/tts/ceratops1.mp3';
+  const ttsUrlCera2 = '/dinosaur/tts/ceratops2.mp3';
+
   return (
     <StyledKoreaceratopsPage>
       {/* absolute */}
@@ -37,7 +41,9 @@ const KoreaceratopsPage = () => {
 
       {/* 첫번째 내용 */}
       <StyledCeratopsFirstContent>
-        <StyledCeratopsLittleTitle>한국 최초 뿔공룡, 천연기념물</StyledCeratopsLittleTitle>
+        <StyledCeratopsLittleTitle>
+          한국 최초 뿔공룡, 천연기념물 <TtsPaly src={ttsUrlCera1} />
+        </StyledCeratopsLittleTitle>
         <StyledCeratopsTitle>코리아케라톱스 화성엔시스</StyledCeratopsTitle>
         <StyledCeratopsSummary>
           코리아케라톱스는 전기 백악기 (1억 4500만 년 전 ~ 1억 만 년 전)에 살았으며 한국에서 발견된 원시 각룡류
@@ -51,7 +57,9 @@ const KoreaceratopsPage = () => {
       {/* 두번째 내용 */}
       <StyledCeratopsSizeContainer>
         <StyledCeratopsSecondContent>
-          <StyledCeratopsLittleTitle>| 코리아케라톱스의 이야기</StyledCeratopsLittleTitle>
+          <StyledCeratopsLittleTitle>
+            | 코리아케라톱스의 이야기 <TtsPaly src={ttsUrlCera2} />
+          </StyledCeratopsLittleTitle>
           <StyledCeratopsSummary>
             코리아케라톱스 화성엔시스는 한국 최초로 발견된 원시 각룡류입니다.가장 큰 특징은 높고 납작한 꼬리로 헤엄을 잘
             칠 수 있는 형태를 갖고 있다는 것입니다. 또 다른 특징은 발목 관절이 매우 발달되어 있어 잘 달릴 수 있는 능력이

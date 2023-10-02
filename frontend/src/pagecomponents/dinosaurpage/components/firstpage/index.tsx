@@ -10,7 +10,7 @@ import {
 } from './DsFirstPage.styled';
 
 const DsFirstPage = (props: any) => {
-  const [isOpenList, setIsOpenList] = useState(true);
+  const [isOpenList, setIsOpenList] = useState(false);
 
   const openList = () => {
     setIsOpenList(!isOpenList);
@@ -26,7 +26,7 @@ const DsFirstPage = (props: any) => {
       </StyledCustomGlobeContainer>
 
       <StyledDinosaurListContainer>
-        <StyledDsListButton onClick={openList}>Open</StyledDsListButton>
+        <StyledDsListButton onClick={openList}>세계의 공룡</StyledDsListButton>
         {isOpenList && <DsSpeciesComponent />}
       </StyledDinosaurListContainer>
     </StyledDinosaurPage>
