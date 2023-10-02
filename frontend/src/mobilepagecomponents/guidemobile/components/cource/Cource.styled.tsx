@@ -7,27 +7,33 @@ const StyldTourCategoryContainer = styled.div`
 
 const StyledTourCategoryButtonContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  flex-direction: row;
+  gap: 20px;
+  padding: 20px 20px 0px 20px;
+  max-height: 20vh;
   overflow: scroll;
+  flex-direction: row;
   flex-wrap: wrap;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 `;
 
 const StyledTourCategoryButton = styled.button.attrs<any>((props) => ({}))`
-  /* border-radius: 20px; */
-  background-color: ${(props) => (props.name === props.select ? props.theme.colors.menu : props.theme.colors.main)};
-  color: ${(props) => (props.name === props.select ? props.theme.colors.main : props.theme.colors.white)};
-  font-size: 15px;
-  padding-bottom: 10px;
-  /* display: flex;
+  border-radius: 20px;
+  background-color: ${(props) => (props.name === props.select ? props.theme.colors.white : props.theme.colors.main)};
+  color: ${(props) => (props.name === props.select ? props.theme.colors.black : props.theme.colors.white)};
+  font-size: 13px;
+  padding: 5px 20px;
+  display: flex;
   align-items: center;
-  justify-content: center; */
-  border: hidden;
-  width: 100px;
-  flex: 1;
+  justify-content: center;
+  border: ${(props) => (props.name === props.select ? `2px solid ${props.theme.colors.black}` : 'hidden')};
+  /* width: 100px; */
+  /* flex: 1; */
 
-  font-family: ${(props) => props.theme.fonts.regularfont};
+  font-family: ${(props) => props.theme.fonts.boldfont};
 `;
 
 export { StyldTourCategoryContainer, StyledTourCategoryButtonContainer, StyledTourCategoryButton };

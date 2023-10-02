@@ -92,6 +92,9 @@ const StyledAddress = styled.div`
   color: ${(props) => props.theme.colors.black};
   overflow: scroll;
   padding-left: 30px;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 `;
 const StyledCloseButtonContainer = styled.div`
   width: 100%;
@@ -125,6 +128,9 @@ const StyledContentContainer = styled.div`
   overflow: scroll;
   padding: 10px;
   margin-bottom: 10px;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 `;
 
 const StyeldContent = styled.div`

@@ -1,21 +1,27 @@
 import styled from 'styled-components';
 
 const StyledRestaurantContainer = styled.div`
-  padding: 15px;
+  /* padding: 15px 15px 0px 15px; */
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  /* gap: 15px; */
   overflow: scroll;
   max-height: 40vh;
+  align-items: center;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 `;
 
 const StyledRestaurantContent = styled.div`
-  width: 100%;
+  width: 95%;
   height: auto;
   display: flex;
+  margin-top: 3%;
 
   justify-content: space-between;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background-color: ${(props) => props.theme.colors.white};
 `;
 
 const StyledRestaurantImgContainer = styled.div`
@@ -65,6 +71,9 @@ const StyledRestaurantHashTagContainer = styled.div`
   width: 90%;
   overflow: scroll;
   flex-wrap: wrap;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 `;
 const StyledRestaurantHashTag = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};

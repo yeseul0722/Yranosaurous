@@ -112,6 +112,9 @@ const StyledAddress = styled.div`
   color: ${(props) => props.theme.colors.black};
   overflow: scroll;
   padding-left: 30px;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 `;
 
 const StyledRatinContainer = styled.div`
@@ -135,6 +138,9 @@ const StyledMenuContainer = styled.div`
   padding: 10px;
   width: 100%;
   margin-bottom: 10px;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 `;
 const StyledMenuTitleContainer = styled.div`
   display: flex;
@@ -183,6 +189,9 @@ const StyledReviewContainer = styled.div`
   padding: 10px;
   width: 100%;
   margin-bottom: 20px;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 `;
 
 const StyledReviewItem = styled.div.attrs<any>((props) => ({}))`

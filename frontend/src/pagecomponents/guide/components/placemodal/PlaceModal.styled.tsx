@@ -89,6 +89,9 @@ const StyledContentContainer = styled.div`
   overflow: scroll;
   padding: 10px;
   margin-bottom: 10px;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 `;
 
 const StyeldContent = styled.div`

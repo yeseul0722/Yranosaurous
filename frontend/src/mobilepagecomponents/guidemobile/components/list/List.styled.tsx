@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const StyledListContainer = styled.div`
   width: 100%;
   max-height: 90vh;
-  background-color: ${(props) => props.theme.colors.main};
+  background-color: ${(props) => props.theme.colors.menu};
 `;
 
 const StyledListTopContainer = styled.div`
@@ -48,16 +48,17 @@ const StyledButtonContainer = styled.div.attrs<any>((props) => ({}))`
   align-items: center;
   justify-content: center;
   background-color: ${(props) => (props.id === props.select ? props.theme.colors.menu : props.theme.colors.main)};
-  padding: 5px 0px;
+  padding: 10px 0px;
 `;
 const StyledButtonImageContainer = styled.div.attrs<any>((props) => ({}))`
   min-height: 0px;
   min-width: 0px;
-  max-height: 50px;
-  max-width: 50px;
+  max-height: 35px;
+  max-width: 35px;
   background-color: ${(props) => (props.id === props.select ? props.theme.colors.menu : props.theme.colors.main)};
   color: ${(props) => (props.id === props.select ? props.theme.colors.main : props.theme.colors.white)};
   border: none;
+  margin-right: 5px;
 `;
 const StlyedButtonImg = styled.img.attrs<any>((props) => ({
   src: props.src,

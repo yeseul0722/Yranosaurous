@@ -76,6 +76,9 @@ const StyledAddressContainer = styled.div`
   /* font-size: 10px; */
   color: ${(props) => props.theme.colors.black};
   overflow: scroll;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 `;
 
 const StyledCloseButton = styled.button`
