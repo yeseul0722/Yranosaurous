@@ -39,7 +39,7 @@ const StyledDsListButton = styled.div`
   background-color: #0006b074;
   border-radius: 10px 0px 0px 10px;
   width: 3rem;
-  height: 8rem;
+  height: 11rem;
   margin-top: 5rem;
   color: ${(props) => props.theme.colors.white};
   font-family: ${(props) => props.theme.fonts.boldfont};

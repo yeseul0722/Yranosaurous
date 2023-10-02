@@ -4,17 +4,36 @@ import useDinosaurStore from '../../stores/dinosaur/useDinosaurStore';
 
 export const useDinosaurSubHook = () => {
   const [dinosaurSubList, setDinosaurSubList] = useState<any>([]);
+
   const DsEngName = useDinosaurStore((state: any) => state.DsEngName);
-  console.log(DsEngName);
 
   const getDinosaurSubList = async (DsEngName: any) => {
-    console.log('1');
-    console.log(DinosaurSubGet(DsEngName));
     const response = await DinosaurSubGet(DsEngName);
-    setDinosaurSubList(response);
+    setDinosaurSubList(response.data.response);
   };
 
-  return { dinosaurSubList, getDinosaurSubList };
+  // 좌표
+  const [isLng, setIsLng] = useState<any>([]);
+  const [isLat, setIsLat] = useState<any>([]);
+
+  useEffect(() => {
+    const updatedIsLat = dinosaurSubList.reduce((preIsLat: any, dinosaur: any) => {
+      if (dinosaur.decimalLatitude && !preIsLat.includes(dinosaur.decimalLatitude)) {
+        return [...preIsLat, dinosaur.decimalLatitude];
+      }
+      return preIsLat;
+    }, []);
+    setIsLat(updatedIsLat);
+    const updatedIsLng = dinosaurSubList.reduce((preIsLng: any, dinosaur: any) => {
+      if (dinosaur.decimalLongitude && !preIsLng.includes(dinosaur.decimalLongitude)) {
+        return [...preIsLng, dinosaur.decimalLongitude];
+      }
+      return preIsLng;
+    }, []);
+    setIsLng(updatedIsLng);
+  }, [dinosaurSubList]);
+
+  return { isLat, isLng, dinosaurSubList, getDinosaurSubList };
 };
 
 // export const useDinosaurSubHook = () => {

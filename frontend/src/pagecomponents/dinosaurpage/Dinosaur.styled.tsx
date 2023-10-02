@@ -5,6 +5,7 @@ const StyledDsPage = styled.div`
   background-color: #ffffff;
   display: flex;
   justify-content: space-between;
+  position: relative;
 `;
 
 const StyledDsSide = styled.div`
@@ -64,6 +65,18 @@ const StyledPukyongsaurusPage = styled.div`
   scroll-snap-align: start;
 `;
 
+const StyledGoGosung = styled.img.attrs<any>((props) => ({
+  src: props.src,
+  alt: props.alt,
+}))`
+  position: absolute;
+  color: ${(props) => props.theme.colors.white};
+  width: 2.5rem;
+  z-index: 100;
+  bottom: 1rem;
+  margin-left: 2rem;
+`;
+
 export {
   StyledDsPage,
   StyledDsContent,
@@ -76,4 +89,5 @@ export {
   StyledKoreaceratopsPage,
   StyledKoreasaurusPage,
   StyledPukyongsaurusPage,
+  StyledGoGosung,
 };

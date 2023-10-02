@@ -30,6 +30,7 @@ const StyledCeratopsLittleTitle = styled.div`
   /* border: 1px solid pink; */
   font-size: 2rem;
   margin-bottom: 1rem;
+  display: flex;
 `;
 
 const StyledCeratopsSummary = styled.div`

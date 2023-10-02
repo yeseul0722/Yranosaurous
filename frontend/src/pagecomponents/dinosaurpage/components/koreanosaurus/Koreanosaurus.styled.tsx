@@ -38,20 +38,21 @@ const StyledKoreasaursFirstContent = styled.div`
   padding-top: 17rem;
   padding-left: 9rem;
   z-index: 50;
-  width: 55%;
   cursor: default;
 `;
 
 const StyledKoreasaurusTitle = styled.div`
   /* border: 1px solid blue; */
-  font-size: 4rem;
+  font-size: 3.5rem;
   margin-bottom: 1rem;
+  display: flex;
 `;
 
 const StyledKoreasaursLittleTitle = styled.div`
   /* border: 1px solid yellow; */
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  display: flex;
 `;
 
 const StyledKoreasaursSummary = styled.div`
@@ -66,8 +67,8 @@ const StyledKoreasaursImage1 = styled.img.attrs<any>((props) => ({
 }))`
   /* border: 1px solid aquamarine; */
   position: absolute;
-  right: 6rem;
-  top: 8rem;
+  right: 4rem;
+  top: 6rem;
   width: 40rem;
 `;
 
