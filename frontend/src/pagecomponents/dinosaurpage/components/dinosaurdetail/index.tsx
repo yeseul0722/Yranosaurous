@@ -17,22 +17,35 @@ import {
   StyldDsDetailWindowBorder,
 } from './DsDetail.styled';
 import { useDinosaurDetailHook } from '../../../../hooks/dinosaur/useDinosaurDetailHook';
+import { useDinosaurSubHook } from '../../../../hooks/dinosaur/useDinosaurSubHook';
+import useDinosaurStore from '../../../../stores/dinosaur/useDinosaurStore';
 
 const DsDetail = (props: any) => {
   const [dsContetnt, setDsContent] = useState('');
   const dinosaurId = props.DsId;
   const { dinosaurDetail, getDinosaurDetail } = useDinosaurDetailHook();
 
+  const { dinosaurSubList, getDinosaurSubList } = useDinosaurSubHook(); // 공룡 서브
+  const DsEngName = useDinosaurStore((state: any) => state.DsEngName);
+  useEffect(() => {
+    if (DsEngName) {
+      getDinosaurSubList(DsEngName);
+    }
+  }, [DsEngName]);
+
+  useEffect(() => {
+    console.log(dinosaurSubList[0].higherClassification);
+  }, [dinosaurSubList]);
+
   useEffect(() => {
     getDinosaurDetail(dinosaurId);
   }, []);
 
-  console.log(dinosaurDetail);
   const DsKorName = dinosaurDetail.korName;
   const DsDetailimg = dinosaurDetail.imgAddress;
   const DsContent = dinosaurDetail.content;
   const DsContent2 = DsContent ? DsContent.replaceAll('.', '. <br>') : '';
-  const DsEngName = dinosaurDetail.engName;
+  // const DsEngName = dinosaurDetail.engName;
   const DsCategory = dinosaurDetail.category;
   const DsDiscoverySite = dinosaurDetail.discoverySite;
   const DsEra = dinosaurDetail.era;

@@ -68,10 +68,11 @@ const DsSpeciesComponent = () => {
   // 주스턴드2-1. 호출
   const setDsKorName = useDinosaurStore((state: any) => state.setDsKorName);
 
-  const openDetail = (e: any) => {
-    setDsId(e.target.id);
-    setDsName(e.target.alt);
-    setDsImg(e.target.src);
+  const openDetail = (card: any) => {
+    setDsId(card.id);
+    setDsName(card.korName);
+    setDsImg(card.imgAddress);
+    setDsEngName(card.engName);
 
     setIsDetailOpen(!isDetailOpen);
   };
@@ -90,10 +91,7 @@ const DsSpeciesComponent = () => {
     const clickId = parseInt(e.target.id);
 
     for (let i = 0; i < 99; i++) {
-      // console.log(clickId, dinosaurList[i].id);
       if (dinosaurList[i].id === clickId) {
-        console.log('toGlobe', dinosaurList[i].engName);
-
         // 주스턴드2-2. 저장함수(저장할값)
         setDsEngName(dinosaurList[i].engName);
       }
@@ -125,7 +123,7 @@ const DsSpeciesComponent = () => {
                   <StyledDsSpeciesCardFigcaptionGoDetail onClick={goGlobe} id={card.id}>
                     🌍 지구본에서 보기
                   </StyledDsSpeciesCardFigcaptionGoDetail>
-                  <StyledDsSpeciesCardFigcaptionGoDetail onClick={openDetail} id={card.id}>
+                  <StyledDsSpeciesCardFigcaptionGoDetail onClick={() => openDetail(card)} id={card.id}>
                     🦕 공룡상세 정보
                   </StyledDsSpeciesCardFigcaptionGoDetail>
                 </StyledDsSpeciesCardFigcaptionGo>
@@ -136,14 +134,7 @@ const DsSpeciesComponent = () => {
 
         {/* 공룡 디테일 */}
         {isDetailOpen === true && (
-          <DsDetail
-            isDetailOpen={isDetailOpen}
-            DsName={DsName}
-            DsImg={DsImg}
-            DsId={DsId}
-            DsEName={DsEngName}
-            closeDetail={closeDetail}
-          />
+          <DsDetail isDetailOpen={isDetailOpen} DsName={DsName} DsImg={DsImg} DsId={DsId} closeDetail={closeDetail} />
         )}
 
         {/* 페이지 이동 */}
