@@ -81,6 +81,10 @@ const DsSpeciesComponent = () => {
   };
 
   // 공룡 지구본
+  // const { dinosaurSubList, getDinosaurSubList } = useDinosaurSubHook(); // 공룡 서브
+  // useEffect(() => {
+  //   getDinosaurSubList(DsEngName);
+  // }, [DsEngName]);
 
   const goGlobe = (e: any) => {
     const clickId = parseInt(e.target.id);
@@ -95,8 +99,6 @@ const DsSpeciesComponent = () => {
       }
     }
   };
-
-  const { dinosaurSubList } = useDinosaurSubHook(); // 공룡 서브
 
   return (
     <StyledDsSpeciesPage>

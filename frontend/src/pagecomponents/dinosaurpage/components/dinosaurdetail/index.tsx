@@ -27,13 +27,19 @@ const DsDetail = (props: any) => {
     getDinosaurDetail(dinosaurId);
   }, []);
 
-  // console.log(dinosaurDetail);
+  console.log(dinosaurDetail);
   const DsKorName = dinosaurDetail.korName;
   const DsDetailimg = dinosaurDetail.imgAddress;
   const DsContent = dinosaurDetail.content;
   const DsContent2 = DsContent ? DsContent.replaceAll('.', '. <br>') : '';
   const DsEngName = dinosaurDetail.engName;
-  console.log(DsContent);
+  const DsCategory = dinosaurDetail.category;
+  const DsDiscoverySite = dinosaurDetail.discoverySite;
+  const DsEra = dinosaurDetail.era;
+  const DsLength = dinosaurDetail.length;
+  const DsWeight = dinosaurDetail.weight;
+  const DsTaste = dinosaurDetail.taste;
+  // console.log(DsContent);
 
   return (
     <StyledDsDetailPage>
@@ -52,15 +58,17 @@ const DsDetail = (props: any) => {
               {/* 공룡 정보 */}
               <StyledDsDetailBox>
                 <StyledDetailContentTitle>| 분류</StyledDetailContentTitle>
-                <StyledDetailContentText>레소토사우루스/조반류</StyledDetailContentText>
+                <StyledDetailContentText>{DsCategory}</StyledDetailContentText>
               </StyledDsDetailBox>
               <StyledDsDetailBox>
                 <StyledDetailContentTitle>| 크기</StyledDetailContentTitle>
-                <StyledDetailContentText>1m / 3.6~7kg</StyledDetailContentText>
+                <StyledDetailContentText>
+                  {DsLength} / {DsWeight}
+                </StyledDetailContentText>
               </StyledDsDetailBox>
               <StyledDsDetailBox>
                 <StyledDetailContentTitle>| 생존시기</StyledDetailContentTitle>
-                <StyledDetailContentText>전기 쥐라기 (2 억 100 만 년 전 ~ 1 억 7400 만 년 전 )</StyledDetailContentText>
+                <StyledDetailContentText>{DsEra}</StyledDetailContentText>
               </StyledDsDetailBox>
             </StyledDsDetailInfoContainer>
           </StyledDsDetailBody>
@@ -73,19 +81,6 @@ const DsDetail = (props: any) => {
             <StyledDeTailSummaryText>
               {/* {DsContent2} */}
               <span dangerouslySetInnerHTML={{ __html: DsContent2 }} />
-              {/* 트리케라톱스는 후기 백악기 (6800만 년 전 ~ 6500만 년 전)에 살았으며 북아메리카에서 발견된 각룡류인
-              초식공룡입니다. 트리케라톱스는 머리에 세 개의 뿔과 넓은 프릴을 가진 특징을 가졌습니다. 각룡류 중에서
-              몸집이 큰 편에 속하여 육상 공룡중 머리가 가장 큰 것에 속하고 있습니다.
-              <br />
-              <br />
-              트리케라톱스는 후기 백악기 (6800만 년 전 ~ 6500만 년 전)에 살았으며 북아메리카에서 발견된 각룡류인
-              초식공룡입니다. 트리케라톱스는 머리에 세 개의 뿔과 넓은 프릴을 가진 특징을 가졌습니다. 각룡류 중에서
-              몸집이 큰 편에 속하여 육상 공룡중 머리가 가장 큰 것에 속하고 있습니다.
-              <br />
-              <br />
-              트리케라톱스는 후기 백악기 (6800만 년 전 ~ 6500만 년 전)에 살았으며 북아메리카에서 발견된 각룡류인
-              초식공룡입니다. 트리케라톱스는 머리에 세 개의 뿔과 넓은 프릴을 가진 특징을 가졌습니다. 각룡류 중에서
-              몸집이 큰 편에 속하여 육상 공룡중 머리가 가장 큰 것에 속하고 있습니다. */}
             </StyledDeTailSummaryText>
           </StyledDeTailSummary>
           <StyledDsDetailCloseButton onClick={props.closeDetail}>X</StyledDsDetailCloseButton>
