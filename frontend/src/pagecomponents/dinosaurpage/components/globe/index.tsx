@@ -13,9 +13,6 @@ const CustomGlobeComponent = (props: any) => {
   const { isLat, isLng, dinosaurSubList, getDinosaurSubList } = useDinosaurSubHook(); // 공룡 서브
 
   useEffect(() => {
-    console.log('lat,lng', isLat, isLng);
-  }, [isLat, isLng]);
-  useEffect(() => {
     if (DsEngName) {
       getDinosaurSubList(DsEngName);
     }
@@ -53,6 +50,10 @@ const CustomGlobeComponent = (props: any) => {
     globeEl.current.pointOfView(MAP_CENTER, 0);
   });
 
+  const labelClick = () => {
+    console.log(12);
+  };
+
   return (
     <Globe
       ref={globeEl}
@@ -66,6 +67,7 @@ const CustomGlobeComponent = (props: any) => {
       labelColor={useCallback(() => 'white', [])}
       labelDotRadius={0.5}
       labelAltitude={0.05}
+      onLabelClick={labelClick}
     />
   );
 };

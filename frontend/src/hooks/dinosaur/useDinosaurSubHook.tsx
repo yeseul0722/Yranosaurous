@@ -33,9 +33,6 @@ export const useDinosaurSubHook = () => {
     setIsLng(updatedIsLng);
   }, [dinosaurSubList]);
 
-  useEffect(() => {
-    console.log(isLng);
-  }, [isLng]);
   return { isLat, isLng, dinosaurSubList, getDinosaurSubList };
 };
 
