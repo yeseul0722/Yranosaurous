@@ -15,10 +15,10 @@ import {
   CustomTableRow,
   StyledContentContainer,
 } from './Performacne.styled';
-import PerformanceCarousel from '../performancecarousel';
+
 import { useTodayFestivalHook } from '../../../../hooks/festival/useTodayFestivalHook';
 import useGuideStore from '../../../../stores/guide/useGuideStore';
-import Map from '../kakaomap';
+import Map from '../../../../pagecomponents/expopage/components/kakaomap';
 const Performance = () => {
   const { todayFestivalList, getTodayFestivalList, handleFestival } = useTodayFestivalHook();
   const festival = useGuideStore((state: any) => state.festival);

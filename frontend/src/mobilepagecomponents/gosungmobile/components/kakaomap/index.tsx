@@ -12,6 +12,9 @@ const GosungKakaoMapComponent = () => {
   const tourDetail = useGosungListStore((state: any) => state.tourDetail);
   const lodgmentDetail = useGosungListStore((state: any) => state.lodgmentDetail);
   const selectList = useGosungListStore((state: any) => state.selectList);
+  const resetLodgmentDetail = useGosungListStore((state: any) => state.resetLodgmentDetail);
+  const resetTourDetail = useGosungListStore((state: any) => state.resetTourDetail);
+  const resetRestaurantDetail = useGosungListStore((state: any) => state.resetRestaurantDetail);
   const [keyword, setKeyword] = useState('');
   const imageArray = [
     '밥집',
@@ -33,14 +36,54 @@ const GosungKakaoMapComponent = () => {
 
   useEffect(() => {
     setIsOpen(false);
+    setMarkers([]); // 기존 마커를 제거합니다.
+  }, [selectList]);
+
+  useEffect(() => {
     if (selectList === 'restaurant') {
       setKeyword(restaurantDetail.address);
+      resetTourDetail();
+      resetLodgmentDetail();
     } else if (selectList === 'tour') {
       setKeyword(tourDetail.address);
+      resetRestaurantDetail();
+      resetLodgmentDetail();
     } else if (selectList === 'lodgment') {
       setKeyword(lodgmentDetail.address);
+      resetRestaurantDetail();
+      resetTourDetail();
     }
-  }, [restaurantDetail, tourDetail, lodgmentDetail, selectList]);
+  }, [
+    selectList,
+    restaurantDetail.address, // 이 부분을 추가해 변경을 감지합니다.
+    tourDetail.address, // 이 부분을 추가해 변경을 감지합니다.
+    lodgmentDetail.address, // 이 부분을 추가해 변경을 감지합니다.
+    resetRestaurantDetail,
+    resetTourDetail,
+    resetLodgmentDetail,
+  ]);
+
+  // useEffect(() => {
+  //   if (selectList === 'restaurant') {
+  //     setKeyword(restaurantDetail.address);
+  //     resetTourDetail();
+  //     resetLodgmentDetail();
+  //   }
+  // }, []);
+  // useEffect(() => {
+  //   if (selectList === 'tour') {
+  //     setKeyword(tourDetail.address);
+  //     resetRestaurantDetail();
+  //     resetLodgmentDetail();
+  //   }
+  // }, []);
+  // useEffect(() => {
+  //   if (selectList === 'lodgment') {
+  //     setKeyword(lodgmentDetail.address);
+  //     resetRestaurantDetail();
+  //     resetTourDetail();
+  //   }
+  // }, []);
 
   const handleOpen = () => {
     setIsOpen(!isOpen);
@@ -88,29 +131,26 @@ const GosungKakaoMapComponent = () => {
       level={4}
       onCreate={setMap}
     >
-      {((selectList === 'restaurant' && restaurantDetail) ||
-        (selectList === 'tour' && tourDetail) ||
-        (selectList === 'lodgment' && lodgmentDetail)) &&
-        markers.map((marker: any) => (
-          <MapMarker
-            key={`marker-${marker.content}-${marker.position.lat},${marker.position.lng}`}
-            position={marker.position}
-            onClick={handleOpen}
-            image={{
-              src: `${
-                (selectList === 'restaurant' && `${imageArray[restaurantDetail.category - 1]}.png`) ||
-                (selectList === 'lodgment' && `/gosung/${lodgmentDetail.category}.png`) ||
-                (selectList === 'tour' && `/gosung/${tourDetail.category}.png`)
-              }`, // 마커이미지의 주소입니다
-              size: {
-                width: 40,
-                height: 40,
-              }, // 마커이미지의 크기입니다
-            }}
-          >
-            {isOpen && selectList === 'lodgment' && <div> {lodgmentDetail.address}</div>}
-          </MapMarker>
-        ))}
+      {markers.map((marker: any) => (
+        <MapMarker
+          key={`marker-${marker.content}-${marker.position.lat},${marker.position.lng}`}
+          position={marker.position}
+          onClick={handleOpen}
+          image={{
+            src: `${
+              (selectList === 'restaurant' && `${imageArray[restaurantDetail.category - 1]}.png`) ||
+              (selectList === 'lodgment' && `/gosung/${lodgmentDetail.category}.png`) ||
+              (selectList === 'tour' && `/gosung/${tourDetail.category}.png`)
+            }`, // 마커이미지의 주소입니다
+            size: {
+              width: 40,
+              height: 40,
+            }, // 마커이미지의 크기입니다
+          }}
+        >
+          {isOpen && selectList === 'lodgment' && <div> {lodgmentDetail.address}</div>}
+        </MapMarker>
+      ))}
       {selectList === 'restaurant' && isOpen && (
         <RestaurantModal handleOpen={handleOpen} restaurantDetail={restaurantDetail}></RestaurantModal>
       )}

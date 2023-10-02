@@ -14,8 +14,8 @@ const Modal = styled.div.attrs<any>((props) => ({}))`
 `;
 
 const ModalWindow = styled.div.attrs<any>((props) => ({}))`
-  width: 80%;
-  height: 50%;
+  width: 300px;
+  height: 500px;
   background-color: #fff;
   position: absolute;
   border-radius: 20px;
@@ -36,15 +36,10 @@ const ModalContainer = styled.div`
 `;
 
 const ModalTopContainer = styled.div.attrs<any>((props) => ({}))`
-  max-width: 100%;
+  /* max-width: 100%;
   height: 25%;
   display: flex;
-  flex-direction: column;
-`;
-
-const ModalImgContainer = styled.div.attrs<any>((props) => ({}))`
-  min-height: 100%;
-  /* width: 30%; */
+  flex-direction: column; */
 `;
 
 const ModalImage = styled.img.attrs<any>((props) => ({
@@ -53,49 +48,15 @@ const ModalImage = styled.img.attrs<any>((props) => ({
 }))`
   width: 100%;
   height: 100%;
-  border-radius: 50%;
-`;
-
-const ModalTopContent = styled.div`
-  width: 70%;
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  padding-left: 10px;
+  /* border-radius: 50%; */
 `;
 
 const ModalTopTitle = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
-  font-size: 32px;
+  font-size: 20px;
   color: ${(props) => props.theme.colors.white};
 `;
 
-const StyledAddressTitleContainer = styled.div`
-  display: flex;
-  width: 100%;
-`;
-const StyledAddressTitle = styled.div`
-  font-family: ${(props) => props.theme.fonts.boldfont};
-  font-size: 18px;
-  color: ${(props) => props.theme.colors.black};
-  margin-bottom: 10px;
-  margin-left: 30px;
-`;
-const StyledAddressContainer = styled.div`
-  width: 100%;
-  display: flex;
-  margin-bottom: 10px;
-`;
-const StyledAddress = styled.div`
-  font-family: ${(props) => props.theme.fonts.boldfont};
-  font-size: 12px;
-  color: ${(props) => props.theme.colors.black};
-  overflow: scroll;
-  padding-left: 30px;
-  &::-webkit-scrollbar {
-    width: 0;
-  }
-`;
 const StyledCloseButtonContainer = styled.div`
   width: 100%;
   height: 10%;
@@ -138,20 +99,20 @@ const StyeldContent = styled.div`
   color: ${(props) => props.theme.colors.main};
 `;
 const StyledImgaContainer = styled.div`
-  width: 100px;
-  height: 100px;
-  position: absolute;
+  max-width: 300px;
+  max-height: 300px;
+  /* position: absolute;
   top: 0;
-  transform: translateY(-50%);
+  transform: translateY(-50%); */
 `;
 const StyledMenuReviewContainer = styled.div`
   width: 100%;
-  height: 65%;
+  height: 350px;
   background-color: ${(props) => props.theme.colors.white};
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  border-top-left-radius: 100px;
-  border-top-right-radius: 100px;
+  /* border-top-left-radius: 100px;
+  border-top-right-radius: 100px; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -164,17 +125,11 @@ export {
   ModalWindow,
   ModalContainer,
   ModalTopContainer,
-  ModalImgContainer,
   ModalImage,
-  ModalTopContent,
   ModalTopTitle,
-  StyledAddressContainer,
   StyledCloseButton,
   StyledContentContainer,
   StyeldContent,
-  StyledAddressTitleContainer,
-  StyledAddressTitle,
-  StyledAddress,
   StyledCloseButtonContainer,
   StyledCloseButtonBox,
   StyledImgaContainer,

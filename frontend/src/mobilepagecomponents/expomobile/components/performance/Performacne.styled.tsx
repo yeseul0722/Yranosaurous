@@ -3,28 +3,33 @@ import styled from 'styled-components';
 const StyledPerformanceContainer = styled.div`
   display: flex;
   flex-direction: column;
-  min-width: 1120px;
-  margin: 0px 200px 100px 200px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  /* min-width: 1120px;
+  margin: 0px 200px 100px 200px; */
 `;
 
 const StyledNavContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: 100px;
+  margin-bottom: 20px;
 `;
 
 const StyledNav = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
-  font-size: 48px;
+  /* font-size: 48px; */
   color: ${(props) => props.theme.colors.main};
   border-bottom: 5px solid ${(props) => props.theme.colors.main};
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
 `;
 
 const StyledPerformanceContentContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  flex-direction: column;
 `;
 
 const StyeldPerformanceContent = styled.div`
@@ -34,7 +39,7 @@ const StyeldPerformanceContent = styled.div`
 `;
 
 const StyledPerformanceInfo = styled.div`
-  width: 500px;
+  /* width: 500px; */
   height: auto;
   background-color: ${(props) => props.theme.colors.main};
   border-radius: 20px;
@@ -43,15 +48,18 @@ const StyledPerformanceInfo = styled.div`
 
 const StyledText = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
-  font-size: 32px;
+  /* font-size: 32px; */
   color: ${(props) => props.theme.colors.white};
   margin-bottom: 20px;
 `;
 
 const StyledMapContainer = styled.div`
-  width: 500px;
-  height: 500px;
+  border: 2px solid ${(props) => props.theme.colors.main};
+  margin-top: 20px;
+  width: 100%;
   display: flex;
+  margin-right: auto;
+  margin-left: auto;
 `;
 
 const StyledTable = styled.table`
@@ -80,7 +88,7 @@ const StyledContentContainer = styled.tbody`
 
 const StyledContent = styled.td.attrs<any>((props) => ({}))`
   font-family: ${(props) => props.theme.fonts.blodfont};
-  font-size: 14px;
+  /* font-size: 14px; */
   color: ${(props) => (props.festivalID === props.id ? props.theme.colors.white : props.theme.colors.main)};
   background-color: ${(props) => (props.festivalID === props.id ? props.theme.colors.main : props.theme.colors.menu)};
   padding: 10px;
@@ -88,6 +96,9 @@ const StyledContent = styled.td.attrs<any>((props) => ({}))`
   &:last-child {
     border-right: none;
   }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const StyledTitle = styled.th`
@@ -95,7 +106,7 @@ const StyledTitle = styled.th`
   justify-content: center;
   align-items: center;
   font-family: ${(props) => props.theme.fonts.blodfont};
-  font-size: 14px;
+  /* font-size: 14px; */
   color: ${(props) => props.theme.colors.main};
   background-color: ${(props) => props.theme.colors.menu};
   border-right: 2px solid ${(props) => props.theme.colors.white};

@@ -5,7 +5,7 @@ const StyledCourseSelectConatiner = styled.div`
   display: flex;
   justify-content: space-between;
   position: absolute;
-  left: 400px;
+  left: 410px;
   top: 10px;
   z-index: 2;
   gap: 20px;

@@ -16,9 +16,12 @@ import {
 import Button from '../../mobilecomponents/button';
 import List from './components/list';
 import { useNavigate } from 'react-router-dom';
+import useMobileGuide from '../../stores/guide/useMobileGuide';
 const GuideMobile = () => {
   const { getCourcesList } = useCourcesListHook();
-  const [openList, setOpenList] = useState(false);
+  const openList = useMobileGuide((state: any) => state.openList);
+  const setOpenList = useMobileGuide((state: any) => state.setOpenList);
+  const resetOpenList = useMobileGuide((state: any) => state.resetOpenList);
   const Router = useNavigate();
   useEffect(() => {
     getCourcesList();

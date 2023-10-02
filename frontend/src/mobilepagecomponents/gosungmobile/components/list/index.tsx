@@ -28,8 +28,13 @@ const List = (props: any) => {
         <StyledListButtonContainer>
           {/* <StyledButtonBox> */}
           <StyledButtonContainer id="restaurant" select={selectList} onClick={handleList}>
-            <StyledButtonImageContainer id="restaurant" select={selectList}>
-              <StlyedButtonImg src="/gosung/맛집.png"></StlyedButtonImg>
+            <StyledButtonImageContainer id="restaurant" select={selectList} onClick={handleList}>
+              <StlyedButtonImg
+                id="restaurant"
+                select={selectList}
+                onClick={handleList}
+                src="/gosung/맛집.png"
+              ></StlyedButtonImg>
             </StyledButtonImageContainer>
             <StyledButton id="restaurant" select={selectList}>
               맛집
@@ -40,8 +45,8 @@ const List = (props: any) => {
           {/* <StyledButtonBox> */}
 
           <StyledButtonContainer id="lodgment" select={selectList} onClick={handleList}>
-            <StyledButtonImageContainer id="lodgment" select={selectList}>
-              <StlyedButtonImg src="/gosung/숙소.png"></StlyedButtonImg>
+            <StyledButtonImageContainer id="lodgment" select={selectList} onClick={handleList}>
+              <StlyedButtonImg id="lodgment" src="/gosung/숙소.png" onClick={handleList}></StlyedButtonImg>
             </StyledButtonImageContainer>
             <StyledButton id="lodgment" select={selectList}>
               숙소
@@ -51,8 +56,8 @@ const List = (props: any) => {
 
           {/* <StyledButtonBox> */}
           <StyledButtonContainer id="tour" select={selectList} onClick={handleList}>
-            <StyledButtonImageContainer id="tour" select={selectList}>
-              <StlyedButtonImg src="/gosung/맛집.png"></StlyedButtonImg>
+            <StyledButtonImageContainer id="tour" select={selectList} onClick={handleList}>
+              <StlyedButtonImg id="tour" src="/gosung/관광.png" onClick={handleList}></StlyedButtonImg>
             </StyledButtonImageContainer>
             <StyledButton id="tour" select={selectList}>
               관광
