@@ -4,10 +4,11 @@ import { PositionType } from '../../Map.type';
 import Categories from '../categories';
 import Sidebar from '../sidebar';
 import { useGetPlacesHook } from '../../../../hooks/useGetPlacesHook';
+import { useRefreshCoursesStore } from '../../../../stores/course/useRefreshCourseStore';
 
 const PlaceMap = () => {
   const places = useGetPlacesHook();
-
+  const { setShowMarker, showMarker } = useRefreshCoursesStore();
   const [position, setPosition] = useState<PositionType>();
   const emptyPlace = {
     id: '',
@@ -49,6 +50,7 @@ const PlaceMap = () => {
           center={{ lat: 35.057861892100966, lng: 128.39958604747372 }}
           style={{ width: '100%', height: '100%' }}
           onClick={(_t, mouseEvent) => {
+            setShowMarker();
             const pos = {
               lat: mouseEvent.latLng.getLat(),
               lng: mouseEvent.latLng.getLng(),
@@ -90,7 +92,7 @@ const PlaceMap = () => {
                 }}
               />
             ))}
-          {position && (
+          {showMarker && position && (
             <MapMarker
               position={position}
               image={{

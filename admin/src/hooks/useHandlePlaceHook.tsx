@@ -19,7 +19,7 @@ interface Place {
 }
 
 export const useHandlePlaceHook = (state: any, dispatch: any, place: Place, use: 'enroll' | 'update') => {
-  const { toggleRefresh } = useRefreshCoursesStore();
+  const { toggleRefresh, setNoShowMarker } = useRefreshCoursesStore();
   const handleImageClick = (index: string) => {
     dispatch({ type: 'SET_SELECTED_MARKER', payload: index });
   };
@@ -85,8 +85,9 @@ export const useHandlePlaceHook = (state: any, dispatch: any, place: Place, use:
         type: state.placeType === '편의 시설' ? 'CONV' : 'PREVIEW',
       };
       const response = await enrollPlacePost(data);
+      toggleRefresh();
+      setNoShowMarker();
       if (response) {
-        toggleRefresh();
         // console.log('Successfully posted:', response);
       }
     } catch (err) {
@@ -107,6 +108,7 @@ export const useHandlePlaceHook = (state: any, dispatch: any, place: Place, use:
       };
       const response = await updatePlacePut(place.id, data);
       toggleRefresh();
+      setNoShowMarker();
       if (response) {
         // console.log('Successfully putted:', response);
       }
@@ -118,6 +120,7 @@ export const useHandlePlaceHook = (state: any, dispatch: any, place: Place, use:
     try {
       const response = await deletePlaceDelete(place.id);
       toggleRefresh();
+      setNoShowMarker();
       if (response) {
         // console.log('Successfully deleted : ', response);
       }
