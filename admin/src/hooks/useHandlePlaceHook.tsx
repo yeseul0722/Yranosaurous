@@ -86,6 +86,7 @@ export const useHandlePlaceHook = (state: any, dispatch: any, place: Place, use:
       };
       const response = await enrollPlacePost(data);
       if (response) {
+        toggleRefresh();
         // console.log('Successfully posted:', response);
       }
     } catch (err) {
