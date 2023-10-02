@@ -13,6 +13,7 @@ import {
   StyledMobileFacilityImage,
   StyledMobileFacilityImageContainer,
   StyledMoblilFacilitySelectContainer,
+  Test,
 } from '../facility/Facility.styled';
 
 const MobileCource = () => {
@@ -66,14 +67,16 @@ const MobileCource = () => {
         {courseOrderList?.map((cource: any) => {
           return (
             <StyledMoblilFacilitySelectContainer key={cource.id}>
-              <StyledMobileFacilityImageContainer>
-                <StyledMobileFacilityImage
-                  marker={imageArray[cource.place.markerNumber - 1]}
-                ></StyledMobileFacilityImage>
-              </StyledMobileFacilityImageContainer>
-              <StyledMobileFacilityContainer>
-                <StyledMobileFacility>{cource.place.name}</StyledMobileFacility>
-              </StyledMobileFacilityContainer>
+              <Test>
+                <StyledMobileFacilityImageContainer>
+                  <StyledMobileFacilityImage
+                    marker={imageArray[cource.place.markerNumber - 1]}
+                  ></StyledMobileFacilityImage>
+                </StyledMobileFacilityImageContainer>
+                <StyledMobileFacilityContainer>
+                  <StyledMobileFacility>{cource.place.name}</StyledMobileFacility>
+                </StyledMobileFacilityContainer>
+              </Test>
             </StyledMoblilFacilitySelectContainer>
           );
         })}

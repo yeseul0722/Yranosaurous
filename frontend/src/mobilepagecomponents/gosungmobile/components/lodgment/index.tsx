@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import useTourStore from '../../../../stores/mobilegosung/useGosungListStore';
+import useGosungListStore from '../../../../stores/mobilegosung/useGosungListStore';
 import axios from 'axios';
 import { useTourDetailHook } from '../../../../hooks/gosung/useTourDetailHook';
 import {
@@ -16,7 +16,7 @@ import {
 } from '../tour/Tour.styled';
 import { useLodgmentListHook } from '../../../../hooks/gosung/useLodgmentListHook';
 import { useLodgmentDetailHook } from '../../../../hooks/gosung/useLodgmentDetailHook';
-import useGosungListStore from '../../../../stores/mobilegosung/useGosungListStore';
+
 import {
   StyledRestaurantContainer,
   StyledRestaurantContent,
@@ -34,15 +34,15 @@ import {
 import Rating from 'react-rating';
 
 const MobileLodgment = (props: any) => {
-  const lodgment = useTourStore((state: any) => state.lodgment); // 숙소 리스트
-  const selectCategory = useTourStore((state: any) => state.selectCategory); // 선택한 카테고리
-  const setSelectCategory = useTourStore((state: any) => state.setSelectCategory);
-  const resetCategory = useTourStore((state: any) => state.resetCategory);
+  const lodgment = useGosungListStore((state: any) => state.lodgment); // 숙소 리스트
+  const selectCategory = useGosungListStore((state: any) => state.selectCategory); // 선택한 카테고리
+  const setSelectCategory = useGosungListStore((state: any) => state.setSelectCategory);
+  const resetCategory = useGosungListStore((state: any) => state.resetCategory);
   const setOpenList = useGosungListStore((state: any) => state.setOpenList);
-  const tour = useTourStore((state: any) => state.tour); // 선택한 관광지
-  const setTour = useTourStore((state: any) => state.setTour);
-  const resetLodgmentDetail = useTourStore((state: any) => state.resetLodgmentDetail);
-
+  const tour = useGosungListStore((state: any) => state.tour); // 선택한 관광지
+  const setTour = useGosungListStore((state: any) => state.setTour);
+  const resetLodgmentDetail = useGosungListStore((state: any) => state.resetLodgmentDetail);
+  const setRestaurantList = useGosungListStore((state: any) => state.setRestaurantList);
   const { getlodgmentList } = useLodgmentListHook();
   const { getLodgmentDetail } = useLodgmentDetailHook();
 
@@ -52,6 +52,7 @@ const MobileLodgment = (props: any) => {
 
   const handleSelectCategory = (e: any) => {
     setSelectCategory(e.target.name);
+    setRestaurantList(null);
   };
 
   const getApi = (e: any) => {
@@ -63,17 +64,15 @@ const MobileLodgment = (props: any) => {
   return (
     <StyldTourCategoryContainer>
       <StyledTourCategoryButtonContainer>
-        <StyledCategotyContainer>
-          <StyledTourCategoryButton name="모텔" select={selectCategory} onClick={handleSelectCategory}>
-            모텔
-          </StyledTourCategoryButton>
-          <StyledTourCategoryButton name="펜션" select={selectCategory} onClick={handleSelectCategory}>
-            펜션
-          </StyledTourCategoryButton>
-          <StyledTourCategoryButton name="게스트하우스" select={selectCategory} onClick={handleSelectCategory}>
-            게스트하우스
-          </StyledTourCategoryButton>
-        </StyledCategotyContainer>
+        <StyledTourCategoryButton name="모텔" select={selectCategory} onClick={handleSelectCategory}>
+          # 모텔
+        </StyledTourCategoryButton>
+        <StyledTourCategoryButton name="펜션" select={selectCategory} onClick={handleSelectCategory}>
+          # 펜션
+        </StyledTourCategoryButton>
+        <StyledTourCategoryButton name="게스트하우스" select={selectCategory} onClick={handleSelectCategory}>
+          # 게스트하우스
+        </StyledTourCategoryButton>
       </StyledTourCategoryButtonContainer>
       {/* <StyledTourListContainer>
         {lodgment.map((location: any) => {

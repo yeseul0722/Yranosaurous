@@ -6,6 +6,7 @@ import {
   StyledMobileFacilityImage,
   StyledMobileFacilityContainer,
   StyledMobileFacility,
+  Test,
 } from './Facility.styled';
 import useMobileGuide from '../../../../stores/guide/useMobileGuide';
 import useGuideStore from '../../../../stores/guide/useGuideStore';
@@ -53,14 +54,16 @@ const MobileFacility = () => {
               key={place.id}
               onClick={() => onClick(place)}
             >
-              <StyledMobileFacilityImageContainer>
-                <StyledMobileFacilityImage marker={imageArray[place.markerNumber - 1]}></StyledMobileFacilityImage>
-              </StyledMobileFacilityImageContainer>
-              <StyledMobileFacilityContainer>
-                <StyledMobileFacility name={place.name} select={selectPlace}>
-                  {place.name}
-                </StyledMobileFacility>
-              </StyledMobileFacilityContainer>
+              <Test>
+                <StyledMobileFacilityImageContainer>
+                  <StyledMobileFacilityImage marker={imageArray[place.markerNumber - 1]}></StyledMobileFacilityImage>
+                </StyledMobileFacilityImageContainer>
+                <StyledMobileFacilityContainer>
+                  <StyledMobileFacility name={place.name} select={selectPlace}>
+                    {place.name}
+                  </StyledMobileFacility>
+                </StyledMobileFacilityContainer>
+              </Test>
             </StyledMoblilFacilitySelectContainer>
           );
         }
