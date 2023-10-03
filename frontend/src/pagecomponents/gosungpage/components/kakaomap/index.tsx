@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Map, MapMarker } from 'react-kakao-maps-sdk';
-import { StyledKakaoMapContainer } from './KakaoMap.styled';
+import { CustomOverlayMap, Map, MapMarker } from 'react-kakao-maps-sdk';
+import { StyledInfoWindow, StyledKakaoMapContainer, StyledMarkerContainer } from './KakaoMap.styled';
 import { useRestaurantStore } from '../../../../stores/gosung/restaurants/useRestaurantApiStore';
 import { useCategoryStore } from '../../../../stores/gosung/useCategoryStore';
 import { useAccommodationApiStore } from '../../../../stores/gosung/accommodation/useAccommodationApiStore';
@@ -21,6 +21,7 @@ const GosungKakaoMapComponent = () => {
   const { tourismDetail } = useTourismDetailStore();
   const [markers, setMarkers] = useState<any[]>([]); //좌표로 변환한 값 담는 리스트
   const [center, setCenter] = useState({ lat: 35.057175, lng: 128.3975 });
+  const [level, setLevel] = useState(3);
 
   // 주소들 좌표로 변환하기
   useEffect(() => {
@@ -85,7 +86,8 @@ const GosungKakaoMapComponent = () => {
         geocoder.addressSearch(detailAddress, (result, status) => {
           if (status === kakao.maps.services.Status.OK) {
             const position = result[0];
-            setCenter({ lat: parseFloat(position.y), lng: parseFloat(position.x) });
+            setCenter({ lat: parseFloat(position.y), lng: parseFloat(position.x) - 0.0025 });
+            setLevel(3);
           }
         });
       }
@@ -106,31 +108,33 @@ const GosungKakaoMapComponent = () => {
         width: '100%',
         height: '100vh',
       }}
-      level={3}
+      level={level}
     >
       {markers &&
         markers.map((marker, index) => (
-          <MapMarker
-            key={index}
-            position={{ lat: marker.position.y, lng: marker.position.x }}
-            image={{
-              src: `/kakaomap/${selectedCategory}.png`, // 마커이미지의 주소입니다
-              size: {
-                width: 35,
-                height: 35,
-              }, // 마커이미지의 크기입니다
-              options: {
-                offset: {
-                  x: 27,
-                  y: 69,
-                }, // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
-              },
-            }}
-          >
-            <div style={{ padding: '5px', color: '#000' }}>
-              {marker.name} <br />
-            </div>
-          </MapMarker>
+          <StyledMarkerContainer key={index}>
+            <MapMarker
+              position={{ lat: marker.position.y, lng: marker.position.x }}
+              image={{
+                src: `/kakaomap/${selectedCategory}.png`, // 마커이미지의 주소입니다
+                size: {
+                  width: 35,
+                  height: 35,
+                }, // 마커이미지의 크기입니다
+                options: {
+                  offset: {
+                    x: 17.5,
+                    y: 17.5,
+                  }, // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+                },
+              }}
+            />
+            <CustomOverlayMap position={{ lat: marker.position.y, lng: marker.position.x }} yAnchor={1.5}>
+              <StyledInfoWindow>
+                {marker.name} <br />
+              </StyledInfoWindow>
+            </CustomOverlayMap>
+          </StyledMarkerContainer>
         ))}
     </Map>
   );
