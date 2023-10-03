@@ -27,7 +27,7 @@ const Dinosaur = () => {
 
   const navigate = useNavigate();
   const goGosung = () => {
-    navigate('/expo');
+    navigate('/');
   };
 
   return (
@@ -36,10 +36,10 @@ const Dinosaur = () => {
       <StyledGoGosung src="/dinosaur/dinosaur.png" alt="" onClick={goGosung} />
 
       <StyledDsContent>
-        <StyledDsLandingPage>
+        {/* <StyledDsLandingPage>
           <LandingPage></LandingPage>
           <StyledLandingGoNextPageButton onClick={landingToNext}>입장하기</StyledLandingGoNextPageButton>
-        </StyledDsLandingPage>
+        </StyledDsLandingPage> */}
         <StyledDsFirstPage ref={inputForm}>
           <DsFirstPage></DsFirstPage>
         </StyledDsFirstPage>
