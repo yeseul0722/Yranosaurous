@@ -10,6 +10,7 @@ import {
   StyledAnimalSpeciesInfo,
 } from './animalDetail.styled';
 import useDinosaurStore from '../../../../stores/dinosaur/useDinosaurStore';
+import DinosaurAnimalpost from '../../../../apis/dinosaur/dinosaurAnimalPost';
 
 const AnimalDetail = (props: any) => {
   const DsKorName = useDinosaurStore((state: any) => state.DsKorName);
@@ -17,13 +18,23 @@ const AnimalDetail = (props: any) => {
   // 동물 종류
   const [isOpenSpecies, setIsOpenSpecies] = useState(false);
   const [isInfo, setIsInfo] = useState();
+  const selectCountry = props.isCountry[0];
   // 포유류를 클릭하면 포유류 정보, 조류를 누르면 조류 정보
 
   const openSpecies = (e: any) => {
     const speciesName = e.target.id;
-    setIsInfo(speciesName);
+    if (isOpenSpecies) {
+      if (speciesName !== isInfo) {
+        setIsInfo(speciesName);
+      } else {
+        setIsOpenSpecies(!isOpenSpecies);
+      }
+    } else {
+      setIsInfo(speciesName);
+      setIsOpenSpecies(!isOpenSpecies);
+    }
 
-    setIsOpenSpecies(!isOpenSpecies);
+    DinosaurAnimalpost(selectCountry, speciesName);
   };
 
   return (
