@@ -1,13 +1,22 @@
 import React from 'react';
 
-import { StyledMenu, StyledMenuContainer, StyledMenuText } from './RestautantMenu.styled';
+import { StyledMenu, StyledMenuContainer, StyledMenuName, StyledMenuText, StyledPrice } from './RestautantMenu.styled';
 
-const GosungRestaurantMenu = () => {
+interface GosungRestaurantDetailProps {
+  restaurantDetail: { menuResponseList: any[] };
+}
+
+const GosungRestaurantMenu = ({ restaurantDetail }: GosungRestaurantDetailProps) => {
   return (
     <StyledMenuContainer>
       <StyledMenuText>Menu</StyledMenuText>
-      {/* {restaurantDetail &&
-        restaurantDetail.menuResponseList.map((menu: any) => <StyledMenu key={menu.id}></StyledMenu>)} */}
+      {restaurantDetail.menuResponseList &&
+        restaurantDetail.menuResponseList.map((menu: any) => (
+          <StyledMenu key={menu.id}>
+            <StyledMenuName>{menu.name}</StyledMenuName>
+            <StyledPrice>{menu.price}</StyledPrice>
+          </StyledMenu>
+        ))}
     </StyledMenuContainer>
   );
 };

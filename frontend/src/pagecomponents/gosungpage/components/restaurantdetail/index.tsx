@@ -16,9 +16,18 @@ import {
   StyledRestaurantAdContainer,
 } from './RestaurantDetail.styled';
 import GosungRestaurantMenu from '../restaurantmenu';
+import HashtagListGet from '../../../../apis/gosung/hashtagListGet';
+import GosungAccomoCategory from '../accomocategory';
+import GosungRestaurantReview from '../restaurantreview';
 
 const GosungRestaurantDetail = () => {
   const { restaurantDetail } = useRestaurantDetailStore();
+  console.log(restaurantDetail);
+
+  const handleHashtagApi = async (tag: string) => {
+    const response = await HashtagListGet(tag);
+    console.log(response);
+  };
 
   return (
     <StyledRestaurantDetailContainer>
@@ -28,7 +37,11 @@ const GosungRestaurantDetail = () => {
       <StyledRestaurantName>{restaurantDetail.storeName}</StyledRestaurantName>
       <StyledRestauranthashtags>
         {restaurantDetail.hashTagList &&
-          restaurantDetail.hashTagList.map((tag: any) => <Styledhashtag key={tag.id}>#{tag.name}</Styledhashtag>)}
+          restaurantDetail.hashTagList.map((tag: any) => (
+            <Styledhashtag key={tag.id} onClick={() => handleHashtagApi(tag.name)}>
+              #{tag.name}
+            </Styledhashtag>
+          ))}
       </StyledRestauranthashtags>
       <StyledRestaurantInfo>
         <StyledRestaurantAdContainer>
@@ -39,7 +52,8 @@ const GosungRestaurantDetail = () => {
           <Rating name="read-only" value={restaurantDetail.rating} readOnly /> {restaurantDetail.rating}
         </StyledRating>
       </StyledRestaurantInfo>
-      {/* <GosungRestaurantMenu /> */}
+      <GosungRestaurantMenu restaurantDetail={restaurantDetail} />
+      {/* <GosungRestaurantReview restaurantDetail={restaurantDetail} /> */}
     </StyledRestaurantDetailContainer>
   );
 };
