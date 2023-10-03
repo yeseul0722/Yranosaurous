@@ -44,11 +44,13 @@ const StyledAnimalCloseButton = styled.div`
 const StyledAnimalBody = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 `;
 
 const StyledAnimalSpecies = styled.div`
-  border: 1px solid red;
+  /* border: 1px solid red; */
+  margin: 5px;
+  padding-left: 20px;
 `;
 
 const StyledAnimalSpeciesInfo = styled.div``;
