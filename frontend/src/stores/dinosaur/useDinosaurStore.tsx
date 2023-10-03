@@ -13,6 +13,10 @@ const useDinosaurStore = create((set) => ({
   // 공룡 한글 이름
   DsKorName: '',
   setDsKorName: (data: any) => set((state: any) => ({ DsKorName: data })),
+
+  //공룡 지역 한국어
+  DsKorCountry: '',
+  setDsKorCountry: (data: any) => set((state: any) => ({ DsKorCountry: data })),
 }));
 
 export default useDinosaurStore;
