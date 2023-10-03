@@ -1,17 +1,18 @@
 import React from 'react';
 import { StyledCloseButton } from './CloseButton.styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 interface GosungCloseButtonProps {
   onClick: () => void;
+  showSideList: boolean;
 }
 
-const GosungCloseButton: React.FC<GosungCloseButtonProps> = ({ onClick }) => {
+const GosungCloseButton: React.FC<GosungCloseButtonProps> = ({ onClick, showSideList }) => {
   return (
     <div>
       <StyledCloseButton onClick={onClick}>
-        <FontAwesomeIcon icon={faChevronLeft} />
+        {showSideList ? <FontAwesomeIcon icon={faChevronLeft} /> : <FontAwesomeIcon icon={faChevronRight} />}
       </StyledCloseButton>
     </div>
   );
