@@ -14,6 +14,10 @@ import {
   StyledTableHead,
   CustomTableRow,
   StyledContentContainer,
+  StyledBannerTitleContainer,
+  StyledBannerImageContainer,
+  StyledBannerImg,
+  StyledMapBorder,
 } from './Performacne.styled';
 
 import { useTodayFestivalHook } from '../../../../hooks/festival/useTodayFestivalHook';
@@ -33,46 +37,50 @@ const Performance = () => {
 
   return (
     <StyledPerformanceContainer>
-      <StyledNavContainer>
-        <StyledNav>엑스포 공연 안내</StyledNav>
-      </StyledNavContainer>
       <StyledPerformanceContentContainer>
-        <StyeldPerformanceContent>
-          <StyledPerformanceInfo>
-            <StyledText>오늘의 공연</StyledText>
-            <StyledTable>
-              <StyledTableHead>
-                <CustomTableRow>
-                  <StyledTitle>시간</StyledTitle>
-                  <StyledTitle>공연명</StyledTitle>
-                  <StyledTitle>공연장소</StyledTitle>
-                </CustomTableRow>
-              </StyledTableHead>
-              <StyledContentContainer>
-                {todayFestivalList?.map((festival: any) => {
-                  const dateTime = new Date(festival.startTime);
-                  const timeString = dateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-                  return (
-                    <CustomTableRow onClick={() => handleFestival(festival)} key={festival.id}>
-                      <StyledContent festivalID={festivalID} id={festival.id}>
-                        {timeString}
-                      </StyledContent>
-                      <StyledContent festivalID={festivalID} id={festival.id}>
-                        {festival.name}
-                      </StyledContent>
-                      <StyledContent festivalID={festivalID} id={festival.id}>
-                        {festival.placeName}
-                      </StyledContent>
-                    </CustomTableRow>
-                  );
-                })}
-              </StyledContentContainer>
-            </StyledTable>
-          </StyledPerformanceInfo>
-        </StyeldPerformanceContent>
-        <StyledMapContainer>
-          <Map></Map>
-        </StyledMapContainer>
+        {/* <StyeldPerformanceContent> */}
+        <StyledBannerTitleContainer>
+          <StyledBannerImageContainer>
+            <StyledBannerImg></StyledBannerImg>
+          </StyledBannerImageContainer>
+          <StyledText>오늘의 공연</StyledText>
+        </StyledBannerTitleContainer>
+        <StyledMapBorder>
+          <StyledMapContainer>
+            <Map></Map>
+          </StyledMapContainer>
+        </StyledMapBorder>
+        {/* </StyeldPerformanceContent> */}
+        <StyledPerformanceInfo>
+          <StyledTable>
+            <StyledTableHead>
+              <CustomTableRow>
+                <StyledTitle>시간</StyledTitle>
+                <StyledTitle>공연명</StyledTitle>
+                <StyledTitle>공연장소</StyledTitle>
+              </CustomTableRow>
+            </StyledTableHead>
+            <StyledContentContainer>
+              {todayFestivalList?.map((festival: any) => {
+                const dateTime = new Date(festival.startTime);
+                const timeString = dateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                return (
+                  <CustomTableRow onClick={() => handleFestival(festival)} key={festival.id}>
+                    <StyledContent festivalID={festivalID} id={festival.id}>
+                      {timeString}
+                    </StyledContent>
+                    <StyledContent festivalID={festivalID} id={festival.id}>
+                      {festival.name}
+                    </StyledContent>
+                    <StyledContent festivalID={festivalID} id={festival.id}>
+                      {festival.placeName}
+                    </StyledContent>
+                  </CustomTableRow>
+                );
+              })}
+            </StyledContentContainer>
+          </StyledTable>
+        </StyledPerformanceInfo>
       </StyledPerformanceContentContainer>
     </StyledPerformanceContainer>
   );

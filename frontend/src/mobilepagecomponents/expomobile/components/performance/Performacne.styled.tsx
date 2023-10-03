@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 const StyledPerformanceContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  width: 90%;
+  justify-content: center;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
@@ -27,9 +27,13 @@ const StyledNav = styled.div`
 `;
 
 const StyledPerformanceContentContainer = styled.div`
+  width: 90%;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  border: 3px solid ${(props) => props.theme.colors.white};
+  padding: 20px 0px;
+  border-radius: 30px;
 `;
 
 const StyeldPerformanceContent = styled.div`
@@ -43,20 +47,27 @@ const StyledPerformanceInfo = styled.div`
   height: auto;
   background-color: ${(props) => props.theme.colors.main};
   border-radius: 20px;
-  padding: 20px 10px 0px;
+  padding: 10px 10px 0px;
 `;
 
 const StyledText = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
-  /* font-size: 32px; */
+  font-size: 24px;
   color: ${(props) => props.theme.colors.white};
   margin-bottom: 20px;
 `;
 
-const StyledMapContainer = styled.div`
-  border: 2px solid ${(props) => props.theme.colors.main};
-  margin-top: 20px;
+const StyledMapBorder = styled.div`
   width: 100%;
+  padding: 10px 0px;
+  border-top: 3px solid ${(props) => props.theme.colors.white};
+  border-bottom: 3px solid ${(props) => props.theme.colors.white};
+`;
+
+const StyledMapContainer = styled.div`
+  /* border: 2px solid ${(props) => props.theme.colors.main}; */
+  /* margin-top: 20px; */
+  width: 95%;
   display: flex;
   margin-right: auto;
   margin-left: auto;
@@ -119,6 +130,22 @@ const CustomTableRow = styled(StyledTableRow)`
   display: grid;
   grid-template-columns: 1fr 2fr 2fr;
 `;
+const StyledBannerTitleContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
+const StyledBannerImageContainer = styled.div`
+  max-width: 31px;
+  max-height: 42px;
+`;
+
+const StyledBannerImg = styled.img.attrs<any>((props) => ({
+  src: '/mobile/char4.png',
+}))`
+  width: 100%;
+  height: 100%;
+`;
 export {
   StyledPerformanceContainer,
   StyledNavContainer,
@@ -134,4 +161,8 @@ export {
   StyledTableHead,
   CustomTableRow,
   StyledContentContainer,
+  StyledBannerTitleContainer,
+  StyledBannerImageContainer,
+  StyledBannerImg,
+  StyledMapBorder,
 };
