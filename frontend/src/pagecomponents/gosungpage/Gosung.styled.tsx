@@ -13,6 +13,7 @@ const StyledSideBarParent = styled.div`
 const StyledSideBarContainer = styled.div`
   display: flex;
   position: absolute;
+  height: 100vh;
 `;
 
 export { StyledGosungPage, StyledSideBarContainer, StyledSideBarParent };
