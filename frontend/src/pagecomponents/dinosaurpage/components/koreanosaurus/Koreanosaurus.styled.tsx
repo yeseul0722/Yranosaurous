@@ -4,8 +4,8 @@ const StyledKoreasaurusPage = styled.div`
   /* height: 100%; */
   height: 144vh;
   /* background-color: ${(props) => props.theme.colors.night}; */
-  background-image: url('/dinosaur/backgroundimg.jpg');
-  background: rgba(0, 0, 0, 0.5) url('/dinosaur/background60.png');
+  /* background-image: url('/dinosaur/backgroundimg.jpg'); */
+  background: url('/dinosaur/background60.png');
   background-size: cover;
   display: flex;
   flex-direction: column;

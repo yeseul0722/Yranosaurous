@@ -5,15 +5,15 @@ const StyledKoreaMapPage = styled.div.attrs<any>((props) => ({}))`
     const selectDsName = props.selectDsName;
     const selectDs: any = {
       koreaceratops: `
-      background-image: url('/dinosaur/koreaBack/ceratops.png');
+      background-image: url('/dinosaur/koreaBack/ceratops2.png');
       background-size: contain;
       `,
       koreanosaurus: `
-      background-image: url('/dinosaur/koreaBack/koreasaurs.png');
+      background-image: url('/dinosaur/koreaBack/koreasaurs2.png');
       background-size: contain;
       `,
       pukyongosaurus: `
-      background-image: url('/dinosaur/koreaBack/puky.png');
+      background-image: url('/dinosaur/koreaBack/puky2.png');
       background-size: contain;
       `,
     };
