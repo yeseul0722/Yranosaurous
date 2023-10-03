@@ -1,7 +1,12 @@
 import styled, { css } from 'styled-components';
 
+const StyledContainer = styled.div`
+  width: 100%;
+  background-color: #456d75;
+  padding-bottom: 5%;
+`;
+
 const StyledTourismContainer = styled.div`
-  background-color: ${(props) => props.theme.colors.main};
   width: 90%;
   padding-top: 10px;
   margin-left: auto;
@@ -18,7 +23,7 @@ const StyledNavContainer = styled.div`
 
 const StyledWhere = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
-  /* font-size: 40px; */
+  font-size: 24px;
   color: ${(props) => props.theme.colors.white};
 `;
 
@@ -33,16 +38,23 @@ const StyledCardContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 15px;
   flex-direction: column;
 `;
 
 const StyledCardBoxContainer = styled.div`
   display: flex;
   align-items: center;
-  width: 80%;
-  gap: 20px;
-  margin-bottom: 20px;
+  width: 90%;
+  gap: 15px;
+`;
+const StyledCardBoxContainer2 = styled.div`
+  display: flex;
+  align-items: center;
+  width: 90%;
+  gap: 15px;
+
+  justify-content: flex-end;
 `;
 
 const StyledCardBox = styled.div.attrs<any>((props) => ({}))`
@@ -75,18 +87,34 @@ const StyledCardTextBox = styled.div`
 `;
 const StyledCardTextTitle = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
-  /* font-size: 32px; */
+  font-size: 22px;
   color: ${(props) => props.theme.colors.white};
+  display: flex;
+`;
+const StyledCardTextTitle2 = styled.div`
+  font-family: ${(props) => props.theme.fonts.boldfont};
+  font-size: 22px;
+  color: ${(props) => props.theme.colors.white};
+  display: flex;
+  justify-content: flex-end;
 `;
 const StyledCardTextContent = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
-  /* font-size: 20px; */
+  font-size: 12px;
   color: ${(props) => props.theme.colors.white};
+  display: flex;
+`;
+const StyledCardTextContent2 = styled.div`
+  font-family: ${(props) => props.theme.fonts.boldfont};
+  font-size: 12px;
+  color: ${(props) => props.theme.colors.white};
+  display: flex;
+  justify-content: flex-end;
 `;
 
 const StyledGOsungContainer = styled.div`
   width: 100%;
-  background-color: white;
+  margin-bottom: 1%;
   display: flex;
   justify-content: flex-end;
 `;
@@ -94,14 +122,29 @@ const StyledGOsungContainer = styled.div`
 const StyledGosung = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
   /* font-size: 20px; */
-  color: ${(props) => props.theme.colors.black};
-  border-bottom: 1px solid ${(props) => props.theme.colors.black};
+  color: ${(props) => props.theme.colors.white};
+  border-bottom: 3px solid ${(props) => props.theme.colors.white};
   margin-top: 10px;
   padding-bottom: 5px;
   cursor: pointer;
 `;
+const StyledBannerTitleContainer = styled.div`
+  width: 100%;
+  display: flex;
+`;
+const StyledBannerImageContainer = styled.div`
+  max-width: 31px;
+  max-height: 42px;
+`;
 
+const StyledBannerImg = styled.img.attrs<any>((props) => ({
+  src: '/mobile/char3.png',
+}))`
+  width: 100%;
+  height: 100%;
+`;
 export {
+  StyledContainer,
   StyledTourismContainer,
   StyledNavContainer,
   StyledWhere,
@@ -112,7 +155,13 @@ export {
   StyledCard,
   StyledCardTextBox,
   StyledCardTextTitle,
+  StyledCardTextTitle2,
   StyledCardTextContent,
   StyledGOsungContainer,
   StyledGosung,
+  StyledBannerTitleContainer,
+  StyledBannerImageContainer,
+  StyledBannerImg,
+  StyledCardBoxContainer2,
+  StyledCardTextContent2,
 };

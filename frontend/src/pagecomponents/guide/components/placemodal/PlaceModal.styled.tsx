@@ -68,6 +68,7 @@ const StyledCloseButtonBox = styled.div`
   width: 25px;
   height: 25px;
   margin-right: 3%;
+  cursor: pointer;
 `;
 const StyledCloseButton = styled.img.attrs<any>((props) => ({
   src: '/mobile/CloseButton.png',

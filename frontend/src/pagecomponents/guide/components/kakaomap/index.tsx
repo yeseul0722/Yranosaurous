@@ -45,6 +45,9 @@ const GosungKakaoMapComponent = () => {
     }
   }, [place]);
 
+  // useEffect(() => {
+  //   console.log(positions);
+  // }, [positions]);
   return (
     <Map
       id="map"
@@ -53,7 +56,7 @@ const GosungKakaoMapComponent = () => {
         lng: 128.3975,
       }}
       style={{
-        width: '100vw',
+        width: '100%',
         height: '100vh',
       }}
       level={4}
@@ -79,7 +82,7 @@ const GosungKakaoMapComponent = () => {
       {selectCategory === 'cource' &&
         positions.map((position: any, index: any) => (
           <MapMarker
-            key={`${position.title}-${position.latlng}`}
+            key={position.id}
             position={position.latlng} // 마커를 표시할 위치
             image={{
               src: `/markers/${imageArray[position.markerNumber - 1]}.png`, // 마커이미지의 주소입니다

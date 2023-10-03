@@ -2,6 +2,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import {
+  StyledContainer,
   StyledCarouselContainer,
   StyledExpoInfo,
   StyledExpoInfo2,
@@ -25,7 +26,7 @@ const MainCarouselComponent = () => {
   };
 
   return (
-    <div style={{ height: '100%' }}>
+    <StyledContainer>
       <StyledCarouselContainer>
         <Slider {...settings}>
           <StyledExpoMainPosterContainer image="1">
@@ -68,7 +69,7 @@ const MainCarouselComponent = () => {
           </StyledExpoMainPosterContainer>
         </Slider>
       </StyledCarouselContainer>
-    </div>
+    </StyledContainer>
   );
 };
 

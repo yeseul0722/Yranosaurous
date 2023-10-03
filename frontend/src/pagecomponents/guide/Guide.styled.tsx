@@ -12,7 +12,7 @@ const StyledMenuContainer = styled.div`
 
 const StyledMenuTitle = styled.div`
   width: 100%;
-  height: 100px;
+  height: 15vh;
   border-bottom: 1px solid ${(props) => props.theme.colors.light};
   display: flex;
   font-size: 40px;
@@ -77,6 +77,14 @@ const StyledCourcePlace2 = styled.div.attrs<any>((props) => ({}))`
   color: ${(props) => props.theme.colors.main};
   margin-left: 40px;
 `;
+
+const Test = styled.div`
+  height: 85vh;
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+`;
 export {
   StyledGuidePage,
   StyledMenuContainer,
@@ -89,4 +97,5 @@ export {
   StyledCourcePlace,
   StyledCourceSelectContainer2,
   StyledCourcePlace2,
+  Test,
 };

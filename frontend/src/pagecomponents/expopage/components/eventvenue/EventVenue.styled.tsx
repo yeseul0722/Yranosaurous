@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 const StyledEVBannerContainer = styled.div`
-  margin: 100px 200px;
+  margin: 100px auto;
   padding: 20px 0px;
   background-color: ${(props) => props.theme.colors.main};
   display: flex;
-  min-width: 1120px;
+  width: 1120px;
 `;
 const StyledLeftContainer = styled.div`
   display: flex;
