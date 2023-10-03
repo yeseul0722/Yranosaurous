@@ -19,6 +19,7 @@ import {
   StyledPukyongLengthText,
   StyledPukyongLottieWeight,
   StyledPukyongWeightText,
+  StyledPukyongTitleNum,
 } from './Pukyongosaurus.styled';
 
 const PukyongsaurusPage = () => {
@@ -28,6 +29,7 @@ const PukyongsaurusPage = () => {
   return (
     <StyledpukyongsaurusPage>
       {/* absolute */}
+      <StyledPukyongTitleNum>03</StyledPukyongTitleNum>
       <StyledPukyongImage1 src="/dinosaur/koDs/Pukyongosaurus_001-removebg-preview.png" alt="pukyong" />
       <StyledPukyongLottieLength>
         <Lottie animationData={DottedLine} loop autoplay />

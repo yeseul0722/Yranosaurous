@@ -20,6 +20,8 @@ import {
   StyledKoreaMap,
   StyledKoreaMapBackgroundLottie,
   StyledDsPage,
+  StyledDsSelectNumBox,
+  StyledDsPageContainer,
 } from './koreaMapPage.styled';
 import KoreasaurusPage from '../koreanosaurus';
 import KoreaceratopsPage from '../koreaceratopspage';
@@ -101,20 +103,22 @@ const KoreaMapPage = () => {
         <Lottie animationData={koreanosaurus} loop autoplay />
       </StyledKoreaMapSelectLottie>
 
-      {/* 2페이지 - 코리아노사우루스 */}
-      <StyledDsPage ref={goKoreaSaursInput}>
-        <KoreasaurusPage></KoreasaurusPage>
-      </StyledDsPage>
+      <StyledDsPageContainer>
+        {/* 2페이지 - 코리아노사우루스 */}
+        <StyledDsPage ref={goKoreaSaursInput}>
+          <KoreasaurusPage />
+        </StyledDsPage>
 
-      {/* 3페이지 - 코리아케라톱스 */}
-      <StyledDsPage ref={goKoreaCeratopsInput}>
-        <KoreaceratopsPage />
-      </StyledDsPage>
+        {/* 3페이지 - 코리아케라톱스 */}
+        <StyledDsPage ref={goKoreaCeratopsInput}>
+          <KoreaceratopsPage />
+        </StyledDsPage>
 
-      {/* 4페이지 - 부경고사우루스 */}
-      <StyledDsPage ref={goPukyongInput}>
-        <PukyongsaurusPage />
-      </StyledDsPage>
+        {/* 4페이지 - 부경고사우루스 */}
+        <StyledDsPage ref={goPukyongInput}>
+          <PukyongsaurusPage />
+        </StyledDsPage>
+      </StyledDsPageContainer>
     </StyledKoreaMapPage>
   );
 };
