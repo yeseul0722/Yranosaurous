@@ -19,9 +19,10 @@ const GosungComponent = () => {
   const isMobile = useMediaQuery({
     query: '(max-width: 768px)',
   });
-  const [showSideList, setShowSideList] = useState(true);
+  const [showSideList, setShowSideList] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
   const selectedCategory = useSideBarStore((state) => state.selectedCategory);
+  console.log(showSideList, 'side');
 
   const handleButtonClick = () => {
     setShowSideList(!showSideList);
@@ -71,8 +72,8 @@ const GosungComponent = () => {
           <StyledSideBarParent>
             <StyledSideBarContainer>
               {showSideList && <GosungSideList />}
-              {showDetails && DetailComponent}
-              <GosungCloseButton onClick={handleButtonClick} />
+              {showSideList && showDetails && DetailComponent}
+              <GosungCloseButton onClick={handleButtonClick} showSideList={showSideList} />
             </StyledSideBarContainer>
           </StyledSideBarParent>
 
