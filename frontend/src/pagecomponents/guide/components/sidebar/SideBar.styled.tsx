@@ -11,7 +11,7 @@ const StyledSideBar = styled.div`
 `;
 
 const StyledMenu = styled.div.attrs<any>((props) => ({}))`
-  height: 100px;
+  height: 15vh;
   display: flex;
   align-items: center;
   justify-content: center;

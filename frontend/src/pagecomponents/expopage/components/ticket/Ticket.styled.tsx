@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 const StyledTicketContainer = styled.div`
   display: flex;
-  margin: 0px 200px 100px 200px;
-  min-width: 1120px;
+  margin: 0px auto 100px auto;
+  width: 1120px;
 `;
 
 const StyledTicketLeftContainer = styled.div`

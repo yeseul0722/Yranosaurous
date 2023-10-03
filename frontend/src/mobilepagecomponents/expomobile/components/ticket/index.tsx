@@ -7,12 +7,20 @@ import {
   StyledPrice,
   StyledButtonContainer,
   StyledButtonBox,
+  StyledBannerTitleContainer,
+  StyledBannerImageContainer,
+  StyledBannerImg,
 } from './Ticket.styled';
 import Button from '../../../../components/button';
 const Ticket = () => {
   return (
     <StyledTicketContainer>
-      <StyledTiketTitle>공룡엑스포 티켓안내</StyledTiketTitle>
+      <StyledBannerTitleContainer>
+        <StyledBannerImageContainer>
+          <StyledBannerImg></StyledBannerImg>
+        </StyledBannerImageContainer>
+        <StyledTiketTitle> 티켓안내</StyledTiketTitle>
+      </StyledBannerTitleContainer>
       <div style={{ width: '90%', position: 'relative' }}>
         <StyledTicetInfoContainer>
           <StyledReserve>| 사전 예매</StyledReserve>

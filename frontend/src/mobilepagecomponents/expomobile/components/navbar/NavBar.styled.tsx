@@ -1,17 +1,18 @@
 import styled from 'styled-components';
 const StyledNavBarContainer = styled.div`
   width: 100%;
-  height: 10%;
+  height: 5%;
   display: flex;
-  background-color: ${(props) => props.theme.colors.main};
+  background-color: #f3f8f8;
   align-items: center;
   justify-content: space-around;
-  position: relative;
+  position: fixed;
+  z-index: 1;
 `;
 const StyledServiceName = styled.a`
   display: flex;
   font-family: ${(props) => props.theme.fonts.boldfont};
-  color: ${(props) => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.black};
   text-decoration: none;
 `;
 

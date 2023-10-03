@@ -1,5 +1,10 @@
 import styled, { css } from 'styled-components';
 
+const StyledContainer = styled.div`
+  height: 100%;
+  margin-top: 15%;
+`;
+
 const StyledCarouselContainer = styled.div.attrs<any>((props) => ({}))`
   width: 90%;
   /* height: 30%; */
@@ -144,6 +149,7 @@ const StyledTextBox = styled.div`
 `;
 
 export {
+  StyledContainer,
   StyledCarouselContainer,
   StyledExpoMainPosterContainer,
   StyledExpoMainPoster,

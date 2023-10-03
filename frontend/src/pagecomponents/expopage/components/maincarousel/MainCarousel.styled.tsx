@@ -4,8 +4,8 @@ const StyledCarouselContainer = styled.div.attrs<any>((props) => ({}))`
   width: 1120px;
   position: relative;
   top: 90px;
-  margin-left: 200px;
-  margin-right: 200px;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 30px;
 
   overflow: hidden;

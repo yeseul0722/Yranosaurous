@@ -6,6 +6,7 @@ import {
   StyledCourceImageContainer,
   StyledCourcePlace,
   StyledCourceSelectContainer,
+  Test,
 } from '../../Guide.styled';
 import { usePlacesListHook } from '../../../../hooks/guide/usePlacesListHook';
 import useGuideStore from '../../../../stores/guide/useGuideStore';
@@ -40,28 +41,34 @@ const Facility = () => {
     handlePlace(place);
   };
 
+  useEffect(() => {
+    console.log(placesList);
+  }, [placesList]);
+
   return (
     <StyledMenuContainer>
       <StyledMenuTitle>편의 시설</StyledMenuTitle>
-      {placesList.map((place: any) => {
-        if (place.type === '편의 시설') {
-          return (
-            <StyledCourceSelectContainer
-              name={place.name}
-              select={selectPlace}
-              key={place.id}
-              onClick={() => onClick(place)}
-            >
-              <StyledCourceImageContainer>
-                <StyledCourceImage marker={imageArray[place.markerNumber - 1]}></StyledCourceImage>
-              </StyledCourceImageContainer>
-              <StyledCourcePlace name={place.name} select={selectPlace}>
-                {place.name}
-              </StyledCourcePlace>
-            </StyledCourceSelectContainer>
-          );
-        }
-      })}
+      <Test>
+        {placesList.map((place: any) => {
+          if (place.type === '편의 시설') {
+            return (
+              <StyledCourceSelectContainer
+                name={place.id}
+                select={selectPlace}
+                key={place.id}
+                onClick={() => onClick(place)}
+              >
+                <StyledCourceImageContainer>
+                  <StyledCourceImage marker={imageArray[place.markerNumber - 1]}></StyledCourceImage>
+                </StyledCourceImageContainer>
+                <StyledCourcePlace name={place.id} select={selectPlace}>
+                  {place.name}
+                </StyledCourcePlace>
+              </StyledCourceSelectContainer>
+            );
+          }
+        })}
+      </Test>
     </StyledMenuContainer>
   );
 };

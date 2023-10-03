@@ -5,6 +5,7 @@ import {
   StyledMenuContainer,
   StyledMenuContentContainer,
   StyledMenuTitle,
+  Test,
 } from '../../Guide.styled';
 import {
   StyledCourceImage,
@@ -40,7 +41,7 @@ const Cource = () => {
   return (
     <StyledMenuContainer>
       <StyledMenuTitle>추천 코스</StyledMenuTitle>
-      <StyledMenuContentContainer>
+      <Test>
         {courseOrderList?.map((cource: any) => {
           return (
             <StyledCourceSelectContainer2 key={cource.id}>
@@ -51,7 +52,7 @@ const Cource = () => {
             </StyledCourceSelectContainer2>
           );
         })}
-      </StyledMenuContentContainer>
+      </Test>
     </StyledMenuContainer>
   );
 };
