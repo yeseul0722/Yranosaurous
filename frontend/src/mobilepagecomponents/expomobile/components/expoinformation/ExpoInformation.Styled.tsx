@@ -2,14 +2,14 @@ import styled from 'styled-components';
 
 const StyledExpoInfoPage = styled.div`
   display: flex;
-  gap: 15px;
+  justify-content: center;
   width: 100%;
 `;
 
 const StyledExpoInfoContainer = styled.div`
-  flex: 2;
+  /* flex: 2; */
   height: 100%;
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,18 +21,19 @@ const StyledExpoInfoTitleContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+  width: 100%;
 `;
 
 const StyledExpoInfoTitle = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
-  color: ${(props) => props.theme.colors.main};
-  /* font-size: 45px; */
+  color: ${(props) => props.theme.colors.white};
+  font-size: 24px;
 `;
 
 const StyledExpoInfoContent = styled.div`
   font-family: ${(props) => props.theme.fonts.regularfont};
-  color: ${(props) => props.theme.colors.main};
-  /* font-size: 26px; */
+  color: ${(props) => props.theme.colors.white};
+  font-size: 14px;
 `;
 
 const StyledExpoInfoContentContainer = styled.div`
@@ -56,16 +57,31 @@ const StyledExpoInfoTitleContent = styled.div`
 
 const StyledExpoInfoContentTitle = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
-  color: ${(props) => props.theme.colors.black};
-  /* font-size: 26px; */
+  color: ${(props) => props.theme.colors.white};
+  font-size: 12px;
 `;
 
 const StyledExpoInfoContentContent = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
-  color: ${(props) => props.theme.colors.black};
-  /* font-size: 18px; */
+  color: ${(props) => props.theme.colors.white};
+  font-size: 12px;
 `;
 
+const StyledBannerTitleContainer = styled.div`
+  width: 100%;
+  display: flex;
+`;
+const StyledBannerImageContainer = styled.div`
+  max-width: 31px;
+  max-height: 42px;
+`;
+
+const StyledBannerImg = styled.img.attrs<any>((props) => ({
+  src: '/mobile/char4.png',
+}))`
+  width: 100%;
+  height: 100%;
+`;
 export {
   StyledExpoInfoPage,
   StyledExpoInfoContainer,
@@ -76,4 +92,7 @@ export {
   StyledExpoInfoTitleContent,
   StyledExpoInfoContentTitle,
   StyledExpoInfoContentContent,
+  StyledBannerTitleContainer,
+  StyledBannerImageContainer,
+  StyledBannerImg,
 };

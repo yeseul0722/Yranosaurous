@@ -20,8 +20,8 @@ const StyledButton = styled.button.attrs<ButtonStyles>((props) => ({}))`
         `,
       mobileticket: `
             border-radius : 20px;
-            background-color : ${main};
-            color : ${white};
+            background-color : ${white};
+            color : ${main};
             font-size : 14px;
             
       `,

@@ -22,6 +22,7 @@ export const useCourceHook = () => {
         title: place.place.name,
         sequence: place.sequence,
         imgAddress: place.imgAddress,
+        id: place.id,
       };
       setPositions(position);
     });

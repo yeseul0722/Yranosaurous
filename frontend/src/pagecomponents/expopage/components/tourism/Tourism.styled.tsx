@@ -2,8 +2,8 @@ import styled, { css } from 'styled-components';
 
 const StyledTourismContainer = styled.div`
   background-color: ${(props) => props.theme.colors.main};
-  min-width: 1120px;
-  margin: 0px 200px 100px 200px;
+  width: 1120px;
+  margin: 0px auto 100px auto;
   padding-top: 50px;
 `;
 
