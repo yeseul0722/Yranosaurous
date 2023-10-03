@@ -34,10 +34,6 @@ const DsDetail = (props: any) => {
   }, [DsEngName]);
 
   useEffect(() => {
-    console.log(dinosaurSubList[0].higherClassification);
-  }, [dinosaurSubList]);
-
-  useEffect(() => {
     getDinosaurDetail(dinosaurId);
   }, []);
 

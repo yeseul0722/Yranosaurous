@@ -63,9 +63,8 @@ const DsSpeciesComponent = () => {
   const [DsName, setDsName] = useState();
   const [DsImg, setDsImg] = useState();
 
-  const DsEngName = useDinosaurStore((state: any) => state.DsEngName);
-  const setDsEngName = useDinosaurStore((state: any) => state.setDsEngName);
   // 주스턴드2-1. 호출
+  const setDsEngName = useDinosaurStore((state: any) => state.setDsEngName);
   const setDsKorName = useDinosaurStore((state: any) => state.setDsKorName);
 
   const openDetail = (card: any) => {
@@ -82,10 +81,6 @@ const DsSpeciesComponent = () => {
   };
 
   // 공룡 지구본
-  // const { dinosaurSubList, getDinosaurSubList } = useDinosaurSubHook(); // 공룡 서브
-  // useEffect(() => {
-  //   getDinosaurSubList(DsEngName);
-  // }, [DsEngName]);
 
   const goGlobe = (e: any) => {
     const clickId = parseInt(e.target.id);
@@ -94,6 +89,7 @@ const DsSpeciesComponent = () => {
       if (dinosaurList[i].id === clickId) {
         // 주스턴드2-2. 저장함수(저장할값)
         setDsEngName(dinosaurList[i].engName);
+        setDsKorName(dinosaurList[i].korName);
       }
     }
   };
