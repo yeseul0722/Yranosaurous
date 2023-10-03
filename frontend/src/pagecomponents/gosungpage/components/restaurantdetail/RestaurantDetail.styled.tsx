@@ -8,6 +8,9 @@ const StyledRestaurantDetailContainer = styled.div`
   z-index: 10;
   background-color: ${(props) => props.theme.colors.white};
   flex-direction: column;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const StyledRestaurantImgWrap = styled.div`
@@ -37,6 +40,7 @@ const StyledRestaurantName = styled.div`
 
 const StyledRestauranthashtags = styled.div`
   display: flex;
+  height: auto;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -53,6 +57,7 @@ const Styledhashtag = styled.div`
   margin-right: 5px;
   padding-right: 6px;
   padding-left: 6px;
+  cursor: pointer;
 `;
 
 const StyledRestaurantInfo = styled.div`
