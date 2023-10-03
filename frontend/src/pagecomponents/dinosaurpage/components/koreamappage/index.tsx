@@ -95,6 +95,8 @@ const KoreaMapPage = () => {
       <StyledKoreaMap>
         <KoreaMap></KoreaMap>
       </StyledKoreaMap>
+
+      {/* Lottie */}
       <StyledKoreaMapSelectLottie selectDsName={selectDsName}>
         <Lottie animationData={koreanosaurus} loop autoplay />
       </StyledKoreaMapSelectLottie>

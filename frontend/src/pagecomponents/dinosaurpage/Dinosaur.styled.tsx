@@ -40,7 +40,7 @@ const StyledLandingGoNextPageButton = styled.div`
   cursor: pointer;
   position: absolute;
   top: 22rem;
-  left: 42rem;
+  left: 45%;
 `;
 
 const StyledDsFirstPage = styled.div`
