@@ -27,7 +27,6 @@ const Dinosaur = () => {
 
   const navigate = useNavigate();
   const goGosung = () => {
-    console.log('click');
     navigate('/expo');
   };
 

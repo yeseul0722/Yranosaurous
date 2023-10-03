@@ -10,6 +10,22 @@ const StyledpukyongsaurusPage = styled.div`
   position: relative;
 `;
 
+const StyledPukyongTitleNum = styled.div`
+  color: #324247;
+  font-size: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 100%;
+  width: 13rem;
+  height: 13rem;
+  position: absolute;
+  z-index: 1;
+  top: 9rem;
+  left: 5rem;
+`;
+
 const StyledPukyongFirstContent = styled.div`
   /* border: 1px solid red; */
   color: ${(props) => props.theme.colors.white};
@@ -19,6 +35,7 @@ const StyledPukyongFirstContent = styled.div`
   padding-left: 10rem;
   padding-right: 5rem;
   width: 50rem;
+  z-index: 50;
   cursor: default;
 `;
 
@@ -118,6 +135,7 @@ const StyledPukyongWeightText = styled.div`
 
 export {
   StyledpukyongsaurusPage,
+  StyledPukyongTitleNum,
   StyledPukyongFirstContent,
   StyledPukongTitle,
   StyledPukongLitteTitle,

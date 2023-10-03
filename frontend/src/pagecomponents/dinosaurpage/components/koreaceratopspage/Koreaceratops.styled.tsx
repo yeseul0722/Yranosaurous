@@ -9,6 +9,23 @@ const StyledKoreaceratopsPage = styled.div`
   position: relative;
 `;
 
+const StyledCeratopsTitleNum = styled.div`
+  /* border: 0.8rem solid #324247; */
+  color: #72573a;
+  font-size: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 100%;
+  width: 13rem;
+  height: 13rem;
+  position: absolute;
+  z-index: 1;
+  top: 10rem;
+  left: 28rem;
+`;
+
 const StyledCeratopsFirstContent = styled.div`
   /* border: 1px solid red; */
   color: ${(props) => props.theme.colors.white};
@@ -17,6 +34,7 @@ const StyledCeratopsFirstContent = styled.div`
   padding-top: 17rem;
   padding-left: 35rem;
   padding-right: 5rem;
+  z-index: 50;
   cursor: default;
 `;
 
@@ -117,6 +135,7 @@ const StyledCeratopsWeightText = styled.div`
 
 export {
   StyledKoreaceratopsPage,
+  StyledCeratopsTitleNum,
   StyledCeratopsFirstContent,
   StyledCeratopsSecondContent,
   StyledCeratopsSizeContainer,
