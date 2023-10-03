@@ -9,6 +9,9 @@ import {
   StyledExpoInfoTitleContent,
   StyledExpoInfoContentTitle,
   StyledExpoInfoContentContent,
+  StyledBannerTitleContainer,
+  StyledBannerImageContainer,
+  StyledBannerImg,
 } from './ExpoInformation.Styled';
 
 const ExpoInformation = () => {
@@ -16,7 +19,12 @@ const ExpoInformation = () => {
     <StyledExpoInfoPage>
       <StyledExpoInfoContainer>
         <StyledExpoInfoTitleContainer>
-          <StyledExpoInfoTitle>2023경남고성공룡세계엑스포</StyledExpoInfoTitle>
+          <StyledBannerTitleContainer>
+            <StyledBannerImageContainer>
+              <StyledBannerImg></StyledBannerImg>
+            </StyledBannerImageContainer>
+            <StyledExpoInfoTitle>2023경남고성공룡세계엑스포</StyledExpoInfoTitle>
+          </StyledBannerTitleContainer>
           <StyledExpoInfoContent> Gyeongnam Goseong Dinosaur World Expo 2023</StyledExpoInfoContent>
         </StyledExpoInfoTitleContainer>
         <StyledExpoInfoContentContainer>

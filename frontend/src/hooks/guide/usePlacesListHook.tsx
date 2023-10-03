@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import placesListGet from '../../apis/guide/placesListGet';
 import useGuideStore from '../../stores/guide/useGuideStore';
 import useMobileGuide from '../../stores/guide/useMobileGuide';
@@ -10,7 +10,8 @@ export const usePlacesListHook = () => {
   // const [selectPlace, setSelectPlaec] = useState();
 
   const setSelectPlace = useGuideStore((state: any) => state.setSelectPlace);
-
+  const selectCategory = useGuideStore((state: any) => state.selectCategory);
+  const resetPlace = useGuideStore((state: any) => state.resetPlace);
   const getPlacesList = async () => {
     const res = await placesListGet();
     setPlacesList(res.data.response);
@@ -18,8 +19,13 @@ export const usePlacesListHook = () => {
 
   const handlePlace = (data: any) => {
     setPlace(data);
-    setSelectPlace(data.name);
+    setSelectPlace(data.id);
   };
+
+  useEffect(() => {
+    setSelectPlace();
+    resetPlace();
+  }, [selectCategory]);
 
   return { place, placesList, getPlacesList, handlePlace };
 };

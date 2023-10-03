@@ -6,6 +6,7 @@ import {
   StyledCourceSelectContainer,
   StyledMenuContainer,
   StyledMenuTitle,
+  Test,
 } from '../../Guide.styled';
 import { useFestivalListHook } from '../../../../hooks/guide/useFestivalListHook';
 import { usePlacesListHook } from '../../../../hooks/guide/usePlacesListHook';
@@ -45,25 +46,27 @@ const Preview = () => {
   return (
     <StyledMenuContainer>
       <StyledMenuTitle>관람 요소</StyledMenuTitle>
-      {placesList.map((place: any) => {
-        if (place.type === '관람 요소') {
-          return (
-            <StyledCourceSelectContainer
-              name={place.name}
-              select={selectPlace}
-              key={place.id}
-              onClick={() => onClick(place)}
-            >
-              <StyledCourceImageContainer>
-                <StyledCourceImage marker={imageArray[place.markerNumber - 1]}></StyledCourceImage>
-              </StyledCourceImageContainer>
-              <StyledCourcePlace name={place.name} select={selectPlace}>
-                {place.name}
-              </StyledCourcePlace>
-            </StyledCourceSelectContainer>
-          );
-        }
-      })}
+      <Test>
+        {placesList.map((place: any) => {
+          if (place.type === '관람 요소') {
+            return (
+              <StyledCourceSelectContainer
+                name={place.id}
+                select={selectPlace}
+                key={place.id}
+                onClick={() => onClick(place)}
+              >
+                <StyledCourceImageContainer>
+                  <StyledCourceImage marker={imageArray[place.markerNumber - 1]}></StyledCourceImage>
+                </StyledCourceImageContainer>
+                <StyledCourcePlace name={place.id} select={selectPlace}>
+                  {place.name}
+                </StyledCourcePlace>
+              </StyledCourceSelectContainer>
+            );
+          }
+        })}
+      </Test>
     </StyledMenuContainer>
   );
 };

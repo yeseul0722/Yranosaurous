@@ -7,6 +7,7 @@ const StyledExpoMobilePage = styled.div`
   &::-webkit-scrollbar {
     width: 0;
   }
+  background-color: ${(props) => props.theme.colors.main};
 `;
 
 export { StyledExpoMobilePage };

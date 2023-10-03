@@ -3,8 +3,8 @@ import styled from 'styled-components';
 const StyledPerformanceContainer = styled.div`
   display: flex;
   flex-direction: column;
-  min-width: 1120px;
-  margin: 0px 200px 100px 200px;
+  width: 1120px;
+  margin: 0px auto 100px auto;
 `;
 
 const StyledNavContainer = styled.div`
