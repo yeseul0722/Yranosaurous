@@ -42,15 +42,15 @@ const Tourism = () => {
             </StyledCardBox>
             <StyledCardTextBox>
               <StyledCardTextTitle>고성의 맛집</StyledCardTextTitle>
-              <StyledCardTextContent>아이들과 함께 즐기기 좋은</StyledCardTextContent>
-              <StyledCardTextContent>맛집, 유아시설, 주차 등</StyledCardTextContent>
+              <StyledCardTextContent>아이들과 함께 즐기기 좋은 맛집,</StyledCardTextContent>
+              <StyledCardTextContent> 유아시설, 주차 등</StyledCardTextContent>
             </StyledCardTextBox>
           </StyledCardBoxContainer>
           <StyledCardBoxContainer2>
             <StyledCardTextBox>
               <StyledCardTextTitle2>관광지</StyledCardTextTitle2>
-              <StyledCardTextContent2>공룡엑스포만 보고 </StyledCardTextContent2>
-              <StyledCardTextContent2>돌아가기 아쉬울 </StyledCardTextContent2>
+              <StyledCardTextContent2>공룡엑스포만 보고 돌아가기 아쉬울</StyledCardTextContent2>
+
               <StyledCardTextContent2> 가족들을 위한 고성관광지 </StyledCardTextContent2>
             </StyledCardTextBox>
             <StyledCardBox color="#DEABAB">
@@ -64,8 +64,7 @@ const Tourism = () => {
             <StyledCardTextBox>
               <StyledCardTextTitle>숙박</StyledCardTextTitle>
               <StyledCardTextContent>아이들이랑 함께 자기 좋은 숙박시설!</StyledCardTextContent>
-              <StyledCardTextContent>키즈 풀빌라, 청결</StyledCardTextContent>
-              <StyledCardTextContent>모두 챙겨보세요</StyledCardTextContent>
+              <StyledCardTextContent>키즈 풀빌라, 청결 모두 챙겨보세요</StyledCardTextContent>
             </StyledCardTextBox>
           </StyledCardBoxContainer>
         </StyledCardContainer>

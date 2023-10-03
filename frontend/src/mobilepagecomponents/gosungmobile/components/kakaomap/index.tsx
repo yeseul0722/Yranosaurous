@@ -138,7 +138,7 @@ const GosungKakaoMapComponent = () => {
           onClick={handleOpen}
           image={{
             src: `${
-              (selectList === 'restaurant' && `${imageArray[restaurantDetail.category - 1]}.png`) ||
+              (selectList === 'restaurant' && `/gosung/${imageArray[restaurantDetail.category - 1]}.png`) ||
               (selectList === 'lodgment' && `/gosung/${lodgmentDetail.category}.png`) ||
               (selectList === 'tour' && `/gosung/${tourDetail.category}.png`)
             }`, // 마커이미지의 주소입니다

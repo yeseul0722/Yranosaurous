@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 const StyledContainer = styled.div`
   height: 100%;
-  margin-top: 15%;
+  margin-top: 17%;
 `;
 
 const StyledCarouselContainer = styled.div.attrs<any>((props) => ({}))`
