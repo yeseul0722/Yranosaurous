@@ -8,6 +8,7 @@ const StyledKoreasaurusPage = styled.div`
   flex-direction: column;
   padding: 3rem;
   position: relative;
+  overflow: hidden;
 `;
 
 const StyledKoreasaursTitleNum = styled.div`

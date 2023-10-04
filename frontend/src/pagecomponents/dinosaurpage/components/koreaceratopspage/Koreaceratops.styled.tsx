@@ -7,6 +7,7 @@ const StyledKoreaceratopsPage = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+  overflow: hidden;
 `;
 
 const StyledCeratopsTitleNum = styled.div`

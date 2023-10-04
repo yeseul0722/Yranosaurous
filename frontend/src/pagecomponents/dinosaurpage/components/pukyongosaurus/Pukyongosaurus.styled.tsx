@@ -8,6 +8,7 @@ const StyledpukyongsaurusPage = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+  overflow: hidden;
 `;
 
 const StyledPukyongTitleNum = styled.div`
