@@ -8,6 +8,7 @@ import {
   StyledTourismName,
   StyledTourismInfo,
   StyledTourismAd,
+  StyledTourismContent,
 } from './TourismDetail.styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
@@ -29,6 +30,7 @@ const GosungTourismDetail = () => {
           <StyledTourismAd>{tourismDetail.address}</StyledTourismAd>
         </StyledTourismAdContainer>
       </StyledTourismInfo>
+      <StyledTourismContent>{tourismDetail.content}</StyledTourismContent>
     </StyledTourismDetailContainer>
   );
 };
