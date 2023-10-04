@@ -19,7 +19,7 @@ const GosungComponent = () => {
   const isMobile = useMediaQuery({
     query: '(max-width: 768px)',
   });
-  const [showSideList, setShowSideList] = useState(false);
+  const { showSideList, setShowSideList } = useSideBarStore();
   const [showDetails, setShowDetails] = useState(false);
   const selectedCategory = useSideBarStore((state) => state.selectedCategory);
   console.log(showSideList, 'side');
