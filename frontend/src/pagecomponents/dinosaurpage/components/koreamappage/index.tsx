@@ -1,10 +1,7 @@
 import React, { useState, useRef } from 'react';
 import KoreaMap from '../koreamap';
-import BgDinosaur from '../../lottie/walkds.json';
 import Lottie from 'lottie-react';
 import koreanosaurus from '../../lottie/bluecircle.json';
-import koreaceratops from '../../lottie/bluecircle.json';
-import pukyongosaurus from '../../lottie/bluecircle.json';
 
 import {
   StyledKoreaMapPage,
@@ -18,32 +15,31 @@ import {
   StyledKoreaMApSelectContentBox,
   StyledKoreaMapSelectLottie,
   StyledKoreaMap,
-  StyledKoreaMapBackgroundLottie,
-  StyledDsPage,
-  StyledDsSelectNumBox,
   StyledDsPageContainer,
+  StyledDsSelectNumBox,
 } from './koreaMapPage.styled';
 import KoreasaurusPage from '../koreanosaurus';
 import KoreaceratopsPage from '../koreaceratopspage';
-import useDinosaurStore from '../../../../stores/dinosaur/useDinosaurStore';
 import PukyongsaurusPage from '../pukyongosaurus';
 
 const KoreaMapPage = () => {
   const [selectDsName, setSelectDsName] = useState();
   const [selectDsHover, setSelectDsHover] = useState();
 
-  // 공룡 이름 클릭시 해당 공룡 상세페이지로 이동
-  const goKoreaSaursInput = useRef<any>();
-  const goKoreaSaurs = () => {
-    goKoreaSaursInput.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // 클릭시 아래 컴포넌트 변경
+  const [selectShowDs, setSelectShowDs] = useState();
+  const goShowDsInput = useRef<any>();
+  const goKoreaInput = useRef<any>();
+
+  const selectShow = (e: any) => {
+    setSelectShowDs(e.target.id);
+    if (goShowDsInput.current) {
+      goShowDsInput.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
-  const goKoreaCeratopsInput = useRef<any>();
-  const goKoreaCeratops = () => {
-    goKoreaCeratopsInput.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-  const goPukyongInput = useRef<any>();
-  const goPukyong = () => {
-    goPukyongInput.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  const goKorea = () => {
+    goKoreaInput.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   const selectDs = (e: any) => {
@@ -52,7 +48,7 @@ const KoreaMapPage = () => {
   };
 
   return (
-    <StyledKoreaMapPage selectDsName={selectDsName}>
+    <StyledKoreaMapPage selectDsName={selectDsName} ref={goKoreaInput}>
       {/* 지도 1페이지 */}
       <StyledKoreaMapContent>
         <StyledKoreaMapTitleText>한국의 공룡</StyledKoreaMapTitleText>
@@ -62,7 +58,7 @@ const KoreaMapPage = () => {
 
         {/* 공룡 선택 */}
         {/* 보성 */}
-        <StyledKoreaMapSelect id="koreanosaurus" onMouseOver={selectDs} onClick={goKoreaSaurs}>
+        <StyledKoreaMapSelect id="koreanosaurus" onMouseOver={selectDs} onClick={selectShow}>
           <StyledKoreaMapSelectNumber id="koreanosaurus">01</StyledKoreaMapSelectNumber>
           <StyledKoreaMApSelectContentBox id="koreanosaurus">
             <StyledKoreaMapSelectTitle id="koreanosaurus">
@@ -73,7 +69,7 @@ const KoreaMapPage = () => {
         </StyledKoreaMapSelect>
 
         {/* 화성 */}
-        <StyledKoreaMapSelect id="koreaceratops" onMouseOver={selectDs} onClick={goKoreaCeratops}>
+        <StyledKoreaMapSelect id="koreaceratops" onMouseOver={selectDs} onClick={selectShow}>
           <StyledKoreaMapSelectNumber id="koreaceratops">02</StyledKoreaMapSelectNumber>
           <StyledKoreaMApSelectContentBox id="koreaceratops">
             <StyledKoreaMapSelectTitle id="koreaceratops">
@@ -84,7 +80,7 @@ const KoreaMapPage = () => {
         </StyledKoreaMapSelect>
 
         {/* 하동 */}
-        <StyledKoreaMapSelect id="pukyongosaurus" onMouseOver={selectDs} onClick={goPukyong}>
+        <StyledKoreaMapSelect id="pukyongosaurus" onMouseOver={selectDs} onClick={selectShow}>
           <StyledKoreaMapSelectNumber id="pukyongosaurus">03</StyledKoreaMapSelectNumber>
           <StyledKoreaMApSelectContentBox id="pukyongosaurus">
             <StyledKoreaMapSelectTitle id="pukyongosaurus">
@@ -103,22 +99,17 @@ const KoreaMapPage = () => {
         <Lottie animationData={koreanosaurus} loop autoplay />
       </StyledKoreaMapSelectLottie>
 
-      <StyledDsPageContainer>
-        {/* 2페이지 - 코리아노사우루스 */}
-        <StyledDsPage ref={goKoreaSaursInput}>
-          <KoreasaurusPage />
-        </StyledDsPage>
-
-        {/* 3페이지 - 코리아케라톱스 */}
-        <StyledDsPage ref={goKoreaCeratopsInput}>
-          <KoreaceratopsPage />
-        </StyledDsPage>
-
-        {/* 4페이지 - 부경고사우루스 */}
-        <StyledDsPage ref={goPukyongInput}>
-          <PukyongsaurusPage />
-        </StyledDsPage>
-      </StyledDsPageContainer>
+      {/* 공룡 상세페이지 */}
+      {selectShowDs && (
+        <StyledDsPageContainer ref={goShowDsInput}>
+          <StyledDsSelectNumBox id="koreanosaurus" onClick={goKorea}>
+            | 한국의 공룡
+          </StyledDsSelectNumBox>
+          {selectShowDs === 'koreanosaurus' && <KoreasaurusPage />}
+          {selectShowDs === 'koreaceratops' && <KoreaceratopsPage />}
+          {selectShowDs === 'pukyongosaurus' && <PukyongsaurusPage />}
+        </StyledDsPageContainer>
+      )}
     </StyledKoreaMapPage>
   );
 };
