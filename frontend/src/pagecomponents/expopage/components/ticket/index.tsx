@@ -13,6 +13,7 @@ import {
   StyledButtonBox,
 } from './Ticket.styled';
 import Button from '../../../../components/button';
+import { Link } from 'react-router-dom';
 const Ticket = () => {
   return (
     <StyledTicketContainer>
@@ -32,9 +33,11 @@ const Ticket = () => {
           <StyledPrice>성인 : 18000 소인 : 12000</StyledPrice>
         </StyledTicetInfoContainer>
         <StyledButtonContainer>
-          <StyledButtonBox>
-            <Button use="ticket" label="예매하기"></Button>
-          </StyledButtonBox>
+          <Link to="https://www.itfuntour.com/shop/list.php?ca_id=gn30" style={{ textDecoration: 'none' }}>
+            <StyledButtonBox>
+              <Button use="ticket" label="예매하기"></Button>
+            </StyledButtonBox>
+          </Link>
         </StyledButtonContainer>
       </StyledTicketRightContainer>
     </StyledTicketContainer>

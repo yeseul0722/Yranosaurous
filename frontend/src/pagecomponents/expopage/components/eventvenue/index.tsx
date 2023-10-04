@@ -15,7 +15,7 @@ const EventVenue = () => {
         <StyledBannerContent>소요 시간별 추천경로, 행사장 내 먹거리, 편의시설을 확인해보세요!</StyledBannerContent>
       </StyledLeftContainer>
       <StyledRightContainer>
-        <StyledBannerLink>행사장 안내 ➜</StyledBannerLink>
+        <StyledBannerLink href="/Guide">행사장 안내 ➜</StyledBannerLink>
       </StyledRightContainer>
     </StyledEVBannerContainer>
   );

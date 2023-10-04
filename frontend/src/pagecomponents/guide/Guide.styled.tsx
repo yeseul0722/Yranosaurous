@@ -42,6 +42,9 @@ const StyledCourceSelectContainer = styled.div.attrs<any>((props) => ({}))`
   border-bottom: 1px solid ${(props) => props.theme.colors.light};
   background-color: ${(props) => props.name === props.select && props.theme.colors.light};
   cursor: pointer;
+  &:hover {
+    background-color: ${(props) => props.theme.colors.light};
+  }
 `;
 const StyledCourceImageContainer = styled.div`
   margin-left: 20px;
@@ -85,6 +88,16 @@ const Test = styled.div`
     width: 0;
   }
 `;
+
+const StyledTimeContainer = styled.div`
+  background-color: ${(props) => props.theme.colors.light};
+  padding: 10px 0px;
+`;
+const StyledTime = styled.div`
+  font-family: ${(props) => props.theme.fonts.boldfont};
+  color: ${(props) => props.theme.colors.white};
+  font-size: 20px;
+`;
 export {
   StyledGuidePage,
   StyledMenuContainer,
@@ -98,4 +111,6 @@ export {
   StyledCourceSelectContainer2,
   StyledCourcePlace2,
   Test,
+  StyledTimeContainer,
+  StyledTime,
 };

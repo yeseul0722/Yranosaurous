@@ -22,6 +22,7 @@ const GuideMobile = () => {
   const openList = useMobileGuide((state: any) => state.openList);
   const setOpenList = useMobileGuide((state: any) => state.setOpenList);
   const resetOpenList = useMobileGuide((state: any) => state.resetOpenList);
+  const place = useGuideStore((state: any) => state.place);
   const Router = useNavigate();
   useEffect(() => {
     getCourcesList();
@@ -37,11 +38,11 @@ const GuideMobile = () => {
       </StyledHome>
       <StyledListContainer>
         <StyledListPositionContainer>
-          <StyledImgContainer onClick={() => setOpenList(!openList)}>
+          <StyledImgContainer onClick={() => setOpenList()}>
             <StyledImg />
           </StyledImgContainer>
           <StyledList>
-            <Button label="목록보기" use="list" onClick={() => setOpenList(!openList)}></Button>
+            <Button label="목록보기" use="list" onClick={() => setOpenList()}></Button>
           </StyledList>
         </StyledListPositionContainer>
         {openList && <List></List>}

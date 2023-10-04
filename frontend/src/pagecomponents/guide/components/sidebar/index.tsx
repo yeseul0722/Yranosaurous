@@ -27,7 +27,7 @@ const SideBarComponent = () => {
             Router('/Expo');
           }}
         >
-          <StyledMenuIcon name="home" src="/map/menuC.png"></StyledMenuIcon>
+          <StyledMenuIcon name="home" src="/gosung/dinosaur.png"></StyledMenuIcon>
         </StyledMenu>
         <StyledMenu name="cource" state={selectCategory} onClick={handelState}>
           <StyledMenuIcon name="cource" alt="menuB" src="/mobile/추천코스.png" state={selectCategory}></StyledMenuIcon>

@@ -6,6 +6,8 @@ import {
   StyledMenuContentContainer,
   StyledMenuTitle,
   Test,
+  StyledTimeContainer,
+  StyledTime,
 } from '../../Guide.styled';
 import {
   StyledCourceImage,
@@ -17,7 +19,7 @@ import { useCourceHook } from '../../../../hooks/guide/useCourceHook';
 import useGuideStore from '../../../../stores/guide/useGuideStore';
 
 const Cource = () => {
-  const { cource, courseOrderList } = useCourceHook();
+  const { courceList, cource, courseOrderList } = useCourceHook();
   const positions = useGuideStore((state: any) => state.positions);
   const imageArray = [
     'dino',
@@ -41,6 +43,11 @@ const Cource = () => {
   return (
     <StyledMenuContainer>
       <StyledMenuTitle>추천 코스</StyledMenuTitle>
+      {courseOrderList && (
+        <StyledTimeContainer>
+          <StyledTime>소요시간 : {cource[0]?.timeTaken}분</StyledTime>
+        </StyledTimeContainer>
+      )}
       <Test>
         {courseOrderList?.map((cource: any) => {
           return (

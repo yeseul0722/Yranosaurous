@@ -36,13 +36,14 @@ const StyledBannerContent = styled.div`
   font-size: 15px;
 `;
 
-const StyledBannerLink = styled.div`
+const StyledBannerLink = styled.a`
   font-family: ${(props) => props.theme.fonts.boldfont};
   color: ${(props) => props.theme.colors.white};
   font-size: 36px;
   border-bottom: 2px ${(props) => props.theme.colors.white} solid;
   cursor: pointer;
   padding-bottom: 5px;
+  text-decoration: none;
 `;
 export {
   StyledEVBannerContainer,
