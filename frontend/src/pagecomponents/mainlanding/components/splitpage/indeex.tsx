@@ -27,7 +27,7 @@ const SplitPage = () => {
           세계공룡들의 위치와 정보, 그리고 한국의 공룡 이야기까지
         </StyledContent>
         <StyledGoDinosaurButton>
-          <Link to="/dinosaur" style={{ textDecoration: 'none', color: '#F3F8F8' }}>
+          <Link to="/Dinosaur" style={{ textDecoration: 'none', color: '#F3F8F8' }}>
             이론편으로 이동하기
           </Link>
         </StyledGoDinosaurButton>
@@ -39,7 +39,7 @@ const SplitPage = () => {
           2023 경남고성공룡세계엑스포부터 고성 곳곳의 정보도 얻어보세요
         </StyledContent>
         <StyledGoExpoButton>
-          <Link to="/expo" style={{ textDecoration: 'none', color: '#F3F8F8' }}>
+          <Link to="/Expo" style={{ textDecoration: 'none', color: '#F3F8F8' }}>
             실전편으로 이동하기
           </Link>
         </StyledGoExpoButton>

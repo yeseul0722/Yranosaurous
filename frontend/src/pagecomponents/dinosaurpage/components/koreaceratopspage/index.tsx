@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import Lottie from 'lottie-react';
 import DottedLine from '../../lottie/dottedLine.json';
 import circle from '../../lottie/dsCircle.json';
@@ -20,6 +19,7 @@ import {
   StyledCeratopsLengthText,
   StyledCeratopsLottieWeight,
   StyledCeratopsWeightText,
+  StyledCeratopsTitleNum,
 } from './Koreaceratops.styled';
 
 const KoreaceratopsPage = () => {
@@ -29,6 +29,7 @@ const KoreaceratopsPage = () => {
   return (
     <StyledKoreaceratopsPage>
       {/* absolute */}
+      <StyledCeratopsTitleNum>02</StyledCeratopsTitleNum>
       <StyledCeratopsImage1 src="/dinosaur/koDs/ceratops.png" alt="image1"></StyledCeratopsImage1>
       <StyledCeratopsLottieLength>
         <Lottie animationData={DottedLine} loop autoplay />
