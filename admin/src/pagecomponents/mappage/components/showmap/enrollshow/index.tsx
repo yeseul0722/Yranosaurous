@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import Button from '../../../../components/button';
-import { EnrollShowPropsType } from '../../Map.type';
-import { StyledBox, StyledFestivalList, StyledSubTitle } from './EnrollShow.styled';
-import Input from '../../../../components/input';
+import enrollShowPost from '../../../../../apis/show/enrollShowPost';
+import Button from '../../../../../components/button';
+import Input from '../../../../../components/input';
+import { useRefreshCoursesStore } from '../../../../../stores/course/useRefreshCourseStore';
+import { EnrollShowPropsType } from '../../../Map.type';
 import FestivalInfo from '../festivalinfo';
-import enrollShowPost from '../../../../apis/show/enrollShowPost';
-import { useRefreshCoursesStore } from '../../../../stores/course/useRefreshCourseStore';
+import { StyledSubTitle, StyledBox, StyledFestivalList } from './EnrollShow.styled';
 
 const EnrollShow = ({ place, festivals, resetPlace }: EnrollShowPropsType & { resetPlace: () => void }) => {
   const [input, setInput] = useState<{ name: string; date: string; time: string } | null>(null);

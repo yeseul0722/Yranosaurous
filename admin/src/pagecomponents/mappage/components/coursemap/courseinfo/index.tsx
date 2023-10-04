@@ -1,5 +1,5 @@
 import { StyledBox, StyledSubTitle } from './CourseInfo.styled';
-import useCourseStore from '../../../../stores/course/useCourseStore';
+import useCourseStore from '../../../../../stores/course/useCourseStore';
 
 const CourseInfo = () => {
   const { selectedCourse } = useCourseStore();
