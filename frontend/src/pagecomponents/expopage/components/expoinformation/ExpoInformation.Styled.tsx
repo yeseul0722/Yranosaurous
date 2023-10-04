@@ -6,6 +6,7 @@ const StyledExpoInfoPage = styled.div`
   margin-right: auto;
   gap: 15px;
   width: 1120px;
+  margin-top: 150px;
 `;
 
 const StyledExpoInfoContainer = styled.div`
