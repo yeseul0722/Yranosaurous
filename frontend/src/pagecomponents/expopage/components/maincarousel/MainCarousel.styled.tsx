@@ -2,25 +2,19 @@ import styled, { css } from 'styled-components';
 
 const StyledCarouselContainer = styled.div.attrs<any>((props) => ({}))`
   width: 1120px;
-  position: relative;
-  top: 90px;
+  height: 600px;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 30px;
-
   overflow: hidden;
+  border-radius: 30px;
   .slick-dots {
     position: absolute;
-    bottom: 20%;
-
+    bottom: 15%;
     display: block;
-
     width: 100%;
     padding: 0;
     margin: 0;
-
     list-style: none;
-
     text-align: center;
   }
   .slick-dots li {
@@ -31,8 +25,6 @@ const StyledCarouselContainer = styled.div.attrs<any>((props) => ({}))`
     width: 20px;
     height: 20px;
     margin: 0 20px;
-    padding: 0;
-
     cursor: pointer;
   }
   .slick-dots li button {
@@ -97,10 +89,10 @@ const StyledExpoMainPosterContainer = styled.div.attrs<any>((props) => ({}))`
       'expo_main_pic/ExpoMain4.png',
     ];
     return css`
-      height: 600px;
-      width: 100%;
+      height: 545px;
       background-image: url(${ImageUrls[props.image]});
       background-size: cover;
+      border-radius: 30px;
     `;
   }}
 `;
@@ -114,7 +106,7 @@ const StyledExpoMainPoster = styled.div.attrs<any>((props) => ({}))`
 const StyledExpoInfo = styled.div.attrs<any>((props) => ({}))`
   color: ${(props) => props.theme.colors.white};
   font-family: ${(props) => props.theme.fonts.boldfont};
-  font-size: 75px;
+  font-size: 55px;
 `;
 const StyledExpoMainPoster2 = styled.div.attrs<any>((props) => ({}))`
   display: flex;
@@ -125,7 +117,7 @@ const StyledExpoMainPoster2 = styled.div.attrs<any>((props) => ({}))`
 const StyledExpoInfo2 = styled.div.attrs<any>((props) => ({}))`
   color: ${(props) => props.theme.colors.white};
   font-family: ${(props) => props.theme.fonts.boldfont};
-  font-size: 50px;
+  font-size: 40px;
 `;
 
 const StyledExpoInfo3 = styled.div.attrs<any>((props) => ({}))`
