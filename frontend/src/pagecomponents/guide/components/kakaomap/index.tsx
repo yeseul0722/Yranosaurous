@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Map, MapMarker, Polygon } from 'react-kakao-maps-sdk';
-import { StyledKakaoMapContainer } from './KakaoMap.styled';
+import { StyledKakaoMapContainer, StyledPostionContainer, StyledOnPositionImg } from './KakaoMap.styled';
 import useGuideStore from '../../../../stores/guide/useGuideStore';
 import PlaceModal from '../placemodal';
 const GosungKakaoMapComponent = () => {
@@ -33,6 +33,47 @@ const GosungKakaoMapComponent = () => {
     'drawing',
     'bridge',
   ];
+  const [myPosition, setMyposition] = useState(false);
+  const [state, setState] = useState({
+    center: {
+      lat: 33.450701,
+      lng: 126.570667,
+    },
+    errMsg: null,
+    isLoading: true,
+  });
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setState((prev: any) => ({
+            ...prev,
+            center: {
+              lat: position.coords.latitude, // 위도
+              lng: position.coords.longitude, // 경도
+            },
+            isLoading: false,
+          }));
+        },
+        (err) => {
+          setState((prev: any) => ({
+            ...prev,
+            errMsg: err.message,
+            isLoading: false,
+          }));
+        },
+      );
+    } else {
+      // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+      setState((prev: any) => ({
+        ...prev,
+        errMsg: 'geolocation을 사용할수 없어요..',
+        isLoading: false,
+      }));
+    }
+  }, []);
 
   useEffect(() => {
     setIsOpen(false);
@@ -116,7 +157,22 @@ const GosungKakaoMapComponent = () => {
         <PlaceModal place={place} handleOpen={handleOpen}></PlaceModal>
       )}
       {selectCategory === 'cource' && isOpen && null}
-      {/* 이미지 여기에 모달로 넣기 */}
+      {/* 내 위치 찍기  */}
+      {myPosition && !state.isLoading && (
+        <MapMarker
+          position={state.center}
+          image={{
+            src: '/map/pinds.png', // 마커이미지의 주소입니다
+            size: {
+              width: 50,
+              height: 50,
+            }, // 마커이미지의 크기입니다
+          }}
+        ></MapMarker>
+      )}
+      <StyledPostionContainer onClick={() => setMyposition(!myPosition)}>
+        <StyledOnPositionImg myposition={myPosition}></StyledOnPositionImg>
+      </StyledPostionContainer>
     </Map>
   );
 };
