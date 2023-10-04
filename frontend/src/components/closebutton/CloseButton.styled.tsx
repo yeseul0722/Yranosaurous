@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledCloseButton = styled.div`
-  background-color: white;
+  background-color: ${(props) => props.theme.colors.white};
   width: 30px;
   height: 60px;
   border: 1px solid lightgray;

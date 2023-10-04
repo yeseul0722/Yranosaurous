@@ -7,12 +7,16 @@ const StyledTourismDetailContainer = styled.div`
   z-index: 5;
   background-color: ${(props) => props.theme.colors.white};
   flex-direction: column;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const StyledTourismImgWrap = styled.div`
   width: 100%;
   height: 220px;
-  overflow: hidden;
+  object-fit: cover;
   margin-bottom: 15px;
 `;
 
@@ -51,6 +55,16 @@ const StyledTourismAd = styled.div`
   margin-left: 10px;
 `;
 
+const StyledTourismContent = styled.div`
+  border: 5px solid ${(props) => props.theme.colors.light};
+  background-color: ${(props) => props.theme.colors.main};
+  border-radius: 10px;
+  font-family: ${(props) => props.theme.fonts.regularfont};
+  color: ${(props) => props.theme.colors.white};
+  margin: 5px;
+  padding: 10px;
+`;
+
 export {
   StyledTourismAd,
   StyledTourismAdContainer,
@@ -59,4 +73,5 @@ export {
   StyledTourismImgWrap,
   StyledTourismInfo,
   StyledTourismName,
+  StyledTourismContent,
 };
