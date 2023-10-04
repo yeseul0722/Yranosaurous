@@ -1,4 +1,4 @@
-import Main1 from './components/maincarousel';
+import Main1 from './components/main1';
 import ExpoInformation from './components/expoinformation';
 import EventVenue from './components/eventvenue';
 import Ticket from './components/ticket';
@@ -17,7 +17,7 @@ const ExpoPageComponent = () => {
       {!isMobile ? (
         <div>
           <NavBar></NavBar>
-          <div style={{ paddingTop: '70px' }}>
+          <div style={{ paddingTop: '60px' }}>
             <Main1></Main1>
             <ExpoInformation></ExpoInformation>
             <EventVenue></EventVenue>
