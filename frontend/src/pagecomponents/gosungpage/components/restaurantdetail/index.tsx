@@ -14,6 +14,8 @@ import {
   StyledRestauranthashtags,
   Styledhashtag,
   StyledRestaurantAdContainer,
+  StyledMenuContainer,
+  StyledReviewContainer,
 } from './RestaurantDetail.styled';
 import GosungRestaurantMenu from '../restaurantmenu';
 import HashtagListGet from '../../../../apis/gosung/hashtagListGet';
@@ -52,8 +54,12 @@ const GosungRestaurantDetail = () => {
           <Rating name="read-only" value={restaurantDetail.rating} readOnly /> {restaurantDetail.rating}
         </StyledRating>
       </StyledRestaurantInfo>
-      <GosungRestaurantMenu restaurantDetail={restaurantDetail} />
-      {/* <GosungRestaurantReview restaurantDetail={restaurantDetail} /> */}
+      <StyledMenuContainer>
+        <GosungRestaurantMenu restaurantDetail={restaurantDetail} />
+      </StyledMenuContainer>
+      <StyledReviewContainer>
+        <GosungRestaurantReview restaurantDetail={restaurantDetail} />
+      </StyledReviewContainer>
     </StyledRestaurantDetailContainer>
   );
 };
