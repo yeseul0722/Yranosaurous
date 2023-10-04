@@ -18,6 +18,7 @@ import LandingPage from './components/landingpage';
 import KoreaDsPage from './components/koreadspage';
 import KoreaMapPage from './components/koreamappage';
 import { useNavigate } from 'react-router-dom';
+import KoreaceratopsPage from './components/koreaceratopspage';
 
 const Dinosaur = () => {
   const inputForm = useRef<any>();
@@ -36,10 +37,6 @@ const Dinosaur = () => {
       <StyledGoGosung src="/dinosaur/dinosaur.png" alt="" onClick={goGosung} />
 
       <StyledDsContent>
-        {/* <StyledDsLandingPage>
-          <LandingPage></LandingPage>
-          <StyledLandingGoNextPageButton onClick={landingToNext}>입장하기</StyledLandingGoNextPageButton>
-        </StyledDsLandingPage> */}
         <StyledDsFirstPage ref={inputForm}>
           <DsFirstPage></DsFirstPage>
         </StyledDsFirstPage>
@@ -49,6 +46,9 @@ const Dinosaur = () => {
         <StyledKoreaMapPage>
           <KoreaMapPage></KoreaMapPage>
         </StyledKoreaMapPage>
+        {/* <StyledKoreaceratopsPage>
+          <KoreaceratopsPage />
+        </StyledKoreaceratopsPage> */}
       </StyledDsContent>
     </StyledDsPage>
   );
