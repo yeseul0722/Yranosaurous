@@ -8,6 +8,7 @@ import EventVenue from './components/eventvenue';
 import Ticket from './components/ticket';
 import Tourism from './components/tourism';
 import Performance from './components/performance';
+import MainTitle from './components/maintitle';
 const ExpoMobile = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -17,6 +18,7 @@ const ExpoMobile = () => {
   return (
     <StyledExpoMobilePage>
       <NavbarComponent handleSideBar={handleSideBar}></NavbarComponent>
+      <MainTitle></MainTitle>
       <MobileCarousel></MobileCarousel>
       <ExpoInformation></ExpoInformation>
       <EventVenue></EventVenue>

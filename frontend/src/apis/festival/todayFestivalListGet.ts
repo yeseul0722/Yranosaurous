@@ -4,7 +4,7 @@ const TodayFestivalListGet = async (date: any) => {
   try {
     const response = await api({
       method: 'get',
-      url: `/festival/2023-09-30`,
+      url: `/festival/${date}`,
     });
     return response;
   } catch (error) {
