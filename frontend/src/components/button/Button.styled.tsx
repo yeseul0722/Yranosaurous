@@ -7,14 +7,16 @@ const StyledButton = styled.button.attrs<ButtonStyles>((props) => ({}))`
     const main = props.theme.colors.main;
     const white = props.theme.colors.white;
     const font = props.theme.fonts.regularfont;
+    const boldfont = props.theme.fonts.boldfont;
     const UseStlye: any = {
       basic: `
             
         `,
       ticket: `
+            font-family:${boldfont};
             border-radius : 48px;
-            background-color : ${main};
-            color : ${white};
+            background-color : ${white};
+            color : ${main};
             font-size : 24px;
             padding : 10px;
         `,
