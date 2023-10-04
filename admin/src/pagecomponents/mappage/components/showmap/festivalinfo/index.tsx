@@ -1,6 +1,6 @@
-import showDelete from '../../../../apis/show/showDelete';
-import Button from '../../../../components/button';
-import { useRefreshCoursesStore } from '../../../../stores/course/useRefreshCourseStore';
+import showDelete from '../../../../../apis/show/showDelete';
+import Button from '../../../../../components/button';
+import { useRefreshCoursesStore } from '../../../../../stores/course/useRefreshCourseStore';
 import { StyledBox, StyledShowText, StyledShowTitle, StyledTimeContainer } from './Festivalinfo.styled';
 
 const FestivalInfo = ({ festival, onFestivalDelete }: any) => {
