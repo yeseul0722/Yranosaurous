@@ -1,4 +1,4 @@
-import { useCategoryStore } from '../../../../stores/useCategoryStore';
+import { useCategoryStore } from '../../../../stores/category/useCategoryStore';
 import EnrollCourse from '../enrollcourse';
 import Enrollplace from '../enrollplace';
 import EnrollShow from '../enrollshow';
