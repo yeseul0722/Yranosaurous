@@ -1,4 +1,15 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
+
+const slideUp = keyframes`
+    0% {
+        transform: translateY(70%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+`;
 
 const StyledMainCard = styled.div.attrs<any>((props) => ({}))`
   ${(props) => {
@@ -23,6 +34,15 @@ const StyledMainCard = styled.div.attrs<any>((props) => ({}))`
       justify-content: center;
       margin-top: ${margin};
       gap: 10px;
+
+      transform: translateY(100%);
+      opacity: 0;
+
+      ${props.showAnimation === 'true' &&
+      css`
+        animation: ${slideUp} 0.8s forwards;
+        animation-delay: ${props.num * 0.2}s;
+      `}
     `;
   }}
 `;
