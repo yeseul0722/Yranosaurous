@@ -20,10 +20,8 @@ const ExpoPageComponent = () => {
           <div style={{ paddingTop: '60px' }}>
             <Main1></Main1>
             <Performance></Performance>
-            <ExpoInformation></ExpoInformation>
-            <EventVenue></EventVenue>
             <Ticket></Ticket>
-            <Tourism></Tourism>
+            {/* <Tourism></Tourism> */}
           </div>
           <div style={{ height: '1px' }}></div>
         </div>
