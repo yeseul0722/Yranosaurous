@@ -1,5 +1,13 @@
 import Carousel from '../carousel';
-import { StyledMainContainer, StyledTitle, StyledTitleBox, StyledText, StyledEnglish } from './Main1.styled';
+import MainCard from '../maincard';
+import {
+  StyledMainContainer,
+  StyledTitle,
+  StyledTitleBox,
+  StyledText,
+  StyledEnglish,
+  StyledCardBox,
+} from './Main1.styled';
 
 const Main1 = () => {
   return (
@@ -25,6 +33,19 @@ const Main1 = () => {
           <StyledEnglish>Gyeongnam Goseong Dinosaur World Expo 2023</StyledEnglish>
         </div>
       </div>
+
+      <StyledCardBox>
+        <MainCard title="| 일정" num="1">
+          <div>2023.09.22(금) ~ 2023.10.29(일)</div>
+        </MainCard>
+        <MainCard title="| 장소" num="2">
+          <div>경남 고성군 회화면 당항포관광지</div>
+        </MainCard>
+        <MainCard title="| 개장 시간" num="3">
+          <div>월~목 (09:00 ~ 18:00)</div>
+          <div>금~토 (09:00 ~ 22:00)</div>
+        </MainCard>
+      </StyledCardBox>
     </StyledMainContainer>
   );
 };

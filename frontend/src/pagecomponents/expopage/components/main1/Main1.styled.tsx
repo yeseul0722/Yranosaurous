@@ -26,6 +26,17 @@ const StyledTitleBox = styled.div.attrs<any>((props) => ({}))`
     `;
   }}
 `;
+const StyledCardBox = styled.div.attrs<any>((props) => ({}))`
+  ${(props) => {
+    return css`
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+      padding-bottom: 80px;
+    `;
+  }}
+`;
 
 const StyledTitle = styled.div.attrs<any>((props) => ({}))`
   ${(props) => {
@@ -66,4 +77,4 @@ const StyledEnglish = styled.div.attrs<any>((props) => ({}))`
   }}
 `;
 
-export { StyledMainContainer, StyledTitle, StyledTitleBox, StyledText, StyledEnglish };
+export { StyledMainContainer, StyledCardBox, StyledTitle, StyledTitleBox, StyledText, StyledEnglish };
