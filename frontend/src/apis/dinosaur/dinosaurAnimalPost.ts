@@ -1,7 +1,6 @@
 import api from '../api';
 
 const DinosaurAnimalpost = async (country: any, higherClass: any) => {
-  console.log(country, higherClass);
   try {
     const response = await api({
       method: 'post',
@@ -11,7 +10,6 @@ const DinosaurAnimalpost = async (country: any, higherClass: any) => {
         higherClass: higherClass,
       },
     });
-    console.log(response);
     return response;
   } catch (error) {
     throw error;
