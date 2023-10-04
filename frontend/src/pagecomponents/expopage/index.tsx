@@ -1,4 +1,4 @@
-import Carousel from './components/maincarousel';
+import Main1 from './components/maincarousel';
 import ExpoInformation from './components/expoinformation';
 import EventVenue from './components/eventvenue';
 import Ticket from './components/ticket';
@@ -15,16 +15,18 @@ const ExpoPageComponent = () => {
   return (
     <>
       {!isMobile ? (
-        <StyledExpoPageContainer>
+        <div>
           <NavBar></NavBar>
-          <Carousel></Carousel>
-          <ExpoInformation></ExpoInformation>
-          <EventVenue></EventVenue>
-          <Ticket></Ticket>
-          <Tourism></Tourism>
-          <Performance></Performance>
+          <div style={{ paddingTop: '70px' }}>
+            <Main1></Main1>
+            <ExpoInformation></ExpoInformation>
+            <EventVenue></EventVenue>
+            <Ticket></Ticket>
+            <Tourism></Tourism>
+            <Performance></Performance>
+          </div>
           <div style={{ height: '1px' }}></div>
-        </StyledExpoPageContainer>
+        </div>
       ) : (
         <ExpoMobile></ExpoMobile>
       )}
