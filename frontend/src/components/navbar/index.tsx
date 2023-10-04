@@ -23,8 +23,8 @@ const NavBarComponent = () => {
   return (
     <StyledNavBar>
       <StyledLogoContainer>
-        <StyledLogo src="/Logo.png" alt="Logo" />
-        <StyledName>와이라노사우르스</StyledName>
+        <StyledLogo src="/mobile/mainlogo.png" alt="Logo" />
+        {/* <StyledName>와이라노사우르스</StyledName> */}
       </StyledLogoContainer>
       <StyledEndComponent>
         <StyledLinkText

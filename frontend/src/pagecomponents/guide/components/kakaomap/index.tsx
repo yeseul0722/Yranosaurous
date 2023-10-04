@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Map, MapMarker } from 'react-kakao-maps-sdk';
+import { Map, MapMarker, Polygon } from 'react-kakao-maps-sdk';
 import { StyledKakaoMapContainer } from './KakaoMap.styled';
 import useGuideStore from '../../../../stores/guide/useGuideStore';
 import PlaceModal from '../placemodal';
@@ -11,6 +11,10 @@ const GosungKakaoMapComponent = () => {
   const [longitude, setLongitude] = useState(1);
   const [isOpen, setIsOpen] = useState(false);
   const [positionImgUrl, setPositionImgUrl] = useState();
+  const polygonPosition = positions.map((position: any) => {
+    return position.latlng;
+  });
+
   const imageArray = [
     'dino',
     '3d',
@@ -29,6 +33,7 @@ const GosungKakaoMapComponent = () => {
     'drawing',
     'bridge',
   ];
+
   useEffect(() => {
     setIsOpen(false);
   }, [selectCategory, place]);
@@ -45,21 +50,21 @@ const GosungKakaoMapComponent = () => {
     }
   }, [place]);
 
-  // useEffect(() => {
-  //   console.log(positions);
-  // }, [positions]);
+  useEffect(() => {
+    console.log(positions);
+  }, [positions]);
   return (
     <Map
       id="map"
       center={{
-        lat: 35.057175,
-        lng: 128.3975,
+        lat: 35.058175,
+        lng: 128.399,
       }}
       style={{
         width: '100%',
         height: '100vh',
       }}
-      level={4}
+      level={3}
     >
       {(selectCategory === 'facility' || selectCategory === 'preview') && (
         <MapMarker // 마커를 생성합니다
@@ -96,6 +101,17 @@ const GosungKakaoMapComponent = () => {
             title={position.title} // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
           />
         ))}
+      {selectCategory === 'cource' && (
+        <Polygon
+          path={polygonPosition}
+          strokeWeight={3} // 선의 두께입니다
+          strokeColor={'#599198'} // 선의 색깔입니다
+          strokeOpacity={0.8} // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+          strokeStyle={'longdash'} // 선의 스타일입니다
+          fillColor={'#599198'} // 채우기 색깔입니다
+          fillOpacity={0.3} // 채우기 불투명도 입니다
+        />
+      )}
       {(selectCategory === 'facility' || selectCategory === 'preview') && isOpen && (
         <PlaceModal place={place} handleOpen={handleOpen}></PlaceModal>
       )}

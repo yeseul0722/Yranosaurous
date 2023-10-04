@@ -119,7 +119,7 @@ const StyledGOsungContainer = styled.div`
   justify-content: flex-end;
 `;
 
-const StyledGosung = styled.div`
+const StyledGosung = styled.a`
   font-family: ${(props) => props.theme.fonts.boldfont};
   /* font-size: 20px; */
   color: ${(props) => props.theme.colors.white};
@@ -127,6 +127,7 @@ const StyledGosung = styled.div`
   margin-top: 10px;
   padding-bottom: 5px;
   cursor: pointer;
+  text-decoration: none;
 `;
 const StyledBannerTitleContainer = styled.div`
   width: 100%;

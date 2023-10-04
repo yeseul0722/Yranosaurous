@@ -19,7 +19,11 @@ const StyledMenu = styled.div.attrs<any>((props) => ({}))`
   border-bottom: 0.5px solid ${(props) => props.theme.colors.main};
   gap: 5px;
   background-color: ${(props) => (props.name === props.state ? props.theme.colors.light : 'white')};
+  /* background-color: ${(props) => (props.name === props.hover ? props.theme.colors.light : 'white')}; */
   cursor: pointer;
+  &:hover {
+    background-color: ${(props) => props.theme.colors.light};
+  }
 `;
 
 const StyledMenuIcon = styled.img.attrs<any>((props) => ({

@@ -5,7 +5,7 @@ const StyledTicketContainer = styled.div`
   width: 90%;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
+  margin: 20px 0px;
   margin-left: auto;
   margin-right: auto;
   border: 3px solid ${(props) => props.theme.colors.white};

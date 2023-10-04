@@ -13,8 +13,8 @@ import useGuideStore from '../../../../stores/guide/useGuideStore';
 
 const MobileFacility = () => {
   const { place, placesList, getPlacesList, handlePlace } = usePlacesListHook();
-  const setOpenList = useMobileGuide((state: any) => state.setOpenList);
   const selectPlace = useGuideStore((state: any) => state.selectPlace);
+  const setOpenList = useMobileGuide((state: any) => state.setOpenList);
   const imageArray = [
     'dino',
     '3d',
@@ -38,11 +38,9 @@ const MobileFacility = () => {
   }, []);
   const onClick = (place: any) => {
     handlePlace(place);
-  };
-  useEffect(() => {
     setOpenList();
-    console.log(place);
-  }, [place]);
+  };
+
   return (
     <div style={{ maxHeight: '50vh', overflow: 'scroll' }}>
       {placesList.map((place: any) => {

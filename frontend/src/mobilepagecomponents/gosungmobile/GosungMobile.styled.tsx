@@ -51,7 +51,7 @@ const StyledHome = styled.div`
   height: 50px;
 `;
 const StyledHomeImg = styled.img.attrs<any>((props) => ({
-  src: '/map/menuC.png',
+  src: '/gosung/dinosaur.png',
 }))`
   width: 100%;
   height: 100%;
