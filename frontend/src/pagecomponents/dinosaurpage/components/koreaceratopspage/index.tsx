@@ -78,7 +78,7 @@ const KoreaceratopsPage = () => {
           </StyledCeratopsSummary>
         </StyledCeratopsSecondContent>
         <StyledCeratopsSizeImgContainer onMouseOver={changeImg}>
-          <StyledCeratopsSizeImage1 src="/dinosaur/koDs/ceratopsSize2.png" alt="sizeImage1" />
+          {/* <StyledCeratopsSizeImage1 src="/dinosaur/koDs/ceratopsSize2.png" alt="sizeImage1" /> */}
           <StyledCeratopsSizeImage1 src="/dinosaur/koDs/ceratopsSize.png" alt="sizeImage1" />
         </StyledCeratopsSizeImgContainer>
       </StyledCeratopsSizeContainer>
