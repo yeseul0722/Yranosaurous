@@ -1,79 +1,40 @@
-import React, { useEffect } from 'react';
 import {
   StyledPerformanceContainer,
-  StyledNavContainer,
-  StyledNav,
-  StyledPerformanceContentContainer,
-  StyeldPerformanceContent,
-  StyledPerformanceInfo,
-  StyledText,
-  StyledTitle,
-  StyledContent,
+  StyledPerformance,
   StyledMapContainer,
-  StyledTable,
-  StyledTableHead,
-  CustomTableRow,
-  StyledContentContainer,
+  StyledText,
+  StyledLine,
 } from './Performacne.styled';
-import PerformanceCarousel from '../performancecarousel';
-import { useTodayFestivalHook } from '../../../../hooks/festival/useTodayFestivalHook';
-import useGuideStore from '../../../../stores/guide/useGuideStore';
 import Map from '../kakaomap';
+import FestivalTable from '../festivaltable';
 const Performance = () => {
-  const { todayFestivalList, getTodayFestivalList, handleFestival } = useTodayFestivalHook();
-  const festival = useGuideStore((state: any) => state.festival);
-  const festivalID = useGuideStore((state: any) => state.festivalID);
-  useEffect(() => {
-    getTodayFestivalList();
-  }, []);
-
-  useEffect(() => {
-    console.log(festival);
-  }, [festival]);
-
   return (
     <StyledPerformanceContainer>
-      <StyledNavContainer>
-        <StyledNav>엑스포 공연 안내</StyledNav>
-      </StyledNavContainer>
-      <StyledPerformanceContentContainer>
-        <StyeldPerformanceContent>
-          <StyledPerformanceInfo>
-            <StyledText>오늘의 공연</StyledText>
-            <StyledTable>
-              <StyledTableHead>
-                <CustomTableRow>
-                  <StyledTitle>시간</StyledTitle>
-                  <StyledTitle>공연명</StyledTitle>
-                  <StyledTitle>공연장소</StyledTitle>
-                </CustomTableRow>
-              </StyledTableHead>
-              <StyledContentContainer>
-                {todayFestivalList?.map((festival: any) => {
-                  const dateTime = new Date(festival.startTime);
-                  const timeString = dateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-                  return (
-                    <CustomTableRow onClick={() => handleFestival(festival)} key={festival.id}>
-                      <StyledContent festivalID={festivalID} id={festival.id}>
-                        {timeString}
-                      </StyledContent>
-                      <StyledContent festivalID={festivalID} id={festival.id}>
-                        {festival.name}
-                      </StyledContent>
-                      <StyledContent festivalID={festivalID} id={festival.id}>
-                        {festival.placeName}
-                      </StyledContent>
-                    </CustomTableRow>
-                  );
-                })}
-              </StyledContentContainer>
-            </StyledTable>
-          </StyledPerformanceInfo>
-        </StyeldPerformanceContent>
-        <StyledMapContainer>
-          <Map></Map>
-        </StyledMapContainer>
-      </StyledPerformanceContentContainer>
+      <StyledPerformance>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <div style={{ textAlign: 'left' }}>
+            <StyledText size="43px">행사장 안내</StyledText>
+            <StyledText size="20px">소요 시간별 추천경로, 행사장 내 먹거리, 편의시설을 확인해보세요!</StyledText>
+          </div>
+          <a href="/Guide">
+            <StyledText size="24px">행사장 안내 ➜</StyledText>
+            <StyledLine />
+            <StyledLine />
+          </a>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <img src="/mobile/char4.png" style={{ height: '60px' }} />
+              <StyledText size="38px">오늘의 공연</StyledText>
+            </div>
+            <FestivalTable />
+          </div>
+          <StyledMapContainer>
+            <Map></Map>
+          </StyledMapContainer>
+        </div>
+      </StyledPerformance>
     </StyledPerformanceContainer>
   );
 };
