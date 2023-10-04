@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledReview, StyledReviewContainer, StyledReviewText } from './RestaurantReview.styled';
+import { StyledLink, StyledReview, StyledReviewContainer, StyledReviewText } from './RestaurantReview.styled';
 
 interface GosungRestaurantDetailProps {
   restaurantDetail: { reviewResponseList: any[] };
@@ -11,7 +11,9 @@ const GosungRestaurantReview = ({ restaurantDetail }: GosungRestaurantDetailProp
       <StyledReviewText>Review</StyledReviewText>
       {restaurantDetail.reviewResponseList &&
         restaurantDetail.reviewResponseList.map((review: any) => (
-          <StyledReview key={review.id}>{review.title}</StyledReview>
+          <StyledLink href={review.reviewAddress} target="_blank" rel="noreferrer" key={review.id}>
+            <StyledReview>{review.title}</StyledReview>
+          </StyledLink>
         ))}
     </StyledReviewContainer>
   );
