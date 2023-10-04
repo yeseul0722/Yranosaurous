@@ -18,7 +18,7 @@ const StyledKoreaMapPage = styled.div.attrs<any>((props) => ({}))`
       `,
     };
     return css`
-      height: 100%;
+      height: auto;
       background-color: ${(props) => props.theme.colors.night};
       display: flex;
       flex-direction: column;
