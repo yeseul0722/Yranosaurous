@@ -3,7 +3,7 @@ import SplitPage from './components/splitpage/indeex';
 import LandingExpo from './components/landingexpo';
 import LandingDinosaur from './components/landingdinosaur';
 import LandingStart from './components/landingstart';
-import { StyledMainLanding, StyledMainLandingPage } from './MainLanding.styled';
+import { StyledMainLanding, StyledMainLandingPage } from './mainLanding.styled';
 
 const MainLanding = () => {
   const landingExpoRef = useRef<any>();
