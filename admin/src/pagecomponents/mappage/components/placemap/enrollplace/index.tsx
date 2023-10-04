@@ -1,8 +1,8 @@
-import Button from '../../../../components/button';
-import Input from '../../../../components/input';
+import Button from '../../../../../components/button';
+import Input from '../../../../../components/input';
 import { StyledSubTitle, StyledBox, StyledTextarea, StyledFileInputLabel, HiddenFileInput } from './Enrollplace.styled';
-import usePlaceHook from '../../../../hooks/usePlaceHook';
-import { useHandlePlaceHook } from '../../../../hooks/useHandlePlaceHook';
+import usePlaceHook from '../../../../../hooks/usePlaceHook';
+import { useHandlePlaceHook } from '../../../../../hooks/useHandlePlaceHook';
 import { EnrollPlacePropsType } from './Enrollplace.type';
 
 const Enrollplace = ({ place, use }: EnrollPlacePropsType) => {

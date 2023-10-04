@@ -1,4 +1,4 @@
-import { useCategoryStore } from '../../stores/useCategoryStore';
+import { useCategoryStore } from '../../stores/category/useCategoryStore';
 import EnrollMap from './components/placemap';
 import ShowMap from './components/showmap';
 import CourseMap from './components/coursemap';

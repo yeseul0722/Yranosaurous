@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import Button from '../../../../components/button';
+import Button from '../../../../../components/button';
 import { StyledBox, StyledCourseMap, StyledSidebar, StyledSubTitle } from './Enrollcourse.styled';
-import Input from '../../../../components/input';
-import useCourseStore from '../../../../stores/course/useCourseStore';
-import enrollCoursePost from '../../../../apis/course/enrollCoursePost';
-import courseDelete from '../../../../apis/course/courseDelete';
+import Input from '../../../../../components/input';
+import useCourseStore from '../../../../../stores/course/useCourseStore';
+import enrollCoursePost from '../../../../../apis/course/enrollCoursePost';
+import courseDelete from '../../../../../apis/course/courseDelete';
 import CourseInfo from '../courseinfo';
-import { useRefreshCoursesStore } from '../../../../stores/course/useRefreshCourseStore';
+import { useRefreshCoursesStore } from '../../../../../stores/course/useRefreshCourseStore';
 
 const EnrollCourse = (props: any) => {
   const [places, setPlaces] = useState<any[]>([]);

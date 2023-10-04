@@ -1,7 +1,7 @@
-import { useCategoryStore } from '../../../../stores/useCategoryStore';
-import EnrollCourse from '../enrollcourse';
-import Enrollplace from '../enrollplace';
-import EnrollShow from '../enrollshow';
+import { useCategoryStore } from '../../../../stores/category/useCategoryStore';
+import EnrollCourse from '../coursemap/enrollcourse';
+import Enrollplace from '../placemap/enrollplace';
+import EnrollShow from '../showmap/enrollshow';
 import { StyledSidebar, StyledTitle } from './Sidebar.styled';
 
 const Sidebar = (props: any) => {
