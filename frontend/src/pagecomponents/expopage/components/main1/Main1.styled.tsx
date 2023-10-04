@@ -32,8 +32,8 @@ const StyledCardBox = styled.div.attrs<any>((props) => ({}))`
       display: flex;
       justify-content: center;
       gap: 30px;
-      margin-top: 40px;
-      padding-bottom: 80px;
+      margin-top: 70px;
+      padding-bottom: 100px;
     `;
   }}
 `;

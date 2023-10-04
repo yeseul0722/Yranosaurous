@@ -1,10 +1,10 @@
 import { StyledMainCard, StyledTitle } from './Maincard.styled';
 
-const MainCard = ({ title, children, num }: any) => {
+const MainCard = (props: any) => {
   return (
-    <StyledMainCard num={num}>
-      <StyledTitle>{title}</StyledTitle>
-      <div style={{ paddingLeft: '10px' }}>{children}</div>
+    <StyledMainCard num={props.num} showAnimation={props.showAnimation ? 'true' : 'false'}>
+      <StyledTitle>{props.title}</StyledTitle>
+      <div style={{ paddingLeft: '10px' }}>{props.children}</div>
     </StyledMainCard>
   );
 };
