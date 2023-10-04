@@ -86,7 +86,7 @@ const GosungKakaoMapComponent = () => {
         geocoder.addressSearch(detailAddress, (result, status) => {
           if (status === kakao.maps.services.Status.OK) {
             const position = result[0];
-            setCenter({ lat: parseFloat(position.y), lng: parseFloat(position.x) - 0.0025 });
+            setCenter({ lat: parseFloat(position.y), lng: parseFloat(position.x) - 0.0035 });
             setLevel(3);
           }
         });
