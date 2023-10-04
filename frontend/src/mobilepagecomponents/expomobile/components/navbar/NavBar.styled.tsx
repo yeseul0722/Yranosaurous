@@ -15,6 +15,7 @@ const StyledServiceName = styled.a`
   color: ${(props) => props.theme.colors.black};
   text-decoration: none;
   margin: 5px;
+  font-size: 20px;
 `;
 
 const StyledMenuContainer = styled.div.attrs<any>((props) => ({}))`

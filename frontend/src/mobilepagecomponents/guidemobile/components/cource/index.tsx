@@ -43,9 +43,9 @@ const MobileCource = () => {
     getCourcesList();
   }, []);
 
-  useEffect(() => {
-    console.log(courseOrderList);
-  });
+  // useEffect(() => {
+  //   console.log(courseOrderList);
+  // });
 
   return (
     <StyldTourCategoryContainer>

@@ -36,11 +36,10 @@ const MobilePreview = () => {
   useEffect(() => {
     getPlacesList();
   }, []);
-  useEffect(() => {
-    setOpenList();
-  }, [place]);
+
   const onClick = (place: any) => {
     handlePlace(place);
+    setOpenList();
   };
   return (
     <div style={{ maxHeight: '50vh', overflow: 'scroll' }}>
