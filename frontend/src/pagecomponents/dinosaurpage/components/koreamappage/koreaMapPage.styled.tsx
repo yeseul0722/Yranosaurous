@@ -187,6 +187,25 @@ const StyledKoreaMapBackgroundLottie = styled.div`
 
 const StyledDsPage = styled.div`
   scroll-snap-align: start;
+  /* height: 100vh; */
+  position: relative;
+`;
+
+const StyledDsPageContainer = styled.div`
+  overflow: auto;
+  scroll-snap-type: y mandatory;
+`;
+
+const StyledDsSelectNumBox = styled.div`
+  border: 1px solid red;
+  width: 5rem;
+  top: 1rem;
+  left: 2rem;
+  position: absolute;
+  z-index: 99;
+  color: ${(props) => props.theme.colors.white};
+  font-family: ${(props) => props.theme.fonts.dinoboldfont};
+  font-size: 2rem;
 `;
 
 export {
@@ -206,4 +225,6 @@ export {
   StyledKoreaMapDsName,
   StyledKoreaMapBackgroundLottie,
   StyledDsPage,
+  StyledDsSelectNumBox,
+  StyledDsPageContainer,
 };
