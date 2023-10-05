@@ -3,8 +3,8 @@ import styled from 'styled-components';
 const StyledLandingDinosaurPage = styled.div`
   height: 100vh;
   /* background-color: ${(props) => props.theme.colors.night}; */
-  background-image: url(//unpkg.com/three-globe/example/img/night-sky.png);
-  object-fit: cover;
+  background-image: url(/landing/mainlanding.png);
+  background-size: cover;
   overflow: hidden;
   display: flex;
   justify-content: center;

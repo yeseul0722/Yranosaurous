@@ -16,6 +16,7 @@ import {
 } from './PlaceModal.styled';
 
 const PlaceModal = (props: any) => {
+  const src = props.place.imgAddress ? props.place.imgAddress : '/map/xdino.png';
   return (
     <Modal>
       <ModalWindow>
@@ -33,7 +34,7 @@ const PlaceModal = (props: any) => {
               <StyeldContent>{props.place.content}</StyeldContent>
             </StyledContentContainer>
             <StyledImgaContainer>
-              <ModalImage src={props.place.imgAddress} />
+              <ModalImage src={src} />
             </StyledImgaContainer>
           </StyledMenuReviewContainer>
         </ModalContainer>
