@@ -19,15 +19,16 @@ const StyledTourismInfo = styled.div`
 
 const StyledTourismName = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
-  color: ${(props) => props.theme.colors.light};
+  color: ${(props) => props.theme.colors.main};
   font-size: 17px;
 `;
 
 const StyledTourismImg = styled.img`
   height: 150px;
   width: 150px;
-  border-radius: 10px;
+  border-radius: 20px;
   margin: 10px;
+  border: 7px solid ${(props) => props.theme.colors.main};
 `;
 
 export { StyledTourismContainer, StyledTourismImg, StyledTourismInfo, StyledTourismName, StyledTourismListContainer };
