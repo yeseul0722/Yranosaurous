@@ -5,7 +5,7 @@ import {
   StyledRightBox,
   StyledText,
   StyledLine,
-} from './Performacne.styled';
+} from './Performance.styled';
 import Map from '../kakaomap';
 import FestivalTable from '../festivaltable';
 import useShowOnScroll from '../../../../hooks/expo/useShowOnScroll';
