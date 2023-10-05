@@ -4,12 +4,12 @@ const StyledKoreaMapPage = styled.div.attrs<any>((props) => ({}))`
   ${(props) => {
     const selectDsName = props.selectDsName;
     const selectDs: any = {
-      koreaceratops: `
-      background-image: url('/dinosaur/koreaBack/ceratops2.png');
-      background-size: contain;
-      `,
       koreanosaurus: `
       background-image: url('/dinosaur/koreaBack/koreasaurs2.png');
+      background-size: contain;
+      `,
+      koreaceratops: `
+      background-image: url('/dinosaur/koreaBack/ceratops2.png');
       background-size: contain;
       `,
       pukyongosaurus: `
@@ -18,7 +18,7 @@ const StyledKoreaMapPage = styled.div.attrs<any>((props) => ({}))`
       `,
     };
     return css`
-      height: 100%;
+      height: auto;
       background-color: ${(props) => props.theme.colors.night};
       display: flex;
       flex-direction: column;
@@ -185,27 +185,24 @@ const StyledKoreaMapBackgroundLottie = styled.div`
   /* margin-left: 45vw; */
 `;
 
-const StyledDsPage = styled.div`
-  scroll-snap-align: start;
-  /* height: 100vh; */
+const StyledDsPageContainer = styled.div`
+  /* overflow: auto;
+  scroll-snap-type: y mandatory; */
+  height: 100vh;
   position: relative;
 `;
 
-const StyledDsPageContainer = styled.div`
-  overflow: auto;
-  scroll-snap-type: y mandatory;
-`;
-
 const StyledDsSelectNumBox = styled.div`
-  border: 1px solid red;
-  width: 5rem;
+  /* width: 5rem; */
   top: 1rem;
   left: 2rem;
   position: absolute;
+  top: 1.5rem;
   z-index: 99;
   color: ${(props) => props.theme.colors.white};
   font-family: ${(props) => props.theme.fonts.dinoboldfont};
-  font-size: 2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
 `;
 
 export {
@@ -224,7 +221,6 @@ export {
   StyledKoreaMapDs,
   StyledKoreaMapDsName,
   StyledKoreaMapBackgroundLottie,
-  StyledDsPage,
   StyledDsSelectNumBox,
   StyledDsPageContainer,
 };

@@ -33,10 +33,6 @@ const KoreasaurusPage = () => {
   const ttsUrl1 = '/dinosaur/tts/koreasaur1.mp3';
   const ttsUrl2 = '/dinosaur/tts/koreasaur2.mp3';
 
-  const clickDsInfo = () => {
-    console.log('click');
-  };
-
   return (
     <StyledKoreasaurusPage>
       {/* absoulte */}

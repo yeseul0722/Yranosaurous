@@ -26,6 +26,11 @@ const KoreaceratopsPage = () => {
   const ttsUrlCera1 = '/dinosaur/tts/ceratops1.mp3';
   const ttsUrlCera2 = '/dinosaur/tts/ceratops2.mp3';
 
+  const [isImg, setIsImg] = useState(true);
+  const changeImg = () => {
+    setIsImg(!isImg);
+  };
+
   return (
     <StyledKoreaceratopsPage>
       {/* absolute */}
@@ -62,17 +67,19 @@ const KoreaceratopsPage = () => {
             | 코리아케라톱스의 이야기 <TtsPaly src={ttsUrlCera2} />
           </StyledCeratopsLittleTitle>
           <StyledCeratopsSummary>
-            코리아케라톱스 화성엔시스는 한국 최초로 발견된 원시 각룡류입니다.가장 큰 특징은 높고 납작한 꼬리로 헤엄을 잘
-            칠 수 있는 형태를 갖고 있다는 것입니다. 또 다른 특징은 발목 관절이 매우 발달되어 있어 잘 달릴 수 있는 능력이
-            있었던 것으로 밝혀졌습니다. 아직 뿔이 발달하지 않은 원시 각룡류일 뿐만 아니라 크기도 작았기 때문에
-            육식공룡의 공격을 받으면 물속으로 피해서 도망갔을 것으로 추측하고 있습니다. 우리나라에서 발견된 무수한
-            공룡발자국 속에서 각룡류 발자국은 한 개도 발견된 적이 없었기 때문에 각룡류 공룡뼈가 발견되었다는 것은
-            우리나라에도 다양한 공룡이 살았었음을 알려주는 중요한 발견입니다.
+            코리아케라톱스 화성엔시스는 한국 최초로 발견된 원시 각룡류이며 높고 납작한 꼬리로 헤엄을 잘 칠 수 있는
+            형태를 갖고 있다는 것입니다. <br /> 발목 관절이 매우 발달되어 있어 잘 달릴 수 있는 능력이 있었던 것으로
+            밝혀졌습니다. <br />
+            아직 뿔이 발달하지 않은 원시 각룡류이며 크기도 작았기 때문에 육식공룡의 공격을 받으면 물속으로 피해서
+            도망갔을 것으로 추측하고 있습니다.
+            <br />
+            우리나라에서 각룡류 공룡뼈가 발견되었다는 것은 우리나라에도 다양한 공룡이 살았었음을 알려주는 중요한
+            발견입니다.
           </StyledCeratopsSummary>
         </StyledCeratopsSecondContent>
-        <StyledCeratopsSizeImgContainer>
+        <StyledCeratopsSizeImgContainer onMouseOver={changeImg}>
+          {/* <StyledCeratopsSizeImage1 src="/dinosaur/koDs/ceratopsSize2.png" alt="sizeImage1" /> */}
           <StyledCeratopsSizeImage1 src="/dinosaur/koDs/ceratopsSize.png" alt="sizeImage1" />
-          <StyledCeratopsSizeImage1 src="/dinosaur/koDs/ceratopsSize2.png" alt="sizeImage1" />
         </StyledCeratopsSizeImgContainer>
       </StyledCeratopsSizeContainer>
     </StyledKoreaceratopsPage>

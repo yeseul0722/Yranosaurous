@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 
 const StyledpukyongsaurusPage = styled.div`
-  height: 150vh;
+  height: 100vh;
   background-color: ${(props) => props.theme.colors.night};
   background-image: url('/dinosaur/pukyongBackground.png');
   background-size: cover;
   display: flex;
   flex-direction: column;
   position: relative;
+  overflow: hidden;
 `;
 
 const StyledPukyongTitleNum = styled.div`
@@ -22,8 +23,7 @@ const StyledPukyongTitleNum = styled.div`
   height: 13rem;
   position: absolute;
   z-index: 1;
-  top: 9rem;
-  left: 5rem;
+  left: 1rem;
 `;
 
 const StyledPukyongFirstContent = styled.div`
@@ -31,7 +31,7 @@ const StyledPukyongFirstContent = styled.div`
   color: ${(props) => props.theme.colors.white};
   font-family: ${(props) => props.theme.fonts.dinoboldfont};
   text-align: left;
-  padding-top: 17rem;
+  padding-top: 7rem;
   padding-left: 10rem;
   padding-right: 5rem;
   width: 50rem;
@@ -65,14 +65,13 @@ const StyledPukyongImage1 = styled.img.attrs<any>((props) => ({
   /* border: 1px solid aquamarine; */
   position: absolute;
   right: 10rem;
-  top: 10rem;
+  top: 2rem;
   width: 28rem;
 `;
 
 const StyledPukyongSizeContainer = styled.div`
   /* border: 1px solid blue; */
   display: flex;
-  margin-top: 5rem;
 `;
 
 const StyledPukyongSizeImgContainer = styled.div`
@@ -104,7 +103,7 @@ const StyledPukyongLottieLength = styled.div`
   width: 37rem;
   filter: invert(100%);
   position: absolute;
-  top: 54rem;
+  top: 38rem;
   left: 1rem;
 `;
 
@@ -113,14 +112,14 @@ const StyledPukyongLengthText = styled.div`
   font-family: ${(props) => props.theme.fonts.dinoboldfont};
   font-size: 3rem;
   position: absolute;
-  top: 67rem;
+  top: 50rem;
   left: 14rem;
 `;
 
 const StyledPukyongLottieWeight = styled.div`
   width: 5rem;
   position: absolute;
-  top: 50rem;
+  top: 35rem;
   left: 18rem;
 `;
 
@@ -129,8 +128,8 @@ const StyledPukyongWeightText = styled.div`
   font-family: ${(props) => props.theme.fonts.dinoboldfont};
   font-size: 3rem;
   position: absolute;
-  top: 46rem;
-  left: 15rem;
+  top: 31rem;
+  left: 9rem;
 `;
 
 export {

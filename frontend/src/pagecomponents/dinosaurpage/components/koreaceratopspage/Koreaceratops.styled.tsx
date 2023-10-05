@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 const StyledKoreaceratopsPage = styled.div`
-  height: 200vh;
+  height: 100vh;
   /* background-color: ${(props) => props.theme.colors.main}; */
   background-image: url('/dinosaur/ceratopsBackground.png');
   display: flex;
   flex-direction: column;
   position: relative;
+  overflow: hidden;
 `;
 
 const StyledCeratopsTitleNum = styled.div`
@@ -22,7 +23,6 @@ const StyledCeratopsTitleNum = styled.div`
   height: 13rem;
   position: absolute;
   z-index: 1;
-  top: 10rem;
   left: 28rem;
 `;
 
@@ -31,7 +31,7 @@ const StyledCeratopsFirstContent = styled.div`
   color: ${(props) => props.theme.colors.white};
   font-family: ${(props) => props.theme.fonts.dinoboldfont};
   text-align: left;
-  padding-top: 17rem;
+  padding-top: 7rem;
   padding-left: 35rem;
   padding-right: 5rem;
   z-index: 50;
@@ -60,7 +60,7 @@ const StyledCeratopsSummary = styled.div`
 const StyledCeratopsSizeContainer = styled.div`
   /* border: 1px solid blue; */
   display: flex;
-  margin-top: 5rem;
+  margin-top: -5rem;
 `;
 
 const StyledCeratopsSizeImgContainer = styled.div`
@@ -84,7 +84,7 @@ const StyledCeratopsImage1 = styled.img.attrs<any>((props) => ({
   /* border: 1px solid aquamarine; */
   position: absolute;
   left: 4rem;
-  top: 10rem;
+  top: -1rem;
   width: 28rem;
 `;
 
@@ -101,11 +101,11 @@ const StyledCeratopsSizeImage1 = styled.img.attrs<any>((props) => ({
 
 // Lottie
 const StyledCeratopsLottieLength = styled.div`
-  width: 44rem;
+  width: 43rem;
   filter: invert(100%);
   position: absolute;
-  top: 55rem;
-  right: 1rem;
+  top: 30rem;
+  right: 3rem;
 `;
 
 const StyledCeratopsLengthText = styled.div`
@@ -113,15 +113,15 @@ const StyledCeratopsLengthText = styled.div`
   font-family: ${(props) => props.theme.fonts.dinoboldfont};
   font-size: 3rem;
   position: absolute;
-  top: 70rem;
-  right: 23rem;
+  top: 45rem;
+  right: 12rem;
 `;
 
 const StyledCeratopsLottieWeight = styled.div`
   width: 5rem;
   position: absolute;
-  top: 50rem;
-  right: 25rem;
+  top: 31rem;
+  right: 22rem;
 `;
 
 const StyledCeratopsWeightText = styled.div`
@@ -129,8 +129,8 @@ const StyledCeratopsWeightText = styled.div`
   font-family: ${(props) => props.theme.fonts.dinoboldfont};
   font-size: 3rem;
   position: absolute;
-  top: 48rem;
-  right: 23rem;
+  top: 29rem;
+  right: 15rem;
 `;
 
 export {
