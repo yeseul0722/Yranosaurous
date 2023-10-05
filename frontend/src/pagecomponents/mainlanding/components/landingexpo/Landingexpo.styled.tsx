@@ -46,10 +46,18 @@ const StyledLandingExpoLinkButton = styled.div`
 `;
 
 const StyledLandingExpoWindow = styled.div`
-  background-color: #ffffff;
-  border-radius: 50px;
-  width: 320px;
+  border-radius: 30px;
+  width: 300px;
   height: 600px;
+`;
+const StyledLandingVideoContainer = styled.div`
+  width: 320px;
+  height: 620px;
+  border-radius: 30px;
+  background-color: ${(props) => props.theme.colors.main};
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export {
@@ -60,4 +68,5 @@ export {
   StyledLandingExpoContentText,
   StyledLandingExpoLinkButton,
   StyledLandingExpoWindow,
+  StyledLandingVideoContainer,
 };
