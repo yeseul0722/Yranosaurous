@@ -1,4 +1,48 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
+const slideFromLeft = keyframes`
+  0% {
+    transform: translateX(-70%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`;
+
+const slideFromRight = keyframes`
+  0% {
+    transform: translateX(70%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`;
+
+const StyledLeftBox = styled.div<any>`
+  display: flex;
+  flex-direction: column;
+
+  ${(props) =>
+    props.showAnimation &&
+    css`
+      animation: ${slideFromLeft} 1s ease-out forwards;
+    `}
+`;
+
+const StyledRightBox = styled.div<any>`
+  width: 500px;
+  height: 500px;
+  display: flex;
+
+  ${(props) =>
+    props.showAnimation &&
+    css`
+      animation: ${slideFromRight} 1s ease-out forwards;
+    `}
+`;
 
 const StyledPerformanceContainer = styled.div`
   display: flex;
@@ -13,11 +57,6 @@ const StyledPerformance = styled.div`
   flex-direction: column;
   width: 1120px;
   gap: 40px;
-`;
-const StyledMapContainer = styled.div`
-  width: 500px;
-  height: 500px;
-  display: flex;
 `;
 const StyledText = styled.div.attrs<any>((props) => ({}))`
   ${(props) => {
@@ -43,4 +82,4 @@ const StyledLine = styled.div.attrs<any>((props) => ({}))`
   }}
 `;
 
-export { StyledPerformanceContainer, StyledPerformance, StyledMapContainer, StyledText, StyledLine };
+export { StyledPerformanceContainer, StyledLeftBox, StyledPerformance, StyledRightBox, StyledText, StyledLine };

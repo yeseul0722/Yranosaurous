@@ -1,13 +1,17 @@
 import {
   StyledPerformanceContainer,
+  StyledLeftBox,
   StyledPerformance,
-  StyledMapContainer,
+  StyledRightBox,
   StyledText,
   StyledLine,
 } from './Performacne.styled';
 import Map from '../kakaomap';
 import FestivalTable from '../festivaltable';
+import useShowOnScroll from '../../../../hooks/expo/useShowOnScroll';
 const Performance = () => {
+  const { ref, showAnimation } = useShowOnScroll();
+
   return (
     <StyledPerformanceContainer>
       <StyledPerformance>
@@ -22,17 +26,17 @@ const Performance = () => {
             <StyledLine />
           </a>
         </div>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }} ref={ref}>
+          <StyledLeftBox showAnimation={showAnimation}>
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <img src="/mobile/char4.png" style={{ height: '60px' }} />
               <StyledText size="38px">오늘의 공연</StyledText>
             </div>
             <FestivalTable />
-          </div>
-          <StyledMapContainer>
+          </StyledLeftBox>
+          <StyledRightBox showAnimation={showAnimation}>
             <Map></Map>
-          </StyledMapContainer>
+          </StyledRightBox>
         </div>
       </StyledPerformance>
     </StyledPerformanceContainer>
