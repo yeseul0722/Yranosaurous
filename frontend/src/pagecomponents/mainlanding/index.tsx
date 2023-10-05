@@ -5,6 +5,7 @@ import LandingStart from './components/landingstart';
 import { StyledMainLanding, StyledMainLandingPage } from './LandingMain.styled';
 import LandingMobile from '../../mobilepagecomponents/landingmobile';
 import { useMediaQuery } from 'react-responsive';
+
 const MainLanding = () => {
   const isMobile = useMediaQuery({
     query: '(max-width: 768px)',
