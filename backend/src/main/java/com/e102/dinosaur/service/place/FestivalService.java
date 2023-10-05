@@ -44,7 +44,7 @@ public class FestivalService {
     public List<FestivalResponse> findFestival(LocalDate startTime) {
         LocalDateTime startDateTime = startTime.atStartOfDay();
         LocalDateTime endDateTime = startTime.plusDays(1).atStartOfDay();
-        List<Festival> festivalList = festivalRepository.findByStartTimeBetween(startDateTime, endDateTime);
+        List<Festival> festivalList = festivalRepository.findByStartTimeBetweenOrderByStartTimeAsc(startDateTime, endDateTime);
         return festivalList.stream()
                 .map(FestivalResponse::placeOf)
                 .toList();

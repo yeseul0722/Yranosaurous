@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface FestivalRepository extends JpaRepository<Festival, Long> {
 
-    List<Festival> findByStartTimeBetween(LocalDateTime start, LocalDateTime end);
+    List<Festival> findByStartTimeBetweenOrderByStartTimeAsc(LocalDateTime start, LocalDateTime end);
 }

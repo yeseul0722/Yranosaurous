@@ -11,11 +11,13 @@ import { useTodayFestivalHook } from '../../../../hooks/festival/useTodayFestiva
 import useGuideStore from '../../../../stores/guide/useGuideStore';
 
 const FestivalTable = () => {
-  const { todayFestivalList, getTodayFestivalList, handleFestival } = useTodayFestivalHook();
+  const { todayFestivalList, getTodayFestivalList, handleFestival, setClosestFestival } = useTodayFestivalHook();
   const festivalID = useGuideStore((state: any) => state.festivalID);
+
   useEffect(() => {
     getTodayFestivalList();
   }, []);
+
   return (
     <div>
       <StyledTable>
