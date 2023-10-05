@@ -1,17 +1,7 @@
-import React, { useState } from 'react';
-import {
-  StyledNavBar,
-  StyledNavBarDropDown,
-  StyledLogoContainer,
-  StyledLogo,
-  StyledName,
-  StyledEndComponent,
-  StyledLinkText,
-  StyledLinkDetailContainer,
-  StyledLinkDetail,
-} from './Navbar.styled';
+import { useState } from 'react';
+import { StyledNavBar, StyledLogoContainer, StyledLogo, StyledEndComponent, StyledLinkText } from './Navbar.styled';
 
-const NavBarComponent = () => {
+const NavBarComponent = ({ currentPage }: any) => {
   const [navState, setNavState] = useState('');
   const onMouseEnter = (e: any) => {
     setNavState(e.target.name);
@@ -21,13 +11,18 @@ const NavBarComponent = () => {
   };
 
   return (
-    <StyledNavBar>
+    <StyledNavBar currentPage={currentPage}>
       <StyledLogoContainer>
-        <StyledLogo src="/mobile/mainlogo.png" alt="Logo" />
+        {currentPage === 'ExpoPage' ? (
+          <StyledLogo src="/mobile/mainlogodark.png" alt="Logo" />
+        ) : (
+          <StyledLogo src="/mobile/mainlogo.png" alt="Logo" />
+        )}
         {/* <StyledName>와이라노사우르스</StyledName> */}
       </StyledLogoContainer>
       <StyledEndComponent>
         <StyledLinkText
+          currentPage={currentPage}
           name="expo"
           href="/Guide"
           navstate={navState}
@@ -37,6 +32,7 @@ const NavBarComponent = () => {
           Expo
         </StyledLinkText>
         <StyledLinkText
+          currentPage={currentPage}
           name="tour"
           href="/Gosung"
           navstate={navState}
@@ -46,6 +42,7 @@ const NavBarComponent = () => {
           고성관광
         </StyledLinkText>
         <StyledLinkText
+          currentPage={currentPage}
           name="dino"
           href="/Dinosaur"
           navstate={navState}
@@ -55,29 +52,6 @@ const NavBarComponent = () => {
           공룡
         </StyledLinkText>
       </StyledEndComponent>
-      {/* {navState === 'expo' && (
-        <StyledNavBarDropDown onMouseLeave={onMouseLeave}>
-          <StyledLinkDetailContainer>
-            <StyledLinkDetail>행사장 안내</StyledLinkDetail>
-          </StyledLinkDetailContainer>
-        </StyledNavBarDropDown>
-      )}
-      {navState === 'tour' && (
-        <StyledNavBarDropDown onMouseLeave={onMouseLeave}>
-          <StyledLinkDetailContainer>
-            <StyledLinkDetail href="/gosung">관광정보</StyledLinkDetail>
-            <StyledLinkDetail></StyledLinkDetail>
-          </StyledLinkDetailContainer>
-        </StyledNavBarDropDown>
-      )}
-      {navState === 'dino' && (
-        <StyledNavBarDropDown onMouseLeave={onMouseLeave}>
-          <StyledLinkDetailContainer>
-            <StyledLinkDetail></StyledLinkDetail>
-            <StyledLinkDetail></StyledLinkDetail>
-          </StyledLinkDetailContainer>
-        </StyledNavBarDropDown>
-      )} */}
     </StyledNavBar>
   );
 };
