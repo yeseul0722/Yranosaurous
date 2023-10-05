@@ -1,6 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import TodayFestivalListGet from '../../apis/festival/todayFestivalListGet';
-import { async } from 'q';
 import useGuideStore from '../../stores/guide/useGuideStore';
 
 export const useTodayFestivalHook = () => {
@@ -13,6 +12,11 @@ export const useTodayFestivalHook = () => {
     .getDate()
     .toString()
     .padStart(2, '0')}`;
+  useEffect(() => {
+    if (todayFestivalList.length > 0) {
+      setClosestFestival();
+    }
+  }, [todayFestivalList]);
   const getTodayFestivalList = async () => {
     const res = await TodayFestivalListGet(formattedDate);
 
@@ -23,9 +27,31 @@ export const useTodayFestivalHook = () => {
   };
 
   const handleFestival = (festival: any) => {
+    // console.log(festival);
     setFestival(festival.placeResponse);
     setFestivalID(festival.id);
   };
 
-  return { todayFestivalList, getTodayFestivalList, handleFestival };
+  const setClosestFestival = () => {
+    if (todayFestivalList.length === 0) return;
+
+    let closestTimeDiff = Infinity;
+    let closestFestival;
+
+    todayFestivalList.forEach((festival) => {
+      const festivalTime = new Date(festival.startTime);
+      const timeDiff = festivalTime.getTime() - today.getTime();
+
+      if (timeDiff > 0 && timeDiff < closestTimeDiff) {
+        closestTimeDiff = timeDiff;
+        closestFestival = festival;
+        // console.log('cF', closestFestival);
+      }
+    });
+
+    if (closestFestival) {
+      handleFestival(closestFestival);
+    }
+  };
+  return { todayFestivalList, getTodayFestivalList, handleFestival, setClosestFestival };
 };
