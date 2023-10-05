@@ -16,9 +16,9 @@ const StyledSideListContainer = styled.div`
 const StyledMenu = styled.div`
   color: ${(props) => props.theme.colors.main};
   font-family: ${(props) => props.theme.fonts.boldfont};
-  font-size: 25px;
+  font-size: 30px;
   height: 100px;
-  margin-left: 10px;
+  margin-left: 20px;
   display: flex;
   align-items: center;
 `;
