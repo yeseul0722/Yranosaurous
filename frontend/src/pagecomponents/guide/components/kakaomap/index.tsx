@@ -101,7 +101,7 @@ const GosungKakaoMapComponent = () => {
       id="map"
       center={{
         lat: 35.058175,
-        lng: 128.399,
+        lng: 128.4004,
       }}
       style={{
         width: '100%',
