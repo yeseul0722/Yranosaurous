@@ -13,7 +13,8 @@ const ExpoPageComponent = () => {
     <>
       {!isMobile ? (
         <div style={{ backgroundColor: '#3D5A61' }}>
-          <NavBar></NavBar>
+          <audio src="/bgm.mp3" autoPlay loop />
+          <NavBar currentPage="ExpoPage"></NavBar>
           <div style={{ paddingTop: '60px' }}>
             <Main1></Main1>
             <Performance></Performance>
