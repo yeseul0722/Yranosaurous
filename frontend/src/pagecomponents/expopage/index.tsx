@@ -1,10 +1,7 @@
 import Main1 from './components/main1';
-import ExpoInformation from './components/expoinformation';
-import EventVenue from './components/eventvenue';
 import Ticket from './components/ticket';
 import Tourism from './components/tourism';
 import Performance from './components/performance';
-import { StyledExpoPageContainer, StyledTest } from './Expopage.styled';
 import { useMediaQuery } from 'react-responsive';
 import NavBar from '../../components/navbar';
 import ExpoMobile from '../../mobilepagecomponents/expomobile';
@@ -15,13 +12,13 @@ const ExpoPageComponent = () => {
   return (
     <>
       {!isMobile ? (
-        <div>
+        <div style={{ backgroundColor: '#3D5A61' }}>
           <NavBar></NavBar>
           <div style={{ paddingTop: '60px' }}>
             <Main1></Main1>
             <Performance></Performance>
             <Ticket></Ticket>
-            {/* <Tourism></Tourism> */}
+            <Tourism></Tourism>
           </div>
           <div style={{ height: '1px' }}></div>
         </div>
