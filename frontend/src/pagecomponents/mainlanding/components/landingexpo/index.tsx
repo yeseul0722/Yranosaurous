@@ -8,6 +8,7 @@ import {
   StyledLandingExpoPageLogo,
   StyledLandingExpoPageLogoBox,
   StyledLandingExpoWindow,
+  StyledLandingVideoContainer,
 } from './Landingexpo.styled';
 
 const LandingExpo = () => {
@@ -31,7 +32,13 @@ const LandingExpo = () => {
           </Link>
         </StyledLandingExpoLinkButton>
       </StyledLandingExpoContentBox>
-      <StyledLandingExpoWindow></StyledLandingExpoWindow>
+      <StyledLandingVideoContainer>
+        <StyledLandingExpoWindow>
+          <video loop autoPlay muted style={{ height: '100%', width: '100%', borderRadius: '30px' }}>
+            <source src="/landing/MobileYrano.mp4" type="video/mp4" />
+          </video>
+        </StyledLandingExpoWindow>
+      </StyledLandingVideoContainer>
     </StyledLandingExpoPage>
   );
 };
