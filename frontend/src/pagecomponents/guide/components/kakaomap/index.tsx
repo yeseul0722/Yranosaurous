@@ -51,8 +51,10 @@ const GosungKakaoMapComponent = () => {
           setState((prev: any) => ({
             ...prev,
             center: {
-              lat: position.coords.latitude, // 위도
-              lng: position.coords.longitude, // 경도
+              lat: 35.06007877,
+              lng: 128.39939220501495,
+              // lat: position.coords.latitude, // 위도
+              // lng: position.coords.longitude, // 경도
             },
             isLoading: false,
           }));
@@ -119,6 +121,12 @@ const GosungKakaoMapComponent = () => {
             size: {
               width: 50,
               height: 50,
+            },
+            options: {
+              offset: {
+                x: 20,
+                y: 20,
+              },
             }, // 마커이미지의 크기입니다
           }}
           clickable={true} // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
@@ -136,6 +144,12 @@ const GosungKakaoMapComponent = () => {
                 width: 50,
                 height: 50,
               }, // 마커이미지의 크기입니다
+              options: {
+                offset: {
+                  x: 20,
+                  y: 20,
+                },
+              },
             }}
             clickable={true} // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
             onClick={() => handleOpen(position)}
@@ -167,6 +181,12 @@ const GosungKakaoMapComponent = () => {
               width: 50,
               height: 50,
             }, // 마커이미지의 크기입니다
+            options: {
+              offset: {
+                x: 20,
+                y: 20,
+              },
+            },
           }}
         ></MapMarker>
       )}

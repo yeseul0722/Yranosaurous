@@ -4,6 +4,7 @@ import useGosungListStore from '../../../../stores/mobilegosung/useGosungListSto
 import RestaurantModal from '../restaurantmodal';
 import TourModal from '../tourmodal';
 import LodgmentModal from '../lodgmentmodal';
+import { StyledInfoWindow } from './KakaoMap.styled';
 const GosungKakaoMapComponent = () => {
   const [markers, setMarkers] = useState<any[]>([]);
   const [map, setMap] = useState<any>();
@@ -146,9 +147,15 @@ const GosungKakaoMapComponent = () => {
               width: 40,
               height: 40,
             }, // 마커이미지의 크기입니다
+            options: {
+              offset: {
+                x: 20,
+                y: 20,
+              },
+            },
           }}
         >
-          {isOpen && selectList === 'lodgment' && <div> {lodgmentDetail.address}</div>}
+          {isOpen && selectList === 'lodgment' && <StyledInfoWindow> {lodgmentDetail.address}</StyledInfoWindow>}
         </MapMarker>
       ))}
       {selectList === 'restaurant' && isOpen && (

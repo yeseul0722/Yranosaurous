@@ -15,6 +15,7 @@ const StyledTourCategoryButtonContainer = styled.div`
   overflow: scroll;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-bottom: 20px;
   &::-webkit-scrollbar {
     width: 0;
   }

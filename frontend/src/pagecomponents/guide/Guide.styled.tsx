@@ -92,10 +92,18 @@ const Test = styled.div`
     width: 0;
   }
 `;
+const Test2 = styled.div`
+  height: 80vh;
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+`;
 
 const StyledTimeContainer = styled.div`
   background-color: ${(props) => props.theme.colors.light};
   padding: 10px 0px;
+  height: 5vh;
 `;
 const StyledTime = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
@@ -115,6 +123,7 @@ export {
   StyledCourceSelectContainer2,
   StyledCourcePlace2,
   Test,
+  Test2,
   StyledTimeContainer,
   StyledTime,
 };

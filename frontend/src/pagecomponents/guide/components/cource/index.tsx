@@ -8,6 +8,7 @@ import {
   Test,
   StyledTimeContainer,
   StyledTime,
+  Test2,
 } from '../../Guide.styled';
 import {
   StyledCourceImage,
@@ -48,7 +49,7 @@ const Cource = () => {
           <StyledTime>소요시간 : {cource[0]?.timeTaken}분</StyledTime>
         </StyledTimeContainer>
       )}
-      <Test>
+      <Test2>
         {courseOrderList?.map((cource: any) => {
           return (
             <StyledCourceSelectContainer2 key={cource.id}>
@@ -59,7 +60,7 @@ const Cource = () => {
             </StyledCourceSelectContainer2>
           );
         })}
-      </Test>
+      </Test2>
     </StyledMenuContainer>
   );
 };
