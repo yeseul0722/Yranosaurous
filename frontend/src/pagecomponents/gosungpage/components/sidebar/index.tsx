@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Router, useNavigate } from 'react-router-dom';
 import {
   StyledAccomodationIcon,
@@ -15,6 +15,7 @@ const GosungSideBar = () => {
   const Router = useNavigate();
   const setSelectedCategory = useSideBarStore((state) => state.setSelectedCategory);
   const setShowSideList = useSideBarStore((state) => state.setShowSideList);
+  const [selectedMenu, setSelectedMenu] = useState<string>('');
 
   return (
     <StyledSideBarContainer>
@@ -22,6 +23,7 @@ const GosungSideBar = () => {
         onClick={() => {
           Router('/Expo');
         }}
+        isSelected={selectedMenu === 'home'}
       >
         <StyledHomeIcon />
       </StyledCategoryContainer>
@@ -29,7 +31,9 @@ const GosungSideBar = () => {
         onClick={() => {
           setSelectedCategory('맛집');
           setShowSideList(true);
+          setSelectedMenu('맛집');
         }}
+        isSelected={selectedMenu === '맛집'}
       >
         <StyledRestaurantIcon />
         <div>맛집</div>
@@ -38,7 +42,9 @@ const GosungSideBar = () => {
         onClick={() => {
           setSelectedCategory('숙박');
           setShowSideList(true);
+          setSelectedMenu('숙박');
         }}
+        isSelected={selectedMenu === '숙박'}
       >
         <StyledAccomodationIcon />
         <div>숙박</div>
@@ -47,7 +53,9 @@ const GosungSideBar = () => {
         onClick={() => {
           setSelectedCategory('관광');
           setShowSideList(true);
+          setSelectedMenu('관광');
         }}
+        isSelected={selectedMenu === '관광'}
       >
         <StyledSightseeingIcon />
         <div>관광</div>

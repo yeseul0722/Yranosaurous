@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   StyledIcon,
   StyledRestaurantContainer,
@@ -26,11 +26,13 @@ interface GosungRestaurantListProps {
 const GosungRestaurantList = ({ restaurantlist, selectedCategoryId }: GosungRestaurantListProps) => {
   const { restaurantDetail, setRestaurantDetail } = useRestaurantDetailStore();
   const { selectedDetail, setSelectedDetail } = useCategoryDetailStore();
+  const [selectedRestaurantId, setSelectedRestaurantId] = useState<number | null>(null);
 
   const handleDetailApi = async (id: number) => {
     const response = await RestaurantDetailGet(id);
     setRestaurantDetail(response.data.response);
     setSelectedDetail(id);
+    setSelectedRestaurantId(id);
   };
   const handleImageSrc = `/kakaomap/${selectedCategoryId}.png`;
 
@@ -38,7 +40,11 @@ const GosungRestaurantList = ({ restaurantlist, selectedCategoryId }: GosungRest
     <StyledRestaurantListContainer>
       {restaurantlist &&
         restaurantlist.map((restaurant) => (
-          <StyledRestaurantContainer key={restaurant.id} onClick={() => handleDetailApi(restaurant.id)}>
+          <StyledRestaurantContainer
+            key={restaurant.id}
+            onClick={() => handleDetailApi(restaurant.id)}
+            isSelected={selectedRestaurantId === restaurant.id}
+          >
             <StyledRestaurantImg src={restaurant.imgAddress}></StyledRestaurantImg>
             <StyledRestaurantInfo>
               <StyledInfo>

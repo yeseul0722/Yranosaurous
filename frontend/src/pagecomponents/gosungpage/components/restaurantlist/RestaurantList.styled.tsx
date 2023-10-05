@@ -2,12 +2,13 @@ import styled from 'styled-components';
 
 const StyledRestaurantListContainer = styled.div``;
 
-const StyledRestaurantContainer = styled.div`
+const StyledRestaurantContainer = styled.div<{ isSelected: boolean }>`
   height: 200px;
   width: 100%;
   display: flex;
   align-items: center;
   border-bottom: 1px solid ${(props) => props.theme.colors.lightgray};
+  background-color: ${(props) => (props.isSelected ? props.theme.colors.light : props.theme.colors.white)};
   cursor: pointer;
 
   &:hover {

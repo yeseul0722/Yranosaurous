@@ -12,14 +12,12 @@ import GosungAccomoList from '../accomolist';
 import { useCategoryStore } from '../../../../stores/gosung/useCategoryStore';
 
 const GosungAccomoCategory = () => {
-  // const [motelData, setMotelData] = useState([]);
-  // const [pensionData, setPensionData] = useState([]);
-  // const [guesthouseData, setGuesthouseData] = useState([]);
   const { motelData, pensionData, guesthouseData, setMotelData, setPensionData, setGuesthouseData } =
     useAccommodationApiStore();
   const { selectedCategory, setSelectedCategory } = useCategoryStore();
   const [selectedItems, setSelectedItems] = useState<any[]>([]);
   const [selectedAccomoCategory, setAccomoSelectedCategory] = useState<string>('');
+  const [selectedMenu, setSelectedMenu] = useState<string>('');
 
   const HandleApi = async () => {
     const response = await AccomodationListGet();
@@ -53,9 +51,31 @@ const GosungAccomoCategory = () => {
       <StyledAccomoCategoryContainer>
         <StyledAccomoCategoryBox>
           <StyledAccomoCategoryWrap>
-            <StyledAccomoCategoryList onClick={() => setSelectedCategory('모텔')}>모텔</StyledAccomoCategoryList>
-            <StyledAccomoCategoryList onClick={() => setSelectedCategory('펜션')}>펜션</StyledAccomoCategoryList>
-            <StyledAccomoCategoryList onClick={() => setSelectedCategory('게스트하우스')}>
+            <StyledAccomoCategoryList
+              onClick={() => {
+                setSelectedCategory('모텔');
+                setSelectedMenu('모텔');
+              }}
+              isSelected={selectedMenu === '모텔'}
+            >
+              모텔
+            </StyledAccomoCategoryList>
+            <StyledAccomoCategoryList
+              onClick={() => {
+                setSelectedCategory('펜션');
+                setSelectedMenu('펜션');
+              }}
+              isSelected={selectedMenu === '펜션'}
+            >
+              펜션
+            </StyledAccomoCategoryList>
+            <StyledAccomoCategoryList
+              onClick={() => {
+                setSelectedCategory('게스트하우스');
+                setSelectedMenu('게스트하우스');
+              }}
+              isSelected={selectedMenu === '게스트하우스'}
+            >
               게스트하우스
             </StyledAccomoCategoryList>
           </StyledAccomoCategoryWrap>
