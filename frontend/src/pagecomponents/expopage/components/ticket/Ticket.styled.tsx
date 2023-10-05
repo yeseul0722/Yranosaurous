@@ -59,7 +59,7 @@ const StyledImageContainer = styled.div<any>`
   ${(props) =>
     props.showAnimation &&
     css`
-      animation: ${slideFromLeft} 0.5s ease-out forwards;
+      animation: ${slideFromLeft} 0.8s ease-out forwards;
     `}
 `;
 
