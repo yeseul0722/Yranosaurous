@@ -18,7 +18,7 @@ const StyledMenu = styled.div.attrs<any>((props) => ({}))`
   flex-direction: column;
 
   gap: 5px;
-  background-color: ${(props) => (props.name === props.state ? props.theme.colors.main : props.theme.colors.white)};
+  background-color: ${(props) => (props.name === props.state ? props.theme.colors.main : 'white')};
   /* background-color: ${(props) => (props.name === props.hover ? props.theme.colors.light : 'white')}; */
   font-family: ${(props) => props.theme.fonts.boldfont};
   font-size: 15px;
