@@ -7,7 +7,7 @@ const StyledSideBar = styled.div`
   height: 100vh;
   width: 72px;
   z-index: 100;
-  background-color: white;
+  background-color: ${(props) => props.theme.colors.white};
 `;
 
 const StyledMenu = styled.div.attrs<any>((props) => ({}))`
