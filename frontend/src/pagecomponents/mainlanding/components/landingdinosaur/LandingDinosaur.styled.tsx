@@ -46,6 +46,7 @@ const StyledLandingDinosaurLinkButton = styled.div`
   align-items: center;
   font-size: 24px;
   margin-top: 2rem;
+  cursor: pointer;
 `;
 
 const StyledLandingGlobe = styled.div`

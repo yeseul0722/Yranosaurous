@@ -28,7 +28,7 @@ const Dinosaur = () => {
 
   const navigate = useNavigate();
   const goGosung = () => {
-    navigate('/');
+    navigate('/Expo');
   };
 
   return (

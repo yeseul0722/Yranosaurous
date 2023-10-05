@@ -6,7 +6,7 @@ const StyledKoreasaurusPage = styled.div`
   background-size: cover;
   display: flex;
   flex-direction: column;
-  padding: 3rem;
+  /* padding: 3rem; */
   position: relative;
   overflow: hidden;
 `;
