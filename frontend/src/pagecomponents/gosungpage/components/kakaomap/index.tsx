@@ -61,7 +61,6 @@ const GosungKakaoMapComponent = () => {
       }
 
       const newMarkers = [];
-      console.log(locationList, 'location');
 
       for (const item of locationList) {
         const result: any = await new Promise((resolve, reject) => {
@@ -77,7 +76,7 @@ const GosungKakaoMapComponent = () => {
         if (result.length > 0) {
           newMarkers.push({
             position: result[0],
-            name: item.storeName || item.name, // restaurantList에서는 storeName을 사용하고 나머지에서는 name을 사용합니다.
+            name: item.storeName || item.name, // restaurantList에서는 storeName을 사용하고 나머지에서는 name을 사용.
           });
         }
       }
@@ -86,7 +85,7 @@ const GosungKakaoMapComponent = () => {
         geocoder.addressSearch(detailAddress, (result, status) => {
           if (status === kakao.maps.services.Status.OK) {
             const position = result[0];
-            setCenter({ lat: parseFloat(position.y), lng: parseFloat(position.x) - 0.0035 });
+            setCenter({ lat: parseFloat(position.y), lng: parseFloat(position.x) - 0.004 });
             setLevel(3);
           }
         });
@@ -94,9 +93,6 @@ const GosungKakaoMapComponent = () => {
     };
     geocodeAddresses();
   }, [selectedCategory, restaurantList, tourismList, motelData, pensionData, guesthouseData, selectedDetail]);
-
-  console.log(markers, 'markers');
-  console.log(selectedCategory);
 
   const geocoder = new kakao.maps.services.Geocoder();
 

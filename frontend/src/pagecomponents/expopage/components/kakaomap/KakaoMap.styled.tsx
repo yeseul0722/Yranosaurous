@@ -5,7 +5,7 @@ const StyledKakaoMapContainer = styled.div`
 `;
 
 const StyledMarkerContentContainer = styled.div`
-  height: 200px;
+  height: 100px;
   width: 150px;
   border-radius: 10px;
   background-color: ${(props) => props.theme.colors.main};
@@ -32,16 +32,8 @@ const StyledImage = styled.img.attrs<any>((props) => ({
 `;
 
 const StyledContent = styled.div`
-  width: 120px;
-  height: 40px;
   font-family: ${(props) => props.theme.fonts.boldfont};
-  color: ${(props) => props.theme.colors.main};
-  background-color: ${(props) => props.theme.colors.white};
-  font-size: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
+  color: ${(props) => props.theme.colors.white};
+  font-size: 15px;
 `;
 export { StyledKakaoMapContainer, StyledMarkerContentContainer, StyledImageContainer, StyledImage, StyledContent };

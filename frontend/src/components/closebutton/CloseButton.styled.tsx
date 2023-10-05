@@ -4,7 +4,8 @@ const StyledCloseButton = styled.div`
   background-color: ${(props) => props.theme.colors.white};
   width: 30px;
   height: 60px;
-  border: 1px solid lightgray;
+  border-bottom: 3px solid ${(props) => props.theme.colors.lightgray};
+  border-right: 2px solid ${(props) => props.theme.colors.lightgray};
   justify-content: center;
   align-items: center;
   border-radius: 10px;
@@ -16,4 +17,20 @@ const StyledCloseButton = styled.div`
   top: 50%;
 `;
 
-export { StyledCloseButton };
+const StyledBackIcon = styled.div`
+  background-image: url('/gosung/back.png');
+  width: 25px;
+  height: 25px;
+  background-size: cover;
+  background-position: center;
+`;
+
+const StyledForwardIcon = styled.div`
+  background-image: url('/gosung/forward.png');
+  width: 25px;
+  height: 25px;
+  background-size: cover;
+  background-position: center;
+`;
+
+export { StyledCloseButton, StyledBackIcon, StyledForwardIcon };

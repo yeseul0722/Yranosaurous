@@ -1,4 +1,3 @@
-import React, { useState, useEffect, useRef } from 'react';
 import Carousel from '../carousel';
 import MainCard from '../maincard';
 import {
@@ -9,30 +8,10 @@ import {
   StyledEnglish,
   StyledCardBox,
 } from './Main1.styled';
+import useShowOnScroll from '../../../../hooks/expo/useShowOnScroll';
 
 const Main1 = () => {
-  const [showAnimation, setShowAnimation] = useState(false);
-  const titleref = useRef<any>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const titleRect = titleref.current?.getBoundingClientRect();
-
-      if (titleRect) {
-        if (titleRect.top < window.innerHeight && titleRect.bottom > 0) {
-          setShowAnimation(true);
-        } else {
-          setShowAnimation(false);
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  const { ref, showAnimation } = useShowOnScroll();
 
   return (
     <StyledMainContainer>
@@ -58,7 +37,7 @@ const Main1 = () => {
         </div>
       </div>
 
-      <StyledCardBox ref={titleref}>
+      <StyledCardBox ref={ref}>
         {showAnimation && (
           <>
             <MainCard title="| 일정" num="1" showAnimation={showAnimation}>

@@ -9,9 +9,8 @@ import {
   StyledTourismInfo,
   StyledTourismAd,
   StyledTourismContent,
+  StyledLocationIcon,
 } from './TourismDetail.styled';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
 const GosungTourismDetail = () => {
   const { tourismDetail } = useTourismDetailStore();
@@ -26,7 +25,7 @@ const GosungTourismDetail = () => {
       <StyledTourismName>{tourismDetail.name}</StyledTourismName>
       <StyledTourismInfo>
         <StyledTourismAdContainer>
-          <FontAwesomeIcon icon={faLocationDot} />
+          <StyledLocationIcon />
           <StyledTourismAd>{tourismDetail.address}</StyledTourismAd>
         </StyledTourismAdContainer>
       </StyledTourismInfo>
