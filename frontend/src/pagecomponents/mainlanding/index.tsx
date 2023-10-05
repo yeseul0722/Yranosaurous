@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import LandingExpo from './components/landingexpo';
 import LandingDinosaur from './components/landingdinosaur';
 import LandingStart from './components/landingstart';
-import { StyledMainLanding, StyledMainLandingPage } from './MainLanding.styled';
+import { StyledMainLanding, StyledMainLandingPage } from './LandingMain.styled';
 
 const MainLanding = () => {
   const landingExpoRef = useRef<any>();
