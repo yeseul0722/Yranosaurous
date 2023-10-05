@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 const StyledNavBar = styled.div.attrs<any>((props) => ({}))`
   ${(props) => {
-    const MainBgColor = props.theme.colors.main;
+    const MainBgColor = props.currentPage === 'ExpoPage' ? props.theme.colors.light : props.theme.colors.main;
 
     return css`
       width: 100%;
@@ -15,23 +15,6 @@ const StyledNavBar = styled.div.attrs<any>((props) => ({}))`
       position: fixed;
       z-index: 100;
       overflow: hidden;
-    `;
-  }}
-`;
-
-const StyledNavBarDropDown = styled.div.attrs<any>((props) => ({}))`
-  ${(props) => {
-    const WhiteBgColor = props.theme.colors.white;
-    return css`
-      width: 100%;
-      height: 30px;
-      background-color: #f3f8f8;
-      position: fixed;
-      top: 60px;
-      z-index: 100;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
     `;
   }}
 `;
@@ -50,15 +33,6 @@ const StyledLogo = styled.img.attrs<any>((props) => ({
   width: auto;
 `;
 
-const StyledName = styled.div`
-  font-family: ${(props) => props.theme.fonts.boldfont};
-  font-size: 25px;
-  color: ${(props) => props.theme.colors.white};
-  display: flex;
-  align-items: center;
-  padding-left: 10px;
-`;
-
 const StyledEndComponent = styled.div`
   position: fixed;
   right: 50px;
@@ -71,44 +45,24 @@ const StyledLinkText = styled.a.attrs<any>((props) => ({}))`
   ${(props) => {
     const navState = props.navstate;
     const name = props.name;
+    const dark = props.theme.colors.dark;
+    const white = props.theme.colors.white;
+
+    const color = props.currentPage === 'ExpoPage' ? dark : white;
+
     return css`
       display: flex;
       align-items: center;
       font-family: ${(props) => props.theme.fonts.boldfont};
       font-size: 20px;
-      color: ${(props) => props.theme.colors.white};
+      color: ${color};
       text-decoration: none;
       padding: 5px;
-      border-bottom: ${navState === name ? `3px solid ${props.theme.colors.white}` : null};
-      border-top: ${navState === name ? `3px solid ${props.theme.colors.white}` : null};
+      border-bottom: ${navState === name ? `3px solid ${color}` : null};
+      border-top: ${navState === name ? `3px solid ${color}` : null};
       cursor: pointer;
     `;
   }}
 `;
 
-const StyledLinkDetailContainer = styled.a.attrs<any>((props) => ({}))`
-  width: 300px;
-  display: flex;
-  justify-content: flex-start;
-  margin-right: 30px;
-  gap: 50px;
-`;
-
-const StyledLinkDetail = styled.a.attrs<any>((props) => ({}))`
-  font-family: ${(props) => props.theme.fonts.boldfont};
-  font-size: 15px;
-  color: ${(props) => props.theme.colors.main};
-  cursor: pointer;
-`;
-
-export {
-  StyledNavBar,
-  StyledNavBarDropDown,
-  StyledLogoContainer,
-  StyledLogo,
-  StyledName,
-  StyledEndComponent,
-  StyledLinkText,
-  StyledLinkDetailContainer,
-  StyledLinkDetail,
-};
+export { StyledNavBar, StyledLogoContainer, StyledLogo, StyledEndComponent, StyledLinkText };
