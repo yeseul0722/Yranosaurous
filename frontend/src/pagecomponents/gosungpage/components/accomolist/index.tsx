@@ -10,6 +10,7 @@ import {
 import AccomodationDetailGet from '../../../../apis/gosung/accomodationDetailGet';
 import { useAccommodationDetailStore } from '../../../../stores/gosung/accommodation/useAccommodationDetailStore';
 import { useCategoryDetailStore } from '../../../../stores/gosung/useCategoryDetailStore';
+import Rating from 'react-rating';
 
 interface GosungAccomoListProps {
   accomoList: any[];
@@ -33,6 +34,14 @@ const GosungAccomoList = ({ accomoList }: GosungAccomoListProps) => {
             <StyledAccomoImg src={accomo.imgAddress}></StyledAccomoImg>
             <StyledAccomoListInfo>
               <StyledAccomoStoreName>{accomo.name}</StyledAccomoStoreName>
+              <Rating
+                readonly={true}
+                initialRating={accomo.rating}
+                fullSymbol={<img src="/rating/stards.png" alt="Full Star" style={{ width: '25px', height: '25px' }} />}
+                emptySymbol={
+                  <img src="/rating/stards2.png" alt="Empty Star" style={{ width: '25px', height: '25px' }} />
+                }
+              />
               <StyledAccomoRating>{accomo.rating}</StyledAccomoRating>
             </StyledAccomoListInfo>
           </StyledAccomoContainer>
