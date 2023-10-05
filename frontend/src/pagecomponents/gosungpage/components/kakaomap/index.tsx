@@ -114,7 +114,7 @@ const GosungKakaoMapComponent = () => {
         width: '100%',
         height: '100vh',
       }}
-      level={3}
+      level={7}
     >
       {markers &&
         markers.map((marker, index) => (
