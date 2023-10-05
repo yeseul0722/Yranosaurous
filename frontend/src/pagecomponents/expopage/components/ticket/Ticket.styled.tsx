@@ -1,15 +1,37 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const StyledTicketContainer = styled.div`
-  display: flex;
-  margin: 0px auto 100px auto;
-  width: 1120px;
+const StyledTicketContainer = styled.div.attrs<any>((props) => ({}))`
+  ${(props) => {
+    const main = props.theme.colors.main;
+    const white = props.theme.colors.white;
+    return css`
+      background-color: ${main};
+      color: ${white};
+      display: flex;
+      padding-top: 101px;
+      padding-bottom: 101px;
+      justify-content: center;
+    `;
+  }}
+`;
+const StyledWhitebox = styled.div.attrs<any>((props) => ({}))`
+  ${(props) => {
+    const white = props.theme.colors.white;
+    return css`
+      border: 8px solid ${white};
+      color: ${white};
+      display: flex;
+      padding: 50px 100px;
+      border-radius: 30px;
+      gap: 30px;
+    `;
+  }}
 `;
 
 const StyledTicketLeftContainer = styled.div`
-  flex: 2;
   display: flex;
   justify-content: center;
+  align-items: center;
 `;
 
 const StyledImageContainer = styled.div`
@@ -34,34 +56,46 @@ const StyledImage = styled.img.attrs<any>((props) => ({
   height: 90%;
 `;
 
-const StyledTicketRightContainer = styled.div`
-  flex: 3;
-`;
-
 const StyledTiketTitle = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
-  font-size: 60px;
-  color: ${(props) => props.theme.colors.main};
+  font-size: 50px;
+  color: ${(props) => props.theme.colors.white};
   display: flex;
   justify-content: flex-start;
-  padding-left: 100px;
-  margin-bottom: 50px;
-`;
-
-const StyledTicetInfoContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
   margin-bottom: 30px;
 `;
 
+const StyledTicetInfoBox = styled.div.attrs<any>((props) => ({}))`
+  ${(props) => {
+    const white = props.theme.colors.white;
+    return css`
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 20px;
+      color: ${white};
+    `;
+  }}
+`;
+const StyledText = styled.div.attrs<any>((props) => ({}))`
+  ${(props) => {
+    const font = props.theme.fonts.boldfont;
+    const white = props.theme.colors.white;
+    const fontsize = props.size;
+    return css`
+      color: ${white};
+      font-family: ${font};
+      font-size: ${fontsize};
+      text-align: left;
+    `;
+  }}
+`;
 const StyledReserve = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
   font-size: 30px;
   color: ${(props) => props.theme.colors.black};
   display: flex;
   justify-content: flex-start;
-  padding-left: 100px;
 `;
 
 const StyledPrice = styled.div`
@@ -69,14 +103,11 @@ const StyledPrice = styled.div`
   font-size: 20px;
   color: ${(props) => props.theme.colors.black};
   display: flex;
-  justify-content: flex-start;
-  padding-left: 100px;
 `;
 
 const StyledButtonContainer = styled.div`
   display: flex;
   justify-content: flex-start;
-  margin-left: 100px;
 `;
 
 const StyledButtonBox = styled.div`
@@ -85,14 +116,15 @@ const StyledButtonBox = styled.div`
 
 export {
   StyledTicketContainer,
+  StyledWhitebox,
+  StyledText,
   StyledTicketLeftContainer,
-  StyledTicketRightContainer,
   StyledImageContainer,
   StyledImage,
   StyledTiketTitle,
   StyledReserve,
   StyledPrice,
-  StyledTicetInfoContainer,
+  StyledTicetInfoBox,
   StyledButtonContainer,
   StyledButtonBox,
 };
