@@ -3,10 +3,10 @@ import styled, { css } from 'styled-components';
 const StyledPerformanceContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding-top: 70px;
+  padding-top: 100px;
   background-color: #e0eced;
   align-items: center;
-  padding-bottom: 70px;
+  padding-bottom: 100px;
 `;
 const StyledPerformance = styled.div`
   display: flex;
