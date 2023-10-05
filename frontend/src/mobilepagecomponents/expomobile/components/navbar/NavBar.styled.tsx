@@ -12,10 +12,10 @@ const StyledNavBarContainer = styled.div`
 const StyledServiceName = styled.a`
   display: flex;
   font-family: ${(props) => props.theme.fonts.boldfont};
-  color: ${(props) => props.theme.colors.black};
+  color: ${(props) => props.theme.colors.main};
   text-decoration: none;
   margin: 5px;
-  font-size: 20px;
+  font-size: 16px;
 `;
 
 const StyledMenuContainer = styled.div.attrs<any>((props) => ({}))`
