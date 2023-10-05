@@ -60,7 +60,7 @@ const Tourism = () => {
         </StyledCardBoxContainer>
       </StyledCardContainer>
       <StyledGOsungContainer>
-        <StyledGosung href="/gosung"> 가기 좋은 고성 더 보러가기 ➜</StyledGosung>
+        <StyledGosung href="/Gosung"> 가기 좋은 고성 더 보러가기 ➜</StyledGosung>
       </StyledGOsungContainer>
     </StyledTourismContainer>
   );
