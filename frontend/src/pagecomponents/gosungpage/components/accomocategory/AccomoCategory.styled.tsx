@@ -10,8 +10,7 @@ const StyledAccomoCategorySection = styled.div`
 
 const StyledAccomoCategoryContainer = styled.div`
   height: 70px;
-  width: 360px;
-  /* border: 1px solid; */
+
   justify-content: center;
   align-items: center;
 `;
@@ -19,6 +18,8 @@ const StyledAccomoCategoryContainer = styled.div`
 const StyledAccomoCategoryBox = styled.div`
   height: auto;
   margin: auto;
+  display: flex;
+  width: 100%;
   justify-content: center;
   align-items: center;
 `;
@@ -43,10 +44,11 @@ const StyledAccomoCategoryList = styled.button`
 `;
 
 const StyledAccomoCategoryWrap = styled.div`
-  width: auto;
+  width: 100%;
   height: auto;
   display: flex;
   justify-content: center;
+  margin-left: 21px;
 `;
 export {
   StyledAccomoCategoryList,

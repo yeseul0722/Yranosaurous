@@ -1,5 +1,14 @@
-import styled, { css } from 'styled-components';
-
+import styled, { css, keyframes } from 'styled-components';
+const slideFromLeft = keyframes`
+  0% {
+    transform: translateX(-70%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`;
 const StyledTicketContainer = styled.div.attrs<any>((props) => ({}))`
   ${(props) => {
     const main = props.theme.colors.main;
@@ -28,13 +37,13 @@ const StyledWhitebox = styled.div.attrs<any>((props) => ({}))`
   }}
 `;
 
-const StyledTicketLeftContainer = styled.div`
+const StyledTicketLeftContainer = styled.div<any>`
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
-const StyledImageContainer = styled.div`
+const StyledImageContainer = styled.div<any>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,6 +55,12 @@ const StyledImageContainer = styled.div`
     ${(props) => props.theme.colors.lightgray} 50%,
     ${(props) => props.theme.colors.main} 50%
   );
+
+  ${(props) =>
+    props.showAnimation &&
+    css`
+      animation: ${slideFromLeft} 0.8s ease-out forwards;
+    `}
 `;
 
 const StyledImage = styled.img.attrs<any>((props) => ({

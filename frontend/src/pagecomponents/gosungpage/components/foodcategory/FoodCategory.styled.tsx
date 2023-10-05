@@ -24,10 +24,11 @@ const StyledFoodCategoryBox = styled.div`
 `;
 
 const StyledFoodCategoryWrap = styled.div`
-  width: auto;
+  width: 100%;
   height: auto;
   display: flex;
   justify-content: center;
+  margin-left: 21px;
 `;
 
 const StyledFoodCategoryList = styled.button`

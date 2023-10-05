@@ -19,15 +19,16 @@ const StyledAccomoListInfo = styled.div`
 
 const StyledAccomoStoreName = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
-  color: ${(props) => props.theme.colors.light};
+  color: ${(props) => props.theme.colors.main};
   font-size: 17px;
 `;
 
 const StyledAccomoImg = styled.img`
   height: 150px;
   width: 150px;
-  border-radius: 10px;
+  border-radius: 20px;
   margin: 10px;
+  border: 7px solid ${(props) => props.theme.colors.main};
 `;
 
 const StyledAccomoRating = styled.div`

@@ -59,6 +59,38 @@ const StyledRating = styled.div`
   margin-top: 15px;
 `;
 
+const StyledLocationIcon = styled.div`
+  background-image: url('/gosung/location.png');
+  width: 25px;
+  height: 25px;
+  background-size: cover;
+  background-position: center;
+`;
+
+const StyledOkIcon = styled.div`
+  background-image: url('/gosung/okay.png');
+  width: 25px;
+  height: 25px;
+  background-size: cover;
+  background-position: center;
+`;
+
+const StyledBanIcon = styled.div`
+  background-image: url('/gosung/ban.png');
+  width: 25px;
+  height: 25px;
+  background-size: cover;
+  background-position: center;
+`;
+
+const StyledChild = styled.div`
+  font-family: ${(props) => props.theme.fonts.regularfont};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+`;
+
 export {
   StyledAccommoAd,
   StyledAccommoAdContainer,
@@ -68,4 +100,8 @@ export {
   StyledAccommoName,
   StyledAccomoInfo,
   StyledRating,
+  StyledLocationIcon,
+  StyledBanIcon,
+  StyledOkIcon,
+  StyledChild,
 };

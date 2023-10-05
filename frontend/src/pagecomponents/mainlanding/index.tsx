@@ -3,8 +3,8 @@ import LandingExpo from './components/landingexpo';
 import LandingDinosaur from './components/landingdinosaur';
 import LandingStart from './components/landingstart';
 import LandingMobile from '../../mobilepagecomponents/landingmobile';
-import { StyledMainLanding, StyledMainLandingPage } from './mainLanding.styled';
 import { useMediaQuery } from 'react-responsive';
+import { StyledMainLanding, StyledMainLandingPage } from './MainLanding.styled';
 const MainLanding = () => {
   const isMobile = useMediaQuery({
     query: '(max-width: 768px)',
