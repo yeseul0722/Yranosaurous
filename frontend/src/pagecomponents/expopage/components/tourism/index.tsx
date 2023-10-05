@@ -1,3 +1,4 @@
+import useShowOnScroll from '../../../../hooks/expo/useShowOnScroll';
 import {
   StyledTourismContainer,
   StyledNavContainer,
@@ -12,15 +13,17 @@ import {
 } from './Tourism.styled';
 
 const Tourism = () => {
+  const { ref, showAnimation } = useShowOnScroll();
+
   return (
     <StyledTourismContainer>
-      <StyledNavContainer>
+      <StyledNavContainer ref={ref}>
         <StyledText size="43px">고성에서 어디가지?</StyledText>
         <StyledText size="24px">공룡엑스포만 보고 돌아가기 아쉬울 가족들을 위해 관광정보를 골라봤어요!</StyledText>
       </StyledNavContainer>
       <StyledCardContainer>
         <StyledCardBoxContainer>
-          <StyledCardBox color="#6769B1">
+          <StyledCardBox color="#6769B1" showAnimation={showAnimation}>
             <StyledCard src="expo_main_pic/restaurant.png" alt="restaurant" />
           </StyledCardBox>
           <StyledCardTextBox>
@@ -32,7 +35,7 @@ const Tourism = () => {
           </StyledCardTextBox>
         </StyledCardBoxContainer>
         <StyledCardBoxContainer>
-          <StyledCardBox color="#DEABAB">
+          <StyledCardBox color="#DEABAB" showAnimation={showAnimation}>
             <StyledCard src="expo_main_pic/tourism.png" alt="tourism" />
           </StyledCardBox>
           <StyledCardTextBox>
@@ -44,7 +47,7 @@ const Tourism = () => {
           </StyledCardTextBox>
         </StyledCardBoxContainer>
         <StyledCardBoxContainer>
-          <StyledCardBox color="#E6D2FF">
+          <StyledCardBox color="#E6D2FF" showAnimation={showAnimation}>
             <StyledCard src="expo_main_pic/lodgment.png" alt="lodgment" />
           </StyledCardBox>
           <StyledCardTextBox>
