@@ -93,7 +93,7 @@ const Test = styled.div`
   }
 `;
 const Test2 = styled.div`
-  height: 80vh;
+  height: 78vh;
   overflow: scroll;
   &::-webkit-scrollbar {
     width: 0;
@@ -101,7 +101,7 @@ const Test2 = styled.div`
 `;
 
 const StyledTimeContainer = styled.div`
-  background-color: ${(props) => props.theme.colors.light};
+  background-color: ${(props) => props.theme.colors.main};
   padding: 10px 0px;
   height: 5vh;
 `;
