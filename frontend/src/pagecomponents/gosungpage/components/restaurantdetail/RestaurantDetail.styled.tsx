@@ -89,12 +89,20 @@ const StyledRating = styled.div`
 `;
 
 const StyledMenuContainer = styled.div`
-  height: 200px;
+  height: 300px;
 `;
 
 const StyledReviewContainer = styled.div`
-  height: 200px;
+  height: 300px;
   margin: 20px 0;
+`;
+
+const StyledLocationIcon = styled.div`
+  background-image: url('/gosung/location.png');
+  width: 25px;
+  height: 25px;
+  background-size: cover;
+  background-position: center;
 `;
 
 export {
@@ -110,4 +118,5 @@ export {
   StyledRestaurantAdContainer,
   StyledMenuContainer,
   StyledReviewContainer,
+  StyledLocationIcon,
 };

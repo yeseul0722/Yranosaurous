@@ -1,8 +1,5 @@
 import React from 'react';
 import { useRestaurantDetailStore } from '../../../../stores/gosung/restaurants/useRestaurantDetailApiStore';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
-import Rating from '@mui/material/Rating';
 import {
   StyledRating,
   StyledRestaurantAd,
@@ -16,11 +13,13 @@ import {
   StyledRestaurantAdContainer,
   StyledMenuContainer,
   StyledReviewContainer,
+  StyledLocationIcon,
 } from './RestaurantDetail.styled';
 import GosungRestaurantMenu from '../restaurantmenu';
 import HashtagListGet from '../../../../apis/gosung/hashtagListGet';
 import GosungAccomoCategory from '../accomocategory';
 import GosungRestaurantReview from '../restaurantreview';
+import Rating from 'react-rating';
 
 const GosungRestaurantDetail = () => {
   const { restaurantDetail } = useRestaurantDetailStore();
@@ -47,11 +46,17 @@ const GosungRestaurantDetail = () => {
       </StyledRestauranthashtags>
       <StyledRestaurantInfo>
         <StyledRestaurantAdContainer>
-          <FontAwesomeIcon icon={faLocationDot} />
+          <StyledLocationIcon />
           <StyledRestaurantAd>{restaurantDetail.address}</StyledRestaurantAd>
         </StyledRestaurantAdContainer>
         <StyledRating>
-          <Rating name="read-only" value={restaurantDetail.rating} readOnly /> {restaurantDetail.rating}
+          <Rating
+            readonly={true}
+            initialRating={restaurantDetail.rating}
+            fullSymbol={<img src="/rating/stards.png" alt="Full Star" style={{ width: '30px', height: '30px' }} />}
+            emptySymbol={<img src="/rating/stards2.png" alt="Empty Star" style={{ width: '30px', height: '30px' }} />}
+          />
+          {restaurantDetail.rating}
         </StyledRating>
       </StyledRestaurantInfo>
       <StyledMenuContainer>
