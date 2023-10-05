@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+type StyledCategoryContainerProps = {
+  isSelected: boolean;
+};
+
 const StyledTourismCategorySection = styled.div`
   height: 100vh;
   overflow: auto;
@@ -10,28 +14,19 @@ const StyledTourismCategorySection = styled.div`
 
 const StyledTourismCategoryContainer = styled.div`
   height: 130px;
-  width: 360px;
-  /* border: 1px solid; */
   justify-content: center;
   align-items: center;
 `;
 
 const StyledTourismCategoryBox = styled.div`
   height: auto;
-  margin: auto;
   justify-content: center;
   align-items: center;
-`;
-
-const StyledTourismCategoryWrap = styled.div`
-  width: 100%;
-  height: auto;
   display: flex;
-  justify-content: center;
-  margin-left: 21px;
+  flex-wrap: wrap;
 `;
 
-const StyledTourismCategoryList = styled.button`
+const StyledTourismCategoryList = styled.button<StyledCategoryContainerProps>`
   width: 100px;
   height: 30px;
   border-radius: 30px;
@@ -39,11 +34,11 @@ const StyledTourismCategoryList = styled.button`
   justify-content: center;
   align-items: center;
   display: flex;
-  color: ${(props) => props.theme.colors.main};
+  color: ${(props) => (props.isSelected ? props.theme.colors.white : props.theme.colors.main)};
   font-family: ${(props) => props.theme.fonts.regularfont};
   cursor: pointer;
   border: 1px solid ${(props) => props.theme.colors.lightgray};
-  background-color: white;
+  background-color: ${(props) => (props.isSelected ? props.theme.colors.main : 'white')};
   &:hover {
     background-color: ${(props) => props.theme.colors.main};
     color: ${(props) => props.theme.colors.white};
@@ -55,5 +50,4 @@ export {
   StyledTourismCategoryContainer,
   StyledTourismCategoryList,
   StyledTourismCategorySection,
-  StyledTourismCategoryWrap,
 };

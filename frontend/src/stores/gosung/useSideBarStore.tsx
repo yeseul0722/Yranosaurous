@@ -8,7 +8,7 @@ type Store = {
 };
 
 export const useSideBarStore = create<Store>((set) => ({
-  selectedCategory: '맛집',
+  selectedCategory: '',
   setSelectedCategory: (category) => set({ selectedCategory: category }),
   showSideList: false,
   setShowSideList: (value) => set({ showSideList: value }),

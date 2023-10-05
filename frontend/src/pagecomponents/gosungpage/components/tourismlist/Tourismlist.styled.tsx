@@ -2,11 +2,12 @@ import styled from 'styled-components';
 
 const StyledTourismListContainer = styled.div``;
 
-const StyledTourismContainer = styled.div`
+const StyledTourismContainer = styled.div<{ isSelected: boolean }>`
   height: 200px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid ${(props) => props.theme.colors.lightgray};
+  background-color: ${(props) => (props.isSelected ? props.theme.colors.light : props.theme.colors.white)};
   cursor: pointer;
 `;
 

@@ -21,8 +21,18 @@ const GosungComponent = () => {
   });
   const { showSideList, setShowSideList } = useSideBarStore();
   const [showDetails, setShowDetails] = useState(false);
+  const [isRender, setIsRender] = useState(true);
   const selectedCategory = useSideBarStore((state) => state.selectedCategory);
   console.log(showSideList, 'side');
+
+  useEffect(() => {
+    if (isRender) {
+      setIsRender(false);
+    } else {
+      setShowDetails(false);
+      setShowSideList(true);
+    }
+  }, [selectedCategory]);
 
   const handleButtonClick = () => {
     setShowSideList(!showSideList);
@@ -43,10 +53,10 @@ const GosungComponent = () => {
     }
   }, [restaurantDetail, accommodationDetail, tourismDetail]);
 
-  useEffect(() => {
-    setShowDetails(false);
-    setShowSideList(true);
-  }, [selectedCategory]);
+  // useEffect(() => {
+  //   setShowDetails(false);
+  //   setShowSideList(true);
+  // }, [selectedCategory]);
 
   let DetailComponent;
 

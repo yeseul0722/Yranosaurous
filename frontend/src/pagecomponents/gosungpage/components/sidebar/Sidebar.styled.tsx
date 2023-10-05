@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+type StyledCategoryContainerProps = {
+  isSelected: boolean;
+};
+
 const StyledSideBarContainer = styled.div`
   min-width: 72px;
   max-width: 72px;
@@ -9,7 +13,7 @@ const StyledSideBarContainer = styled.div`
   /* background-color: white; */
 `;
 
-const StyledCategoryContainer = styled.div`
+const StyledCategoryContainer = styled.div<StyledCategoryContainerProps>`
   /* border-bottom: 1px solid ${(props) => props.theme.colors.lightgray}; */
   height: 100px;
   display: flex;
@@ -17,7 +21,8 @@ const StyledCategoryContainer = styled.div`
   align-items: center;
   flex-direction: column;
   font-family: ${(props) => props.theme.fonts.boldfont};
-  color: ${(props) => props.theme.colors.main};
+  color: ${(props) => (props.isSelected ? props.theme.colors.white : props.theme.colors.main)};
+  background-color: ${(props) => (props.isSelected ? props.theme.colors.main : 'white')};
   cursor: pointer;
   &:hover {
     background-color: ${(props) => props.theme.colors.main};

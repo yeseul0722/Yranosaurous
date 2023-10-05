@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+type StyledCategoryContainerProps = {
+  isSelected: boolean;
+};
+
 const StyledAccomoCategorySection = styled.div`
   height: 100vh;
   overflow: auto;
@@ -10,21 +14,19 @@ const StyledAccomoCategorySection = styled.div`
 
 const StyledAccomoCategoryContainer = styled.div`
   height: 70px;
-
   justify-content: center;
   align-items: center;
 `;
 
 const StyledAccomoCategoryBox = styled.div`
   height: auto;
-  margin: auto;
   display: flex;
   width: 100%;
   justify-content: center;
   align-items: center;
 `;
 
-const StyledAccomoCategoryList = styled.button`
+const StyledAccomoCategoryList = styled.button<StyledCategoryContainerProps>`
   width: 100px;
   height: 30px;
   border-radius: 30px;
@@ -32,11 +34,11 @@ const StyledAccomoCategoryList = styled.button`
   justify-content: center;
   align-items: center;
   display: flex;
-  color: ${(props) => props.theme.colors.main};
+  color: ${(props) => (props.isSelected ? props.theme.colors.white : props.theme.colors.main)};
   font-family: ${(props) => props.theme.fonts.regularfont};
   cursor: pointer;
   border: 1px solid ${(props) => props.theme.colors.lightgray};
-  background-color: white;
+  background-color: ${(props) => (props.isSelected ? props.theme.colors.main : 'white')};
   &:hover {
     background-color: ${(props) => props.theme.colors.main};
     color: ${(props) => props.theme.colors.white};
