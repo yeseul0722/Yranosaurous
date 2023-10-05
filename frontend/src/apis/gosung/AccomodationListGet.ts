@@ -1,6 +1,5 @@
 import { async } from 'q';
 import api from '../api';
-import { Category } from '@mui/icons-material';
 
 const AccomodationListGet = async () => {
   try {
