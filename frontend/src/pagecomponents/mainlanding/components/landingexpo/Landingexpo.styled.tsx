@@ -43,6 +43,7 @@ const StyledLandingExpoLinkButton = styled.div`
   align-items: center;
   font-size: 24px;
   margin-top: 2rem;
+  cursor: pointer;
 `;
 
 const StyledLandingExpoWindow = styled.div`
