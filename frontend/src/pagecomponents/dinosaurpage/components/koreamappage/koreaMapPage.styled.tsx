@@ -61,7 +61,7 @@ const StyledKoreaMapSelect = styled.div.attrs<any>((props) => ({}))`
   margin-bottom: 2rem;
   color: ${(props) => props.theme.colors.white};
   font-family: ${(props) => props.theme.fonts.dinoboldfont};
-  cursor: default;
+  cursor: pointer;
   z-index: 100;
 
   ${({ id }) => {
