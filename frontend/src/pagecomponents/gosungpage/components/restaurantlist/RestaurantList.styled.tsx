@@ -40,13 +40,11 @@ const StyledRestaurantRating = styled.div`
   font-family: ${(props) => props.theme.fonts.regularfont};
 `;
 
-const StyledIcon = styled.div`
-  background-image: url('/gosung/dinosaur.png');
+const StyledIcon = styled.img`
   width: 30px;
   height: 30px;
   margin-bottom: 10px;
-  background-size: cover;
-  background-position: center;
+  margin-right: 5px;
 `;
 
 const StyledInfo = styled.div`
@@ -54,11 +52,39 @@ const StyledInfo = styled.div`
 `;
 
 const StyledRating = styled.div`
-  font-family: ${(props) => props.theme.fonts.regularfont};
+  font-family: ${(props) => props.theme.fonts.boldfont};
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 15px;
+  margin-bottom: 10px;
+`;
+
+const StyledRatingNum = styled.div`
+  margin-left: 10px;
+  margin-bottom: 7px;
+`;
+
+const StyledRestauranthashtags = styled.div`
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+  flex-wrap: wrap;
+`;
+
+const Styledhashtag = styled.div`
+  display: flex;
+  border-radius: 20px;
+  border: 2px solid ${(props) => props.theme.colors.light};
+  background-color: ${(props) => props.theme.colors.main};
+  color: white;
+  margin-right: 5px;
+  padding-right: 6px;
+  padding-left: 6px;
+  white-space: nowrap;
+  font-size: 11px;
+  margin-bottom: 5px;
+  /* cursor: pointer; */
 `;
 
 export {
@@ -71,4 +97,7 @@ export {
   StyledIcon,
   StyledInfo,
   StyledRating,
+  StyledRestauranthashtags,
+  Styledhashtag,
+  StyledRatingNum,
 };
