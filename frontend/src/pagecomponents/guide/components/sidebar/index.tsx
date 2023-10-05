@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import { StyledSideBarContainer, StyledMenu, StyledMenuIcon, StyledSideBar, StyledMenuTitle } from './SideBar.styled';
+import {
+  StyledSideBarContainer,
+  StyledMenu,
+  StyledMenuIcon,
+  StyledSideBar,
+  StyledMenuTitle,
+  StyledMenuIcon2,
+} from './SideBar.styled';
 import { useNavigate } from 'react-router-dom';
 
 import Facility from '../facility';
@@ -27,11 +34,11 @@ const SideBarComponent = () => {
             Router('/Expo');
           }}
         >
-          <StyledMenuIcon name="home" src="/gosung/dinosaur.png"></StyledMenuIcon>
+          <StyledMenuIcon2 name="home" src="/gosung/dinosaur.png"></StyledMenuIcon2>
         </StyledMenu>
         <StyledMenu name="cource" state={selectCategory} onClick={handelState}>
           <StyledMenuIcon name="cource" alt="menuB" src="/mobile/추천코스.png" state={selectCategory}></StyledMenuIcon>
-          <StyledMenuTitle>추천코스</StyledMenuTitle>
+          추천코스
         </StyledMenu>
         <StyledMenu name="facility" state={selectCategory} onClick={handelState}>
           <StyledMenuIcon
@@ -40,11 +47,11 @@ const SideBarComponent = () => {
             src="/mobile/편의시설.png"
             state={selectCategory}
           ></StyledMenuIcon>
-          <StyledMenuTitle>편의시설</StyledMenuTitle>
+          편의시설
         </StyledMenu>
         <StyledMenu name="preview" state={selectCategory} onClick={handelState}>
           <StyledMenuIcon name="preview" alt="menuB" src="/mobile/관람요소.png" state={selectCategory}></StyledMenuIcon>
-          <StyledMenuTitle>관람요소</StyledMenuTitle>
+          관람요소
         </StyledMenu>
       </StyledSideBar>
       {selectCategory === 'cource' && <Cource></Cource>}

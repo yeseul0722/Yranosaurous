@@ -11,18 +11,22 @@ const StyledSideBar = styled.div`
 `;
 
 const StyledMenu = styled.div.attrs<any>((props) => ({}))`
-  height: 15vh;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  border-bottom: 0.5px solid ${(props) => props.theme.colors.main};
+
   gap: 5px;
-  background-color: ${(props) => (props.name === props.state ? props.theme.colors.light : 'white')};
+  background-color: ${(props) => (props.name === props.state ? props.theme.colors.main : props.theme.colors.white)};
   /* background-color: ${(props) => (props.name === props.hover ? props.theme.colors.light : 'white')}; */
+  font-family: ${(props) => props.theme.fonts.boldfont};
+  font-size: 15px;
+  color: ${(props) => (props.name === props.state ? props.theme.colors.white : props.theme.colors.main)};
   cursor: pointer;
   &:hover {
-    background-color: ${(props) => props.theme.colors.light};
+    background-color: ${(props) => props.theme.colors.main};
+    color: ${(props) => props.theme.colors.white};
   }
 `;
 
@@ -30,14 +34,21 @@ const StyledMenuIcon = styled.img.attrs<any>((props) => ({
   src: props.src,
   alt: props.alt,
 }))`
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
+`;
+const StyledMenuIcon2 = styled.img.attrs<any>((props) => ({
+  src: props.src,
+  alt: props.alt,
+}))`
+  width: 45px;
+  height: 45px;
 `;
 
 const StyledMenuTitle = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
   font-size: 15px;
-  color: ${(props) => props.theme.colors.black};
+  color: ${(props) => props.theme.colors.main};
 `;
 
-export { StyledSideBarContainer, StyledSideBar, StyledMenu, StyledMenuIcon, StyledMenuTitle };
+export { StyledSideBarContainer, StyledSideBar, StyledMenu, StyledMenuIcon, StyledMenuTitle, StyledMenuIcon2 };

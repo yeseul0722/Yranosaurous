@@ -59,9 +59,9 @@ const Preview = () => {
                 <StyledCourceImageContainer>
                   <StyledCourceImage marker={imageArray[place.markerNumber - 1]}></StyledCourceImage>
                 </StyledCourceImageContainer>
-                <StyledCourcePlace name={place.id} select={selectPlace}>
-                  {place.name}
-                </StyledCourcePlace>
+                {/* <StyledCourcePlace name={place.id} select={selectPlace}> */}
+                {place.name}
+                {/* </StyledCourcePlace> */}
               </StyledCourceSelectContainer>
             );
           }
