@@ -21,13 +21,16 @@ const GosungKakaoMapComponent = () => {
   const { tourismDetail } = useTourismDetailStore();
   const [markers, setMarkers] = useState<any[]>([]); //좌표로 변환한 값 담는 리스트
   const [center, setCenter] = useState({ lat: 35.057175, lng: 128.3975 });
-  const [level, setLevel] = useState(3);
 
   // 주소들 좌표로 변환하기
   useEffect(() => {
     const geocodeAddresses = async () => {
+      setMarkers([]); // 마커 초기화
       let locationList = [];
       let detailAddress;
+
+      let latSum = 0;
+      let lngSum = 0;
 
       if (typeof selectedCategory === 'number' && selectedCategory >= 1 && selectedCategory <= 15) {
         locationList = restaurantList;
@@ -68,7 +71,6 @@ const GosungKakaoMapComponent = () => {
             if (status === kakao.maps.services.Status.OK) {
               resolve(result);
             } else {
-              console.error(`Failed to search address ${item.address}:`, status);
               resolve([]);
             }
           });
@@ -78,15 +80,23 @@ const GosungKakaoMapComponent = () => {
             position: result[0],
             name: item.storeName || item.name, // restaurantList에서는 storeName을 사용하고 나머지에서는 name을 사용.
           });
+
+          latSum += parseFloat(result[0].y);
+          lngSum += parseFloat(result[0].x);
         }
       }
       setMarkers(newMarkers);
+      if (newMarkers.length > 0) {
+        const avgLat = latSum / newMarkers.length;
+        const avgLng = lngSum / newMarkers.length;
+
+        setCenter({ lat: avgLat, lng: avgLng });
+      }
       if (detailAddress) {
         geocoder.addressSearch(detailAddress, (result, status) => {
           if (status === kakao.maps.services.Status.OK) {
             const position = result[0];
             setCenter({ lat: parseFloat(position.y), lng: parseFloat(position.x) - 0.004 });
-            setLevel(3);
           }
         });
       }
@@ -104,7 +114,7 @@ const GosungKakaoMapComponent = () => {
         width: '100%',
         height: '100vh',
       }}
-      level={level}
+      level={3}
     >
       {markers &&
         markers.map((marker, index) => (
