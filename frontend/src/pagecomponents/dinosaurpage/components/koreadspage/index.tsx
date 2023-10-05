@@ -20,7 +20,7 @@ const KoreaDsPage = () => {
         </StyledKoreaDsContentText>
       </StyledKoreaDsTitle>
       <StyledKoreaDsImgContainer>
-        <StyledKoreaDsImg src="/dinosaur/koDs/Korea4.png" alt="ceratops"></StyledKoreaDsImg>
+        <StyledKoreaDsImg src="/dinosaur/koDs/korea4.png" alt="ceratops"></StyledKoreaDsImg>
       </StyledKoreaDsImgContainer>
     </StyledKoreaDsPage>
   );
