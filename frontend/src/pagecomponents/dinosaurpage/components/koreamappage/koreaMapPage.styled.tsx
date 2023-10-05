@@ -129,12 +129,12 @@ const StyledKoreaMapSelectLottie = styled.div.attrs<any>((props) => ({}))`
       top : 15rem;
       left : 56rem
     `,
-      koreanosaurus: `
+      pukyongosaurus: `
       visibility : visible;
       top : 32rem;
       left : 63rem
       `,
-      pukyongosaurus: `
+      koreanosaurus: `
       visibility : visible;
       top : 35rem;
       left : 55rem;
