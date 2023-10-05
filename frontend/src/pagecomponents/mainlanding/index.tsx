@@ -2,9 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import LandingExpo from './components/landingexpo';
 import LandingDinosaur from './components/landingdinosaur';
 import LandingStart from './components/landingstart';
+import { StyledMainLanding, StyledMainLandingPage } from './LandingMain.styled';
 import LandingMobile from '../../mobilepagecomponents/landingmobile';
 import { useMediaQuery } from 'react-responsive';
-import { StyledMainLanding, StyledMainLandingPage } from './MainLanding.styled';
 const MainLanding = () => {
   const isMobile = useMediaQuery({
     query: '(max-width: 768px)',
