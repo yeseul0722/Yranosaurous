@@ -6,6 +6,7 @@ const StyledButton = styled.button.attrs<ButtonStyles>((props) => ({}))`
     const use = props.use || 'basic';
     const main = props.theme.colors.main;
     const white = props.theme.colors.white;
+    const dark = props.theme.colors.dark;
     const font = props.theme.fonts.regularfont;
     const boldfont = props.theme.fonts.boldfont;
     const UseStlye: any = {
@@ -19,6 +20,11 @@ const StyledButton = styled.button.attrs<ButtonStyles>((props) => ({}))`
             color : ${main};
             font-size : 24px;
             padding : 10px;
+
+            &:hover{
+               color : ${white};
+              background-color : ${dark};
+            }
         `,
       mobileticket: `
             border-radius : 20px;
