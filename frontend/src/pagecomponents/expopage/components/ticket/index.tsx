@@ -14,12 +14,14 @@ import {
 } from './Ticket.styled';
 import Button from '../../../../components/button';
 import { Link } from 'react-router-dom';
+import useShowOnScroll from '../../../../hooks/expo/useShowOnScroll';
 const Ticket = () => {
+  const { ref, showAnimation } = useShowOnScroll();
   return (
     <StyledTicketContainer>
-      <StyledWhitebox>
+      <StyledWhitebox ref={ref}>
         <StyledTicketLeftContainer>
-          <StyledImageContainer>
+          <StyledImageContainer showAnimation={showAnimation}>
             <StyledImage src="expo_main_pic/TicketImage.png" alt="ticket" />
           </StyledImageContainer>
         </StyledTicketLeftContainer>
