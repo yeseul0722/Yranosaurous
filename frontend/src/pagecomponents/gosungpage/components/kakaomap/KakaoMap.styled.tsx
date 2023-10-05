@@ -15,4 +15,15 @@ const StyledInfoWindow = styled.div`
   font-family: ${(props) => props.theme.fonts.regularfont};
 `;
 
-export { StyledKakaoMapContainer, StyledInfoWindow, StyledMarkerContainer };
+const StyledInfoDetailWindow = styled.div`
+  padding: 5px;
+  border: 3px solid ${(props) => props.theme.colors.light};
+  background-color: ${(props) => props.theme.colors.main};
+  border-radius: 10px;
+  color: ${(props) => props.theme.colors.white};
+  font-size: 13px;
+  font-family: ${(props) => props.theme.fonts.regularfont};
+  z-index: 10;
+`;
+
+export { StyledKakaoMapContainer, StyledInfoWindow, StyledMarkerContainer, StyledInfoDetailWindow };
