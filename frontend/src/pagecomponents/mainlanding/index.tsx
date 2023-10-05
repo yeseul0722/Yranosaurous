@@ -2,9 +2,13 @@ import React, { useEffect, useRef } from 'react';
 import LandingExpo from './components/landingexpo';
 import LandingDinosaur from './components/landingdinosaur';
 import LandingStart from './components/landingstart';
+import LandingMobile from '../../mobilepagecomponents/landingmobile';
 import { StyledMainLanding, StyledMainLandingPage } from './mainLanding.styled';
-
+import { useMediaQuery } from 'react-responsive';
 const MainLanding = () => {
+  const isMobile = useMediaQuery({
+    query: '(max-width: 768px)',
+  });
   const landingExpoRef = useRef<any>();
 
   useEffect(() => {
@@ -19,17 +23,23 @@ const MainLanding = () => {
   };
 
   return (
-    <StyledMainLanding>
-      <StyledMainLandingPage>
-        <LandingStart />
-      </StyledMainLandingPage>
-      <StyledMainLandingPage ref={landingExpoRef}>
-        <LandingExpo />
-      </StyledMainLandingPage>
-      <StyledMainLandingPage>
-        <LandingDinosaur />
-      </StyledMainLandingPage>
-    </StyledMainLanding>
+    <>
+      {!isMobile ? (
+        <StyledMainLanding>
+          <StyledMainLandingPage>
+            <LandingStart />
+          </StyledMainLandingPage>
+          <StyledMainLandingPage ref={landingExpoRef}>
+            <LandingExpo />
+          </StyledMainLandingPage>
+          <StyledMainLandingPage>
+            <LandingDinosaur />
+          </StyledMainLandingPage>
+        </StyledMainLanding>
+      ) : (
+        <LandingMobile></LandingMobile>
+      )}
+    </>
   );
 };
 

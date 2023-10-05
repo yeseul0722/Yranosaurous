@@ -9,24 +9,30 @@ import Ticket from './components/ticket';
 import Tourism from './components/tourism';
 import Performance from './components/performance';
 import MainTitle from './components/maintitle';
+import { motion } from 'framer-motion';
 const ExpoMobile = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleSideBar = () => {
-    setIsOpen(!isOpen);
-  };
   return (
-    <StyledExpoMobilePage>
-      <NavbarComponent handleSideBar={handleSideBar}></NavbarComponent>
-      <MainTitle></MainTitle>
-      <MobileCarousel></MobileCarousel>
-      <ExpoInformation></ExpoInformation>
-      <EventVenue></EventVenue>
-      <Ticket></Ticket>
-      <Tourism></Tourism>
-      <Performance></Performance>
-      <div style={{ height: '30px' }}></div>
-    </StyledExpoMobilePage>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{
+        duration: 1, // 애니메이션의 지속 시간 (초 단위)
+        // ease: 'easeIn', // 이징 함수 (예: "easeInOut", "linear", "easeIn")
+      }}
+    >
+      <StyledExpoMobilePage>
+        <NavbarComponent></NavbarComponent>
+        <MainTitle></MainTitle>
+        <MobileCarousel></MobileCarousel>
+        <ExpoInformation></ExpoInformation>
+        <EventVenue></EventVenue>
+        <Ticket></Ticket>
+        <Tourism></Tourism>
+        <Performance></Performance>
+        <div style={{ height: '30px' }}></div>
+      </StyledExpoMobilePage>
+    </motion.div>
   );
 };
 

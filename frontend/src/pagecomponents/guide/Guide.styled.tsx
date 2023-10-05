@@ -12,7 +12,7 @@ const StyledMenuContainer = styled.div`
 
 const StyledMenuTitle = styled.div`
   width: 100%;
-  height: 15vh;
+  height: 100px;
   border-bottom: 1px solid ${(props) => props.theme.colors.light};
   display: flex;
   font-size: 40px;
@@ -40,10 +40,14 @@ const StyledCourceSelectContainer = styled.div.attrs<any>((props) => ({}))`
   align-items: center;
   height: 60px;
   border-bottom: 1px solid ${(props) => props.theme.colors.light};
-  background-color: ${(props) => props.name === props.select && props.theme.colors.light};
+  background-color: ${(props) => props.name === props.select && props.theme.colors.main};
+  color: ${(props) => (props.name === props.select ? props.theme.colors.white : props.theme.colors.main)};
+  font-family: ${(props) => props.theme.fonts.boldfont};
   cursor: pointer;
+  gap: 40px;
   &:hover {
-    background-color: ${(props) => props.theme.colors.light};
+    background-color: ${(props) => props.theme.colors.main};
+    color: ${(props) => props.theme.colors.white};
   }
 `;
 const StyledCourceImageContainer = styled.div`

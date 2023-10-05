@@ -8,18 +8,49 @@ import DsDetail from './pagecomponents/dinosaurpage/components/dinosaurdetail';
 import Guide from './pagecomponents/guide';
 import NavBar from './components/navbar';
 import MainLanding from './pagecomponents/mainlanding';
+import { AnimatePresence } from 'framer-motion';
+import Animation from './components/animation';
 function App() {
   const pathname = useLocation().pathname;
   return (
     <div className="App">
-      {/* {pathname === '/Expo' && <NavBar />} */}
-      <Routes>
-        <Route path="/" element={<MainLanding />} />
-        <Route path="/Expo" element={<Expo />} />
-        <Route path="/Dinosaur" element={<Dinosaur />} />
-        <Route path="/Gosung" element={<Gosung />} />
-        <Route path="/Guide" element={<Guide />} />
-      </Routes>
+      <AnimatePresence>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Animation>
+                <MainLanding />
+              </Animation>
+            }
+          />
+          <Route path="/Expo" element={<Expo />} />
+          <Route
+            path="/Dinosaur"
+            element={
+              <Animation>
+                <Dinosaur />
+              </Animation>
+            }
+          />
+          <Route
+            path="/Gosung"
+            element={
+              <Animation>
+                <Gosung />
+              </Animation>
+            }
+          />
+          <Route
+            path="/Guide"
+            element={
+              <Animation>
+                <Guide />
+              </Animation>
+            }
+          />
+        </Routes>
+      </AnimatePresence>
     </div>
   );
 }
