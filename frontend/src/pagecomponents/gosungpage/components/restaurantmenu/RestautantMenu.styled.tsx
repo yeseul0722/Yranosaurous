@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 const StyledMenuContainer = styled.div`
-  border: 5px solid ${(props) => props.theme.colors.light};
-  height: 200px;
+  /* border: 5px solid ${(props) => props.theme.colors.main}; */
+  height: 300px;
   margin-bottom: 2px;
   overflow: auto;
   border-radius: 5px;
-  background-color: ${(props) => props.theme.colors.main};
+  /* background-color: ${(props) => props.theme.colors.light}; */
   &::-webkit-scrollbar {
     display: none;
   }
@@ -14,7 +14,7 @@ const StyledMenuContainer = styled.div`
 
 const StyledMenuText = styled.div`
   font-family: ${(props) => props.theme.fonts.boldfont};
-  color: ${(props) => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.main};
   font-size: 18px;
 `;
 
@@ -29,13 +29,13 @@ const StyledMenuName = styled.div`
   display: flex;
   font-family: ${(props) => props.theme.fonts.boldfont};
   margin-left: 7px;
-  color: ${(props) => props.theme.colors.black};
+  color: ${(props) => props.theme.colors.main};
 `;
 
 const StyledPrice = styled.div`
   display: flex;
   font-family: ${(props) => props.theme.fonts.regularfont};
-  color: ${(props) => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.black};
   margin-right: 7px;
 `;
 

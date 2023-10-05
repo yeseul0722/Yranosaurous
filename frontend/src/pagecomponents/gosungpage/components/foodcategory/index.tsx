@@ -53,7 +53,7 @@ const GosungCategory = () => {
           </StyledFoodCategoryWrap>
         </StyledFoodCategoryBox>
       </StyledFoodCategoryContainer>
-      <GosungRestaurantList restaurantlist={restaurantList} />
+      <GosungRestaurantList restaurantlist={restaurantList} selectedCategoryId={selectedCategory} />
     </StyledFoodCategorySection>
   );
 };
