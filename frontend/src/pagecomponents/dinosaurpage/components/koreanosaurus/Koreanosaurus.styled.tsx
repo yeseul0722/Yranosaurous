@@ -1,16 +1,14 @@
 import styled, { keyframes } from 'styled-components';
 
 const StyledKoreasaurusPage = styled.div`
-  /* height: 100%; */
-  height: 144vh;
-  /* background-color: ${(props) => props.theme.colors.night}; */
-  /* background-image: url('/dinosaur/backgroundimg.jpg'); */
+  height: 100vh;
   background: url('/dinosaur/background60.png');
   background-size: cover;
   display: flex;
   flex-direction: column;
   padding: 3rem;
   position: relative;
+  overflow: hidden;
 `;
 
 const StyledKoreasaursTitleNum = styled.div`
@@ -26,7 +24,7 @@ const StyledKoreasaursTitleNum = styled.div`
   height: 13rem;
   position: absolute;
   z-index: 1;
-  top: 12rem;
+  top: 5rem;
   left: 5rem;
 `;
 
@@ -35,7 +33,7 @@ const StyledKoreasaursFirstContent = styled.div`
   color: ${(props) => props.theme.colors.white};
   font-family: ${(props) => props.theme.fonts.dinoboldfont};
   text-align: left;
-  padding-top: 17rem;
+  padding-top: 7rem;
   padding-left: 9rem;
   z-index: 50;
   cursor: default;
@@ -68,7 +66,7 @@ const StyledKoreasaursImage1 = styled.img.attrs<any>((props) => ({
   /* border: 1px solid aquamarine; */
   position: absolute;
   right: 4rem;
-  top: 6rem;
+  top: 1rem;
   width: 40rem;
 `;
 
@@ -88,7 +86,7 @@ const StyledKoreasaursImage2LottieLine = styled.div`
   position: absolute;
   width: 15rem;
   filter: invert(100%);
-  top: 43rem;
+  top: 32rem;
   left: 25rem;
   transform: rotate(0deg);
 `;
@@ -107,7 +105,7 @@ const StyledKoreasaursImage2LottieCircle = styled.div`
   position: absolute;
   width: 5rem;
   filter: invert(100%);
-  top: 45rem;
+  top: 34rem;
   left: 20rem;
 `;
 
@@ -116,7 +114,7 @@ const StyledKoreasaursImage2WeightText = styled.div`
   font-family: ${(props) => props.theme.fonts.dinoboldfont};
   font-size: 3rem;
   position: absolute;
-  top: 46rem;
+  top: 35rem;
   left: 40rem;
   cursor: default;
 `;
@@ -142,10 +140,10 @@ const StyledKoreasaursSizetImage = styled.img.attrs<any>((props) => ({
 const StyledKoreasaursSizetImageLottie = styled.div`
   /* border: 1px solid pink; */
   position: absolute;
-  width: 42rem;
+  width: 31rem;
   filter: invert(100%);
-  top: 44rem;
-  left: 1rem;
+  top: 34rem;
+  left: 4rem;
   transform: rotate(41deg);
 `;
 
@@ -154,7 +152,7 @@ const StyledKoreasaursSizeText = styled.div`
   font-family: ${(props) => props.theme.fonts.dinoboldfont};
   font-size: 3rem;
   position: absolute;
-  top: 55rem;
+  top: 43rem;
   left: 10rem;
   cursor: default;
 `;

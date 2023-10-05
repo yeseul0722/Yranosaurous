@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import SplitPage from './components/splitpage/indeex';
 import LandingExpo from './components/landingexpo';
 import LandingDinosaur from './components/landingdinosaur';
 import LandingStart from './components/landingstart';
@@ -9,13 +8,13 @@ const MainLanding = () => {
   const landingExpoRef = useRef<any>();
 
   useEffect(() => {
-    const scrollTimeout = setTimeout(scrollToNextSection, 2000);
+    const scrollTimeout = setTimeout(scrollToNextSection, 3000);
     return () => clearTimeout(scrollTimeout);
   }, []);
 
   const scrollToNextSection = () => {
     if (landingExpoRef.current) {
-      landingExpoRef.current.scrollIntoView({ behavior: 'auto' });
+      landingExpoRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
