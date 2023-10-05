@@ -61,8 +61,16 @@ const StyledTourismContent = styled.div`
   border-radius: 10px;
   font-family: ${(props) => props.theme.fonts.regularfont};
   color: ${(props) => props.theme.colors.white};
-  margin: 5px;
+  margin: 0 5px 15px 5px;
   padding: 10px;
+`;
+
+const StyledLocationIcon = styled.div`
+  background-image: url('/gosung/location.png');
+  width: 25px;
+  height: 25px;
+  background-size: cover;
+  background-position: center;
 `;
 
 export {
@@ -74,4 +82,5 @@ export {
   StyledTourismInfo,
   StyledTourismName,
   StyledTourismContent,
+  StyledLocationIcon,
 };

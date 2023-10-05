@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const StyledReviewContainer = styled.div`
   /* border: 5px solid ${(props) => props.theme.colors.main}; */
-  height: 200px;
+  height: 300px;
   margin-top: 2px;
   overflow: auto;
   border-radius: 5px;

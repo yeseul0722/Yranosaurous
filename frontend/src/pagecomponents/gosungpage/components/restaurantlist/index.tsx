@@ -9,17 +9,21 @@ import {
   StyledRestaurantStoreName,
   StyledInfo,
   StyledRating,
+  StyledRestauranthashtags,
+  Styledhashtag,
+  StyledRatingNum,
 } from './RestaurantList.styled';
 import { useRestaurantDetailStore } from '../../../../stores/gosung/restaurants/useRestaurantDetailApiStore';
 import RestaurantDetailGet from '../../../../apis/gosung/restaurantDetailGet';
 import { useCategoryDetailStore } from '../../../../stores/gosung/useCategoryDetailStore';
-import Rating from '@mui/material/Rating';
+import Rating from 'react-rating';
 
 interface GosungRestaurantListProps {
   restaurantlist: any[];
+  selectedCategoryId: number;
 }
 
-const GosungRestaurantList = ({ restaurantlist }: GosungRestaurantListProps) => {
+const GosungRestaurantList = ({ restaurantlist, selectedCategoryId }: GosungRestaurantListProps) => {
   const { restaurantDetail, setRestaurantDetail } = useRestaurantDetailStore();
   const { selectedDetail, setSelectedDetail } = useCategoryDetailStore();
 
@@ -28,6 +32,8 @@ const GosungRestaurantList = ({ restaurantlist }: GosungRestaurantListProps) => 
     setRestaurantDetail(response.data.response);
     setSelectedDetail(id);
   };
+  const handleImageSrc = `/kakaomap/${selectedCategoryId}.png`;
+
   return (
     <StyledRestaurantListContainer>
       {restaurantlist &&
@@ -36,13 +42,26 @@ const GosungRestaurantList = ({ restaurantlist }: GosungRestaurantListProps) => 
             <StyledRestaurantImg src={restaurant.imgAddress}></StyledRestaurantImg>
             <StyledRestaurantInfo>
               <StyledInfo>
-                <StyledIcon />
+                <StyledIcon src={handleImageSrc} alt="Icon" />
                 <StyledRestaurantStoreName>{restaurant.storeName}</StyledRestaurantStoreName>
               </StyledInfo>
               <StyledRating>
-                <Rating name="read-only" value={restaurant.rating} readOnly />
-                {restaurant.rating}
+                <Rating
+                  readonly={true}
+                  initialRating={restaurant.rating}
+                  fullSymbol={
+                    <img src="/rating/stards.png" alt="Full Star" style={{ width: '25px', height: '25px' }} />
+                  }
+                  emptySymbol={
+                    <img src="/rating/stards2.png" alt="Empty Star" style={{ width: '25px', height: '25px' }} />
+                  }
+                />
+                <StyledRatingNum>{restaurant.rating}</StyledRatingNum>
               </StyledRating>
+              <StyledRestauranthashtags>
+                {restaurant.hashTagList &&
+                  restaurant.hashTagList.map((tag: any) => <Styledhashtag key={tag.id}>#{tag.name}</Styledhashtag>)}
+              </StyledRestauranthashtags>
             </StyledRestaurantInfo>
           </StyledRestaurantContainer>
         ))}

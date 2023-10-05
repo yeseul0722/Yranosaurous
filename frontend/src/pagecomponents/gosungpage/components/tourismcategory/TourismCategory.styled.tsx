@@ -24,10 +24,11 @@ const StyledTourismCategoryBox = styled.div`
 `;
 
 const StyledTourismCategoryWrap = styled.div`
-  width: auto;
+  width: 100%;
   height: auto;
   display: flex;
   justify-content: center;
+  margin-left: 21px;
 `;
 
 const StyledTourismCategoryList = styled.button`
