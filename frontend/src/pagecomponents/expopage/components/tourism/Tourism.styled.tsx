@@ -1,4 +1,15 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
+
+const slideUp = keyframes`
+    0% {
+        transform: translateY(70%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+`;
 
 const StyledTourismContainer = styled.div.attrs<any>((props) => ({}))`
   ${(props) => {
@@ -74,6 +85,10 @@ const StyledCardBox = styled.div.attrs<any>((props) => ({}))`
       height: 250px;
       border-radius: 50%;
       background: linear-gradient(to right, ${(props) => props.theme.colors.lightgray} 50%, ${color} 50%);
+      ${props.showAnimation &&
+      css`
+        animation: ${slideUp} 0.8s ease-out forwards;
+      `}
     `;
   }}
 `;

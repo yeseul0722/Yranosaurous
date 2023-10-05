@@ -1,4 +1,3 @@
-import { useState, useEffect, useRef } from 'react';
 import Carousel from '../carousel';
 import MainCard from '../maincard';
 import {
