@@ -36,8 +36,8 @@ const GosungKakaoMapComponent = () => {
   const [myPosition, setMyposition] = useState(false);
   const [state, setState] = useState({
     center: {
-      lat: 33.450701,
-      lng: 126.570667,
+      lat: 35.06007877,
+      lng: 128.39939220501495,
     },
     errMsg: null,
     isLoading: true,
