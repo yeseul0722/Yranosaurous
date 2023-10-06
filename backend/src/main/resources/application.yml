@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/dinosaur?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: root
-    password: 1234
+    url: jdbc:mysql://j9e102A.p.ssafy.io:3306/dinosaur?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: dino
+    password: e102dino
 
 
   jpa:
@@ -12,7 +12,7 @@ spring:
       ddl-auto: none
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-    show-sql: true
+    #    show-sql: true
     properties:
       hibernate.format_sql: true
       dialect: org.hibernate.dialect.MySQL8InnoDBDialect
@@ -21,3 +21,13 @@ spring:
 logging:
   level:
     org.hibernate.SQL: debug
+
+elasticsearch:
+  host: j9e102a.p.ssafy.io
+  port: 9200
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus
