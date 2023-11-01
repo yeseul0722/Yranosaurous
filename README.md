@@ -107,6 +107,8 @@
 
 ### 👨🏻‍💼 관리자 페이지
 
+![admin12]
+
 ## 백엔드 기술
 
 ### ElasticSearch ,Kibana
@@ -165,3 +167,4 @@ JPA로 조회를 할 시에 ORM의 대표적인 문제 N+1 문제가 생겼고 Q
 QueryDsl 의 fetchjoin을 사용하였지만 이는 여러개의 N:M을 한번에 불러올 수 없었고 조인하는 데이터가 많은 쪽만 fetchjoin을 사용하고 batch size를 조정하여 다른 한개의 N:M관계의 데이터를 가져오도록 하여 N+1 문제를 해결하였습니다.
 
 [grapro]: /images/readme/grapro.png
+[admin12]: /images/readme/admin.png
