@@ -18,7 +18,7 @@
 
 ## 아키텍처🧱
 
-![systemarchitecture](/uploads/f4f30fac0e2dc0845601af00bea6fd20/systemarchitecture.png)
+<img src=/images/readme/systemarchitecture.png  />
 
 ## 기술스택 🛠️
 
