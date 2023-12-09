@@ -1,5 +1,7 @@
 # 와이라노사우르스
 
+<img src=/images/readme/main.png  />
+
 ## 프로젝트 진행 기간 📅
 
 2023.08.21 ~ 2023.10.06
@@ -56,7 +58,7 @@
 
 <br />
 <b>공룡 이론 페이지</b>
-![dinosaur](/uploads/eafa3a35f20ce5871ae103ce84573fea/dinosaur.png)
+<img src=/images/readme/dinosaur.png />
 ![dinosaur_location](/uploads/4128278207343754338b5f0a0f3ddd0d/dinosaur_location.png)
 ![dinosaur_detail](/uploads/46c9bedda571f82be813fbaef56460c3/dinosaur_detail.png)
 
